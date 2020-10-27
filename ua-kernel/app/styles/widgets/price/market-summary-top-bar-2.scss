@@ -1,0 +1,110 @@
+@import '../../common-variables';
+
+.ms-top-bar {
+  &-alert-style-2 {
+    bottom: 26px;
+    @extend .ms-top-bar-alert-style;
+  }
+
+  &-index-dropdown-2 {
+    top: 5px;
+    z-index: 1;
+    @extend .ms-top-bar-index-dropdown;
+  }
+
+  &-index-chart-position-2 {
+    margin-top: 0;
+    top: 8px;
+    @extend .ms-top-bar-index-chart-position;
+  }
+
+  &-ticker-area-2 {
+    width: calc(100% - 85px);
+    position: absolute;
+    z-index: 2;
+    padding-left: 1px;
+  }
+
+  &-vline-long-2 {
+    top: 42px;
+    @extend .ms-top-bar-vline-long;
+  }
+
+  &-vline-short-2 {
+    height: 40px;
+  }
+
+  &-market-data-area {
+    height: 21px;
+    padding-top: 14px;
+    bottom: 27px;
+  }
+
+  &-show-time-2 {
+    height: 11px;
+    margin-top: 21px;
+    white-space: nowrap;
+    bottom: 13px;
+    padding-top: 30px;
+  }
+
+  &-market-row {
+    position: relative;
+    top: 14px;
+  }
+
+  &-index-change-position-2 {
+    bottom: 2px;
+  }
+
+  &-market-status {
+    max-width: 78px;
+  }
+
+  &-row-gap {
+    padding-bottom: 7px;
+  }
+
+  &-logo-top {
+    top: 9px;
+    width: 84px;
+    background-image: url(img/logo-cobranded.png);
+  }
+
+  &-index-dropdown-width {
+    max-width: 36px;
+  }
+
+  &-index-percentage-2 {
+    bottom: 4px;
+    font-size: $font-large;
+    @extend .ms-top-bar-index-percentage;
+  }
+
+  &-progress-time-2 {
+    margin-left: 0;
+    margin-right: 0;
+    @extend .ms-top-bar-progress-time;
+  }
+
+  &-market-status-area {
+    width: 78px;
+  }
+
+  &-exchange-2 {
+    width: 100%;
+    @extend .ms-top-bar-exchange;
+  }
+
+  &-index-value-2 {
+    width: 102px;
+    position: relative;
+    float: left;
+    @extend .ms-top-bar-index-value;
+  }
+
+  &-chart-2 {
+    width: 137px;
+    @extend .ms-top-bar-chart;
+  }
+}

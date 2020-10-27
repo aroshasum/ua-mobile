@@ -1,0 +1,29 @@
+<div class="layout-container">
+    <div class="layout-col" {{action 'buttonMenuAction' true view.rowValues view.content}}>
+        <span class="font-xxx-l bold btn-txt-color pad-s-l">
+            <button type="button" class="btn btn-alert btn-animation bold" disabled={{isEqual view.rowValues.content.isEditEnabled false true}}>
+                <i class="icon-rename font-xxx-l"></i>
+            </button>
+        </span>
+    </div>
+    <div class="layout-col" {{action 'buttonMenuAction' false view.rowValues view.content}}>
+        <span class="font-xxx-l bold btn-txt-color pad-m-l">
+            <button type="button" class="btn btn-alert btn-animation bold">
+                <i class="glyphicon glyphicon-trash font-xxx-l"></i>
+            </button>
+        </span>
+    </div>
+    <div class="layout-col-24 pad-l-lr">
+        <div class="ellipsis font-xx-l h-left pad-s-tb symbol-fore-color bold" {{view.styleFirstValue}}>
+            <span>
+                {{view.rowValues.content.dispProp1}}
+            </span>
+        </div>
+
+        <div class="ellipsis font-x-l h-left pad-s-b fade-fore-color" {{view.styleSecondValue}}>
+            <span>
+                {{view.rowValues.content.exg}}
+            </span>
+        </div>
+    </div>
+</div>

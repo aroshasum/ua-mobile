@@ -1,0 +1,64 @@
+.horizontal-sub-tabs-color {
+  @include theme((
+          color: app-menu-sub-tab-fore-color,
+          background: app-menu-sub-tab-back-color
+  ));
+}
+
+.horizontal-panel .active {
+  @include theme((
+          color: app-menu-active-fore-color,
+          background-color: app-menu-selected-sub-tab-back-color
+  ));
+}
+
+.horizontal-panel .appmnu-sidebar-active .appmnu-fore-color {
+  @include theme((
+          color: app-menu-active-fore-color
+  ));
+}
+
+.horizontal-panel .active .appmnu-fore-color {
+  @include theme((
+          color: app-menu-active-fore-color
+  ));
+}
+
+.appmnu-sidebar-active .width-zero {
+  width: inherit;
+}
+
+.sub-menu-active .width-zero {
+  width: inherit;
+}
+
+.transform-menu {
+  transition: width .02s linear;
+}
+
+.horizontal-panel .appmnu-sidebar-active {
+  border: 0;
+}
+
+.horizontal-panel .appmnu-sidebar-active .appmnu-back-color {
+  @include theme((
+          background-color: app-menu-selected-sub-tab-back-color
+  ));
+}
+
+.sub-menu {
+  height: 0;
+  width: 0;
+  z-index: 1;
+}
+
+.main-menu:hover .sub-menu {
+  overflow: visible !important;
+}
+
+.sub-menu-item:hover {
+  @include theme((
+          color: app-menu-active-fore-color,
+          background-color: app-menu-selected-sub-tab-back-color
+  ));
+}

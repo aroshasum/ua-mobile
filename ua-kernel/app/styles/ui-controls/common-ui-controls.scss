@@ -1,0 +1,1056 @@
+@import '../common-variables';
+//@import '../themes/theme-helper';
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+
+a:hover, a:active, a:focus {
+  outline: 0;
+  text-decoration: none;
+}
+
+label.checkbox-label input[type=checkbox] {
+  position: relative;
+  vertical-align: middle;
+  padding: 0px !important;
+}
+
+// ---------  Search Box -------------------------------------------------------------------
+
+.search-query {
+  padding-left: $padding-small;
+  font-size: $font-large;
+  border-radius: $radius-xxs;
+
+  @include theme((
+          height: "23px",
+          border: "0 {textbox-border-color} solid",
+          color: textbox-fore-color,
+          background-color: textbox-back-color
+  ));
+
+  @include theme-classic((
+          border: "1px {textbox-border-color} solid",
+          background-image: "linear-gradient(top, {textbox-back-color} 0%, {textbox-back-color-gradient} 30%, {textbox-back-color-gradient} 30%, {textbox-back-color-gradient1} 100%)"
+  ));
+}
+
+.search-ctrl {
+  padding-left: 24px;
+  padding-right: $padding-medium;
+  width: 120px;
+  border-radius: $radius-xxs;
+}
+
+.search-ctrl-btn {
+  border-style: solid;
+  margin-bottom: 0;
+  border-radius: 0;
+  padding: $padding-small;
+  padding-left: $padding-medium;
+  font-size: $font-small;
+  margin-top: 0;
+  z-index: 2;
+  border: 0;
+  height: 23px;
+  background-color: transparent;
+
+  @include theme((
+          color: icon-fore-color
+  ));
+}
+
+.search-ctrl-btn:focus {
+  @include theme((
+          border: "0 {btn-focus} solid !important"
+  ));
+}
+
+.search-query:hover {
+  @include theme((
+          outline: none,
+          border: "1px {btn-hover} solid !important",
+          box-shadow: none
+  ));
+}
+
+.search-query:focus {
+  @include theme((
+          border: "1px {btn-focus} solid !important",
+          box-shadow: none
+  ));
+}
+
+// ---------  /Search Box  -------------------------------------------------------------------
+
+// ---------  Widget Dropdown  ---------------------------------------------------------------
+
+/*.widget-dropdown {
+  height: 21px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 4px 5px 4px 5px;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "1px {widget-ui-control-border} solid",
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%)"
+  ));
+}*/
+
+// ---------  /Widget Dropdown  ---------------------------------------------------------------
+
+// ---------  Horizontal Lists  -------------------------------------------------------------------
+
+.horizontal-list-left {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  float: $float-1;
+}
+
+.horizontal-list-left-1 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  float: $float-1;
+}
+
+.horizontal-list-left li {
+  margin-right: 11px;
+  float: $float-1;
+  vertical-align: middle;
+}
+
+.horizontal-list-left li a {
+  vertical-align: middle;
+}
+
+.horizontal-list-left-v-sep {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  border-right: 1px solid #1a2128;
+  padding: 0;
+  position: relative;
+  top: 3px;
+  margin-left: -$padding-small;
+}
+
+.horizontal-list-left input[type="checkbox"] {
+  margin: 0 5px 0 0;
+}
+
+.horizontal-list-left input[type="radio"] {
+  margin: 0 5px 0 0;
+}
+
+.horizontal-list-right {
+  list-style-type: none;
+  margin: 0;
+  float: right;
+}
+
+.horizontal-list-right li {
+  margin-left: 11px;
+  float: left;
+  line-height: 23px;
+  vertical-align: middle;
+}
+
+.horizontal-list-right li a {
+  vertical-align: middle;
+}
+
+.horizontal-list-right-v-sep {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  border-left: 1px solid #1a2128;
+  padding: 0;
+  position: relative;
+  top: 3px;
+  margin-right: -$padding-small;
+}
+
+.horizontal-list-right input[type="checkbox"] {
+  margin: 0 $padding-small 0 0;
+}
+
+.horizontal-list-right input[type="radio"] {
+  margin: 0 $padding-small 0 0;
+}
+
+// ---------  Scroll  -------------------------------------------------------------------
+
+.y-scroll {
+  overflow-y: scroll;
+}
+
+.x-scroll {
+  overflow-x: scroll;
+}
+
+// ---------  /Scroll  -------------------------------------------------------------------
+
+.text-box {
+  height: 24px;
+  padding-left: $padding-small;
+}
+
+.full-screen-container {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  max-height: 100%;
+  // margin-top: -5px;
+  margin-left: -5px;
+}
+
+.date-input-field {
+  height: 23px;
+  width: 73px;
+  font-size: $font-medium;
+  font-weight: bold;
+  padding: 0 $padding-small 0 $padding-small;
+  border-radius: 3px;
+
+  @include theme((
+          color: textbox-fore-color,
+          border: "1px {textbox-border-color} solid",
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {textbox-back-color} 0%, {textbox-back-color-gradient} 30%, {textbox-back-color-gradient} 30%, {textbox-back-color-gradient1} 100%)"
+  ));
+}
+
+.date-input-field:focus {
+  outline: none;
+
+  @include theme((
+          border: "1px {btn-focus} solid"
+  ));
+}
+
+.date-input-field::-webkit-input-placeholder {
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.date-input-field:-moz-placeholder {
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.date-input-field::-moz-placeholder {
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.date-input-field:-ms-input-placeholder {
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.settings-dropdown {
+  margin-left: -75px;
+  margin-right: auto;
+}
+
+// =============  Button CSS And Animation ======================
+
+.btn-default {
+  height: 23px;
+  padding: $padding-small $padding-large;
+  font-size: $font-medium;
+  border-radius: 2px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out 0s;
+
+  @include theme((
+          color: btn-fore-color,
+          border: "1px {btn-border} solid",
+          background-color: widget-ui-control-back-color
+  ));
+}
+
+.btn-default:hover {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: widget-title-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {widget-title-back-color} 0%, {widget-title-back-color} 90%, {widget-title-back-color} 100%)"
+  ));
+}
+
+.btn-default:disabled {
+  color: rgba(0, 0, 0, 0.38);
+  background-color: transparent;
+  cursor: initial;
+}
+
+.btn-default::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.btn-default:hover::before {
+  opacity: 0.04;
+}
+
+.btn-default:focus::before {
+  opacity: 0.12;
+}
+
+.btn-default:active::before {
+  opacity: 0.2;
+}
+
+.btn-default:disabled::before {
+  opacity: 0;
+}
+
+.btn-default::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  padding: 50%;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1) ;
+  transition: opacity .6s, transform 0.5s;
+
+  @include theme((
+          background-color: app-back-color
+  ));
+}
+
+.btn-default:active::after {
+  opacity: 0.4;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0s;
+}
+
+.btn-default:disabled::after {
+  opacity: 0;
+}
+
+.btn-large {
+  height: 32px;
+  font-size: $font-m-large;
+  @extend .btn-default
+}
+
+.btn-green {
+  @extend .btn-default;
+
+  @include theme((
+          color: up-fore-color,
+          border: "1px {trade-btn-buy-border-color} solid"
+  ));
+
+  @include theme-classic((
+          border: "1px {trade-btn-buy-border-color} solid"
+  ));
+}
+
+.btn-orange {
+  @extend .btn-default;
+
+  @include theme((
+          color: pending-back-color,
+          border: "1px {pending-back-color} solid"
+  ));
+
+  @include theme-classic((
+          border: "1px {pending-back-color} solid"
+  ));
+}
+
+.btn-green:hover {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: up-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {up-back-color} 0%, {up-back-color} 90%, {up-back-color} 100%)"
+  ));
+}
+
+.btn-orange:hover {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: pending-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {pending-back-color} 0%, {pending-back-color} 90%, {pending-back-color} 100%)"
+  ));
+}
+
+.btn-reject {
+  @extend .btn-default;
+
+  @include theme((
+          color: down-fore-color,
+          border: "1px {down-fore-color} solid !important"
+  ));
+
+  @include theme-classic((
+          border: "1px {down-fore-color} solid"
+  ));
+}
+
+.btn-reject:hover {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: down-fore-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {down-fore-color} 0%, {down-fore-color} 90%, {down-fore-color} 100%)"
+  ));
+}
+
+.btn-cell {
+  padding: 2px 7px 2px 7px;
+  font-size: 11px;
+  height: 20px;
+  margin: 3px 5px 0 0;
+}
+
+// =============  Dropdown Menu ======================
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  text-align: left;
+  list-style: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius: 4px;
+
+  @include theme((
+          border-right: "1px {widget-border-color} solid",
+          border-bottom: "1px {widget-border-color} solid",
+          border-left: "1px {widget-border-color} solid",
+          background-color: widget-back-color,
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          box-shadow: none
+  ));
+}
+
+ul.dropdown-menu li {
+  display: inline-block;
+  float: $float-1;
+  margin: 0 0 1px 0;
+  width: 100%;
+}
+
+.dropdown-menu > li > a {
+  padding: 5px 10px;
+  font-size: $font-medium;
+
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.dropdown-menu .settings-selected a {
+  font-size: $font-medium;
+
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.dropdown-menu > li > a:hover, .theme2 .dropdown-menu > li > a:focus {
+  @include theme((
+          color: fade-fore-color,
+          background-color: widget-title-back-color
+  ));
+
+  @include theme-classic((
+          color: light-bg-fore-color
+  ));
+}
+
+// Helps position submenu
+.dropdown-submenu {
+  position: relative;
+}
+
+// Menus under the submenu should show up on the right of the parent
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+}
+
+// Make submenu visible when hovering on link
+.dropdown-submenu:hover > .dropdown-menu {
+  display: table;
+}
+
+.dropdown-submenu:hover > a:after {
+  border-width: 5px 0 5px 5px;
+  margin-top: 5px;
+  margin-right: -10px;
+  float: $float-2;
+}
+
+// Set submenu content max height when scroll enabled
+.dropdown-submenu-height {
+  height: 200px;
+}
+
+// ---------  /Dropdown  -------------------------------------------------------------------
+
+.settings-selected {
+  @include theme((
+          background-color: ticker-back-color
+  ));
+}
+
+// =============  /Dropdown Menu ======================
+
+// ------------------------ Popup ------------------------
+
+.popup-container-view {
+  position: absolute;
+  z-index: 500;
+  height: 1px;
+  max-height: 1px;
+}
+
+.popup-container-view-height {
+  height: 1px;
+  max-height: 1px;
+}
+
+.dropdown-text-only {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  font-weight: bold;
+  padding: $padding-small $padding-medium;
+
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.dropdown-text-only:hover {
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.dropdown-solid-back-color {
+  font-weight: bold;
+  padding: $padding-small $padding-medium;
+
+  @include theme((
+          color: fore-color,
+          border: "0 {widget-ui-control-border} solid !important",
+          background-color: "widget-ui-control-back-color !important"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid !important",
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%) !important"
+  ));
+}
+
+.dropdown-solid-back-color:hover {
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.dropdown-solid-back-color:focus {
+  @include theme((
+          outline: none,
+          border: "1px {btn-focus} solid !important",
+          box-shadow: none
+  ));
+}
+
+.dropdown-semi-transparent {
+  font-weight: bold;
+  border-radius: 2px;
+  padding: $padding-small $padding-medium;
+
+  @include theme((
+          color: fore-color,
+          border: "0px {app-back-color} solid",
+          background-image: none,
+          background-color: semi-transparent-back-color,
+          box-shadow: none
+  ));
+
+  @include theme-classic((
+          box-shadow: none
+  ));
+}
+
+.dropdown-semi-transparent:hover {
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.button-semi-transparent {
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "0px {app-back-color} solid",
+          background-image: none,
+          background-color: semi-transparent-back-color,
+          box-shadow: none,
+  ));
+
+  @include theme-classic((
+          box-shadow: none
+  ));
+}
+
+// ------------------------ End Popup ------------------------
+
+.form-control::-webkit-input-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+.form-control:-moz-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+.form-control::-moz-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+.form-control:-ms-input-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+::-webkit-input-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+// Firefox 18-
+:-moz-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+// Firefox 19+
+::-moz-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+:-ms-input-placeholder {
+  font-style: normal;
+  font-size: $font-medium;
+}
+
+input[type="text"]:disabled {
+  @include theme((
+          background-color: disable-back-color
+  ));
+
+  @include theme-classic((
+          opacity: "0.65",
+          background-image: "linear-gradient(top, {disable-back-color} 0%, {disable-back-color} 30%, {disable-back-color} 30%, {disable-back-color} 100%)"
+  ));
+}
+
+input[type="number"]:disabled {
+  @include theme((
+          background-color: disable-back-color
+  ));
+
+  @include theme-classic((
+          opacity: "0.65",
+          background-image: "linear-gradient(top, {disable-back-color} 0%, {disable-back-color} 30%, {disable-back-color} 30%, {disable-back-color} 100%)"
+  ));
+}
+
+.btn-default:disabled {
+  opacity: 0.65;
+
+  @include theme((
+          color: icon-fore-color,
+          border: "1px {widget-ui-control-border} solid",
+  ));
+}
+
+.btn-dropdown:disabled {
+  opacity: 0.65;
+
+  @include theme((
+          background-color: disable-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {disable-back-color} 0%, {disable-back-color} 30%, {disable-back-color} 30%, {disable-back-color} 100%)"
+  ));
+}
+
+.kyc-date-field:disabled {
+  @include theme((
+          background-color: disable-back-color
+  ));
+
+  @include theme-classic((
+          opacity: "0.65",
+          background-image: "linear-gradient(top, {disable-back-color} 0%, {disable-back-color} 30%, {disable-back-color} 30%, {disable-back-color} 100%)"
+  ));
+}
+
+// ------------------- Order Ticket symbol input -------------------
+
+.input-group-append {
+  @extend .search-ctrl-btn;
+  padding-left: $padding-small;
+  .input-group-icon {
+    font-size: 14px;
+  }
+}
+
+.symbol-input-width {
+  min-width: 116px;
+}
+
+/*.btn-default-special {
+  height: 21px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 4px 5px 4px 5px;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "1px {widget-ui-control-border} solid",
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%)"
+  ));
+}*/
+
+.search-btn {
+  font-size: $font-small;
+  @extend .btn-default;
+
+  @include theme((
+          color: icon-fore-color,
+          border: "0 {widget-ui-control-border} solid"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+.simple-switch-input {
+  position: absolute !important;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.simple-switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-transition: .4s all;
+  transition: .4s all;
+  border-radius: 50px;
+  background: #c43b2d;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  width: 38px;
+  height: 16px;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: inline-block;
+  top: 3px;
+}
+
+/* switch background */
+.simple-switch-input:checked ~ .simple-switch {
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 15px #FFFFFF;
+  transition: .25s all;
+}
+
+.simple-switch-input:checked ~ .simple-switch.dark {
+  background: #019875;
+  box-shadow: inset 0 0 0 15px #019875;
+}
+
+.simple-switch-input:checked ~ .simple-switch::before {
+  transform: translate(18px, 0);
+  background: #019875;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 108, 181, 0);
+}
+
+.simple-switch-input:checked ~ .simple-switch.dark::before {
+  background: #FFFFFF;
+}
+
+.simple-switch-input ~ .simple-switch::before {
+  content: '' !important;
+  transition: .26s all;
+  position: absolute;
+  left: 0px;
+  top: -3px;
+  bottom: 2px;
+  right: auto;
+  transform: translate(0, 0);
+  display: block;
+  width: 21px;
+  height: 21px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 108, 181, 0);
+}
+
+/* switch circle */
+
+.simple-switch.dark:active::before {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 0, 0, 0.12);
+}
+
+.menu-panel-item{
+  cursor: pointer;
+
+  @include theme((
+          background-color: widget-title-tab-hover-color,
+          color: widget-title-selected-tab-fore-color
+  ));
+}
+
+.menu-panel-sub-menu {
+  top: 100%;
+  width: 125px;
+  background-color: #6C9BBD;
+
+  @include theme((
+          border-bottom: "1px {widget-border-color} solid",
+          background-image: "linear-gradient(0deg, {app-title-back-color} 0%, {app-title-back-color-gradient} 100%)",
+          box-shadow: "1px 1.732px 11px 0px {popup-box-shadow-color}",
+          color: base-fore-color-app-title
+  ));
+}
+
+.sub-menu-item {
+  padding: 8px 20px 8px 15px;;
+  font-size: 10px;
+  cursor: pointer;
+
+  @include theme((
+          background-color: widget-title-tab-hover-color,
+          color: widget-title-selected-tab-fore-color
+  ));
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+.sub-menu {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.main-menu {
+  -webkit-app-region: no-drag !important;
+}
+
+.main-menu:hover .sub-menu {
+  overflow: visible !important;
+}
+
+.title-menu:hover .sub-menu {
+  overflow: visible !important;
+  height: initial;
+  width: initial;
+}
+
+/* CheckBox styles */
+
+input[type='checkbox'] {
+  margin-top: -30px;
+}
+
+input[type='checkbox'] {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  margin-right: 1px;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type='checkbox']:after {
+  content: "";
+  vertical-align: middle;
+  text-align: center;
+  line-height: 13px;
+  position: absolute;
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+
+  @include theme((
+          border: "0 {widget-ui-control-border} solid",
+          background-color: "widget-ui-control-back-color"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+input[type='checkbox']:hover:after, input[type='checkbox']:checked:hover:after {
+  @include theme((
+          border: "0 {widget-ui-control-border} solid",
+          background-color: "widget-ui-control-back-color"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+input[type='checkbox']:checked:after {
+  content: '\2714';
+
+  @include theme((
+          border: "0 {widget-ui-control-border} solid",
+          background-color: "widget-ui-control-back-color"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+/* Toolbar styles */
+.toolbar-styles {
+  height: 34px;
+  padding: 0 0 0 $pad-widget;
+}
+
+.toolbar-styles .btn-default {
+  @include theme((
+          color: fore-color,
+          border: "1px {toolbar-btn-border} solid"
+  ));
+}
+
+.toolbar-styles .btn-default:hover {
+  @include theme((
+          color: dark-bg-fore-color
+  ));
+}
+
+.toolbar-styles .dropdown-solid-back-color:hover {
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.toolbar-styles .no-border-btn {
+  @extend .btn-default;
+  height: 34px;
+  padding: $padding-small $padding-medium;
+  border-radius: 0;
+
+  @include theme((
+          color: fade-fore-color,
+          border: none
+  ));
+}
+
+.toolbar-styles .no-border-btn:hover {
+  @include theme((
+          color: fade-fore-color,
+          background-color: toolbar-btn-hover
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {toolbar-btn-hover} 0%, {toolbar-btn-hover} 30%, {toolbar-btn-hover} 30%, {toolbar-btn-hover} 100%)"
+  ));
+}
+
+.toolbar-styles .input-group-btn {
+  top: 15%;
+}
+
+.mandatory-field-border {
+  @include theme((
+          border: "1px {mandatory-field-border-color} solid"
+  ));
+}
+
+@import 'extended/common-ui-controls-extended';

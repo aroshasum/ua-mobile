@@ -1,0 +1,10 @@
+{{ outlet "w3"}}
+<div class="page-container">
+    {{#if isDepthByPriceAvailable}}
+        <div class="mgn-m-b">{{ outlet "w1"}}</div>
+    {{/if}}
+
+    {{#if isDepthByOrderAvailable}}
+        <div class="mgn-m-b">{{ outlet "w2"}}</div>
+    {{/if}}
+</div>

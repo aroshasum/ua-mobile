@@ -1,0 +1,47 @@
+<div class="widget-container-new full-width full-height pad-widget-left pad-widget-right ">
+    <div class="page-container full-height-without-header">
+        {{#each exchange in exchangeArray}}
+            <div class="pad-m-t">
+                <div class="layout-container full-width pad-l-tb pad-m-lr shade-back mgn-m-t xs-border-radius" {{action "loadSubMarketOverview" exchange.exg}}>
+                    <div class="layout-container full-width">
+                        <div class="layout-col pad-l-b h-left">
+                            <div class="{{exchange.flagCss}}"></div>
+                        </div>
+                        <div class="layout-col-24 pad-l-b h-left pad-m-r">
+                            <span class="full-height font-l bold">{{exchange.des}}</span>
+                        </div>
+                    </div>
+                    <div class="layout-container full-width">
+                        <div class="layout-col-10 widget-vline">
+                            <div class="layout-container full-width pad-m-b pad-m-t pad-m-l">
+                                <div class="layout-col pad-l-b h-middle pad-m-r">
+                                    <span class="full-height bold {{exchange.colorCss}}">{{exchange.statStr}}</span>
+                                </div>
+                            </div>
+                            <div class="layout-container full-width pad-m-l">
+                                <div class="layout-col pad-l-b h-middle pad-m-r">
+                                    <span class="full-height font-l">{{exchange.marketTime}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-col-14 pad-widget-right pad-l-l">
+                            <div class="layout-container pad-l-b h-left pad-m-r">
+                                <span class="full-height symbol-fore-color">{{exchange.index.dSym}}</span>
+                            </div>
+                            <div class="layout-container">
+                                <div {{bind-attr class=":layout-container :ltr exchange.indexCss :pad-l-b"}}>
+                                    <i {{bind-attr class="exchange.ltpIconCSS :glyphicon :font-m :pad-m-r"}}></i>
+                                    {{formatNumber exchange.index.ltp exchange.index.deci}}
+                                </div>
+                                <div class="layout-container">
+                                    <div {{bind-attr class=":layout-inline :ltr exchange.backColorCSS exchange.fontColorCSS :pad-s-tb :pad-l-lr :xs-border-radius"}}>{{formatNumber exchange.index.chg exchange.index.deci}}</div>
+                                    <div {{bind-attr class=":layout-inline :ltr :bold :pad-l-l exchange.indexCss"}}>{{formatNumberPercentage exchange.index.pctChg exchange.index.deci}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

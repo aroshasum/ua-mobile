@@ -1,0 +1,83 @@
+<div class="widget_new full-height">
+    <div class="col-md-12 widget-container-new pad-widget-top">
+        <div class="layout-container full-width">
+            <div class="layout-col pad-l-l">
+                <div {{bind-attr class=":layout-col :ltr colorCSS :font-5x-l :pad-l-b"}}>
+                    <i {{bind-attr class="ltpIconCSS :glyphicon :font-m"}}></i>
+                    {{formatNumber stock.ltp}}
+                </div>
+                <div {{bind-attr class=":layout-inline :ltr :font-xxx-l backColorCSS fontColorCSS :pad-s-tb :pad-s-lr :xs-border-radius"}}>{{formatNumberPercentage stock.pctChg}}</div>
+                <div {{bind-attr class=":layout-inline :ltr :font-xxx-l :pad-m-lr :bold colorCSS"}}>{{formatNumber stock.chg}}</div>
+            </div>
+            <div class="vertical-separator"></div>
+            <div class="layout-col pad-l-r">
+                <div class="layout-container">
+                    <div class="layout-col font-x-l pad-m-lr" {{action 'nextMonth'}}>
+                        <span id="annPrevious" class="pad-l-tb"><i class="glyphicon-triangle-left glyphicon sidebar-nav-icon-color font-xx-l"></i></span>
+                    </div>
+                    <div class="layout-col layout-col h-right full-width overflow-visible" title="{{app.lang.labels.optionPeriods}}">
+                        {{bootstrap-dropdown-select
+                        options=optPeriodArray
+                        defaultSelect=currentOptPeriod
+                        buttonClass='full-width font-m'
+                        lblClass='font-l'
+                        valueKey="code"
+                        labelKey="desc"
+                        selectAction="setOptionPeriod"
+                        value=currentOpt
+                        }}
+                    </div>
+                    <div class="layout-col font-x-l pad-m-lr" {{action 'nextMonth' true}}>
+                        <span id="annNext" class="pad-l-tb" ><i class="glyphicon-triangle-right glyphicon sidebar-nav-icon-color font-xx-l"></i></span>
+                    </div>
+                </div>
+                <div class="layout-container">
+                    <div class="layout-col h-right">
+                        <div class="layout-col pad-m-l font-l fade-fore-color">
+                            <span class="font-xx-l">
+                                {{app.lang.labels.nearMoney}}
+                            </span>
+                        </div>
+
+                        <div class="layout-col pad-l-lr pad-m-tb h-right full-width">
+                            {{#if Ember.isIos}}
+                                <div class="full-width toggle">
+                                    {{input type="checkbox" name="nearMoney" class="toggle-checkbox" id="nearMoney" checked=nearMoney}}
+                                    <label class="toggle-label watchlist-toggle-label" for="nearMoney">
+                                        <span class="toggle-inner watchlist-toggle-style"></span>
+                                        <div class="toggle-animation">
+                                            <span class="toggle-switch watchlist-toggle-switch"></span>
+                                        </div>
+                                    </label>
+                                </div>
+                            {{else}}
+                                <label for="nearMoney">
+                                    {{input type="checkbox" name="nearMoney" checked=nearMoney class="simple-switch-input" id="nearMoney"}}
+                                    <span class="simple-switch dark"></span>
+                                </label>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-width pad-widget-top" style="height: calc(100% - 143px);">
+            {{loading-indicator isLoading=isLoading}}
+            {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+            {{#if isDataAvailable}}
+                {{#if isWidgetRefreshed}}    <!-- Default value of this boolean value is true -->
+                    {{table-component
+                    columns=columns
+                    content=oneWayContent
+                    rowHeight=rowHeight
+                    minHeaderHeight= 25
+                    hasFooter=false
+                    sortAscending=sortAscending
+                    id=wkey
+                    }}
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<table class="w-full border-b" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td>
+            <div class="ms-top-bar-chart-1 ltr mgn-m-l" id="mainIndexChart-{{id}}" {{action 'popUpChartOptionWidget'}}>
+                <span id="{{chartId}}"></span>
+            </div>
+        </td>
+        <td>
+            <div class="ms-top-bar-index-value-1 pad-s-lr">
+                <div class="ms-top-bar-index-dropdown-3">
+                    {{bootstrap-dropdown-select
+                    options=indexCollectionArray
+                    valueKey='dSym'
+                    labelKey='indexDispProp'
+                    selectedLabelKey='indexDispProp'
+                    defaultSelect=defaultIndexForDropdown
+                    selectAction='setIndexData'
+                    buttonClass='bold ltr dropdown-text-only'
+                    lblClass='ms-top-bar-index-dropdown-btn'
+                    value=currentIndex.dSym
+                    wkey=wkey}}
+                </div>
+                <div class="layout-container mgn-s-b ms-top-bar-change">
+                    <div class="layout-col">
+                        <div class="ltr pad-s-t">
+                            <div {{bind-attr class="indexValCss"}}>
+                                <span class="index-Arrow">  <i {{bind-attr class="indexArrowCss :v-bottom"}}> </i> </span>
+                                <span class="bold font-x-l hint--bottom-left hint--bounce hint--rounded" data-hint="{{app.lang.labels.indexValue}}"> {{formatNumber currentIndex.ltp}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-col pad-s-l">
+                        <div class="ltr pad-s-t">
+                            <div {{bind-attr class="indexCss"}}>
+                                <span {{bind-attr class="indexBackgroundCss :hint--bottom-left :hint--bounce :hint--rounded"}} data-hint="{{app.lang.labels.change}}"> {{formatNumber currentIndex.chg}}</span>
+                                <span {{bind-attr class="indexPercentageCss"}}><span class="bold font-x-l pad-s-l hint--bottom-left hint--bounce hint--rounded" data-hint="{{app.lang.labels.perChange}}">{{indexChangeSign}}{{formatNumberPercentage currentIndex.pctChg}}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

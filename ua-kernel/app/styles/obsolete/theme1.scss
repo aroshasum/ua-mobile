@@ -1,0 +1,1838 @@
+@import 'theme-1-variables';
+
+.theme1 body{
+    font-family: arial;
+}
+
+// from sidebar.theme1 .scss 
+
+/*.theme1 .sidebar-wrapper {
+    background:  $theme1-color-background;
+}
+
+.theme1 .sidebar-nav li a {
+    color: $theme1-btn-color;
+}*/
+
+/*.theme1 .sidebar-nav li a:hover {
+    color: $theme1-text-color-normal;
+}
+
+.theme1 .sidebar-nav > .theme1 .sidebar-brand a {
+	color: #999999;
+}
+
+.theme1 .sidebar-nav > .theme1 .sidebar-brand a:hover {
+	color: #ffffff;
+}*/
+
+/*.theme1 li.sidebar-active a{
+    color: $theme1-btn-color-active !important;
+}
+
+@mixin sidebar-active ($theme1-gradient-deg, $theme1-gradient-sidebar-active-first-colour, $theme1-gradient-sidebar-active-first-precent, $theme1-gradient-sidebar-active-second-colour, $theme1-gradient-sidebar-active-second-precent, $theme1-gradient-sidebar-active-third-colour, $theme1-gradient-sidebar-active-third-precent, $theme1-gradient-sidebar-active-fourth-colour, $theme1-gradient-sidebar-active-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-sidebar-active-first-colour $theme1-gradient-sidebar-active-first-precent, $theme1-gradient-sidebar-active-second-colour $theme1-gradient-sidebar-active-second-precent, $theme1-gradient-sidebar-active-third-colour $theme1-gradient-sidebar-active-third-precent, $theme1-gradient-sidebar-active-fourth-colour $theme1-gradient-sidebar-active-fourth-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-sidebar-active-first-colour $theme1-gradient-sidebar-active-first-precent, $theme1-gradient-sidebar-active-second-colour $theme1-gradient-sidebar-active-second-precent, $theme1-gradient-sidebar-active-third-colour $theme1-gradient-sidebar-active-third-precent, $theme1-gradient-sidebar-active-fourth-colour $theme1-gradient-sidebar-active-fourth-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-sidebar-active-first-colour $theme1-gradient-sidebar-active-first-precent, $theme1-gradient-sidebar-active-second-colour $theme1-gradient-sidebar-active-second-precent, $theme1-gradient-sidebar-active-third-colour $theme1-gradient-sidebar-active-third-precent, $theme1-gradient-sidebar-active-fourth-colour $theme1-gradient-sidebar-active-fourth-precent);
+}
+
+.theme1 .sidebar-active {
+    color: $theme1-btn-color-active !important;
+    border-bottom: 1px solid $theme1-color-border-bottom;
+    @include sidebar-active ($theme1-gradient-deg, $theme1-gradient-sidebar-active-first-colour, $theme1-gradient-sidebar-active-first-precent, $theme1-gradient-sidebar-active-second-colour, $theme1-gradient-sidebar-active-second-precent, $theme1-gradient-sidebar-active-third-colour, $theme1-gradient-sidebar-active-third-precent, $theme1-gradient-sidebar-active-fourth-colour, $theme1-gradient-sidebar-active-fourth-precent)
+}*/
+
+/*@mixin sidebar ($theme1-gradient-deg, $theme1-gradient-topbar-first-colour, $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour, $theme1-gradient-topbar-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+}*/
+
+/*.theme1 .sidebar-nav {
+     @include sidebar ($theme1-gradient-deg, $theme1-gradient-topbar-first-colour, $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour, $theme1-gradient-topbar-second-precent);
+    border: 1px $theme1-color-widget-border solid;
+}*/
+
+// end of sidebar.theme1 .scss 
+
+
+// from navbar.theme1 .scss 
+
+.theme1 .navbar-inverse {
+    background-color: $theme1-color-widget;
+    border: 1px $theme1-color-border solid;
+}
+
+.theme1 .logo-text {
+	color: $theme1-text-color-main;
+}
+
+.theme1 .progress-time {
+    background-color: $theme1-color-widget !important;
+}
+
+// end of navbar.theme1 .scss 
+
+// from widget.theme1 .scss 
+
+.theme1 .widget {
+    background-color: $theme1-color-widget;
+    border: 1px $theme1-color-widget-border solid;
+}
+
+.theme1 h2.widget-title-type-1{
+    border-bottom: 1px $theme1-color-border solid;
+    color:$theme1-text-color-widget-title;
+}
+
+.theme1 .widget-watchlist {
+    background-color: $theme1-color-widget;
+}
+
+.theme1 .search-query {
+    border: 1px $theme1-color-search-border solid;
+    background: $theme1-color-background;
+    height: 22px;
+    color:$theme1-search-query-font; //new 
+}
+
+.theme1 .online {
+    background-color: $theme1-color-green;
+}
+
+// news section 
+
+.theme1 .news-row {
+    border-bottom: 2px $theme1-color-border solid;
+}
+
+// provide some minimal visual accomodation for IE8 and below 
+
+.theme1 .TFtable tr {
+    background: $theme1-color-widget;
+}
+
+//  Define the background color for all the ODD background rows  
+
+.theme1 .TFtable tr:hover {
+    border-top: 1px $theme1-ember-table-border solid;
+    border-bottom: 1px $theme1-ember-table-border solid;
+    background: $theme1-gradient-ember-table-body-container-first-colour;
+}
+
+.TFtable-selected {
+    border-top: 1px $theme1-ember-table-border solid;
+    border-bottom: 1px $theme1-ember-table-border solid;
+}
+
+.theme1 .TFtable tr:nth-child(odd) {
+    background: $theme1-color-table-odd;
+}
+
+//  Define the background color for all the EVEN background rows  
+
+.theme1 .TFtable tr:nth-child(even) {
+    background: $theme1-color-table-even;
+}
+
+.theme1 .panel-table-row-odd {
+    background: $theme1-color-table-odd;
+}
+
+.theme1 .panel-table-row-even {
+    background: $theme1-color-table-even;
+}
+    
+::-webkit-scrollbar-thumb {
+    background-color:rgba(136, 134, 134, 0.3);
+}
+
+// add widget tittle class 
+
+.theme1 .progress-bid {
+    background-color: $theme1-color-widget !important;
+}
+
+.theme1 .progress-offer {
+    background-color: $theme1-color-widget !important;
+	border-right: 0px #232836 solid;
+}
+
+.theme1 .quote-cell {
+    background-color: $theme1-color-background;
+}
+
+.theme1 .quote-cell-border {
+    border-right:  2px $theme1-color-widget solid
+}
+
+.theme1 .company-heading {
+    border-right: 2px $theme1-color-border solid;
+}
+
+.theme1 .company-address a {
+    color:$theme1-color-2;
+}
+
+@mixin gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent)
+{
+    background-image: -moz-linear-gradient( $theme1-gradient-deg, $theme1-gradient-tittle-first-colour $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour $theme1-gradient-tittle-second-precent);
+    background-image: -webkit-linear-gradient( $theme1-gradient-deg, $theme1-gradient-tittle-first-colour $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour $theme1-gradient-tittle-second-precent);
+    background-image: -ms-linear-gradient( $theme1-gradient-deg, $theme1-gradient-tittle-first-colour $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour $theme1-gradient-tittle-second-precent);
+}
+
+.theme1 .footer {
+    border-top: 1px solid $theme1-color-border-top;
+   @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    
+}
+
+.theme1 .footer-padding {
+    border-right:1px $theme1-color-border solid;
+}
+
+.theme1 .footer-padding-first {
+    border-right:1px $theme1-color-border solid;
+}
+
+.theme1 .icon-btn {
+    background-color: $theme1-color-widget;
+    border-color: $theme1-btn-border-color;
+    color: $theme1-tab-button-color;
+}
+
+.theme1 .search-wrapper {
+    border: 1px solid $theme1-color-search-border-wrapper;
+    background-color: $theme1-color-search-background;
+}
+
+.theme1 .search-title {
+    border-bottom: 1px $theme1-color-search-border solid;
+    color: $theme1-text-color-widget-title;
+}
+
+.theme1 .search-row {
+    border-bottom: 1px $theme1-color-search-border-wrapper solid;
+}
+
+.theme1 .search-row:hover, .theme1 .search-row-hover {
+    background-color: $theme1-color-search-hover ; 
+ }
+
+.theme1 .dropdown-menu-2 {
+    font-size: 11px;
+    background-color: $theme1-color-widget;
+    border: 1px solid $theme1-btn-border-color;
+}
+
+.theme1 .spread-text{
+    background-color:$theme1-color-widget;
+}
+
+.theme1 .btn-dropdown-no-border{
+    background-color: $theme1-color-widget;
+    color: $theme1-btn-color;
+}
+    
+.theme1 .btn-dropdown-no-border:hover {
+    color: $theme1-btn-border-color-hover;
+}
+
+.theme1 .chart-btn-icon:hover {
+    color: $theme1-btn-border-color-hover;
+    background-color: $theme1-color-widget;
+}
+
+.theme1 .dot-style-high {
+    border-right: 4px solid $theme1-color-green;
+}
+
+.theme1 .dot-style-low {
+    border-right: 4px solid $theme1-color-red;
+
+}
+
+.theme1 .blink-style-up {
+    color: $theme1-text-color-normal;
+    background-color: #4dc45b !important; 
+}
+
+.theme1 .blink-style-down {
+    color:$theme1-text-color-normal;
+    background-color: #fb8888 !important; 
+}
+
+.theme1 .blink-classic-up {
+    color: $theme1-text-color-normal;
+    background-color: #4dc45b !important; 
+}
+
+.theme1 .blink-classic-down {
+    color: $theme1-text-color-normal;
+    background-color: #fb8888 !important; 
+}
+.theme1.intraday-cell-text-normal {
+    height: 13px;
+    color:$theme2-intraday-cell-text-color;
+}
+
+
+// end of widget.theme1 .scss 
+
+
+// from bootsrap-override.scss 
+// to be fix
+@mixin btn-default ($theme1-gradient-deg, $theme1-gradient-btn-default-first-colour, $theme1-gradient-btn-default-first-precent, $theme1-gradient-btn-default-second-colour, $theme1-gradient-btn-default-second-precent, $theme1-gradient-btn-default-third-colour, $theme1-gradient-btn-default-third-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-btn-default-first-colour $theme1-gradient-btn-default-first-precent, $theme1-gradient-btn-default-second-colour $theme1-gradient-btn-default-second-precent, $theme1-gradient-btn-default-third-colour $theme1-gradient-btn-default-third-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-btn-default-first-colour $theme1-gradient-btn-default-first-precent, $theme1-gradient-btn-default-second-colour $theme1-gradient-btn-default-second-precent, $theme1-gradient-btn-default-third-colour $theme1-gradient-btn-default-third-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-btn-default-first-colour $theme1-gradient-btn-default-first-precent, $theme1-gradient-btn-default-second-colour $theme1-gradient-btn-default-second-precent, $theme1-gradient-btn-default-third-colour $theme1-gradient-btn-default-third-precent);
+}
+
+// to be fix
+.theme1 .btn-default {
+	color: $theme1-btn-color;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 0px;
+    height: 22px;
+	padding: $padding-small;
+	//font-size: $font-medium;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-btn-border-color;
+    border-radius: 3px;
+    @include btn-default ($theme1-gradient-deg, $theme1-gradient-btn-default-first-colour, $theme1-gradient-btn-default-first-precent, $theme1-gradient-btn-default-second-colour, $theme1-gradient-btn-default-second-precent, $theme1-gradient-btn-default-third-colour, $theme1-gradient-btn-default-third-precent)
+}
+
+// new
+.theme1 .btn-link-dropdown{
+    height:15px; 
+    width: 19px;
+    padding:4px !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    color: #333 !important;
+    background:rgba(255,255,255,0);
+    //    background-image: -moz-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//     background-image: -webkit-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//     background-image: -ms-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+//    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+//    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    padding-left: $padding-medium;
+    padding-right: $padding-medium; 
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-block;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border: 1px solid transparent;
+    margin-top: -1px;
+    
+}
+
+.theme1 .btn-dropdown {
+    padding-left: $padding-medium;
+    padding-right: $padding-medium; 
+}
+
+.theme1 .btn-default:hover, .theme1 .icon-btn:hover, .theme1 .btn-default:focus, .theme1 .btn-default.focus,.theme1 .btn-default:active, .theme1 .btn-default.active,.theme1 .open > .theme1 .dropdown-toggle.btn-default {
+    color: $theme1-btn-border-color-hover;
+    background-color: $theme1-color-widget;
+    border-color:$theme1-btn-border-color;
+}
+
+.theme1 .dropdown-menu > li > a {
+    color: $theme1-btn-color;
+}
+
+.theme1 .dropdown-menu > li > a:hover,.theme1 .dropdown-menu > li > a:focus {
+    color: $theme1-text-color-light;
+    background-color: $theme1-color-search-hover;
+} 
+
+.theme1 .btn-default:focus, .theme1 .btn-default.focus {
+    background-color: $theme1-btn-color-active;
+ }
+
+.theme1 .progress {
+    background-color: $theme1-color-red;
+}
+
+.theme1 .progress-bar {
+    background-color: $theme1-color-green;
+	border-right: 2px $theme1-color-widget-border solid;
+}
+
+.theme1 .progress-border {
+	height: 5px;
+	border-bottom: 1px $theme1-color-widget-border solid;
+}
+
+.theme1 .progress-bar-wk-green {
+    border-right: 4px $theme1-color-green solid;
+}
+
+.theme1 .progress-bar-wk-red {
+    border-right: 4px $theme1-color-red solid;
+}
+
+.theme1 .progress-up {
+    background-color: $theme1-color-green !important;
+}
+
+.theme1 .progress-down {
+    background-color: $theme1-color-red !important;
+}
+
+.theme1 .progress-unchanged {
+    background-color: $theme1-color-1;
+}
+
+.theme1 .popover.left > .theme1 .arrow:after {
+    border-left-color:  $theme1-text-color-main;
+}
+
+.theme1 .dropdown-menu {
+    border: 1px $theme1-color-border solid;
+    background-color: $theme1-menu-colour;
+    box-shadow: 1px 1.732px 11px 0px rgb( 92, 92, 92 );
+}
+
+// end of bootstrap override  
+
+
+//pop over
+
+.theme1 .popover {
+    background-color: $theme1-text-color-main;
+    border: 1px solid $theme1-color-border;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: $theme1-color-background;
+}
+
+.theme1 .popover-title {
+    background-color: $theme1-color-background;
+    border-bottom: 1px solid $theme1-color-border;
+    color: $theme1-text-color-main;
+}
+
+.theme1 .popover.left > .theme1 .arrow:after {
+    border-left-color:  $theme1-text-color-main;
+}
+
+.theme1 .carousel-indicators li {
+    border: 1px solid $theme1-color-border;
+}
+
+.theme1 .carousel-indicators.active {
+    background-color: $theme1-color-border;
+}
+
+// end of bootsrap-override.scss 
+
+
+// from ember-override.theme1 .scss 
+
+@mixin ember-table-body-container ($theme1-gradient-deg, $theme1-gradient-ember-table-body-container-first-colour, $theme1-gradient-ember-table-body-container-first-precent, $theme1-gradient-ember-table-body-container-second-colour, $theme1-gradient-ember-table-body-container-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-ember-table-body-container-first-colour $theme1-gradient-ember-table-body-container-first-precent, $theme1-gradient-ember-table-body-container-second-colour $theme1-gradient-ember-table-body-container-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-ember-table-body-container-first-colour $theme1-gradient-ember-table-body-container-first-precent, $theme1-gradient-ember-table-body-container-second-colour $theme1-gradient-ember-table-body-container-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-ember-table-body-container-first-colour $theme1-gradient-ember-table-body-container-first-precent, $theme1-gradient-ember-table-body-container-second-colour $theme1-gradient-ember-table-body-container-second-precent);
+}
+
+.theme1 .ember-table-body-container .ember-table-table-row.ember-table-hover {
+	border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-ember-table-border;
+    @include ember-table-body-container ($theme1-gradient-deg, $theme1-gradient-ember-table-body-container-first-colour, $theme1-gradient-ember-table-body-container-first-precent, $theme1-gradient-ember-table-body-container-second-colour, $theme1-gradient-ember-table-body-container-second-precent);
+}
+
+.theme1 .ember-table-hover-new {
+    border-style: solid;
+    border-width: 1px;
+    background-color:cornflowerblue;
+}
+
+.theme1 .ember-table-body-container .ember-table-table-row.ember-table-selected {
+	background-color: $theme1-color-widget !important;
+	border: 1px $theme1-ember-table-border solid;
+    color: $theme1-text-color-main;
+}
+
+.theme1 .ember-table-header-row,.theme1 .ember-table-header-container .ember-table-table-fixed-wrapper {
+	background-color: $theme1-color-widget;
+}
+
+.theme1 .ember-table-footer-container {
+	background-color: #262932 !important;
+}
+
+.theme1 .ember-table-style-row {
+	background-color: #1d6bac;
+}
+
+// end of ember-override.theme1 .scss 
+
+// from global 
+
+//Theme Refactorng
+/*.theme1 a {
+	color: $theme1-tab-button-color;
+}*/
+
+//Theme Refactorng
+/*.theme1 a:hover, .theme1 a:active, .theme1 a:focus {
+    color: $theme1-btn-border-color-hover;
+}*/
+
+// end of global 
+
+// from common 
+
+.theme1 body {
+    background-color: $theme1-color-background;
+    color: $theme1-text-color-main;
+}
+
+// To be commented
+.theme1 .colour-normal {
+    color: $theme1-text-color-normal !important;
+    fill: $theme1-text-color-normal !important;
+}
+
+.theme1 .green {
+    color:  $theme1-color-green;
+}
+
+.theme1 .green-dark {
+    color: $theme1-color-green-dark;
+}
+
+.theme1 .red {
+    color: $theme1-color-red;
+}
+
+.theme1 .colour-symbol {
+    color: $theme1-text-color-symbol !important;
+}
+
+.theme1 .colour-symbol-dis {
+    color: $theme1-text-color-symbol-dis !important;
+}
+
+.theme1 .colour-dq-chart {
+    color: $theme1-text-color-widget-title;
+}
+
+.theme1 .red-dark {
+    color: $theme1-color-red-dark;
+}
+
+.theme1 .colour-1 {
+    color: $theme1-color-1;
+}
+
+/*.theme1 .colour-2 {
+    color: $theme1-color-2;
+}*/
+
+.theme1 .back-colour-2 {
+    background-color: $theme1-color-2 !important;
+}
+
+.theme1 .colour-3 {
+    color: $theme1-color-3;
+}
+
+.theme1 .colour-4 {
+    color: $theme1-color-4;
+}
+
+.theme1 .back-colour-red {
+    background-color: rgba(218, 73, 74, 0.38);
+}
+
+.theme1 .widget-dq-chart-color {
+    color: $theme1-text-color-widget-title;
+}
+
+.theme1 .header-colour {
+    color: $theme1-text-color-table-header;
+}
+
+.theme1 .border-right {
+    border-right: 1px $theme1-color-border solid;
+}
+
+.ar .theme1 .border-right {
+    border-left: 1px $theme1-color-border solid;
+    border-right: 0px $theme1-color-border solid;
+}
+
+.theme1 .border-top {
+    border-top: 1px $theme1-color-border solid;
+}
+
+.theme1 .border-bottom {
+    border-bottom: 1px $theme1-color-border solid;
+}
+
+.theme1 .text-color-light{
+    color: riyad-text-color-light;
+}
+
+.theme1 .font-table-header {
+    color: $theme1-text-color-table-header;
+}
+
+.theme1 .back-green-dark{
+    background-color:$theme1-color-green-dark !important;
+}
+
+.theme1 .back-red-dark{
+    background-color:$theme1-color-red-dark !important;
+}
+
+.theme1 .text-box {
+    border: 1px $theme1-btn-border-color solid;
+    background-color: $theme1-color-background; 
+}
+
+.theme1 .watchlist-cell-back-red{
+    background-color: $theme1-watchlist-cell-back-red;
+}
+
+.theme1 .watchlist-cell-back-green{
+    background-color: $theme1-watchlist-cell-back-green;
+}
+
+.theme1 .watchlist-cell-back-lastqty{
+    background-color: $theme1-watchlist-cell-back-lastqty;
+}
+
+.theme1 .watchlist-row-back-red {
+    background-color: $theme1-watchlist-row-back-red; 
+}
+
+.theme1 .watchlist-row-back-green {
+    background-color: $theme1-watchlist-row-back-green; 
+}
+
+.theme1 .watchlist-row-strike {
+    text-decoration: line-through; 
+}
+
+.theme1 h2.widget-title-type-1{
+    border-bottom: 0px solid #171d23;
+@include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    margin-left: -6px;
+    margin-right: -6px;
+    font-size:$font-medium;
+    font-weight:$font-bold;
+    padding:4px $padding-small 4px $padding-small;
+}
+
+.theme1 h2.widget-title-with-icon{
+    padding:3px $padding-small 3px $padding-small !important;
+}
+
+@mixin gradient-dq-charts ($theme1-gradient-deg, $theme1-gradient-dq-chart-first-colour, $theme1-gradient-dq-chart-first-precent, $theme1-gradient-dq-chart-second-colour, $theme1-gradient-dq-chart-second-precent)
+{
+    background-image: -moz-linear-gradient( $theme1-gradient-deg, $theme1-gradient-dq-chart-first-colour $theme1-gradient-dq-chart-first-precent, $theme1-gradient-dq-chart-second-colour $theme1-gradient-dq-chart-second-precent) !important;
+    background-image: -webkit-linear-gradient( $theme1-gradient-deg, $theme1-gradient-dq-chart-first-colour $theme1-gradient-dq-chart-first-precent, $theme1-gradient-dq-chart-second-colour $theme1-gradient-dq-chart-second-precent) !important;
+    background-image: -ms-linear-gradient( $theme1-gradient-deg, $theme1-gradient-dq-chart-first-colour $theme1-gradient-dq-chart-first-precent, $theme1-gradient-dq-chart-second-colour $theme1-gradient-dq-chart-second-precent) !important;
+}
+
+.theme1 .nav-tabs-dq-charts {
+    @include gradient-dq-charts ($theme1-gradient-deg, $theme1-gradient-dq-chart-first-colour, $theme1-gradient-dq-chart-first-precent, $theme1-gradient-dq-chart-second-colour, $theme1-gradient-dq-chart-second-precent);
+    border: 0px !important;
+    margin-top: 1px;
+}
+
+.theme1 .widget{
+    padding: 0px $padding-small 0px $padding-small;
+    background-color: $theme1-color-background;
+}
+
+.theme1 .widget-watchlist{
+    padding: 0px 0px $padding-small 0px;
+    background-color: $theme1-color-widget;
+    background-attachment:fixed;
+}
+
+.theme1 .watchlist-ul{
+    width: 100%;
+    position: relative;
+    padding: 0 $padding-small 0 $padding-small;
+}
+
+@mixin watchlist-table-header ($theme1-gradient-deg, $theme1-gradient-watchlist-table-header-first-colour, $theme1-gradient-watchlist-table-header-first-precent, $theme1-gradient-watchlist-table-header-second-colour, $theme1-gradient-watchlist-table-header-second-precent,  $theme1-gradient-watchlist-table-header-third-colour, $theme1-gradient-watchlist-table-header-third-precent, $theme1-gradient-watchlist-table-header-fourth-colour, $theme1-gradient-watchlist-table-header-fourth-precent)
+{
+    background-image: -moz-linear-gradient( $theme1-gradient-deg, $theme1-gradient-watchlist-table-header-first-colour, $theme1-gradient-watchlist-table-header-first-precent, $theme1-gradient-watchlist-table-header-second-colour, $theme1-gradient-watchlist-table-header-second-precent,  $theme1-gradient-watchlist-table-header-third-colour, $theme1-gradient-watchlist-table-header-third-precent,  $theme1-gradient-watchlist-table-header-fourth-colour, $theme1-gradient-watchlist-table-header-fourth-precent);
+    background-image: -webkit-linear-gradient( $theme1-gradient-deg, $theme1-gradient-watchlist-table-header-first-colour, $theme1-gradient-watchlist-table-header-first-precent, $theme1-gradient-watchlist-table-header-second-colour, $theme1-gradient-watchlist-table-header-second-precent,  $theme1-gradient-watchlist-table-header-third-colour, $theme1-gradient-watchlist-table-header-third-precent, $theme1-gradient-watchlist-table-header-fourth-colour, $theme1-gradient-watchlist-table-header-fourth-precent);
+    background-image: -ms-linear-gradient( $theme1-gradient-deg, $theme1-gradient-watchlist-table-header-first-colour, $theme1-gradient-watchlist-table-header-first-precent, $theme1-gradient-watchlist-table-header-second-colour, $theme1-gradient-watchlist-table-header-second-precent,  $theme1-gradient-watchlist-table-header-third-colour, $theme1-gradient-watchlist-table-header-third-precent, $theme1-gradient-watchlist-table-header-fourth-colour, $theme1-gradient-watchlist-table-header-fourth-precent);
+}
+
+/*.theme1 .netplus-watchlist-table-header{
+    border-bottom: 1px $theme1-color-widget-border solid;
+//    @include watchlist-table-header ($theme1-gradient-deg, $theme1-gradient-watchlist-table-header-first-colour, $theme1-gradient-watchlist-table-header-first-precent, $theme1-gradient-watchlist-table-header-second-colour, $theme1-gradient-watchlist-table-header-second-precent,  $theme1-gradient-watchlist-table-header-third-colour, $theme1-gradient-watchlist-table-header-third-precent, $theme1-gradient-watchlist-table-header-fourth-colour, $theme1-gradient-watchlist-table-header-fourth-precent);
+    background-color: #121518;
+    padding-top: 5px;
+}*/
+
+.theme1 .netplus-watchlist-header{
+//@include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    background-color:#111317;
+    padding: 0px $padding-small 0px $padding-small;
+    margin-bottom: $margin-small;
+    height: 22px;
+    border-bottom: 1px solid $theme1-color-border-bottom;
+}
+
+.theme1 .widget-header{
+    border-radius: 2px 2px 0px 0px;
+    background-color: $theme1-color-widget;
+    border-top: 1px $theme1-color-border-widget-header solid;
+    border-bottom: 1px $theme1-color-border-widget-header solid;
+    border-right: 1px $theme1-color-border-widget-header solid;
+    border-left: 1px $theme1-color-border-widget-header solid;
+    color:$theme1-text-color-widget-title;
+    font-size:$font-medium;
+    font-weight:normal;  
+    padding:5px 13px 5px 13px;
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    height: 23px;
+}
+
+.theme1 .widget_new {
+    background-color: $theme1-color-widget;
+}
+
+@mixin toppanel-back ($theme1-gradient-deg, $theme1-gradient-toppanel-back-first-colour, $theme1-gradient-toppanel-back-first-precent, $theme1-gradient-toppanel-back-second-colour, $theme1-gradient-toppanel-back-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-toppanel-back-first-colour $theme1-gradient-toppanel-back-first-precent, $theme1-gradient-toppanel-back-second-colour $theme1-gradient-toppanel-back-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-toppanel-back-first-colour $theme1-gradient-toppanel-back-first-precent, $theme1-gradient-toppanel-back-second-colour $theme1-gradient-toppanel-back-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-toppanel-back-first-colour $theme1-gradient-toppanel-back-first-precent, $theme1-gradient-toppanel-back-second-colour $theme1-gradient-toppanel-back-second-precent);
+}
+
+.theme1 .toppanel-back{
+    @include toppanel-back ($theme1-gradient-deg, $theme1-gradient-toppanel-back-first-colour, $theme1-gradient-toppanel-back-first-precent, $theme1-gradient-toppanel-back-second-colour, $theme1-gradient-toppanel-back-second-precent);
+    border-radius: 2px;
+    padding: 1px $padding-small 1px $padding-small;
+    color: $theme1-text-color-table-header;
+    text-align: $text-align-1; // new 
+    font-size: $font-medium;
+    border-bottom: 1px solid $theme1-color-border-bottom-2;
+    border-radius: 4px;
+    padding: 1px;
+}
+
+/*@mixin topbar ($theme1-gradient-deg, $theme1-gradient-topbar-first-colour, $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour, $theme1-gradient-topbar-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-topbar-first-colour $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour $theme1-gradient-topbar-second-precent);
+}*/
+
+// Top Bar
+/*.theme1 .topbar {
+    float: $text-align-1;
+    border-top: 1px $theme1-color-border-top solid;
+    border-right: 1px $theme1-color-border-right solid;
+    border-bottom: 1px $theme1-color-border-bottom solid;
+    border-left: 1px $theme1-color-border-left solid;
+    @include topbar ($theme1-gradient-deg, $theme1-gradient-topbar-first-colour, $theme1-gradient-topbar-first-precent, $theme1-gradient-topbar-second-colour, $theme1-gradient-topbar-second-precent);
+    box-shadow:1px 1.732px 4px 0px rgba(41, 41, 41, 0.24);
+    height: 78px;
+}*/
+
+.theme1 .settings-selected{
+    background-color: $theme1-colour-dropdown-selected;
+}
+
+.theme1 .vertical_Seperator_topstocks{
+    border-right: 1px $theme1-color-border solid;
+}
+
+.theme1 .horizontal_line{
+    background-color:$theme1-color-border;
+}
+
+.theme1 .dropdown-chart-grid{
+    font-size: 16px;
+    padding: 0px
+}
+
+// to be commented
+/*.theme1 .tittle-colour{
+    //color:$title-color ; // newly added
+    color: $theme1-text-color-light !important;
+}*/
+
+.theme1 .theme1-bold{
+    font-weight:$font-bold;
+}
+
+.theme1 .ember-table-tables-container {
+    background-color: $theme1-color-widget !important;
+    border: 0px solid rgba(255, 255, 255, 0); 
+}
+
+.theme1 .ember-table-footer-container {
+    background-color: #FFFCFC !important; 
+}
+
+@mixin prochart-line-studies-back ($theme1-gradient-deg, $theme1-gradient-prochart-line-studies-back-first-colour, $theme1-gradient-prochart-line-studies-back-first-precent, $theme1-gradient-prochart-line-studies-back-second-colour, $theme1-gradient-prochart-line-studies-back-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-prochart-line-studies-back-first-colour, $theme1-gradient-prochart-line-studies-back-first-precent, $theme1-gradient-prochart-line-studies-back-second-colour, $theme1-gradient-prochart-line-studies-back-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-prochart-line-studies-back-first-colour, $theme1-gradient-prochart-line-studies-back-first-precent, $theme1-gradient-prochart-line-studies-back-second-colour, $theme1-gradient-prochart-line-studies-back-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-prochart-line-studies-back-first-colour, $theme1-gradient-prochart-line-studies-back-first-precent, $theme1-gradient-prochart-line-studies-back-second-colour, $theme1-gradient-prochart-line-studies-back-second-precent);
+}
+
+.theme1 .prochart-line-studies-back{
+    border-radius: 3px;
+    @include prochart-line-studies-back ($theme1-gradient-deg, $theme1-gradient-prochart-line-studies-back-first-colour, $theme1-gradient-prochart-line-studies-back-first-precent, $theme1-gradient-prochart-line-studies-back-second-colour, $theme1-gradient-prochart-line-studies-back-second-precent);
+    color: $theme1-prochart-line-studies-back-color;
+}
+
+.theme1 .widget-prochart{
+    background-color: $theme1-color-background;
+}
+
+.theme1 .chart-navtabs{
+    border: 0px solid $theme1-color-border;
+    border-radius: 23px;
+}
+
+.theme1 .chart-navtabs li{
+    margin-right: 0px;
+}
+
+.theme1 .dropdown-watchlist-more-search{
+    background-color: $theme1-popover-header-color;
+}
+
+.theme1 .watchlist-right-click{
+    border: 1px $theme1-popover-border-color solid;
+    background-color: $theme1-popover-background-color;
+    box-shadow: 1px 1.732px 11px 0px rgb( 92, 92, 92 ); 
+    width: 225px;
+}
+
+.theme1 .watchlist-right-click hr {
+    margin: 0px 8px 0px 8px;
+    border: none;
+    background-color : $theme1-tab-button-color;
+}
+
+.theme1 .watchlist-right-click-symbol{
+    background-color: $theme1-Default-color;
+}
+
+.theme1 .watchlist-right-click-item:hover{
+    background-color:  $theme1-popover-hover-color ;
+    border-left: 4px $theme1-Default-color solid;
+    padding: 8px 19px 8px 15px;
+}
+
+.theme1 .horizontal-list-right li {
+    margin-left: 5px;
+}
+
+.theme1 .news-popup{
+    max-height:300px;
+    min-width:365px; 
+    max-width: 550px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-popover-border-color;
+    background-color: $theme1-popover-background-color;
+    opacity: 0.949;
+    box-shadow: 1px 1.732px 5px 0px rgb( 0, 0, 0 );
+}
+
+.theme1 .news-popup-header{
+    min-height:60px; 
+    background-color: $theme1-Default-color;
+}
+
+.theme1 .symbol-popup-view-header{
+    cursor: move; 
+    height:30px; 
+    background-color: $theme1-Default-color; 
+    margin-left:-5px; 
+    margin-right:-5px; 
+    padding: 8px;
+}
+
+.theme1 .app-border{
+    border: 0px $theme1-color-background solid;
+}
+
+.theme1 .footer-app-border{
+    border-right: 3px $theme1-color-background solid;
+    border-bottom: 2px $theme1-color-background solid;
+    color: $theme1-color-footer;
+}
+
+.theme1 .tittle-bar{
+  //@include gradient-title ($theme1-gradient-deg,$theme1-gradient-tittle-first-colour , $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    background :$theme1-color-titlebar; // newly added 
+    //border-bottom: 1px solid $theme1-color-border-bottom;
+    box-shadow: 1.5px 2.598px 5px 0px rgba(255, 255, 255, 0) !important;
+}
+
+/*.theme1 .quote-summary-layout{
+    margin-left: $margin-small;
+    width: calc(100% - 5px);
+    background-color: $theme1-color-widget;
+}*/
+
+/*.theme1 .tittle-bar-search{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-border;
+    background-color:$theme1-color-background;
+    border-radius: 3px !important;
+    margin-top: 1px !important; // new
+}*/
+
+/*.theme1 .input-group-btn .tittle-bar-search-btn{
+    margin-left:-22px; 
+    z-index:2;
+    background-color:$theme1-color-background;
+    margin-top: 0px;
+    height: 21px;
+}*/
+
+//for watchlist
+
+@mixin sort-back-color ($theme1-gradient-deg, $theme1-gradient-sort-back-color-first-colour, $theme1-gradient-sort-back-color-first-precent, $theme1-gradient-sort-back-color-second-colour, $theme1-gradient-sort-back-color-second-precent,  $theme1-gradient-sort-back-color-third-colour, $theme1-gradient-sort-back-color-third-precent)
+{
+    background-image: -moz-linear-gradient( $theme1-gradient-deg, $theme1-gradient-sort-back-color-first-colour $theme1-gradient-sort-back-color-first-precent, $theme1-gradient-sort-back-color-second-colour $theme1-gradient-sort-back-color-second-precent,  $theme1-gradient-sort-back-color-third-colour $theme1-gradient-sort-back-color-third-precent) !important;
+    background-image: -webkit-linear-gradient( $theme1-gradient-deg, $theme1-gradient-sort-back-color-first-colour $theme1-gradient-sort-back-color-first-precent, $theme1-gradient-sort-back-color-second-colour $theme1-gradient-sort-back-color-second-precent,  $theme1-gradient-sort-back-color-third-colour $theme1-gradient-sort-back-color-third-precent) !important;
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-sort-back-color-first-colour $theme1-gradient-sort-back-color-first-precent, $theme1-gradient-sort-back-color-second-colour $theme1-gradient-sort-back-color-second-precent,  $theme1-gradient-sort-back-color-third-colour $theme1-gradient-sort-back-color-third-precent) !important;
+}
+
+.theme1 .sort-back-color {
+    background-image: none !important;
+    @include sort-back-color ($theme1-gradient-deg, $theme1-gradient-sort-back-color-first-colour, $theme1-gradient-sort-back-color-first-precent, $theme1-gradient-sort-back-color-second-colour, $theme1-gradient-sort-back-color-second-precent,  $theme1-gradient-sort-back-color-third-colour, $theme1-gradient-sort-back-color-third-precent);
+    font-weight: bold;
+}
+
+.theme1 .tittle-bar-price-connected{
+    color: $theme1-text-color-table-header-2; 
+}
+
+.theme1 .connection-status-green {
+    color:$theme1-color-green-connection;
+}
+
+.theme1 .connection-status-red {
+    color:$theme1-color-red-connection;
+}
+
+// IE fulscreen issue
+
+.theme1 body:-ms-fullscreen::-ms-backdrop {
+    background-color: $theme1-color-background;
+}
+
+/*.theme1 .navbar-nav-ticker-area .tickerDiv{
+    background:$theme1-ticker-color;
+    border-radius: 0px 0px 4px 4px;
+    border-bottom: 1px solid $theme1-color-border; // new
+    border-left: 1px solid $theme1-color-border; // new
+    border-right: 1px solid $theme1-color-border; // new
+    margin-top: 2px;
+    height: 26px;
+    
+    -moz-box-shadow: inset 1px 4px 9px -6px;
+    -webkit-box-shadow: inset 1px 4px 9px -6px;
+    box-shadow: inset 1px 4px 9px -6px;
+}*/
+
+.theme1 button.chart-btn-icon.active{
+    color: $theme1-btn-border-color-hover;
+    background-color: $theme1-color-widget;
+}
+
+//heights 
+
+.theme1 .topstocks-height{
+    height:calc(100% - 23px);
+}
+
+.theme1 .detailquote-height{
+    height:calc(100% - 19px);
+}
+
+.theme1 .quote-tab{
+    height:calc(100% - 392px);
+    min-height:100px;
+}
+
+.theme1 .widget-header-icons{
+    padding:4px 8px 4px 8px;      
+}
+
+.theme1 .header-icons{
+    float: right;
+}
+
+.ar .theme1 .header-icons{
+    float: left;
+}
+
+.theme1 .widget-container{
+    padding:8px 8px 8px 8px;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 1px $theme1-color-widget-border solid;
+    border-right: 1px $theme1-color-widget-border solid;
+    border-left: 1px $theme1-color-widget-border solid;
+    overflow: hidden;
+    height: 100%;
+    background-color: $theme1-color-widget;
+}
+
+.theme1 .no-padding-top{
+    padding:0px 0px 8px 0px !important;
+}
+
+.theme1 .less-padding-top-bottom{
+    padding:4px 8px 4px 8px !important;
+}
+
+.theme1 .no-padding{
+    padding:0px 0px 0px 0px !important;
+}
+
+.theme1 .regular-chart-container {
+
+    padding:0px 8px 8px 8px;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 1px $theme1-color-widget-border solid;
+    border-right: 1px $theme1-color-widget-border solid;
+    border-left: 1px $theme1-color-widget-border solid;
+}
+
+.theme1 .Vertical_Seperator_topstocks{
+    border-right: 1px $theme1-color-border solid;
+	height: 124px;
+ 	float: $float-3;
+	margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+}
+
+.ar .theme1 .Vertical_Seperator_topstocks{
+    margin-right: 0px;
+}
+
+.theme1 .horizontal_line{
+    height: 1px;
+    width: $theme1-horizontal-line-width;
+    overflow:hidden;
+    background-color: $theme1-color-border;
+    margin:0px auto;
+    border-right: 1px $theme1-color-border-right solid;
+    border-left: 1px $theme1-color-border-left solid;
+  
+}
+
+.theme1 .widget-header .nav-tabs-3{
+  //  margin-top: -3px;
+    margin-left: -13px;
+    margin-bottom: -3px;
+    margin-right: -13px;
+}
+
+.theme1 .index-Arrow{
+    font-size: 14px;
+}
+
+.theme1 .index-Value{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*.theme1 .index-change{
+    font-size: 12px;
+    margin-left: 3px;
+}
+
+.theme1 .index-percentage{
+    font-size: 12px;
+}*/
+
+//-------------- Topbar Seperators -----------------//
+
+// Topbar Vertical Seperators
+
+/*.theme1 .vertical-separator {
+    border-right: 1px $theme1-color-border-right solid;
+}
+
+.theme1 .vertical-separator-1 {
+	border-right: 1px $theme1-color-border-1 solid;
+	height: 59px;
+ 	float: $float-3;
+	margin-top: 8px;
+	margin-bottom: 8px;
+    margin-left: 1px;
+    position: absolute;
+    top: 0;
+}
+
+.theme1 .vertical-separator-2 {
+	border-right: 1px $theme1-color-border-right solid;
+	height: 31px;
+ 	float: $float-3;
+	margin-top: 36px;
+	margin-bottom: 8px;
+    margin-left: 0px;
+    position: absolute;
+    top: 0;
+}
+
+.theme1 .vertical-separator-3 {
+	border-right: 1px $theme1-color-border-1 solid;
+	height: 31px;
+ 	float: $float-3;
+	margin-top: 36px;
+	margin-bottom: 8px;
+    margin-left: 1px;
+    position: absolute;
+    top: 0;
+}
+
+ .theme1 .border-right-topbar {
+    border-right: 1px $theme1-color-border solid;
+}
+
+ .theme1 .border-right-topbar-1 {
+    border-right: 1px $theme1-color-border-1 solid;
+}
+
+// End Topbar Vertical Seperators
+
+
+// Topbar Horizontal  Seperators
+
+.theme1 .horizontal-line-topbar{
+    background: $theme1-color-border;
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+    height: 1px; 
+    margin: 0 auto;
+}
+
+.theme1 .horizontal-line-topbar-1{
+    background: $theme1-color-border-1;
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+    height: 1px;  
+    margin: 0 auto;
+}
+.theme1 .border-bottom-topbar {
+    border-bottom: 1px $theme1-color-border solid;
+}
+
+.theme1 .border-bottom-topbar-1 {
+    border-bottom: 1px $theme1-color-border-1 solid;
+    margin-top:1px;
+}
+
+// End Topbar Horizontal  Seperators
+
+*/
+
+//-------------- End Topbar Seperators -----------------//
+
+.theme1 .padding-small-bottom-1 {
+    padding-bottom: 6px;
+}
+
+// Tabs - Nav special
+
+.theme1 .nav-special{
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+.theme1 .nav-special > li > a{
+    color: $theme1-btn-color-active !important;
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    border-style: solid;
+    border-width: 0px;
+    border-color: #00948F;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.theme1 .nav > li > a:hover, .theme1 .nav > li > a:focus{
+    background-color:$theme1-gradient-sidebar-active-first-colour;
+}
+
+@mixin nav-special ($theme1-gradient-deg, $theme1-gradient-nav-special-first-colour, $theme1-gradient-nav-special-first-precent, $theme1-gradient-nav-special-second-colour, $theme1-gradient-nav-special-second-precent,  $theme1-gradient-nav-special-third-colour, $theme1-gradient-nav-special-third-precent,$theme1-gradient-nav-special-fourth-colour, $theme1-gradient-nav-special-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-first-colour $theme1-gradient-nav-special-first-precent, $theme1-gradient-nav-special-second-colour $theme1-gradient-nav-special-second-precent,  $theme1-gradient-nav-special-third-colour $theme1-gradient-nav-special-third-precent, $theme1-gradient-nav-special-fourth-colour $theme1-gradient-nav-special-fourth-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-first-colour $theme1-gradient-nav-special-first-precent, $theme1-gradient-nav-special-second-colour $theme1-gradient-nav-special-second-precent,  $theme1-gradient-nav-special-third-colour $theme1-gradient-nav-special-third-precent, $theme1-gradient-nav-special-fourth-colour $theme1-gradient-nav-special-fourth-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-first-colour $theme1-gradient-nav-special-first-precent, $theme1-gradient-nav-special-second-colour $theme1-gradient-nav-special-second-precent,  $theme1-gradient-nav-special-third-colour $theme1-gradient-nav-special-third-precent, $theme1-gradient-nav-special-fourth-colour $theme1-gradient-nav-special-fourth-precent);
+}
+
+.theme1 .nav-special > li.active > a:hover{
+    color: $theme1-btn-color-active !important;
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00948F;
+}
+
+@mixin nav-special-focus ($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent )
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent );
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent );
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent );
+}
+
+.theme1 .nav-special > li.active > a, .theme1 .nav-special > li.active > a:hover, .theme1 .nav-special > li.active > a:focus {
+    color: $theme1-btn-color-active !important;
+    @inlcude nav-special-focus ($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent );
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-border;
+    height: 20px;
+}
+
+// Nav-special-2 Tabs
+
+.theme1  .nav-special-2{
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+}
+
+.theme1  .nav-special-2 > li > a{
+    color: #e8edf5 !important;
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-widget-border;
+    height: 21px;
+    margin-bottom: 1px;
+}
+
+.theme1  .nav-special-2 > li.active > a:hover{
+    color: $theme1-btn-color-active !important;
+    @include gradient-title ($theme1-gradient-deg, $theme1-gradient-tittle-first-colour, $theme1-gradient-tittle-first-precent, $theme1-gradient-tittle-second-colour, $theme1-gradient-tittle-second-precent);
+    border-top:none;
+    border-bottom:none;
+    border-left: 1px $theme1-color-border-left solid;
+    border-right: 1px $theme1-color-border-right solid;    
+}
+
+.theme1  .nav-special-2 > li.active > a, .theme1  .nav-special-2 > li.active > a:hover, .theme1 .nav-special-2 > li.active > a:focus {
+    color: #e8edf5 !important;
+    @include nav-special-focus ($theme1-gradient-deg, $theme1-gradient-nav-special-focus-first-colour, $theme1-gradient-nav-special-focus-first-precent, $theme1-gradient-nav-special-focus-second-colour, $theme1-gradient-nav-special-focus-second-precent,  $theme1-gradient-nav-special-focus-third-colour, $theme1-gradient-nav-special-focus-third-precent, $theme1-gradient-nav-special-focus-fourth-colour, $theme1-gradient-nav-special-focus-fourth-precent );
+    border-top:none;
+    border-bottom:none;
+    border-left: 1px $theme1-color-border-left solid;
+    border-right: 1px $theme1-color-border-right solid;
+    height: 21px;
+}
+
+// Nav Tabs
+
+@mixin gradient-nav-tabs-hover ($theme1-gradient-deg, $theme1-gradient-nav-tabs-hover-first-colour, $theme1-gradient-nav-tabs-hover-first-precent, $theme1-gradient-nav-tabs-hover-second-colour, $theme1-gradient-nav-tabs-hover-second-precent, $theme1-gradient-nav-tabs-hover-third-colour, $theme1-gradient-nav-tabs-hover-third-precent, $theme1-gradient-nav-tabs-hover-fourth-colour, $theme1-gradient-nav-tabs-hover-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-hover-first-colour $theme1-gradient-nav-tabs-hover-first-precent, $theme1-gradient-nav-tabs-hover-second-colour $theme1-gradient-nav-tabs-hover-second-precent, $theme1-gradient-nav-tabs-hover-third-colour $theme1-gradient-nav-tabs-hover-third-precent, $theme1-gradient-nav-tabs-hover-fourth-colour $theme1-gradient-nav-tabs-hover-fourth-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-hover-first-colour $theme1-gradient-nav-tabs-hover-first-precent, $theme1-gradient-nav-tabs-hover-second-colour $theme1-gradient-nav-tabs-hover-second-precent, $theme1-gradient-nav-tabs-hover-third-colour $theme1-gradient-nav-tabs-hover-third-precent, $theme1-gradient-nav-tabs-hover-fourth-colour $theme1-gradient-nav-tabs-hover-fourth-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-hover-first-colour $theme1-gradient-nav-tabs-hover-first-precent, $theme1-gradient-nav-tabs-hover-second-colour $theme1-gradient-nav-tabs-hover-second-precent, $theme1-gradient-nav-tabs-hover-third-colour $theme1-gradient-nav-tabs-hover-third-precent, $theme1-gradient-nav-tabs-hover-fourth-colour $theme1-gradient-nav-tabs-hover-fourth-precent);
+}
+
+.theme1 .nav-tabs > li.active > a, .theme1 .nav-tabs > li.active > a:hover, .theme1 .nav-tabs > li.active > a:focus {
+	color: $theme1-text-color-normal !important;
+    @include gradient-nav-tabs-hover ($theme1-gradient-deg, $theme1-gradient-nav-tabs-hover-first-colour, $theme1-gradient-nav-tabs-hover-first-precent, $theme1-gradient-nav-tabs-hover-second-colour, $theme1-gradient-nav-tabs-hover-second-precent, $theme1-gradient-nav-tabs-hover-third-colour, $theme1-gradient-nav-tabs-hover-third-precent, $theme1-gradient-nav-tabs-hover-fourth-colour, $theme1-gradient-nav-tabs-hover-fourth-precent);
+    background-color: rgba(243, 243, 243, 0);
+//	border-bottom: 1px solid $theme1-tab-border-bottom-color;
+//    border-bottom-color: $theme1-tab-border-bottom-color !important;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-border;
+    border-radius: 29%;
+    top: 3px;
+    left: 2px;
+    height: 20px;
+}
+
+.theme1 .nav-tabs {
+    border-bottom: 0px solid $theme1-color-border;
+    background-color: #121518;
+    height: 27px;
+}
+
+@mixin nav-tabs ($theme1-gradient-deg, $theme1-gradient-nav-tabs-first-colour, $theme1-gradient-nav-tabs-first-precent, $theme1-gradient-nav-tabs-second-colour, $theme1-gradient-nav-tabs-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-first-colour $theme1-gradient-nav-tabs-first-precent, $theme1-gradient-nav-tabs-second-colour $theme1-gradient-nav-tabs-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-first-colour $theme1-gradient-nav-tabs-first-precent, $theme1-gradient-nav-tabs-second-colour $theme1-gradient-nav-tabs-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-first-colour $theme1-gradient-nav-tabs-first-precent, $theme1-gradient-nav-tabs-second-colour $theme1-gradient-nav-tabs-second-precent);
+}
+
+.theme1 .nav-tabs > li > a {
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-nav-tabs-border;
+    @include nav-tabs ($theme1-gradient-deg, $theme1-gradient-nav-tabs-first-colour, $theme1-gradient-nav-tabs-first-precent, $theme1-gradient-nav-tabs-second-colour, $theme1-gradient-nav-tabs-second-precent);
+    color: $theme1-tab-button-color;
+    margin-right: 0px;
+}
+
+.theme1 .nav > li > a:hover, .theme1 .nav > li > a:focus {
+	color: $theme1-btn-border-color-hover;
+}
+
+h2.theme1 .nav-tabs {
+    border-bottom: 0px;
+    margin: -5px 0 0 0;
+    color: $theme1-tab-button-color;
+}
+
+// Nav Tabs- 2
+
+.theme1 .nav-tabs-2 > li.active > a, .theme1 .nav-tabs-2 > li.active > a:hover, .theme1 .nav-tabs-2 > li.active > a:focus {
+    color: #639DC4 !important;
+    background-color: $theme1-nav-tabs-2-selected-colour;
+	border-bottom:none !important;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-color-widget-border;
+}
+
+.theme1 .nav-tabs-2 {
+    border-bottom: 1px solid $theme1-color-border-bottom !important;
+}
+
+.theme1.nav-tabs-2 > li > a {
+    margin-right: 0px;
+    border-bottom: none !important;
+    color: $theme1-text-color-normal;
+}
+
+.theme1 .nav-tabs-2 > li{
+   margin-left: 10px;
+   float: $float-1;
+   margin-bottom: -1px;
+}
+
+.ar .theme1 .nav-tabs-2 > li{
+   margin-right: 10px;
+   float: $float-2;
+   margin-bottom: -1px;
+}
+
+// Nav Tabs - 3
+
+.theme1 .nav-tabs-3 > li{
+   float: $float-1;
+}
+
+.ar .theme1 .nav-tabs-3 > li{
+   float: $float-2;
+}
+
+@mixin nav-tabs-3 ($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-first-colour, $theme1-gradient-nav-tabs-3-first-precent, $theme1-gradient-nav-tabs-3-second-colour, $theme1-gradient-nav-tabs-3-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-first-colour $theme1-gradient-nav-tabs-3-first-precent, $theme1-gradient-nav-tabs-3-second-colour $theme1-gradient-nav-tabs-3-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg,  $theme1-gradient-nav-tabs-3-first-precent, $theme1-gradient-nav-tabs-3-second-colour $theme1-gradient-nav-tabs-3-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-first-colour $theme1-gradient-nav-tabs-3-first-precent, $theme1-gradient-nav-tabs-3-second-colour $theme1-gradient-nav-tabs-3-second-precent);
+    margin-top: -5px !important;
+    padding: 5px 15px;
+}
+
+.theme1 .nav-tabs-3 > li > a {
+    @include nav-tabs-3 ($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-first-colour, $theme1-gradient-nav-tabs-3-first-precent, $theme1-gradient-nav-tabs-3-second-colour, $theme1-gradient-nav-tabs-3-second-precent);
+    color: #67809F !important;
+}
+
+@mixin nav-tabs-3-hover ($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-hover-first-colour, $theme1-gradient-nav-tabs-3-hover-first-precent, $theme1-gradient-nav-tabs-3-hover-second-colour, $theme1-gradient-nav-tabs-3-hover-second-precent)
+{
+    background-image: -moz-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-hover-first-colour $theme1-gradient-nav-tabs-3-hover-first-precent, $theme1-gradient-nav-tabs-3-hover-second-colour $theme1-gradient-nav-tabs-3-hover-second-precent);
+    background-image: -webkit-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-hover-first-colour $theme1-gradient-nav-tabs-3-hover-first-precent, $theme1-gradient-nav-tabs-3-hover-second-colour $theme1-gradient-nav-tabs-3-hover-second-precent);
+    background-image: -ms-linear-gradient($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-hover-first-colour $theme1-gradient-nav-tabs-3-hover-first-precent, $theme1-gradient-nav-tabs-3-hover-second-colour $theme1-gradient-nav-tabs-3-hover-second-precent);
+}
+
+.theme1 .nav-tabs-3 > li.active > a, .theme1 .nav-tabs-3 > li.active > a:hover, .theme1 .nav-tabs-3 > li.active > a:focus {
+    color: #58A7E2 !important;
+    @include gradient-nav-tabs-hover ($theme1-gradient-deg, $theme1-gradient-nav-tabs-3-hover-first-colour, $theme1-gradient-nav-tabs-3-hover-first-precent, $theme1-gradient-nav-tabs-3-hover-second-colour, $theme1-gradient-nav-tabs-3-hover-second-precent, $theme1-gradient-nav-tabs-3-hover-third-colour, $theme1-gradient-nav-tabs-3-hover-third-precent, $theme1-gradient-nav-tabs-3-hover-fourth-colour, $theme1-gradient-nav-tabs-3-hover-fourth-precent);
+    margin-top: -4px;
+    padding: 5px 15px;
+
+}
+
+.theme1 .title{
+float: left;
+}
+
+.ar .theme1 .title{
+float: right;
+}
+
+.theme1 .symbol{
+    float:left;
+    margin-left: 10px;
+}
+
+.ar .theme1 .symbol{
+    float:right;
+    margin-right: 10px;
+}
+
+.theme1 .text-danger{
+    color: $theme1-color-red-connection !important;
+}
+
+.theme1 .popup-widget{
+    background-color: $theme1-color-widget;
+}
+
+// trade css
+
+.theme1 .sell {
+    background-color: $theme1-color-red-sell; 
+}
+
+.theme1 .buy {
+    background-color: $theme1-color-green-buy; 
+}
+
+// for massege box
+
+.theme1 .message-box-title{
+    height:30px; 
+    background-color: $theme1-Default-color; 
+    padding: 8px;
+    color: $theme1-text-color-light;
+    font-size: $font-large;
+    font-weight: bold;
+}
+
+.theme1 .message-box-frame {
+    background: $theme1-color-widget;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme1-popover-border-color;
+    background-color: $theme1-popover-background-color;
+    opacity: 0.949;
+    box-shadow: 1px 1.732px 5px 0px rgb( 0, 0, 0 );
+}
+
+//needed refactor 
+
+.theme1 .prominat {    // new
+    font-size:12px;
+    font-weight: bold;
+    color:$theme1-text-color-main;
+}
+
+
+.theme1 .watchlist-header{
+    height: 21px;
+    padding: 5px 13px;
+}
+
+.theme1 .watchlist-widget-container{
+    padding:8px 8px 8px 8px;
+    border-radius: 0px;
+    border-bottom: 2px $theme1-color-widget-border solid;
+    border-right: 1px $theme1-color-widget-border solid;
+    border-left: 1px $theme1-color-widget-border solid;
+    height: 100%;
+    background-color: $theme1-color-widget;
+}
+
+.theme1 .depth-by{
+    background: rgb(23, 27, 32);
+    padding-bottom: 3px;
+    padding-top: 8px;
+}
+
+.theme1 .version-details{
+    font-size:10px;
+    margin-top:2px;
+}
+
+.theme1 .colour-white{
+    color:$theme1-txt-color-light;
+}
+
+/*.theme1 .colour-ash{
+    color: $theme1-titlebar-caption-color;
+}*/
+
+.theme1 .back-green-light-2{
+   background: #9DCEAD !important;
+}
+
+.theme1 .back-red-light-2{
+    background: #F4B6B6 !important;
+}
+
+.theme1 .titlebar-widgets-1{
+ //  width: 100px;
+   font-size: 12px;
+}
+
+.theme1 .titlebar-widgets-2{
+  // width: 140px;
+   font-size: 12px;
+}
+
+.theme1 .titlebar-widgets-3{
+ //  width: 190px;
+   font-size: 12px;
+}
+
+.theme1 .btn-special-titlebar{
+    color:$theme1-btn-txt-color !important;
+    font-weight: normal !important;
+    border-bottom: 1px solid $theme1-titlebar-btn-border-top;
+    border-top: 1px solid $theme1-titlebar-btn-border-bottom;
+    border-right: 1px solid $theme1-titlebar-btn-border-left-right;
+    border-left: 1px solid $theme1-titlebar-btn-border-left-right;
+    background: -moz-linear-gradient(top, #192B3C  0%, #192B3C  50%, #192B3C 100%);
+    background: -webkit-linear-gradient(top, #192B3C  0%, #192B3C 50%, #192B3C  100%);
+    background: -ms-linear-gradient(top, #192B3C  0%, #192B3C  50%, #192B3C  100%);
+    height: 30px !important;
+    margin-top: -3px;
+    border-radius: 0px;
+    font-size: 11px;
+    padding-bottom: 8px;
+}
+
+/*.theme1 .btn-special-widget-header{
+    color:$theme1-btn-txt-color !important;
+    font-weight: normal !important;
+    border-bottom: 1px solid $theme1-titlebar-btn-border-top !important;
+    border-top: 1px solid $theme1-titlebar-btn-border-bottom;
+    border-right: 1px solid $theme1-titlebar-btn-border-left-right;
+    border-left: 1px solid $theme1-titlebar-btn-border-left-right;
+    background: -moz-linear-gradient(top, #253240 0%, #253240 50%, #253240 100%);
+    background: -webkit-linear-gradient(top, #253240 0%, #253240 50%, #253240 100%);
+    background: -ms-linear-gradient(top, #253240 0%, #253240 50%, #253240 100%);
+    height: 22px !important;
+    margin-top: 1px;
+    border-radius: 0px;
+    font-size: 11px;
+}*/
+
+.theme1 .btn-special-titlebar:hover{
+    background: #7DACCE !important;
+}
+
+.theme1 .green-back{
+    background: $theme1-titlebar-background-green-color;
+    padding: 9px;
+}
+
+.theme1 .red-back{
+    background:$theme1-titlebar-background-red-color;
+    padding: 9px;
+}
+
+.theme1 .blue-back {
+    background: $theme1-titlebar-background-blue-color;
+    padding: 9px;
+    margin-top: -9px;
+}
+
+//.theme1 .logo-upper{
+//    margin-top: -5px;
+//    font-size: 10px;
+//    color:$theme1-btn-txt-color;
+//    padding: 2px 4px 2px 4px;
+//    background-image: -moz-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    background-image: -webkit-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    background-image: -ms-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    border-radius: 3px;
+//    margin-left: 3px;
+//    margin-right: 4px;
+//}
+
+.theme1 .btn-buy{
+	color:$theme1-btn-txt-color!important;
+    height: 23px;
+	padding: 2px 34px 2px 34px;
+	font-size: $font-medium;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    border-top: 1px solid #1B4428 !important;
+    border-bottom: 1px solid #1B4428 !important;
+    border-right: 1px solid #1B4428 !important;
+    border-left: 1px solid #1B4428 !important;
+    background:$theme1-color-green-btn; 
+    background: -webkit-linear-gradient(to bottom, #1B4428 , #1B4428); 
+    background: linear-gradient(to bottom, #1B4428 , #1B4428);               
+}
+
+.theme1 .btn-sell{
+	color:$theme1-btn-txt-color!important;
+    height: 23px;
+	padding: 2px 34px 2px 34px;
+	font-size: $font-medium;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    border-top: 1px solid #f97c7c !important;
+    border-bottom: 1px solid #e03939 !important;
+    border-right: 1px solid #f97c7c !important;
+    border-left: 1px solid #f97c7c !important;
+    background: $theme1-color-red-btn; 
+    background: -webkit-linear-gradient(to bottom, #fb6e6e , #f14242); 
+    background: linear-gradient(to bottom, #fb6e6e , #f14242);               
+}
+
+.theme1 .back-green-light{
+    background: $theme1-color-green-buy-light !important;
+}
+
+.theme1 .back-red-light {
+    background-color: $theme1-color-red-sell-light !important;
+}
+
+.theme1 .secondary-tit{
+    font-size: 10px;
+    color: $theme1-titlebar-value-color;
+    margin-left: 3px;
+}
+
+.theme1 .secondary-val{
+   font-size: 10px;
+   margin-left: 2px;
+}
+
+.theme1 .sep-group{
+  padding-top: 16px;
+}
+
+.theme1 .titlebar-sep-1 {
+    border-right: 1px solid $theme1-titlebar-seperator-color;
+    height: 21px;
+    float: none;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    z-index: 10;
+    position: absolute;
+    top: 1px;
+}
+
+.theme1 .titlebar-sep-2 {
+    border-right: 1px solid $theme1-titlebar-seperator-color;
+    height: 30px;
+    float: none;
+    /* margin-top: 2px; */
+    margin-bottom: 0px;
+    /* margin-left: 1px; */
+    z-index: 10;
+    position: absolute;
+    top: -2px;
+}
+
+/*.theme1 .username{
+    color: $theme1-titlebar-caption-color !important;
+    font-size: 11px;
+}*/
+
+.theme1 .titlebar-icon-section{
+    height: 29px;
+    background: -moz-linear-gradient(top, #47627D 0%, #47627D 50%, #47627D 100%);
+    background: -webkit-linear-gradient(top, #47627D 0%, #47627D 50%, #47627D 100%);
+    background: -ms-linear-gradient(top, #47627D 0%, #47627D 50%, #47627D 100%);
+    padding-top: 3px;
+    margin-top: -3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.theme1 .special-price{
+   margin-left: -10px;
+} 
+
+.ar .theme1 .special-price{
+   margin-right: -10px;
+   margin-left: inherit
+} 
+
+.theme1 .padding-9{
+  padding: 9px;
+}
+
+
+.theme1 .table-header-hd{
+    border-bottom: 1px $theme1-color-border solid;
+}
+
+//news sections
+
+.theme1 .news-heading{
+    line-height: 18px;
+    background:rgba(78, 86, 88, 0.38);
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    margin-left:-8px;
+    font-weight: bold;
+    color:#727272;
+}
+
+.theme1 .news-heading-right-panel{
+    line-height: 18px;
+    background: #1E2023;
+    padding: 15px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color:#727272;
+}
+
+.theme1 .news-body{
+   font-size: 12px;
+   color: #666666;
+   line-height: 18px;
+}
+
+.theme1 .news-date-time-bar{
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #A8A8A8;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #030303;
+}
+
+.theme1 .news-date-time-bar-right-panel{
+    font-size: 12px;
+    color: #A8A8A8;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.theme1 .news-list-item{
+    padding: 5px 10px;
+    line-height: 14px;
+}
+
+.theme1 .news-list-item:hover,.theme1 .news-list-item:active, .theme1 .news-list-item-right-panel:hover, .theme1 .news-list-item-right-panel:active{
+    background: #23262B;;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition:all 0.3s ease;
+}
+
+.theme1 .news-page-tools{
+    padding: 0 15px 0 0;
+    //margin-top: 8px;
+    background: rgb(32, 36, 43);
+    //min-width: 1200px;
+//    border-bottom: 1px solid #060606;
+}
+
+.theme1 .depth-table tr {
+    background: $theme1-color-widget;
+}
+
+//  Define the background color for all the ODD background rows  
+
+.theme1 .depth-table tr:nth-child(odd) {
+    background: $theme1-color-table-odd;
+}
+
+//  Define the background color for all the EVEN background rows  
+
+.theme1 .depth-table tr:nth-child(even) .dark-red{
+    background: $theme1-watchlist-cell-back-red-2;
+}
+.theme1 .depth-table tr:nth-child(even) .dark-green{
+    background: $theme1-watchlist-cell-back-green-2;
+}
+
+.theme1 .link-color-1{
+    background-color:#F4D03F;
+}
+
+.theme1 .link-color-2{
+    background-color:#FE8FE1;
+}
+
+.theme1 .link-color-3{
+    background-color:#58e2b3;
+}
+
+.theme1 .link-color-4{
+    background-color:#74CAF4;
+}
+
+.theme1 .hint--bottom:before {
+    border-bottom-color: $theme1-color-tooltip;
+}
+
+.theme1 [data-hint]:after {
+    background: $theme1-color-tooltip;
+}
+
+
+.theme1 .hint--top:before {
+    border-top-color: $theme1-color-tooltip;
+}
+
+.theme1 .hint--right:before {
+    border-right-color: $theme1-color-tooltip;
+}
+
+.theme1 .hint--left:before {
+    border-right-color: $theme1-color-tooltip;
+}
+
+.theme1 .holding-trade {
+    background: #292F35;
+}
+
+.theme1 .search-query-min {
+    width: 60px;
+    height: 24px !important;
+    font-size: 12px;
+    border-top: 1px #000000 solid;
+    border-bottom: 1px #000000 solid;
+    border-right: 1px #000000 solid;
+    border-left: 1px #000000 solid;
+    background-color: #2a3036;
+    border-radius: 2px 2px 2px 2px !important;
+    height: 23px;
+    background: -moz-linear-gradient(top, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #000000 0%, #000000 30%, #000000 30%, #000000 100%);
+    background: -ms-linear-gradient(to bottom, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+}

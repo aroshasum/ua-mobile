@@ -1,0 +1,16 @@
+{{#unless disableMoreMarkets}}
+    {{bootstrap-dropdown-select
+        options=exchanges
+        defaultSelect=defaultExchangeForDropdown
+        value=value
+        isDropdownDisabled=disableMoreMarkets
+        valueKey= valueKey
+        labelKey='des'
+        selectedLabelKey='displayDesc'
+        lblClass=lblClass
+        buttonClass=buttonClass
+        selectAction='setExchange'
+        responsiveIcon=responsiveIcon
+        iconClass='glyphicon icon-analytics-chart-graph'
+    }}
+{{/unless}}

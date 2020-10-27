@@ -1,0 +1,129 @@
+@import '../../common-variables.scss';
+//@import '../../themes/theme-helper';
+@import '../../widget-variables';
+@import '../../app-layout/app-layout';
+
+.rtpnl-height {
+  height: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+  .media-visibility {
+    display: block !important;
+  }
+
+  .main-panel-width-responsive {
+    width: calc(100% - #{$appmnu-width + $rightmnu-width}) !important;
+  }
+
+  .rtpnl-height {
+    height: auto !important;
+  }
+}
+
+.rtpnl-container {
+  padding-bottom: 6px;
+
+  & .position-show {
+    left: 0;
+    top: 0;
+    position: relative;
+  }
+
+  & .position-hide {
+    left: 25000px;
+    top: 25000px;
+    position: absolute;
+  }
+
+  & .collapse-content {
+    margin-top: 110px;
+    height: calc(100% - 115px);
+    width: $rightmnu-collapse-width;
+    z-index: 300;
+    top: 0;
+    right: 0;
+    left: auto;
+    display: none;
+    background-color: #fff;
+    overflow-x: hidden;
+    position: fixed !important;
+    
+    @include theme((
+            border: "1px {widget-border-color} solid"
+    ));
+
+    @include theme-classic((
+        box-shadow: none
+    ));
+  }
+
+  & .collapse-overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 200
+  }
+
+  & .right-panel-collapse {
+    top: 0;
+    width: $rightmnu-width;
+    overflow: visible;
+    padding: 0;
+    list-style: none;
+    margin: 5px 0 0 0;
+    white-space: nowrap;
+
+    @include theme((
+            background: app-menu-back-color,
+    ));
+  }
+
+  & .right-panel-collapse-ul {
+    list-style: none;
+    padding-right: 4px;
+  }
+
+  & .right-panel-collapse li {
+    text-align: center;
+    padding: 130px 0 0 0;
+  }
+
+  & .right-panel-collapse li a {
+    display: block;
+    text-decoration: none;
+    font-size: $font-medium;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+
+    @include theme((
+            color: app-menu-fore-color
+    ));
+  }
+
+  & .right-panel-collapse li a:hover {
+    text-decoration: none;
+    font-weight: bold;
+
+    @include theme((
+            color: app-menu-fore-color-hover
+    ));
+  }
+
+  & .right-panel-collapse .vertical-item {
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg); /* Safari/Chrome */
+    -moz-transform: rotate(-90deg); /* Firefox */
+    -o-transform: rotate(-90deg); /* Opera */
+    -ms-transform: rotate(-90deg); /* IE 9 */
+  }
+}
+
+@import 'extended/right-panel-collapse-extended';

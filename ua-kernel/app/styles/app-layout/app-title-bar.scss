@@ -1,0 +1,361 @@
+@import '../common-variables';
+@import '../themes/theme-2-variables';
+@import '../widget-variables';
+//@import '../themes/theme-helper';
+
+.appttl {
+    width: 100%;
+    height: $appttl-bar-height;
+    z-index: 9;
+    position: absolute;
+
+    @include theme((
+          background-color: app-title-back-color
+    ));
+
+    @include theme-classic((
+            border-bottom: "1px {app-title-border-color} solid",
+            background-image: "linear-gradient(0deg, {app-title-back-color} 0%, {app-title-back-color-gradient} 100%)"
+    ));
+
+    &-height {
+      height: $appttl-bar-height;
+    }
+
+    &-logo-fore-color {
+      @include theme((
+              color: app-title-logo-fore-color
+      ));
+    }
+
+    &-fore-color {
+      @include theme((
+              color: app-title-fore-color
+      ));
+    }
+
+    &-fade-fore-color {
+      @include theme((
+              color: app-title-fade-fore-color
+      ));
+    }
+
+    &-light-bg-fore-color {
+      @include theme((
+              color: fore-color
+      ));
+    }
+
+  &-line-height {
+    line-height: $appttl-bar-height;
+  }
+
+  // Green Circle
+  &-up-fore-color {
+      @include theme((
+              color: app-title-up-fore-color
+      ));
+    }
+
+  // Red Circle
+  &-down-fore-color {
+      @include theme((
+              color: app-title-down-fore-color
+      ));
+    }
+
+    &-up-back-color {
+      @include theme((
+              background-color: app-title-up-back-color
+      ));
+    }
+
+    &-down-back-color {
+      @include theme((
+              background-color: app-title-down-back-color
+      ));
+    }
+
+    &-vline {
+      position: absolute;
+      height: 30px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      @include theme((
+              border-left: "1px solid {app-title-vertical-line}"
+      ));
+    }
+
+    &-logo-upper {
+      margin-top: -5px;
+      font-size: 10px;
+      padding: 2px 4px 2px 4px;
+      background-image: -moz-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+      background-image: -webkit-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+      background-image: -ms-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+      border-radius: 3px;
+      margin-left: 3px;
+      margin-right: 4px;
+
+      @include theme((
+              color: app-title-fore-color
+      ));
+    }
+
+    &-search {
+      padding-right: $padding-medium;
+      padding-left: 24px;
+      width: 90px;
+      border-radius: $radius-z;
+
+      @include theme((
+              height: "40px",
+              border: "0 {app-title-border-color} solid",
+              background: app-title-edit-control
+      ));
+
+      @include theme-classic((
+              color: dark-bg-fore-color,
+              background-image: "linear-gradient(top, {app-title-search-top-color} 0%, {app-title-edit-control} 30%, {app-title-edit-control} 30%, {app-title-search-bottom-color} 100%)"
+      ));
+    }
+
+  &-search:hover {
+    @include theme((
+            border: "0 {app-title-border-color} solid !important"
+    ));
+  }
+
+  &-search:focus {
+    @include theme((
+            border: "0 {app-title-border-color} solid !important"
+    ));
+  }
+
+    &-search-rsponsive {
+      width: 47px;
+    }
+
+    & .input-group-btn {
+      top: 10px;
+      display: block;
+
+      @include theme((
+            color: app-title-fore-color
+      ));
+
+      @include theme-classic((
+            color: app-title-fade-fore-color
+      ));
+    }
+
+    &-btn-search {
+      border-style: solid;
+      margin-bottom: 0;
+      border-radius: 0;
+      padding: $padding-small;
+      padding-left: $padding-medium;
+      font-size: $font-medium;
+      margin-top: 0;
+      z-index: 2;
+      border: 0;
+      height: 23px;
+      background-color: transparent;
+    }
+
+  &-btn-search:hover {
+    @include theme((
+            color: link-fore-color
+    ));
+  }
+
+  &-btn-search:focus {
+    @include theme((
+            color: link-fore-color,
+            border: none
+    ));
+
+    @include theme-classic((
+            border: "0 {btn-focus} solid !important"
+    ));
+  }
+
+  &-search-icon-rsponsive {
+    padding: 3px 14px;
+  }
+
+    &-btn-special {
+      font-weight: normal !important;
+      height: 31px !important;
+      border-radius: 0;
+      font-size: 11px;
+      padding-bottom: 8px;
+
+      @include theme((
+              color: app-title-fore-color,
+              border: "1px {app-title-ui-control} solid",
+              background-color: app-title-ui-control
+
+      ));
+
+      @include theme-classic((
+              color: app-title-fade-fore-color,
+              background-image: "linear-gradient(top, {app-title-ui-control} 0%, {app-title-ui-control-gradient} 100%)"
+      ));
+    }
+
+    &-btn-special:hover {
+      @include theme((
+              background: sidebar-nav-bg-color
+      ));
+    }
+
+    &-toolbar-back-clr {
+      @include theme((
+              background-color: app-title-toolbar-back-color
+      ));
+
+      @include theme-classic((
+              background-image: "linear-gradient(top, {app-title-toolbar-back-color} 0%, {app-title-toolbar-back-color-gradient} 30%)"
+      ));
+    }
+
+    &-version {
+      padding-top: 2px;
+    }
+
+    &-dark-back-color {
+      @include theme((
+              background-color: app-title-toolbar-back-color-gradient
+      ));
+    }
+
+    &-gain-loss-back-color {
+      padding-left: $padding-small;
+      padding-right: $padding-small;
+
+      @include theme((
+              background: app-title-edit-control
+      ));
+
+      @include theme-classic((
+              background-color: app-title-back-color
+      ));
+    }
+
+  &-logo-image-size img {
+    max-width: 155px;
+    max-height: 32px;
+  }
+
+  &-modal-symbol {
+    position: absolute;
+    left: inherit;
+    top: 39px;
+  }
+
+  &-bar-dropdown {
+    background-color: transparent !important;
+    border: none !important;
+    background-image: none !important;
+  }
+}
+
+.appttl-search:-ms-input-placeholder {
+  font-style: normal;
+
+  @include theme((
+          color: app-title-fore-color
+  ));
+
+  @include theme-classic((
+          color: app-title-fade-fore-color
+  ));
+}
+
+.appttl-search::-webkit-input-placeholder {
+  font-style: normal;
+
+  @include theme((
+          color: app-title-fore-color
+  ));
+
+  @include theme-classic((
+          color: app-title-fade-fore-color
+  ));
+}
+
+.appttl-search:-moz-placeholder {
+  font-style: normal;
+
+  @include theme((
+          color: app-title-fore-color
+  ));
+
+  @include theme-classic((
+          color: app-title-fade-fore-color
+  ));
+}
+
+.appttl-search::-moz-placeholder {
+  font-style: normal;
+
+  @include theme((
+          color: app-title-fore-color
+  ));
+
+  @include theme-classic((
+          color: app-title-fade-fore-color
+  ));
+}
+
+.modal-symbol {
+  position: absolute;
+  left: inherit;
+}
+
+.username-width {
+  max-width: 150px;
+}
+
+.symbol-search-result-popup {
+  left: 10px;
+  top: 32px;
+}
+
+.top-panel-logo {
+  width: 112px;
+  height: 66px;
+  background-image: url(img/logo-cobranded.png);
+}
+
+.portfolio-selection-popup {
+  z-index: 100;
+  top: 94%;
+}
+
+.portfolio-selection-popup > .layout-container:hover a {
+  @include theme((
+          color: app-title-fore-color
+  ));
+}
+
+.portfolio-selection-popup > .layout-container:hover {
+  @include theme((
+          color: app-title-fore-color,
+          background-color: widget-title-back-color
+  ));
+}
+
+.portfolio-selection-popup > .settings-selected a:hover {
+  @include theme((
+          color: app-title-fore-color
+  ));
+}
+
+.news-announcement-width {
+  max-width: 515px;
+}
+
+@import 'extended/app-title-bar-extended';

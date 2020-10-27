@@ -1,0 +1,136 @@
+.main-menu-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.main-menu-enter {
+  left: 0;
+  right: 20%;
+  -webkit-animation: main-menu-left-animation .4s;
+  -moz-animation: main-menu-left-animation .4s;
+  -o-animation: main-menu-left-animation .4s;
+  animation: main-menu-left-animation .4s;
+}
+
+.main-menu-exit {
+  left: -100%;
+  right: 100%;
+  -webkit-animation: main-menu-right-animation 0.3s;
+  -moz-animation: main-menu-right-animation 0.3s;
+  -o-animation: main-menu-right-animation 0.3s;
+  animation: main-menu-right-animation 0.3s;
+}
+
+@keyframes main-menu-left-animation {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes main-menu-right-animation {
+  from {
+    transform: translateX(80%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.main-menu-line {
+  line-height: 18px;
+}
+
+.main-menu-inner {
+  width: 100%
+}
+
+.main-menu-right-panel {
+  width: 0;
+  right: 0;
+  opacity: 0.9;
+
+  @include theme((
+          background-color: box-shadow-color
+  ));
+}
+
+.main-menu-scroll {
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.menu-scroll-height {
+  height: calc(100% - 72px);
+}
+
+.menu-back-view {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.5;
+
+  @include theme((
+          background-color: tool-bar-back-color
+  ));
+
+  @include theme-classic((
+          background-color: base-color-gray
+  ));
+}
+
+.menu-back-main {
+  width: 100%;
+  z-index: 1;
+}
+
+.menu-back-view-up {
+  -webkit-animation: menu-back-view-up-animation 0.4s;
+  -moz-animation: menu-back-view-up-animation 0.4s;
+  -o-animation: menu-back-view-up-animation 0.4s;
+  animation: menu-back-view-up-animation 0.4s;
+}
+
+.menu-back-view-down {
+  -webkit-animation: menu-back-view-down-animation 0.3s;
+  -moz-animation: menu-back-view-down-animation 0.3s;
+  -o-animation: menu-back-view-down-animation 0.3s;
+  animation: menu-back-view-down-animation 0.3s;
+}
+
+@keyframes menu-back-view-up-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes menu-back-view-down-animation {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.menu-logo {
+  height: 35px;
+  width: 117px;
+  background-image: url(img/co-branded.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@import "extended/main-navigation-mobile-extended";

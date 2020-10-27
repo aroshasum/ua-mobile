@@ -1,0 +1,39 @@
+.ar .swipe-view-right {
+  right: 0;
+  left: 100%;
+  -webkit-animation: swipe-view-left-ar 0.2s;
+  -moz-animation: swipe-view-left-ar 0.2s;
+  -o-animation: swipe-view-left-ar 0.2s;
+  animation: swipe-view-left-ar 0.2s;
+}
+
+.ar .swipe-view-left {
+  right: 0;
+  left: 100%;
+  -webkit-animation: swipe-view-right-ar 0.2s;
+  -moz-animation: swipe-view-right-ar 0.2s;
+  -o-animation: swipe-view-right-ar 0.2s;
+  animation: swipe-view-right-ar 0.2s;
+}
+
+@keyframes swipe-view-left-ar {
+  from {
+    transform: translateX(20%);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swipe-view-right-ar {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

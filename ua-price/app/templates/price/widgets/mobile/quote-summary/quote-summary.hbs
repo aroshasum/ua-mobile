@@ -1,0 +1,99 @@
+{{market-quote
+stock=stock
+app=app
+}}
+
+<div class="full-width">
+    <div class="full-width pad-s-t widget-hline overflow-hidden pos-rel">
+        <div class="pos-abs">
+            <div class="layout-col pad-xs-t h-left">
+            <span class="full-width {{descFontCss}} font-l fade-fore-color">
+                {{stock.lDes}}
+            </span>
+            </div>
+            <div class="layout-col pad-l-l">
+            <span class="icon-fore-color">
+                <i class="icon-mobile-rotate pad-m-lr font-4x-l"></i>
+            </span>
+            </div>
+        </div>
+        <div class="pad-s-t">
+            <div class="navbar-nav-chart ltr pad-m-t"><span class="mgn-l-t index-chart-position">
+                {{outlet "quoteChartOutlet"}}
+            </span></div>
+            <div class="full-width"></div>
+        </div>
+    </div>
+</div>
+<div class="layout-container full-width {{if bidOfferAvailable 'widget-hline' ''}}">
+    {{#if bidOfferAvailable}}
+        <div class="layout-col-12 pad-m-tb pad-s-r">
+            <div class="layout-row">
+                <!--{{!#if isTradingEnabled}}-->
+                <!--<div class="layout-col h-left font-x-l up-fore-color">{{!formatNumber stock.bbq 0}}</div>-->
+                <!--{{!else}}-->
+                <!--<div class="layout-col font-l fade-fore-color">{{!app.lang.labels.bestBid}} </div>-->
+                <!--{{!/if}}-->
+                <div class="layout-col font-l fade-fore-color">{{app.lang.labels.bestBid}} </div>
+                <div class="layout-col-24 h-right font-x-l bold up-fore-color btn-animation" {{action 'sell'}}> {{formatNumber stock.bbp stock.deci}} </div>
+            </div>
+        </div>
+
+        <div class="layout-col-12 pad-m-tb pad-s-l">
+            <div class="layout-row">
+                <!--{{!#if isTradingEnabled}}-->
+                <!--<div class="layout-col h-left font-x-l down-fore-color">{{!formatNumber stock.baq 0}}</div>-->
+                <!--{{!else}}-->
+                <!--<div class="layout-col font-l fade-fore-color">{{!app.lang.labels.bestOffer}} </div>-->
+                <!--{{!/if}}-->
+                <div class="layout-col font-l fade-fore-color">{{app.lang.labels.bestOffer}} </div>
+                <div class="layout-col-24 h-right font-x-l bold down-fore-color btn-animation" {{action 'buy'}}> {{formatNumber stock.bap stock.deci}} </div>
+            </div>
+        </div>
+    {{/if}}
+</div>
+<div class="layout-container full-width {{if subMarket '' 'pad-l-b'}}">
+    <div class="layout-col-12 pad-s-r v-top">
+        {{#each field in columnOne}}
+            <div class="layout-container full-width">
+                <div class="layout-row">
+                    <div class="layout-col-24 font-l fade-fore-color widget-hline pad-m-tb">{{field.caption}}</div>
+                    {{#if field.isLong}}
+                        {{#if (onResponsive responsive.trigger responsive "hnav-panel-mobile" 1)}}
+                            <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr {{field.style}}"> {{field.formattedValue}} </div>
+                        {{else}}
+                            <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr {{field.style}}"> {{field.formattedValue}} </div>
+                        {{/if}}
+                    {{else}}
+                        <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr {{field.style}}"> {{field.formattedValue}} </div>
+                    {{/if }}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <div class="layout-col-12 pad-s-l v-top">
+        {{#each field in columnTwo}}
+            <div class="layout-container full-width">
+                <div class="layout-row">
+                    <div class="layout-col-24 font-l fade-fore-color widget-hline pad-m-tb">{{field.caption}}</div>
+                    {{#if field.isLong}}
+                        {{#if (onResponsive responsive.trigger responsive "hnav-panel-mobile" 1)}}
+                            <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr{{field.style}}"> {{field.formattedValue}} </div>
+                        {{else}}
+                            <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr {{field.style}}"> {{field.formattedValue}} </div>
+                        {{/if}}
+                    {{else}}
+                        <div class="layout-col bold font-x-l fore-color widget-hline pad-m-l h-right ltr {{field.style}}"> {{field.formattedValue}} </div>
+                    {{/if }}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{#if subMarket}}
+    <div class="layout-container full-width widget-hline pad-l-b">
+        <div class="layout-col font-l fade-fore-color pad-m-tb">{{app.lang.labels.market}}</div>
+        <div class="layout-col-24 bold font-x-l fore-color pad-m-l h-right">{{subMarket}}</div>
+    </div>
+{{/if}}

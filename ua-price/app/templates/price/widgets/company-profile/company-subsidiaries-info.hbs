@@ -1,0 +1,54 @@
+<div class="widget_new full-height">
+    {{widget-header
+    linkOptions=links
+    defaultSelectedLink=defaultLink
+    selectedLink=selectedLink
+    widgetTitle=app.lang.labels.subsidiaries
+    symbol=symbolObj.dispProp1
+    setLink='setLink'
+    hideSymbol=hideSymbol
+    searchedSymbol=symbolObj.dispProp1
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    isSearchAvailable=isSearchAvailable
+    searchID=searchID
+    clickAction='changeSymbol'
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+
+    <div class="widget-container-new no-padding-top pad-s-b" style="height: calc(100% - 26px);" id={{wkey}}>
+        {{#if isDataAvailable}}
+            <div class="layout-container full-width data-table-header">
+                <div class="layout-col-9">
+                    <div class="layout-inline font-m pad-s-l pad-s-b pad-s-t">{{app.lang.labels.name}}</div>
+                </div>
+                <div class="layout-col-3">
+                    <div class="layout-inline font-m h-right pad-s-r pad-s-b pad-s-t">{{app.lang.labels.sherPrs}}</div>
+                </div>
+            </div>
+        {{/if}}
+        <div class="nano full-height-without-header pos-rel has-scrollbar">
+            <div class="nano-content full-height">
+                {{loading-indicator isLoading=isLoading}}
+                {{single-message-viewer showMessage=showError message=errorMessage messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+                {{#if isDataAvailable}}
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-layout-fixed full-width">
+                        {{#each subsiInfo in sortedContent}}
+                            <tr>
+                                <td class="pad-s-tb pad-widget-left pad-s-r">
+                                    <div class="font-m company-ellipsis">{{subsiInfo.subsiName}}</div>
+                                </td>
+                                <td class="pad-s-tb pad-widget-right pad-s-l h-right" style="width: 33%">
+                                    <div class="font-m header-colour">{{multiplyNumberPercentage subsiInfo.subsiSherPrs 100 4}}</div>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </table>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

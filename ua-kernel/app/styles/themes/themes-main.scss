@@ -1,0 +1,5 @@
+@import '_internal-theme-helper';
+
+@include theme-auto-generate-colors();
+
+@import 'extended/themes-main-extended';

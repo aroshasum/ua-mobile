@@ -1,0 +1,13 @@
+<div class="dropdown {{buttonCss}}" {{action 'onWidgetClick' on="click"}}>
+    <a class="cursor-pointer hint--top hint--bounce hint--rounded" data-hint="{{app.lang.labels.settings}}">
+        {{#if enableSideDropDown}}
+            <div class="layout-container">
+                <i {{bind-attr class="iconCss"}}></i>
+                <i class="layout-col icon-arrow-lowerright font-xx-l pad-s-t {{dropdown-arrow}}"></i>
+            </div>
+        {{else}}
+            <i {{bind-attr class="iconCss"}}></i>
+        {{/if}}
+
+    </a>
+</div>

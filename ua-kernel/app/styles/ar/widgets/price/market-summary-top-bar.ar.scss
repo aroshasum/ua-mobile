@@ -1,0 +1,94 @@
+@import '../../../common-variables';
+@import '../../../themes/theme-2-variables';
+@import '../../../widget-variables';
+
+.ar .ms-top-bar {
+
+	&-exchange {
+	  float: $float-2;
+	}
+
+	&-chart {
+	  width: 160px;
+	  float: $float-2;
+	}
+
+	&-index-value {
+      padding-right: 10px;
+	  float: $float-2;
+	}
+
+	&-index-value-1 {
+		width: 206px;
+	}
+
+    &-index-dropdown {
+      right: 100px;
+    }
+
+	&-index-dropdown-3 {
+      right: initial;
+    }
+
+    &-index-chart-position {
+      left: 10px;
+    }
+
+    &-percentage-position {
+      padding-left: 0;
+      padding-right: 10px;
+    }
+
+	&-ticker-area {
+	  float: $float-2;
+	}
+
+	&-ticker {
+	  float: $float-2;
+	}
+
+	&-ticker-cell {
+	  width: 25%;
+	  float: $float-2;
+	}
+
+	&-vertical-top {
+	  margin-left:inherit;
+	  margin-right:-26px;
+	}
+
+	&-progress-vertical {
+	  display: inline-block;
+	  -webkit-transform: rotate(90deg);
+	  -ms-transform: rotate(90deg);
+	  transform: rotate(90deg);
+	}
+
+	&-padding-x-large-left {
+	  padding-right: 24px;
+	  padding-left: 3px;
+	}
+
+	&-logo-left{
+    @if $isLogoRight == 'yes'
+    {
+        display: block;
+    } @else {
+        display: none;
+    }  
+	}
+
+	&-logo-right{
+    @if $isLogoRight == 'yes'
+    {
+        display: none;
+    }
+    @else {
+        display: block;
+    }
+	}
+}
+
+@import 'extended/market-summary-top-bar-extended.ar';
+
+

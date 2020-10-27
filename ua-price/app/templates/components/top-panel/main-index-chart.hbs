@@ -1,0 +1,65 @@
+<table class="w-full border-b" cellspacing="0" cellpadding="0" border="0" style="width: 190px">
+    <tr>
+        <td class="full-width pos-rel">
+            <table class="full-width">
+                <tr>
+                    <td>
+                        <div class="mgn-m-l ms-top-bar-index-dropdown pad-s-t">
+                            {{bootstrap-dropdown-select
+                            options=indexCollectionArray
+                            defaultSelect=defaultIndexForDropdown
+                            valueKey='dSym'
+                            labelKey='sDes'
+                            selectedLabelKey='dSym'
+                            value=currentIndex.dSym
+                            selectAction='setIndexData'
+                            lblClass='font-l'
+                            buttonClass='bold ltr dropdown-text-only'
+                            wkey=wkey}}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ltr h-right ms-top-bar-index-value pad-s-t {{if isTablet 'pad-s-t' 'pad-l-r'}}">
+                            <div {{bind-attr class="indexValCss"}}>
+                                <span class="index-Arrow">  <i {{bind-attr class="indexArrowCss :v-bottom"}}> </i> </span>
+                                <span class="index-Value v-bottom ellipsis hint--bottom-left hint--bounce hint--rounded" data-hint="{{app.lang.labels.indexValue}}"> {{formatNumber currentIndex.ltp}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="pos-rel">
+            <table>
+                <tr>
+                    {{#unless isTablet}}
+                        <td>
+                            <div class="ms-top-bar-chart ltr" id="mainIndexChart-{{id}}" {{action 'popUpChartOptionWidget'}}><span id="{{chartId}}" class="ms-top-bar-index-chart-position mgn-m-l"></span></div>
+                        </td>
+                    {{/unless}}
+                    {{#if isTablet}}
+                        <td>
+                            <div class="ms-top-bar-chart ltr" id="mainIndexChart" style="margin-left: 50px;">
+                                <span id="chart" class="ms-top-bar-index-chart-position"></span>
+                            </div>
+                        </td>
+                    {{/if}}
+                    <td>
+                    <div class="ltr h-right ms-top-bar-percentage-position {{if isTablet '' 'pad-l-r'}}" style="padding-top:{{if isTablet '5px' '11px'}}">
+                        <div {{bind-attr class="indexCss"}}>
+                            <div class="pad-s-b">
+                                <div {{bind-attr class="indexBackgroundCss :hint--bottom-left :hint--bounce :hint--rounded"}} data-hint="{{app.lang.labels.change}}"> {{formatNumber currentIndex.chg}}</div>
+                            </div>
+                            <div {{bind-attr class="indexPercentageCss"}}>
+                                <span class="ms-top-bar-index-percentage pad-s-l hint--bottom-left hint--bounce hint--rounded" data-hint="{{app.lang.labels.perChange}}">{{indexChangeSign}}{{formatNumberPercentage currentIndex.pctChg}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

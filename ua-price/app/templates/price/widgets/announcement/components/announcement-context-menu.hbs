@@ -1,0 +1,25 @@
+<div class="left pad-m-t pad-m-r pad-m-l full-width border-bottom y-scroll" style="max-height: 150px" id="container">
+    {{#each columns as |column index| }}
+        <div class="layout-container mgn-s-b full-width rtl {{column.disableClass}}">
+            <a class="fade-fore-color mgn-xs-t" role="menuitem">
+                <label class="fade-fore-color">{{input checked=column.isSelected type="checkbox" name=column.code}} {{column.displayName}}</label>
+            </a>
+        </div>
+    {{/each}}
+</div>
+
+{{#if showActionButton}}
+    <div class="right pad-m-t pad-m-r pad-m-l layout-container announcement-context-button-container">
+        <div class="pad-s-l layout-col">
+            <button type="button"
+                    class="btn btn-default bold" {{action 'cancel' item}}>{{app.lang.labels.cancel}}
+            </button>
+        </div>
+        <div class="pad-s-l layout-col">
+            <button type="button"
+                    class="btn btn-default bold" {{action 'save' item}}>{{app.lang.labels.save}}
+            </button>
+        </div>
+    </div>
+{{/if}}
+

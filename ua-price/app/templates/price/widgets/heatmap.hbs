@@ -1,0 +1,68 @@
+<div class='full-width widget_new full-height'>
+    {{#unless isMobile}}
+        {{widget-header
+        hideWidgetLink=true
+        widgetTitle=app.lang.labels.perHeatMap
+        innerWidgets=innerWidgets
+        innerWidgetAction="renderInnerWidgetItems"
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        closeWidgetAction= 'closeWidgetAction'
+        closeActionTarget=controller
+        cursorMoveCss=cursorMoveCss
+        app=app}}
+    {{/unless}}
+
+    <div class="widget-container-new">
+        {{#unless isMobile}}
+            <div class='layout-container toolbar-styles'>
+
+                {{#if isMoreMarketsAvailable}}
+                    <div class="layout-col overflow-visible pad-m-r">
+                        {{more-markets-dropdown exchangeValue=exchange key=wkey setExchange='setExchange'}}
+                    </div>
+                {{/if}}
+
+                {{#if isSubMarketsAvailable}}
+                    <div class="layout-col overflow-visible input-group pad-m-r">
+                        {{sub-markets-dropdown exchange=exchange key=wkey currentMarketId=currentSubMarketId onSubMarketChanged='setSubMarket'}}
+                    </div>
+                {{/if}}
+
+                <div class="layout-col font-m fade-fore-color">{{app.lang.labels.sizeRepresenation}}</div>
+
+                <div class="layout-col dropdown overflow-visible pad-s-l">
+                    {{bootstrap-dropdown-select
+                    options=sizeDropdownOptions
+                    defaultSelect=defaultForSizeDropdown
+                    valueKey='val'
+                    labelKey='DisplayName'
+                    selectedLabelKey='DisplayName'
+                    wkey=wkey
+                    selectAction='setSizeField'}}
+                </div>
+
+                <div class="layout-col pad-m-l font-m fade-fore-color">{{app.lang.labels.colorRepresenation}}</div>
+
+                <div class="dropdown layout-col overflow-visible pad-s-l">
+                    {{bootstrap-dropdown-select
+                    options=colorDropdownOptions
+                    defaultSelect=defaultForColorDropdown
+                    valueKey='val'
+                    labelKey='DisplayName'
+                    selectedLabelKey='DisplayName'
+                    wkey=wkey
+                    selectAction='setColorField'}}
+                </div>
+
+                <div class='layout-col-24'></div>
+
+            </div>
+        {{/unless}}
+
+        {{loading-indicator isLoading=isLoading}}
+        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+
+        <div id='treemap_container' class='full-width heat-map-content'></div>
+    </div>
+</div>
+

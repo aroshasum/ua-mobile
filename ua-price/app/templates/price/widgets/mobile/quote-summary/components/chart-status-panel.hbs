@@ -1,0 +1,67 @@
+<div class="layout-container full-width separator separator-shadow status-panel pad-s-tb">
+    <div class="layout-col ellipsis pad-s-t h-left pad-m-r pad-widget-left bold symbol-fore-color {{symbolFontCss}} ">
+        <div class="ellipsis v-bottom pad-s-t">
+            {{stock.dispProp1}}
+        </div>
+    </div>
+
+    {{#if isLandscapeMode}}
+        <div class="layout-col pad-s-t h-left pad-m-r pad-widget-left">
+            <div {{bind-attr class=":layout-inline :ltr :bold :font-4x-l colorCSS"}}>
+                <i {{bind-attr class="ltpIconCSS :glyphicon :v-bottom :font-m"}}></i>
+                {{formatNumber stock.ltp}}
+            </div>
+            <div {{bind-attr class=":layout-inline :ltr :v-bottom :font-xx-l :pad-widget-left colorCSS"}}>{{formatNumber stock.chg}}</div>
+            <div {{bind-attr class=":layout-inline :ltr :v-bottom :font-xx-l :pad-m-l colorCSS"}}>({{formatNumberPercentage stock.pctChg}})</div>
+        </div>
+    {{/if}}
+
+    <div class="layout-col-24 full-width"></div>
+
+    {{#if isTradingEnabled}}
+        <div class="layout-col pad-s-t">
+            {{#if isLiquidateEnable}}
+                <div class="layout-col pad-m-l">
+                    <div class="layout-inline">
+                        <button type="submit"
+                                class="btn btn-animation order-ticket-text-boxes up-back-color appttl-fore-color font-xx-l" {{action 'onBuyMore'}}>{{app.lang.labels.buyMore}}</button>
+                    </div>
+                    <div class="layout-inline  pad-m-l">
+                        <button type="submit"
+                                class="btn btn-animation order-ticket-text-boxes down-back-color appttl-fore-color font-l" {{action 'onLiquidate'}}>{{app.lang.labels.liquidate}}</button>
+                    </div>
+                </div>
+            {{else}}
+                <div class="layout-col">
+            <span class="bold btn-txt-color pad-s-l"><button disabled={{isIndices}} {{action 'buy'}} type="button" class="btn btn-buy up-back-color btn-animation">{{app.lang.labels.buy}}</button></span>
+                </div>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    <div class="layout-col pad-s-t h-right">
+        {{#unless isShareIconDisabled}}
+            <div class="layout-col cursor-pointer pad-s-lr" {{action 'onShareScreen'}}>
+                <span class="icon-fore-color">
+                    <i class="icon-share glyphicon pad-m-lr font-4x-l"></i>
+                </span>
+            </div>
+        {{/unless}}
+
+        <div class="layout-col cursor-pointer pad-s-lr" {{action 'addStocksToCustomWL'}}>
+                <span class="icon-fore-color">
+                    <i {{bind-attr class=":glyphicon-star-empty :glyphicon :pad-m-lr :font-4x-l isAddedToCustomWatchList:symbol-fore-color"}}></i>
+                </span>
+        </div>
+
+        {{#if isAlertIconEnabled}}
+            <div class="layout-col pad-s-l pad-l-r h-middle font-4x-l fade-fore-color overflow-visible" {{action 'itemClicked'}}>
+                 <span class="icon-fore-color">
+                    <i class="glyphicon glyphicon-bell"></i>
+                </span>
+            </div>
+        {{/if}}
+
+    </div>
+</div>
+<div class="horizontal-separator mgn-m-lr"></div>

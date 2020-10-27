@@ -1,0 +1,18 @@
+.footer {
+  height: 23px;
+  bottom: 0;
+  position: fixed;
+
+  &-padding {
+	padding-right: $padding-small;
+	padding-left: $padding-small;
+  }
+
+  &-padding-first {
+	padding-right: $padding-small;
+  }
+
+  &-padding-last {
+	padding-left: $padding-small;
+  }
+}

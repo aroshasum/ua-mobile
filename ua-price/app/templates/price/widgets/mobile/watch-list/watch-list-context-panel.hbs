@@ -1,0 +1,58 @@
+<div class="layout-container">
+    {{#if view.isTradingEnabled}}
+        <div class="layout-col" {{action 'buttonMenuAction' false view.rowValues view.content}}>
+            <span class="font-xx-l bold btn-txt-color pad-s-l">
+                <button type="button" class="btn btn-buy btn-animation up-back-color">{{view.app.lang.labels.buy}}</button>
+            </span>
+        </div>
+        <div class="layout-col" {{action 'buttonMenuAction' true view.rowValues view.content}}>
+            <span class="font-xx-l bold btn-txt-color pad-m-l">
+                <button type="button" class="btn btn-sell btn-animation bold down-back-color">{{view.app.lang.labels.sell}}</button>
+            </span>
+        </div>
+    {{/if}}
+    {{#if view.isDeleteButtonEnabled}}
+        <div class="layout-col" {{action 'deleteSymbol' view.rowValues target='view'}}>
+        <span class="font-xx-l bold btn-txt-color pad-m-lr">
+            <button type="button" class="btn bold sidebar-nav-icon-color add-favorite-btn" >
+                <i {{bind-attr class=":glyphicon-trash :glyphicon :font-xxx-l"}}></i>
+            </button>
+        </span>
+        </div>
+    {{else}}
+        <div class="layout-col">
+            {{#if view.isMultipleCustomWLAvailable}}
+                {{bootstrap-icon-dropdown
+                options=view.customWLArray
+                valueKey="name"
+                labelKey="name"
+                targetObject=view
+                selectAction="addStocksToCustomWL"
+                iconStyle="glyphicon-star-empty glyphicon font-xxx-l"
+                enableSideDropDown=true
+                dropdownCss="dropdown-menu-align-right"
+                buttonCss="font-xx-l bold pad-l-lr pad-m-tb icon-fore-color"
+                itemCss="font-s bold"
+                }}
+            {{else}}
+                <span class="font-xx-l bold btn-txt-color pad-m-lr" {{action 'addStocksToCustomWL' view.rowValues target='view'}}>
+                    <button type="button" class="btn bold add-favorite-btn sidebar-nav-icon-color">
+                        <i {{bind-attr class=":glyphicon-star-empty :glyphicon :font-xxx-l view.favouriteIconCss"}}></i>
+                    </button>
+                </span>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    <div class="layout-col pad-s-l pad-widget-right">
+        <div {{bind-attr class=":symbol-fore-color :pad-s-tb :h-left :ltr view.styleFirstValue" }}>
+            <span {{bind-attr class="view.is52WeekHigh:up-fore-color view.is52WeekLow:down-fore-color :bold :font-xxx-l"}}>
+                {{view.rowValues.content.dispProp1}}
+            </span>
+        </div>
+
+        <div {{bind-attr class=":pad-s-t :fade-fore-color :ellipsis :font-x-l view.styleSecondValue" }}>
+            {{view.rowValues.content.lDes}}
+        </div>
+    </div>
+</div>

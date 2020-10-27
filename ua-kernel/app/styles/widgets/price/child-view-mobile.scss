@@ -1,0 +1,79 @@
+.child-view-main {
+  position: absolute;
+  top: 0;
+  bottom: 58px;
+  z-index: 2;
+}
+
+.child-view-enter {
+  left: 0;
+  right: 0;
+  -webkit-animation: child-view-left-animation .4s;
+  -moz-animation: child-view-left-animation .4s;
+  -o-animation: child-view-left-animation .4s;
+  animation: child-view-left-animation .4s;
+}
+
+.child-view-exit {
+  left: 100%;
+  right: -100%;
+  -webkit-animation: child-view-right-animation .4s;
+  -moz-animation: child-view-right-animation .4s;
+  -o-animation: child-view-right-animation .4s;
+  animation: child-view-right-animation .4s;
+}
+
+.parent-view-exit {
+  -webkit-animation: parent-view-left-animation 0.8s;
+  -moz-animation: parent-view-left-animation 0.8s;
+  -o-animation: parent-view-left-animation 0.8s;
+  animation: parent-view-left-animation 0.8s;
+}
+
+.parent-view-enter {
+  -webkit-animation: parent-view-right-animation .2s;
+  -moz-animation: parent-view-right-animation .2s;
+  -o-animation: parent-view-right-animation .2s;
+  animation: parent-view-right-animation .2s;
+}
+
+
+@keyframes child-view-left-animation {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes child-view-right-animation {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes parent-view-left-animation {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes parent-view-right-animation {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

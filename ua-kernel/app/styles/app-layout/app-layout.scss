@@ -1,0 +1,23 @@
+@import '../common-variables';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+
+$appttl-bar-height: 40px;
+$height-top-panel: 75px;
+$appmnu-width: 70px;
+$rightmnu-width: 45px;
+$rightmnu-collapse-width: 230px;
+$appmnu-height: 67px;
+$app-tab-height: 25px;
+$horizontal-panel-height: 30px;
+$app-widget-gap: $margin-small;
+
+@mixin generate-widget-height($static-height) {
+  height: calc(100% - #{$static-height});
+}
+
+@mixin generate-widget-width($static-width) {
+  width: calc(100% - #{$static-width});
+}
+
+@import 'extended/app-layout-extended';

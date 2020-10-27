@@ -1,0 +1,13 @@
+<div {{bind-attr class=":panel-table :border-bottom view.styleBackground view.styles" }} cell-id="{{view.columnId}}">
+    <div>
+        <div {{bind-attr class=":font-l :ltr :bold view.styleFirstValue" }}>
+            {{view.formattedFirstValue}}
+        </div>
+        <div {{bind-attr class=":font-m :ltr :bold :pad-xs-t view.styleSecondValue" }}>
+            {{view.formattedSecondValue}}
+        </div>
+        <div {{bind-attr class=":font-m :ltr :bold :pad-xs-t :h-right view.styleThirdValue" }}>
+            {{view.formattedThirdValue}}
+        </div>
+    </div>
+</div>

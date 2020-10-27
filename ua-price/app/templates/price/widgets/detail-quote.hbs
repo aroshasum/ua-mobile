@@ -1,0 +1,59 @@
+<div class="pad-s-b full-height">
+    <div class="container-fluid" style="height: 44px;">
+        <div class="row" style="padding-bottom: 5px;">
+            <div class="layout-container col-lg-12 pad-m-lr pad-m-t">
+                <div class="layout-col-4"></div>
+                <div class="layout-col pad-m-r pad-s-l">
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.cashMap}}</div>
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded"
+                         data-hint="{{app.lang.labels.cashMap}} %   {{formatNumber cashMapValues.calculateCash 2}}&#10;{{app.lang.labels.cashIn}}       {{formatNumber stock.cit stock.deci}}&#10;{{app.lang.labels.cashOut}}    {{formatNumber stock.cot stock.deci}}">{{cash-map id=cashMapId stock=stock isValueHidden=true}}</div>
+                </div>
+
+                <div class="layout-col-4"></div>
+
+                <div class="layout-col widget-vline"></div>
+
+                <div class="layout-col-4"></div>
+
+                <div class="layout-col pad-m-lr">
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.daysRange}}</div>
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.daysRange}} %   {{formatNumber daysRangeValues.dayRangePosition 2}}&#10;{{app.lang.labels.lastTrade}}           {{formatNumber daysRangeValues.lastTradeValue stock.deci}}&#10;{{app.lang.labels.todayHigh}}       {{formatNumber daysRangeValues.highValue stock.deci}}&#10;{{app.lang.labels.todayLow}}        {{formatNumber daysRangeValues.lowValue stock.deci}}">{{days-range id=daysRangeId stock=stock isBarAvailable=true}}</div>
+                </div>
+
+                <div class="layout-col-4"></div>
+
+                <div class="layout-col widget-vline"></div>
+
+                <div class="layout-col-4"></div>
+
+                <div class="layout-col pad-m-lr pad-s-l">
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.week52Range}}</div>
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.week52Range}} %  {{formatNumber fiftyTowWkValues.fiftyTwoWkPosition 2}}&#10;{{app.lang.labels.lastTrade}}        {{formatNumber daysRangeValues.lastTradeValue stock.deci}}&#10;{{app.lang.labels.fiftyTwoWkH}}        {{formatNumber fiftyTowWkValues.highValue stock.deci}}&#10;{{app.lang.labels.fiftyTwoWkL}}         {{formatNumber fiftyTowWkValues.lowValue stock.deci}}">{{fifty-two-wk-hl id=fiftyTowWkId stock=stock isBarAvailable=true}}</div>
+                </div>
+
+                <div class="layout-col-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-container widget-hline"></div>
+
+    <div class="row mgn-s-t mgn-s-l mgn-s-r" style="height: calc(100% - 44px)">
+        <div class="full-height">
+            <div class="full-height y-scroll">
+                {{#each field in panelFields}}
+                    <div class="layout-container intraday-dq-widget hint--bounce hint--top hint--rounded"
+                         data-hint={{field.detailQouteTitle}}>
+                        <div class="layout-container full-width">
+                            <div class="layout-col font-m ellipsis fade-fore-color pad-s-tb">{{field.caption}}</div>
+                            <div class="layout-col font-l bold fore-color right pad-s-tb h-right pad-s-r"><span class="{{field.style}}">{{field.formattedValue}}</span></div>
+                        </div>
+                        <div class="layout-container full-width">
+                            <div class="widget-hline full-width"></div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{{#unless isTablet}}
+    <div class="ticker-shadow"></div>
+{{/unless}}
+
+<div class="tickerDiv">
+    <div class="ticker {{if isHorizontalTickerAnimation 'tickerTwo-horizontal ticker-animation-horizontal' 'ticker-animation tickerTwo'}} transform {{if isTickerRunning 'anim-play' 'anim-paused'}}" id="tickerTwo" style={{{settings.tickerDelay}}}>
+        {{#each item in tickerOneItems}}
+            <div class="item left" style={{{settings.itemWidthStyle}}} {{action 'openPopup' item}}>
+                <span class="layout-inline symbol-fore-color bold font-l"> {{item.des}} </span>
+                <i class="layout-inline pad-xs-b {{item.iconClass}}"></i>
+                <div class="layout-inline fore-color bold ltr {{item.chgCssClass}}"> {{item.chg}} </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="ticker {{if isHorizontalTickerAnimation 'ticker-animation-horizontal' 'ticker-animation'}}  transform {{if isTickerRunning 'anim-play' 'anim-paused'}}" id="tickerOne" style={{{settings.tickerSpeed}}}>
+        {{#each item in tickerTwoItems}}
+            <div class="item left" style={{{settings.itemWidthStyle}}} {{action 'openPopup' item}}>
+                <span class="layout-inline symbol-fore-color bold font-l"> {{item.des}} </span>
+                <i class="layout-inline pad-xs-b {{item.iconClass}}"></i>
+                <div class="layout-inline fore-color bold ltr {{item.chgCssClass}}"> {{item.chg}} </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

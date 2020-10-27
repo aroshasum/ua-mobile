@@ -1,0 +1,44 @@
+@import '../../common-variables';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+//@import '../../themes/theme-helper';
+
+.link-item {
+  height: 11px;
+  width: 11px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  margin-top: 1px;
+}
+
+.link-1 {
+  @include theme((
+          background-color: link-1-color
+  ));
+}
+
+.link-3 {
+  @include theme((
+          background-color: link-2-color
+  ));
+}
+
+.link-4 {
+  @include theme((
+          background-color: link-3-color
+  ));
+}
+
+.link-2 {
+  @include theme((
+          background-color: link-4-color
+  ));
+}
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<div id="{{widgetContainerKey}}" {{bind-attr class=":col-xs-12 :full-height"}}>
+    <div class="widget_new full-height overflow-visible">
+
+        {{widget-header
+            widgetTitle=app.lang.labels.marketWatch
+            linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink='setLink' chaeck=linkdrveLogic
+            isPartialHeaderAvailable=true partialHeaderName='price/widgets/watch-list/components/watchlist-header-container' extendedComponentName='price/widgets/watch-list/components/watchlist-extended-header'
+            hideSymbol=true
+            isSettingsAvailable=true dropDownOptions=settings iconStyle='widget-title-fore-color' defaultSelect=defaultCriteria valueKey='code' labelKey='desc' selectAction='setTableSettings'
+            isResizeAvailable=true resizeAction='fullScreenToggle' fullScreenToggleTitle=fullScreenToggleTitle
+            innerWidgets=innerWidgets
+            innerWidgetAction="renderInnerWidgetItems"
+            isWidgetCloseAvailable=isWidgetCloseAvailable
+            closeWidgetAction= 'closeWidgetAction'
+            closeActionTarget=controller
+            cursorMoveCss=cursorMoveCss
+            app=app
+        }}
+
+           <div class="widget-container-new overflow-visible watch-list-container-height">
+                <div class="watchlist-ul">
+                    {{partial partialControlPanel}}
+                </div>
+
+                <div id="menuWL">
+            </div>
+
+            <div class="ember-table-panel full-width" style="padding: 0 0 1px 0; height:calc(100% - 39px);">
+                {{table-component
+                    hasBody=isRenderingEnabled
+                    columns=columns
+                    content=customArrayProxy
+                    lenContent=content
+                    rowHeight= rowHeight
+                    hasFooter=false
+                    minHeaderHeight= minHeaderHeight
+                    numFixedColumns=numOfFixedColumns
+                    selection=selection
+                    watchButton=customWatchListArray
+                    indicatorConfig= indicatorConfig
+                    sortAction="sort"
+                    onColumnReordered="reOrderColumns"
+                    rowClickAction="clickRow"
+                    doubleClickAction="doubleClickRow"
+                    isRefreshed=isRefreshed
+                    isHorizontalScrollAvailable=isHorizontalScrollAvailable
+                    availableHorizontalScrollWidth=availableHorizontalScrollWidth
+                    sortAscending=sortAscending
+                    isThinWL=isThinWL
+                    id=tableComponentId
+                    startIndex=customArrayProxy.startIndex
+                    numItemsShowing=customArrayProxy.numItemsShowing
+                    scrollLeft=scrollLeft
+                    enableColumnReorder=enableColumnReorder
+                    columnsFillTable=columnsFillTable
+                }}
+            </div>
+        </div>
+    </div>
+ </div>

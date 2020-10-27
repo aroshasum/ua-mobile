@@ -1,0 +1,71 @@
+@import '../../common-variables.scss';
+//@import '../../themes/theme-helper';
+@import '../../widget-variables';
+@import '../../app-layout/app-layout';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+
+.ar .search-ctrl {
+  padding-left: $padding-medium;
+  padding-right: 20px;
+}
+
+.ar .horizontal-list-left {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  float: $float-2;
+}
+
+.ar .horizontal-list-left-1 {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  float: $float-2;
+}
+
+.ar .horizontal-list-right {
+  list-style-type: none;
+  float: $float-1;
+}
+
+.ar .horizontal-list-right li {
+  margin-left: 11px;
+  float: right;
+  line-height: 23px;
+  vertical-align: middle;
+}
+
+// ---------  Scroll  -------------------------------------------------------------------
+
+.ar .y-scroll {
+  overflow: overlay;
+}
+
+// ---------  /Scroll  -------------------------------------------------------------------
+
+.ar .dropdown-submenu > .dropdown-menu {
+  top: 0;
+  right: 100%;
+  width: 263px;
+}
+
+.ar .dropdown-submenu:hover > a:after {
+  border-width: 5px 0 5px 5px;
+  margin-top: 5px;
+  margin-left: -10px;
+  float: $float-1;
+}
+
+.ar input[type='checkbox'] {
+  margin-left: 2px;
+  margin-right: 6px;
+}
+
+/* Toolbar styles */
+.ar .toolbar-styles {
+  padding: 0 $pad-widget 0 0;
+}
+
+@import 'extended/common-ui-controls-extended.ar';
+

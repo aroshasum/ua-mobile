@@ -1,0 +1,65 @@
+<div class="widget_new full-height" id={{wkey}}>
+    {{widget-header
+    widgetTitle=title
+    titleCss=titleCss
+    linkOptions=links
+    defaultSelectedLink=defaultLink
+    selectedLink=selectedLink
+    setLink='setLink'
+    hideSymbol=true
+    isTabAvailable=showTopStockTabs titleTabs=tabs tabAction='loadTab'
+    isTitleIconAvailable=true icon=icon
+    isMoreMarketAvailable=true
+    isSubMarketsAvailable=true
+    setExchange='setTopStockExchange'
+    setSubMarket='setTopStockSubMarket'
+    buttonClass='wdgttl-drp-dwn-btn'
+    defaultExchangeForDropdown=defaultExchangeForDropdown
+    value=exgCode
+    exchange=exchange
+    subMarket=subMarket
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss}}
+
+    <div class="nano has-scrollbar">
+        <div class="widget-container-new nano-content full-height-without-header">
+            <div id="table-{{wkey}}">
+                {{loading-indicator isLoading=isLoading}}
+                {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle pad-m-b'}}
+                {{#if isDataAvailable}}
+                    <div  class="data-table full-width">
+                        <div class="data-table-header">
+                            {{#each data in fieldList }}
+                                <div class="row-height-header font-m pad-widget-left pad-widget-right {{data.padding}} {{data.textAlign}} {{data.col}} {{data.externalCss}}">{{data.name}}</div>
+                            {{/each}}
+                        </div>
+                        {{#each content as |topStockObj index|}}
+                            {{#if appConfig.customisation.isMobile}}
+                                <div class="layout-row cursor-pointer font-m" id={{index}} {{action 'clickRow' topStockObj.val}}>
+                                    {{#each field in fieldList}}
+                                        <div data-id="topstock-{{field.objName}}" class="font-xx-l row-height pad-widget-left {{field.padding}} {{fontColor topStockObj.val field.objName field.fontColor}} {{field.bold}} {{field.textAlign}} {{field.col}} bold">
+                                            <div class="ellipsis"> {{dataTextField topStockObj.val field.objName field.formatter topStockObj.val.stock.deci}}</div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{else}}
+                                <div class="layout-row cursor-pointer" id={{index}} {{action 'doubleClickRow' topStockObj.val on="doubleClick"}}>
+                                    {{#each field in fieldList}}
+                                        <div data-id="topstock-{{field.objName}}" class="font-m row-height pad-widget-left {{field.padding}} {{fontColor topStockObj.val field.objName field.fontColor}} {{field.bold}} {{field.textAlign}} {{field.col}} bold">
+                                            <div class="ellipsis ltr"> {{dataTextField topStockObj.val field.objName field.formatter topStockObj.val.stock.deci}}</div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

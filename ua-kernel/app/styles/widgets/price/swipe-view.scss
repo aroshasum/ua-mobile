@@ -1,0 +1,65 @@
+.swipe-view {
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  bottom: 58px;
+  z-index: -1;
+}
+
+.swipe-view-main {
+  z-index: 2;
+}
+
+.swipe-view-shadow {
+  @include theme((
+          box-shadow: "-5px 0px 5px -2px {app-title-box-shadow-color}"
+  ));
+}
+
+.swipe-view-shadow-right {
+  @include theme((
+          box-shadow: "5px 0px 5px -2px {app-title-box-shadow-color}"
+  ));
+}
+
+.swipe-view-left {
+  left: 0;
+  right: 100%;
+  -webkit-animation: swipe-view-left-animation 0.2s;
+  -moz-animation: swipe-view-left-animation 0.2s;
+  -o-animation: swipe-view-left-animation 0.2s;
+  animation: swipe-view-left-animation 0.2s;
+}
+
+.swipe-view-right {
+  left: 0;
+  right: 100%;
+  -webkit-animation: swipe-view-right-animation 0.2s;
+  -moz-animation: swipe-view-right-animation 0.2s;
+  -o-animation: swipe-view-right-animation 0.2s;
+  animation: swipe-view-right-animation 0.2s;
+}
+
+@keyframes swipe-view-left-animation {
+  from {
+    transform: translateX(20%);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes swipe-view-right-animation {
+  from {
+    transform: translateX(-20%);
+    opacity: 0.2;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

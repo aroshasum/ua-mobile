@@ -1,0 +1,104 @@
+<div class="full-height {{tabCss.tabContainer}} {{if isTablet 'widget-container-new' ''}}" role="tabpanel" id={{wkey}}>
+    <div class="{{tabCss.tabPanelContainer}}">
+        {{#if showAnnTabs}}
+            {{tab-dropdown
+                isDropdown=isDropdown
+                displayList=announcementTabs
+                newActive=announcementTabsActive
+                isDisplayListChanged=isAnntabsChanged
+                labelKey='displayDesc'
+                actionName='onTabSelected'
+                tabPanelClass=tabCss.tabPanelClass
+                tabItemClass=tabCss.tabItemClass
+                tabLinkClass=tabCss.tabLinkClass
+            }}
+        {{/if}}
+    </div>
+    {{#if isShowWidgetHeader}}
+        {{#unless showAnnTabs}}
+            <div>
+                {{widget-header
+                    selectedLink=selectedLink
+                    widgetTitle=title
+                    hideSymbol=hideSymbol
+                    hideWidgetLink=true
+                    app=app
+                    innerWidgets=innerWidgets
+                    innerWidgetAction="renderInnerWidgetItems"
+                }}
+            </div>
+        {{/unless}}
+    {{/if}}
+    {{#if isAnnFilterEnabled}}
+        <div class="layout-container full-width font-m pad-m-lr pad-m-tb">
+            <div class="layout-col pad-s-l">
+                <div class="layout-inline pad-s-l pad-s-b  ">{{app.lang.labels.filter}}</div>
+                {{bootstrap-dropdown-select
+                defaultSelect=defaultFilter
+                value=currSubAnnItem
+                options=subAnnList
+                valueKey='displayName'
+                labelKey='displayName'
+                selectAction='selectSubAnnItem'
+                buttonClass='full-width dropdown-solid-back-color'
+                lblClass='dropdown-item-container'
+                }}
+            </div>
+            <div class="{{if isTablet 'layout-col-24' 'layout-col-12'}}"></div>
+        </div>
+    {{/if}}
+
+    <div class="nano {{if isTablet 'full-height-without-header' 'right-panel-height'}} pos-rel mgn-s-t {{tabCss.tabScroll}}">
+        {{loading-indicator isLoading=isLoading}}
+        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+        <div id="location1" class="nano-content full-height">
+            {{#each announcement in filteredContent}}
+                <div class="pad-widget-left pad-widget-right table-row-hover-back-color {{isEqual announcement.id
+                                                                                                  selectedNewAnn
+                                                                                                  'table-row-selected-back-color'}} ">
+
+                    <div class="layout-container full-width news-list-item-right-panel border-bottom {{if isMobile 'pad-l-tb' 'pad-m-tb'}}">
+                        <a {{action 'itemClicked' announcement.id announcement.type}}>
+                            <div class="layout-col v-top pad-m-r">
+                                {{#if announcement.isAnnouncement}}
+                                    <i class="icon-megaphone-1 ann-icon-color"></i>
+                                {{else}}
+                                    <i class="icon-tv news-icon-color"></i>
+                                {{/if}}
+                            </div>
+                            {{#if announcement.isArabic}}
+                                <div class="layout-col full-width v-top white-space-normal pad-m-l {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+                                    <p class="news-title fore-color {{if isMobile 'pad-l-b' 'pad-m-b'}}"><span
+                                            class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+                                    <div class="layout-container full-width fade-fore-color">
+                                        <div class="layout-col-24 bold highlight-fore-color font-m">{{announcement.dispProp1}}</div>
+                                        <div class="layout-col font-m fade-fore-color"><span
+                                                class={{announcement.annNewsTimeCss}}>{{announcement.dDTt}}</span></div>
+                                    </div>
+                                </div>
+                            {{else}}
+                                <div class="layout-col full-width v-top white-space-normal pad-m-l {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+                                    <p class="news-title fore-color {{if isMobile 'pad-l-b' 'pad-m-b'}}"><span
+                                            class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+                                    <div class="layout-container full-width fade-fore-color">
+                                        <div class="layout-col-24 bold highlight-fore-color font-m">{{announcement.dispProp1}}</div>
+                                        <div class="layout-col font-m fade-fore-color"><span
+                                                class={{announcement.annNewsTimeCss}}>{{announcement.dDTt}}</span></div>
+                                    </div>
+                                </div>
+                            {{/if}}
+                        </a>
+                    </div>
+
+                </div>
+            {{else}}
+                {{#if isInvokedBySearch}}
+                    {{#if isAnnUnavailable}}
+                        <div>{{app.lang.messages.dataNotAvailable}}</div>
+                    {{/if}}
+                {{/if}}
+            {{/each}}
+        </div>
+
+    </div>
+</div>

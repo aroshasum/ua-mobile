@@ -1,0 +1,196 @@
+<div id="globalSearch">
+    <div class="search-pop-up overflow-hidden">
+        <div class="search-wrapper">
+            <div class="display-table-row full-width appttl-mobile">
+                <div class="layout-container full-width appttl-mobile">
+                    {{#if isOptionSymbolSearchEnabled}}
+                        <div class="layout-col appttl-mobile">
+                            <label class="appttl-mobile pad-l-lr pad-s-b pad-s-t">
+                                {{input type="checkbox" checked=isEnableOptionSearch class="simple-switch-input"}}
+                                <span class="simple-switch"></span>
+                            </label>
+                            <span class="font-m pad-s-tb pad-l-r appttl-mobile btn-txt-color">{{app.lang.labels.optionSymbolSearch}}</span>
+                        </div>
+                    {{/if}}
+                    <div class="layout-col-24 appttl-mobile"></div>
+                </div>
+                {{#if isEnableOptionSearch}}
+                    <div class="layout-container full-width appttl-mobile option-menu-height">
+                        <div class="layout-col-24 bold font-l pad-m-tb pad-l-l appttl-mobile btn-txt-color">
+                            {{#if selectedSymbol}}
+                                <span>{{selectedSymbolDes}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="layout-col pad-l-lr">
+                            <div class="pad-s-l h-middle">
+                                <button type="button" class="btn btn-animation bold btn-option-small btn-txt-color {{if isDisableBtn 'disabled' ''}}" {{action 'onSelect'}}>
+                                    {{app.lang.labels.done}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+            {{#if isEnableOptionSearch}}
+                <div>
+                    <div class="layout-container full-width">
+                        <div class="layout-col-6 option-box-shadow v-top">
+                            <div class="y-scroll" style="height: {{searchPopUpHeightOption}}">
+                                {{#each optionSymbolContent as | content index | }}
+                                    <div data-id="symbol-{{index}}" class="layout-container search-row pad-s-tb full-width option-box-shadow">
+                                        <div class="layout-col-24" {{action 'onOptionSymbolSelect' content index}}>
+                                            <div class="layout-container full-width pad-s-b mgn-m-l">
+                                                <div class="layout-col h-left v-bottom pad-m-t pad-l-r mgn-m-l font-x-l bold symbol-fore-color ltr">
+                                                    <span>{{content.sym}}</span>
+                                                </div>
+                                                <div class="layout-col v-bottom pad-m-t pad-s-lr font-m fade-fore-color search-row-bottom">
+                                                    {{content.exg}}
+                                                </div>
+                                                <div class="layout-col-24"></div>
+                                            </div>
+                                            <div class="ellipsis font-l fade-fore-color pad-m-b mgn-m-l">{{content.lDes}}</div>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div class="layout-col-6 pos-rel" style="height: {{searchPopUpHeightOption}}">
+                            {{loading-indicator isLoading=isDateLoading}}
+                            <div class="layout-container full-width option-menu-height call-row-border">
+                                <div class="layout-col-12 h-left full-width pad-m-l">
+                                    <div class="layout-inline toggle option-toggle">
+                                        {{input type="checkbox" name="buy-sell-switch" class="toggle-checkbox" id='call-put-switch' checked=isCall disabled=isDisableBtn}}
+                                        <label class="toggle-label ltr" for='call-put-switch'>
+                                            <span class="toggle-inner call-put-style {{if isDisableBtn 'call-put-disable-style'}}"></span>
+                                            <span class="toggle-switch call-put-switch {{if isDisableBtn 'call-put-switch-disable'}}"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="layout-col-24"></div>
+                            </div>
+                            {{#if isShowNotAvailable}}
+                                <div class="layout-container search-row full-width">
+                                    <div class="layout-col h-middle v-top pad-m-t pad-l-r mgn-m-l font-s fade-fore-color">
+                                        <span>{{app.lang.messages.dataNotAvailable}}</span>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            <div class="layout-container full-width">
+                                <div class="layout-col-6 {{if optionDates 'option-box-shadow'}}">
+                                    <div class="y-scroll" style="height: {{dateColumnHeight}}">
+                                        {{#each optionDates as | content index | }}
+                                            <div data-id="date-{{index}}"
+                                                 class="layout-container search-row pad-s-tb full-width option-box-shadow">
+                                                <div class="layout-col-24" {{action 'onOptionDateSelect' content index}}>
+                                                    <div class="layout-container full-width pad-s-b">
+                                                        <div class="layout-col-24"></div>
+                                                        <div class="layout-col h-right v-bottom pad-m-t pad-s-r font-m symbol-fore-color">
+                                                            {{#if content.isMonthOption}}
+                                                                <span>{{formatToMonth content.optPrd}}</span>
+                                                            {{else}}
+                                                                <span>{{formatToDateMonth content.optPrd}}</span>
+                                                            {{/if}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                                <div class="layout-col-6">
+                                    <div class="y-scroll pos-rel" style="height: {{dateColumnHeight}}">
+                                        {{loading-indicator isLoading=isPriceLoading}}
+                                        {{#each optionPrices as | content index | }}
+                                            <div data-id="price-{{index}}"
+                                                 class="layout-container search-row pad-s-tb full-width">
+                                                <div class="layout-col-24" {{action 'onOptionPriceSelect' content index}}>
+                                                    <div class="layout-container full-width pad-s-b">
+                                                        <div class="layout-col h-middle v-bottom pad-m-t mgn-m-l font-m symbol-fore-color">
+                                                            <span>{{formatNumber content.strkPrc 2}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+
+                <!--search-wrapper start-->
+                <div class="display-table-cell">
+                    <div class="y-scroll" style="height: {{searchPopUpHeight}}">
+                        {{#each content as | result key | }}
+                            {{#if result.isDataUnavailable}}
+                                <h2 class="bold font-l pad-s-tb pad-l-l appttl-mobile btn-txt-color">{{app.lang.labels.noResultFound}}</h2>
+                            {{else}}
+                                <h2 class="bold font-l pad-s-tb pad-l-l appttl-mobile btn-txt-color">{{result.name}}</h2>
+                                {{#each result.contents as | content index | }}
+                                    <div class="layout-container search-row pad-s-tb full-width" index={{index}}>
+                                        <div class="layout-col-24" {{action 'onItemSelected' content defaultLink}}>
+                                            <div class="layout-container full-width pad-s-b mgn-m-l">
+                                                {{#if (onResponsive responsive.trigger responsive content.responsiveID 1)}}
+                                                    <div data-id="row-{{key}}{{index}}" class="layout-col-24 h-left v-bottom pad-m-t pad-l-r mgn-m-l font-xx-l font-thick bold symbol-fore-color ltr">
+                                                        <span>{{content.dispProp1}}</span>
+                                                    </div>
+                                                    {{#if isMultipleExgAvailable}}
+                                                        <div class="layout-col v-bottom font-m fade-fore-color pad-s-r pad-m-t">{{content.de}}</div>
+                                                        {{#if content.subMkt}}
+                                                            <div class="layout-col v-bottom fade-fore-color pad-s-r pad-m-t search-row-bottom">
+                                                                <span class="pad-s-l">|</span></div>
+                                                        {{/if }}
+                                                    {{/if }}
+                                                    <div class="layout-col v-bottom pad-m-t pad-s-lr font-m fade-fore-color search-row-bottom">{{getSubMarketName content.exg content.subMkt false}}</div>
+                                                    <div data-id="{{key}}{{index}}" class="layout-col"></div>
+                                                {{else}}
+                                                    <div data-id="row-{{key}}{{index}}" class="layout-col h-left v-bottom pad-m-t pad-l-r mgn-m-l font-xx-l font-thick bold symbol-fore-color ltr">
+                                                        <span>{{content.dispProp1}}</span>
+                                                    </div>
+
+                                                    {{#if isMultipleExgAvailable}}
+                                                        <div class="layout-col v-bottom font-m fade-fore-color pad-s-r pad-m-t search-row-bottom">{{content.de}}</div>
+                                                        {{#if content.subMkt}}
+                                                            <div class="layout-col v-bottom fade-fore-color pad-s-r pad-m-t">
+                                                                <span class="pad-s-l">|</span></div>
+                                                        {{/if }}
+                                                    {{/if }}
+                                                    <div class="layout-col v-bottom pad-m-t pad-s-lr font-m fade-fore-color search-row-bottom">{{getSubMarketName content.exg content.subMkt false}}</div>
+                                                    <div data-id="{{key}}{{index}}" class="layout-col-24"></div>
+                                                {{/if}}
+                                            </div>
+                                            <div class="ellipsis font-l fade-fore-color pad-m-b mgn-m-l">{{content.lDes}}</div>
+                                        </div>
+                                        <div class="layout-col pad-s-l">
+                                            <span class="layout-inline ltr mgn-m-r font-l btn-txt-color pad-s-tb pad-l-b pad-l-lr xs-border-radius {{content.groupingObj.colorCss}}">{{content.groupingObj.groupName}}</span>
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            {{/if }}
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if enableContentSettings}}
+                <div class="display-table-row full-width">
+                    <ul class="horizontal-list-left pad-s-b">
+                        <li> <span>
+                            {{input checked=isEnabledAnnSearch type="checkbox" name="cc"}}
+                        </span> <span class="font-l header-colour">Announcement</span></li>
+                        <li> <span>
+                            {{input checked=isEnabledNewsSearch type="checkbox" name="cc"}}
+                        </span> <span class="font-l header-colour">News</span></li>
+                    </ul>
+                </div>
+            {{/if}}
+            {{#if isEnabledContentSearch}}
+                <div class="search-col-2 display-table pad-s-l">
+                    {{partial "price/announcement"}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

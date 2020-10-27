@@ -1,0 +1,20 @@
+<div id="rightPanelCollapse" class="right-panel-collapse full-height">
+    <ul class="right-panel-collapse-ul full-height">
+        {{#each menuItem in tabArray}}
+            <li>
+                <a {{action 'clickTab' menuItem}}>
+                    <div class="vertical-item">
+                        <span>{{menuItem.rightPanelTitleValue}}</span>
+                    </div>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div class="collapse-content animate-right overflow-hidden" id="collapseContent">
+    <!--Right Panel content will display here-->
+</div>
+
+<div class="collapse-overlay" {{action 'closeCollapse' menuItem}} style="cursor:pointer" id="collapseOverlay"></div>
+

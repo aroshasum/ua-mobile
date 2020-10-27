@@ -1,0 +1,62 @@
+@import '../common-variables';
+//@import '../themes/theme-helper';
+
+.ember-table-header-row, .ember-table-header-container .ember-table-table-fixed-wrapper {
+  @include theme((
+          background-color: table-row-back-color
+  ));
+}
+
+.ember-table-tables-container {
+  @include theme((
+          background: widget-back-color
+  ));
+}
+
+.ember-table-header-container {
+  border-bottom: 0 solid #3D3D3D;
+  box-shadow: none;
+}
+
+.ember-table-cell {
+  float: left;
+  font-size: 12px;
+  border-right: 0 solid #3D3D3D;
+}
+
+.ember-table-tables-container {
+  border: 0 solid rgba(255, 255, 255, 0);
+}
+
+.ember-table-table-row {
+  border-bottom: 0 dotted rgba(245, 245, 245, 0);
+}
+
+.ember-table-body-container .ember-table-table-row.ember-table-selected .ember-table-cell {
+  border-right: 0 solid #1d6bac;
+}
+
+.ember-table-footer-container {
+  border-top: 0 solid #dcdcdc;
+  font-weight: bold;
+}
+
+.ember-table-fixed-table-container.ember-table-footer-container {
+  @include theme((
+          background: widget-back-color
+  ));
+}
+
+.ember-table-left-table-block .ember-table-cell {
+  float: left;
+  font-size: $font-large;
+  border-right: 0 solid #3D3D3D !important;
+}
+
+.ember-table-body-container .ember-table-table-row.ember-table-selected {
+  background-color: transparent;
+
+  @include theme((
+          color: fore-color
+  ));
+}

@@ -1,0 +1,21 @@
+<div class="widget_new full-height">
+    {{widget-header
+    widgetTitle=app.lang.labels.selectWidget
+    hideWidgetLink=true
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+
+    <div class="widget-container-new full-width custom-workspace-height">
+        <div {{action 'showWidgetList'}} class="layout-container mgn-l-t mgn-l-l btn btn-warning">
+            <div class="layout-col full-width">
+                <span><i class="glyphicon glyphicon-plus font-xx-l"></i></span>
+                <span class="font-xx-l">{{app.lang.labels.addWidget}}</span>
+            </div>
+        </div>
+    </div>
+</div>

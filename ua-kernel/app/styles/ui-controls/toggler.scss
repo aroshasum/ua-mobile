@@ -1,0 +1,272 @@
+@import '../common-variables.scss';
+//@import '../themes/theme-helper';
+@import '../widget-variables';
+@import '../app-layout/app-layout';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+
+// TODO [Arosha] Add variables after finalizing colors and sizes
+.toggle {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  &-checkbox {
+    display: none;
+  }
+
+  &-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  &-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+  }
+
+  &-inner:before, .toggle-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    line-height: 25px;
+    font-size: $font-m-large;
+    font-weight: bold;
+    box-sizing: border-box;
+  }
+
+  &-inner:before {
+    content: "";
+    padding-left: 40px;
+    background-color: #cce3f4;
+    color: #545454;
+    text-align: left;
+  }
+
+  &-inner:after {
+    content: "";
+    //padding-right: 10px; // Color not Applying fully to the toggle
+    background-color: #eeeeee;
+    color: #848484;
+    text-align: right;
+  }
+
+  &-switch {
+    display: block;
+    width: 29px;
+    margin: 3px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+  }
+
+  &-checkbox:checked + .toggle-label .toggle-inner {
+    margin-left: 0;
+  }
+
+  &-checkbox:checked + .toggle-label .toggle-switch {
+    right: 0;
+  }
+}
+
+// ---------  Widget Specific Toggle Classes -------------------------------------------------------------------
+
+.mkt-limit-style:before {
+  content: "Limit";
+  padding-left: $padding-medium;
+  padding-top: $padding-small;
+  background-color: #18619e;
+  color: #FFFFFF;
+  height: 38px;
+}
+
+.mkt-limit-style:after {
+  content: "Market";
+  padding-right: $padding-medium;
+  padding-top: $padding-small;
+  background-color: #8e44ad;
+  color: #FFFFFF;
+  text-align: right;
+  height: 38px;
+}
+
+.buy-sell-style:before {
+  content: "Buy";
+  padding-left: $padding-medium;
+  padding-top: $padding-small;
+  color: #FFFFFF;
+  height: 38px;
+
+  @include theme((
+          background-color: up-back-color
+  ));
+}
+
+.buy-sell-style:after {
+  content: "Sell";
+  padding-right: $padding-medium;
+  padding-top: $padding-small;
+  color: #FFFFFF;
+  text-align: right;
+  height: 38px;
+
+  @include theme((
+          background-color: down-back-color
+  ));
+}
+
+.call-put-style:before {
+  line-height: 13px !important;  // TODO [Anushka] Remove !important after checking overridden classes
+  content: "Call";
+  padding-left: $padding-medium;
+  padding-top: $padding-medium;
+  background-color: #019875;
+  color: #FFFFFF;
+  height: 30px;
+  font-size: $font-x-large;
+}
+
+.call-put-style:after{
+  line-height: 13px !important;  // TODO [Anushka] Remove !important after checking overridden classes
+  content: "Put";
+  padding-right: $padding-medium;
+  padding-top: $padding-medium;
+  background-color: #18619e;
+  color: #FFFFFF;
+  text-align: right;
+  height: 30px;
+  font-size: $font-x-large;
+}
+
+.call-put-disable-style:before {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  opacity: .65;
+}
+
+.call-put-switch {
+  width: 20px;
+  top: 0;
+  bottom: 0;
+}
+
+.call-put-switch-disable {
+  filter: alpha(opacity=65);
+  opacity: .65;
+}
+
+//.watchlist-toggle-style:before, .watchlist-toggle-style:after {
+//  height: 32px;
+//}
+
+.watchlist {
+  &-toggle-style:before {
+    height: 32px;
+    width: 60px;
+  }
+
+  &-toggle-style:after {
+    height: 32px;
+    width: 60px;
+  }
+}
+
+// ---------  /Widget Specific Toggle Classes -------------------------------------------------------------------
+
+// ---------  Watchlist Toggle -------------------------------------------
+
+.simple-switch-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+.simple-switch {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-transition: .4s all;
+  transition: .4s all;
+  border-radius: 50px;
+  background: #bbb;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  width: 38px;
+  height: 16px;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: inline-block;
+  top: 3px;
+}
+
+/* switch background */
+.simple-switch-input:checked ~ .simple-switch {
+  background: #FFFFFF;
+  box-shadow: inset 0 0 0 15px #FFFFFF;
+  transition: .25s all;
+}
+
+.simple-switch-input:checked ~ .simple-switch.dark {
+  background: #89c4f4;
+  box-shadow: inset 0 0 0 15px #89c4f4;
+}
+
+.simple-switch-input:checked ~ .simple-switch::before {
+  transform: translate(18px, 0);
+  background: #019875;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 108, 181, 0);
+}
+
+.simple-switch-input:checked ~ .simple-switch.dark::before {
+  background: #FFFFFF;
+}
+
+.simple-switch-input ~ .simple-switch::before {
+  content: '';
+  transition: .26s all;
+  position: absolute;
+  left: 0px;
+  top: -3px;
+  bottom: 2px;
+  right: auto;
+  transform: translate(0, 0);
+  display: block;
+  width: 21px;
+  height: 21px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 108, 181, 0);
+}
+
+/* switch circle */
+
+.simple-switch.dark:active::before {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 0 0 16px rgba(0, 0, 0, 0.12);
+}
+// ---------  /Watchlist Toggle -------------------------------------------
+
+
+
+
+

@@ -1,0 +1,27 @@
+<div>
+{{#each menuItem in menuContent}}
+    <div id="menuPanelWrapper{{menuItem.id}}"
+         class="overflow-hidden h-middle horizontal-panel display-inline-block h-left transform-menu">
+        <div id="menuPanel{{menuItem.id}}"
+             class="display-inline-block horizontal-panel cursor-pointer appmnu-fore-color">
+            <div class="layout-container full-width full-height menu-panel-item" {{action 'showSubMenu' menuItem.subMenuPopupId on="mouseEnter"}}>
+                <div class="layout-col pad-s-lr rtl">
+                    <div class="layout-col ellipsis pad-m-l pad-s-r appmnu-fore-color">{{menuItem.name}}</div>
+                </div>
+            </div>
+        </div>
+        {{#if menuItem.hasSubMenu}}
+            {{#modal-popup isEnabled=false id=menuItem.subMenuPopupId}}
+            <div class="menu-panel-sub-menu">
+                {{#each subMenuItem in menuItem.subMenu}}
+                    <div class="sub-menu-item" {{action 'menuItemClicked' subMenuItem.config subMenuItem.args menuItem.subMenuPopupId}}>
+                        <a><span class="pad-l-l font-m ">{{subMenuItem.name}}</span> </a>
+                    </div>
+                {{/each}}
+            </div>
+            {{/modal-popup}}
+        {{/if}}
+    </div>
+{{/each}}
+</div>
+

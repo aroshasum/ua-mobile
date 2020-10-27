@@ -1,0 +1,189 @@
+// Login styles go here
+.help-icon {
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  font-size: $font-xx-large;
+  margin-left: $m-xs;
+}
+
+.help-text {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.login-disable {
+  pointer-events: none;
+}
+
+.txt {
+  @include theme((
+          color: dark-bg-fore-color
+  ));
+}
+
+.login-input[type="text"] {
+  background: url('img/user_icon.png') no-repeat 10px 12px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  -webkit-transition: opacity 0.2s;
+  transition: background-color 0.2s;
+}
+
+.login-input[type="text"]:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.login-input[type="password"] {
+  background: url('img/lock_icon.png') no-repeat 10px 12px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  -webkit-transition: opacity 0.2s;
+  transition: background-color 0.2s;
+}
+
+.login-input[type="password"]:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.login-input {
+  color: #606060 !important;
+}
+
+.info-msg-background {
+  background-color: rgba(68, 122, 166, 0.5) !important;
+}
+
+.error-msg-background {
+  background-color: rgba(139, 56, 56, 0.5) !important;
+}
+
+.btn-login:hover, .btn-login:focus, .btn-login.focus {
+  color: #89c4f4;
+  text-decoration: none;
+  border: 1px #89c4f4 solid !important;
+}
+
+.login-middle-panel .simple-switch-input:checked ~ .simple-switch.dark {
+  background: #89c4f4 !important;
+  box-shadow: inset 0 0 0 15px #89c4f4;
+}
+
+.switch-remember ~ .simple-switch::before {
+  background: #bdc2d7 !important;
+  height: 18px !important;
+  width: 18px !important;
+}
+
+.switch-remember ~ .simple-switch {
+  height: 13px;
+  width: 35px;
+}
+
+// -- Animations
+
+.login-init {
+  width: 100%;
+}
+
+.brand-logo-down {
+  -webkit-animation: brand-logo-down-animation  0.6s;
+  -moz-animation: brand-logo-down-animation  0.6s;
+  -o-animation: brand-logo-down-animation  0.6s;
+  animation: brand-logo-down-animation  0.6s;
+}
+
+.login-fade {
+  -webkit-animation: login-fade-animation  0.6s;
+  -moz-animation: login-fade-animation  0.6s;
+  -o-animation: login-fade-animation  0.6s;
+  animation: login-fade-animation  0.6s;
+}
+
+.credential-panel-down {
+  -webkit-animation: credential-panel-animation  0.6s;
+  -moz-animation: credential-panel-animation  0.6s;
+  -o-animation: credential-panel-animation  0.6s;
+  animation: credential-panel-animation  0.6s;
+}
+
+.remember-me-left {
+  -webkit-animation: remember-panel-animation  0.6s;
+  -moz-animation: remember-panel-animation  0.6s;
+  -o-animation: remember-panel-animation  0.6s;
+  animation: remember-panel-animation  0.6s;
+}
+
+.link-panel-down {
+  -webkit-animation: link-panel-animation  0.6s;
+  -moz-animation: link-panel-animation  0.6s;
+  -o-animation: link-panel-animation  0.6s;
+  animation: link-panel-animation  0.6s;
+}
+
+.bottom-panel-down {
+  -webkit-animation: link-panel-animation  0.6s;
+  -moz-animation: link-panel-animation  0.6s;
+  -o-animation: link-panel-animation  0.6s;
+  animation: link-panel-animation  0.6s;
+}
+
+@keyframes brand-logo-down-animation {
+  from {
+    transform: translateY(-100%);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes login-fade-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes credential-panel-animation {
+  from {
+    transform: translateY(-30%);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes remember-panel-animation {
+  from {
+    transform: translateX(-30%);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes link-panel-animation {
+  from {
+    transform: translateY(100%);
+    opacity: 0.3;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@import 'extended/login-extended';
+
+// -- /Animations

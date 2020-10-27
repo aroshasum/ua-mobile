@@ -1,0 +1,183 @@
+{{#if isWidgetHeaderAvailable}}
+    <div class="layout-container full-width">
+        {{widget-header
+        widgetTitle=app.lang.labels.quoteSummary
+        linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink='setLink'
+        hideSymbol=hideSymbol
+        searchedSymbol=stock.dispProp1
+        innerWidgets=innerWidgets
+        innerWidgetAction="renderInnerWidgetItems"
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        closeWidgetAction='closeWidgetAction'
+        closeActionTarget=controller
+        isSearchAvailable=isSearchAvailable
+        searchID=searchID
+        clickAction='changeSymbol'
+        cursorMoveCss=cursorMoveCss}}
+    </div>
+{{/if}}
+
+<div id="quoteSummery-{{wkey}}" {{bind-attr class="addBorder :pad-widget-left :pad-widget-right :pad-s-tb isWidgetHeaderAvailable:full-height-without-header"}}>
+    <div data-id="quoteSummery-right" class="layout-container full-width">
+        <div class="layout-col">
+            <div class="layout-col">
+                <div class="layout-container full-width h-right">
+                    <div class="layout-col">
+                        <div class="layout-col font-x-l bold symbol-fore-color">{{stock.dispProp1}}</div>
+                        <div class="layout-col">
+                            <div class="horizontal-list-left font-m">
+                                <div class="layout-col indicator-li">
+                                    <i {{bind-attr class="dcfsStyle" }} {{bind-attr title="dcfsToolTip"}}></i></div>
+                                {{#if stock.is52WeekHigh}}
+                                    <div class="layout-col">
+                                        <div class="hint--bottom-right hint--bounce hint-info hint--rounded" data-hint="{{app.lang.labels.highReachedFiftyTwoWeekHigh}}">
+                                            <div class="wk52-up-icon"><i class="icon-high-low-52 dark-bg-fore-color"></i></div>
+                                        </div>
+                                    </div>
+                                {{/if }}
+                                {{#if stock.is52WeekLow}}
+                                    <div class="layout-col">
+                                        <div class="hint--bottom-right hint--bounce hint-info hint--rounded" data-hint="{{app.lang.labels.lowReachedFiftyTwoWeekLow}}">
+                                            <div class="wk52-down-icon"><i class="icon-high-low-52 dark-bg-fore-color"></i></div>
+                                        </div>
+                                    </div>
+                                {{/if }}
+                                {{#if stock.isTodayHigh}}
+                                    <div class="layout-col">
+                                        <div class="hint--bottom-right hint--bounce hint-info hint--rounded" data-hint="{{app.lang.labels.lastTradedReachedHigh}}"><i class="chart-max up-fore-color"></i></div>
+                                    </div>
+                                {{/if }}
+                                {{#if stock.isTodayLow}}
+                                    <div class="layout-col">
+                                        <div class="hint--bottom-right hint--bounce hint-info hint--rounded" data-hint="{{app.lang.labels.lastTradedReachedLow}}"><i class="chart-max red"></i></div>
+                                    </div>
+                                {{/if }}
+                                {{#if stock.ann}}
+                                    <div class="layout-col">
+                                        <div class="hint--bottom-right hint--bounce hint-info hint--rounded" data-hint="{{app.lang.labels.annAvailable}}"><i class="icon-megaphone-1 colour-1"></i></div>
+                                    </div>
+                                {{/if }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-container pad-s-t">
+                    <div class="layout-col font-m fade-fore-color">{{stock.sDes}}</div>
+                </div>
+            </div>
+            <div class="layout-col">
+                <div class="layout-container">
+                    <div class="layout-col v-top">
+                        <div class="full-width">
+                            <div class="mgn-l-l">
+                                <div class="layout-inline pad-s-l font-l">
+                                    <span {{bind-attr class="perChgCss"}}> <i {{bind-attr class="changeSign"}}></i> </span>
+                                </div>
+                                <div class="layout-inline pad-s-l font-x-l bold highlight-fore-color">
+                                    <{{formatNumber stock.ltp stock.deci}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layout-container pad-s-t">
+                    <div class="layout-col">
+                        <div class="layout-col font-m bold fore-color pad-m-l ltr">
+                            <span {{bind-attr class="perChgCss"}}>{{formatNumberPercentage stock.pctChg}}</span>
+                        </div>
+                        <div class="layout-col font-m pad-m-l ltr">
+                            <span {{bind-attr class="changeCss"}}>{{formatNumber stock.chg stock.deci}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-4"></div>
+
+        <div class="widget-vline layout-col" style="width: 1px"></div>
+
+        <div class="layout-col-4"></div>
+
+        <div class="layout-col">
+            <div class="layout-col">
+                <div class="layout-col">
+                    <span class="font-x-l bold up-fore-color">{{formatNumber stock.bbp stock.deci}}</span>
+                    <span class="font-l up-fore-color  pad-m-l">{{formatNumber stock.bbq 0}}</span>
+                    <div class="font-m pad-s-t fade-fore-color bottom-zero">
+                        <span>{{app.lang.labels.bestBid}}&nbsp;</span>/<span>&nbsp;{{app.lang.labels.quantity}}</span>
+                    </div>
+                </div>
+                {{#if isTradingEnabled}}
+                    <div class="layout-col v-top pad-l-l">
+                        <div class="font-l bold up-fore-color">
+                            <button type="button" class="btn btn-sell-small bold" {{action 'sell'}}>{{app.lang.labels.sell}}</button>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="layout-col-4"></div>
+
+        <div class="widget-vline layout-col" style="width: 1px"></div>
+
+        <div class="layout-col-4"></div>
+
+        <div class="layout-col">
+            <div class="layout-col">
+                <div class="layout-col">
+                    <span class="font-x-l bold down-fore-color ">{{formatNumber stock.bap stock.deci}}</span>
+                    <span class="font-l down-fore-color pad-m-l">{{formatNumber stock.baq 0}}</span>
+                    <div class="font-m pad-s-t fade-fore-color bottom-zero"><span>{{app.lang.labels.bestOffer}}&nbsp;</span>/<span>&nbsp;{{app.lang.labels.quantity}}</span></div>
+                </div>
+                {{#if isTradingEnabled}}
+                    <div class="layout-col v-top pad-l-l">
+                        <div class="font-l bold up-fore-color">
+                            <button type="button" class="btn btn-buy-small bold" {{action 'buy'}}>{{app.lang.labels.buy}}</button>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="layout-col-4"></div>
+
+        {{#if (onResponsive responsive.trigger responsive "quoteSummery-right" 1)}}
+            <!--Hide elements-->
+        {{else}}
+            <div class="widget-vline layout-col" style="width: 1px"></div>
+
+            <div class="layout-col-4"></div>
+
+            <div data-id="quoteSummery-cashMap" class="layout-col">
+                <div class="layout-col pad-m-r pad-s-l">
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.cashMap}} %   {{formatNumber cashMapValues.calculateCash 2}}&#10;{{app.lang.labels.cashIn}}       {{formatNumber stock.cit stock.deci}}&#10;{{app.lang.labels.cashOut}}    {{formatNumber stock.cot stock.deci}}">{{cash-map id=cashMapId stock=stock isValueHidden=true}}</div>
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.cashMap}}</div>
+                </div>
+                <div class="layout-col pad-m-lr">
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.daysRange}} %   {{formatNumber daysRangeValues.dayRangePosition 2}}&#10;{{app.lang.labels.lastTrade}}           {{formatNumber daysRangeValues.lastTradeValue stock.deci}}&#10;{{app.lang.labels.todayHigh}}       {{formatNumber daysRangeValues.highValue stock.deci}}&#10;{{app.lang.labels.todayLow}}        {{formatNumber daysRangeValues.lowValue stock.deci}}">{{days-range id=daysRangeId stock=stock isBarAvailable=true}}</div>
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.daysRange}}</div>
+                </div>
+                <div class="layout-col pad-m-lr pad-s-l">
+                    <div class="layout-inline full-width quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.week52Range}} %  {{formatNumber fiftyTowWkValues.fiftyTwoWkPosition 2}}&#10;{{app.lang.labels.lastTrade}}        {{formatNumber daysRangeValues.lastTradeValue stock.deci}}&#10;{{app.lang.labels.fiftyTwoWkH}}        {{formatNumber fiftyTowWkValues.highValue stock.deci}}&#10;{{app.lang.labels.fiftyTwoWkL}}         {{formatNumber fiftyTowWkValues.lowValue stock.deci}}">{{fifty-two-wk-hl id=fiftyTowWkId stock=stock isBarAvailable=true}}</div>
+                    <div class="font-m pad-s-r" style="white-space:nowrap">{{app.lang.labels.week52Range}}</div>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#unless isTablet}}
+            <div class="layout-col h-middle v-top pad-m-lr">
+                <div>
+                    {{link-dropdown
+                    options=links
+                    defaultSelect=defaultLink
+                    value=selectedLink
+                    valueKey='code'
+                    labelKey='desc'
+                    selectAction='setLink'
+                    toolTip=app.lang.labels.linkWidgets}}
+                </div>
+            </div>
+        {{/unless}}
+    </div>
+</div>

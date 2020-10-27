@@ -1,0 +1,13 @@
+{{#if isEnabled}}
+    {{#unless isOverlayEnabled}}
+        <div {{action 'closeModalPopup'}} class="modal-popup-overlay"> </div>
+    {{/unless}}
+
+    <div id="modalContainer" class="modal-popup-frame modal-popup-symbol-search popup-animation {{modalPopupStyle}}">
+        {{yield}}
+
+        {{#if isContainerAvailable}}
+            <div {{action 'sendContainerAction'}}></div>
+        {{/if}}
+    </div>
+{{/if}}

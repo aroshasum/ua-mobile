@@ -1,0 +1,23 @@
+<div {{bind-attr class=":cell-container :full-width :full-height :pad-s-lr :ellipsis :pad-s-t :border-bottom :text-align-left view.styleBackground view.styles" }} cell-id="{{view.columnId}}">
+    <div {{bind-attr class=":h-left :font-xx-l :pad-s-t view.styleFirstValue" }}>
+        <span class="layout-inline fore-color bold font-x-l alert-criteria-cell-width ellipsis">
+            {{view.firstValue}}
+        </span>
+        <span class="layout-inline icon-fore-color bold font-x-l pad-s-lr">
+            {{view.thirdValue}}
+        </span>
+        <span class="layout-inline fore-color bold font-x-l alert-criteria-cell-width ellipsis ltr">
+            {{view.secondValue}}
+        </span>
+    </div>
+
+    <div {{bind-attr class=":pad-s-t :font-xx-l :icon-fore-color :h-left :ellipsis :font-x-l view.styleThirdValue" }}>
+        <span class="bold font-l">(
+        </span>
+        <span class="bold font-l">
+            {{view.fourthValue}}
+        </span>
+        <span class="bold font-l">)
+        </span>
+    </div>
+</div>

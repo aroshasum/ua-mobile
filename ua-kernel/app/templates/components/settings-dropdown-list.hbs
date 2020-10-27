@@ -1,0 +1,25 @@
+<ul class="dropdown-menu settings-dropdown padding-zero display-block" role="menu" aria-labelledby="menu1">
+    {{#each item in options}}
+        {{#if item.active}}
+            <li role="presentation" class="settings-selected pad-s-l">
+                <div class="pad-s-all">
+                    <div class="layout-col-24">
+                        <a role="menuitem">{{getValueKey item labelKey}}</a>
+                    </div>
+
+                    <div class="layout-col">
+                        <i class="icon-check"></i>
+                    </div>
+                </div>
+            </li>
+        {{else}}
+            {{#if item.code}}
+                <li role="presentation">
+                    <a role="menuitem" {{action "select" item}}>{{getValueKey item labelKey}}</a>
+                </li>
+            {{else}}
+                <li role="presentation" class="border-bottom"></li>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+</ul>

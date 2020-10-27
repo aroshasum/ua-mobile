@@ -1,0 +1,87 @@
+@import 'branding';
+
+//  ==========  New Variables  ==================
+
+// $isCoBrandedFull: no;
+// $isCoBranded: no;
+// $isLogoRight: no;
+// $isDisplayTopSeparator: yes;
+
+$wdgttl-bar-height: 25px;
+$widget-tab-item-height: 22px;
+$widget-tab-border-radius: 3px;
+$app-row-height: 23px;
+//$wdgttl-height: 26px; Removed Duplicated Variable (widget-title.scss)
+
+// Padding
+
+$p-s: 5px;
+$p-m: 10px;
+$p-l: 15px;
+
+// Margin
+
+$m-xs: 2px;
+$m-s: 5px;
+$m-m: 10px;
+$m-l: 15px;
+
+$radius-z: 0px;
+$radius-xxs: 2px;
+$radius-xs: 3px;
+$radius-xm: 4px;
+$radius-s: 5px;
+$radius-m: 7px;
+$radius-l: 10px;
+
+//  ==========  /New Variables  ==================
+
+$font-x-small: 9px;
+$font-small: 10px;
+$font-medium: 11px;
+$font-large: 12px;
+$font-m-large: 13px;
+$font-x-large: 14px;
+$font-xx-large: 16px;
+$font-xxx-large: 18px;
+$font-3x-large: 19px;
+$font-4x-large: 20px;
+$font-5x-large: 25px;
+$font-6x-large: 30px;
+
+$padding-x-small: 3px;
+$padding-small: 5px;
+$padding-medium: 10px;
+$padding-large: 15px;
+$pad-widget: 8px;
+
+$margin-small: 5px;
+$margin-medium: 10px;
+$margin-x-medium: 12px;
+$margin-large: 15px;
+
+$border-xxx-small: 1px;
+$border-xx-small: 2px;
+$border-x-small: 3px;
+$border-small: 5px;
+
+$font-family: 'Open Sans', sans-serif;
+
+$font-bold: bold;
+
+$float-1: left;
+$float-2: right;
+$float-3: none;
+
+$text-align-1: left;
+$text-align-2: center;
+$text-align-3: right;
+
+$font-italic: italic;
+
+$height-footer: 0;
+$scrollbar-width: 8px;
+
+$btn-lbl-l-width: 100px;
+
+@import 'extended/common-variables-extended';

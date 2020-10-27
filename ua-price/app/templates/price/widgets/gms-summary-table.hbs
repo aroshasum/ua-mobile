@@ -1,0 +1,68 @@
+<div class="{{if isTablet 'widget_new full-height' 'page-container gms-container-height mgn-s-t'}}">
+
+    {{#unless isWidgetHeaderDisable}}
+        {{widget-header
+        widgetTitle=widgetTitle
+        linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink='setLink'
+        hideSymbol=true
+        }}
+    {{/unless}}
+
+    <div class="{{if isTablet 'nano' ''}}">
+        <div id="div-{{wkey}}" class="widget-container-new {{if isTablet 'nano' ''}}">
+        {{#each gmsSymbols in gmsSymbolsByAssetType}}
+            {{widget-header
+            class = "full-width"
+            widgetTitle = gmsSymbols.title
+            linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink = 'setLink'
+            hideSymbol = true
+            }}
+
+            <div class="full-width {{if isTablet 'nano-content full-height-without-header' 'layout-container pad-xs-t'}}">
+                {{#each item in gmsSymbols}}
+                    {{#if item.isHeaderAvailable}}
+                        <div class="data-table-header layout-container pad-widget-left pad-s-t full-width">
+                            <div class="layout-container row-height-header font-m pad-widget-left pad-widget-right">{{item.countryHeader}}</div>
+                        </div>
+                    {{/if}}
+                    <div class="layout-row cursor-pointer" id="gms-{{item.entity.sym}}-{{item.entity.exg}}"
+                        {{action 'doubleClickRow' item.entity on="doubleClick"}}>
+
+                        <!-- Flag or icon -->
+                        <div class="layout-col-3 pad-s-t v-top border-bottom pad-widget-left {{item.containerCss}}" >
+                            <div class="{{item.icon}}"></div>
+                        </div>
+
+                        <!-- Symbol description -->
+                        <div {{bind-attr class=":layout-col-8 :white-space-normal :sym-desc-line-height :v-top :pad-xs-t :border-bottom :symbol-fore-color :dual-row-height :font-l :bold :pad-s-l item.css"}}  >
+                            <div class="pad-s-t">{{item.entity.sDes}}</div>
+                        </div>
+
+                        <!-- Symbol up / down indicator -->
+                        {{#unless isMobile}}
+                            <div class="layout-col pad-m-l border-bottom">
+                                {{#if item.entity.isChangeNegative}}
+                                    <i {{bind-attr class="indexArrowCssDown"}}></i>
+                                {{else}}
+                                    <i {{bind-attr class="indexArrowCssUp"}}></i>
+                                {{/if}}
+                            </div>
+                        {{/unless}}
+
+                        <!-- Symbol last price -->
+                        <div class="layout-col-7 h-right v-top pad-s-t pad-m-l border-bottom ellipsis"  >
+                            <div class="font-l h-right highlight-fore-color bold pad-s-tb">{{formatNumber item.entity.ltp item.entity.deci}}</div>
+                        </div>
+
+                        <!-- Symbol change / % chg-->
+                        <div class="layout-col-6 h-right ltr pad-m-l border-bottom pad-widget-right ellipsis" >
+                            <div {{bind-attr class=":pad-s-tb :font-l :bold item.entity.isChangeNegative:down-fore-color:up-fore-color"}}>{{formatNumberPercentage item.entity.pctChg}}</div>
+                            <div {{bind-attr class=":pad-s-tb :font-m item.entity.isChangeNegative:down-fore-color:up-fore-color"}}>{{formatNumber item.entity.chg item.entity.deci}}</div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+    </div>
+</div>

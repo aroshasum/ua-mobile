@@ -1,0 +1,20 @@
+{{#if isDropdown}}
+        {{bootstrap-dropdown-select
+            options=options
+            value=value
+            valueKey=labelKey
+            labelKey=labelKey
+            lblClass=lblClass
+            buttonClass=buttonClass
+            isDisplayValueChanged=isDisplayListChanged
+            selectAction='clickAction'
+        }}
+{{else}}
+        <div id="tabs" {{bind-attr class=":layout-container tabPanelClass :overflow-visible :font-size-zero"}} data-tabs="tabs">
+            {{#each tabItem in displayList}}
+                <div {{bind-attr class="tabItemClass :overflow-visible tabItem.customStyles tabItem.activeClass"}} role="presentation" {{action 'clickAction' tabItem}}>
+                        <a role="tab" data-toggle="tab" {{bind-attr class="tabLinkClass :font-m :hint--bottom :hint--bounce :hint--rounded"}}  data-hint={{tabItem.tabTooltip}}>{{tabItem.selectedDesc}}</a>
+                </div>
+            {{/each}}
+        </div>
+{{/if}}

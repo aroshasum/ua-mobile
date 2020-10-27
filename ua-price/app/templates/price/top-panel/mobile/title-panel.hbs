@@ -1,0 +1,67 @@
+<div id="nav-mid" class="layout-container full-width navbar-inverse  search-panel-state-zero pos-abs appttl-mobile">
+    {{#if isSearchEnable}}
+        <div class="layout-col pad-m-l" {{action 'toggleDisplay'}} >
+            <i class="icon-chevron-left font-6x-l btn-txt-color"></i>
+        </div>
+    {{else if isBackEnable}}
+        <div {{action 'widgetBackAction'}} class="layout-col-3">
+            <span class="layout-inline pad-s-l pad-s-tb cursor-pointer">
+                {{#if isArabic}}
+                    <i class="icon-chevron-right font-6x-l btn-txt-color"></i>
+                {{else}}
+                    <i class="icon-chevron-left font-6x-l btn-txt-color"></i>
+                {{/if}}
+            </span>
+        </div>
+    {{else}}
+        <div {{action 'toggleMainMenuView'}} class="layout-col-3">
+            <a class="navbar-toggle margin-zero">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+        </div>
+    {{/if}}
+    <div id="titlePanelSearchArea" class="layout-col-21">
+        <a class="navbar-brand full-width padding-zero">
+            <div {{bind-attr class="inputContainerCss :layout-inline :search-box-height :search-box-panel :transform :padding-zero"}}>
+                {{input id="titlePanelSeach" class="pos-rel search-bar mgn-s-l search-bar-outline mgn-xs-t pad-xs-b bold symbol-fore-color" type="text" value=searchKey action="showSearchPopup"}}
+                <div class="pos-abs top-zero btn-txt-color search-icon">
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                </div>
+                <div class="layout-inline pos-abs top-zero cancel-btn" {{action 'toggleDisplay'}} >
+                    <i class="glyphicon icon-close-round" aria-hidden="true"></i>
+                </div>
+            </div>
+            <!--<span class="cancel-btn v-middle pad-s-lr" {{!action 'toggleDisplay'}} >Cancel</span>-->
+            <div class="layout-container full-height full-width">
+                <div class="layout-col-20">
+                    <div class="layout-container full-width">
+                        <div class="layout-col input-group h-left pad-s-t">
+                            <div class="title-logo"></div>
+                        </div>
+                        <div data-id="gain-loss-free" class="layout-col-24"></div>
+                        <div class="layout-col">
+                            {{outlet "titlePanelGLOutlet"}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layout-col-4 h-middle"><span class="pad-l-lr pad-m-tb btn-txt-color" {{action 'toggleDisplay'}} ><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span></div>
+            </div>
+        </a>
+    </div>
+    <div class="search-popup-mobile">
+        {{#modal-popup isEnabled=false id="topBarSymbolSearch" isOverlayEnabled=true isContainerAvailable=true containerAction="toggleDisplay"}}
+            {{global-search-mobile
+            enableContentSettings=false
+            searchKey=searchKey
+            defaultLink=defaultLink
+            showWidgetButtons=true
+            clickAction='onSearchSymbolSelected'
+            closePopup='closeSearchPopup'
+            openPopup='showSearchPopup'
+            analyticsKey=gaKey}}
+        {{/modal-popup}}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.topstocks {
+  &-border-bottom-col1 {
+    padding-bottom: $padding-small;
+  }
+
+  &-border-bottom-col2 {
+    padding-bottom: $padding-small;
+  }
+
+  &-border-bottom-col3 {
+    padding-bottom: $padding-small;
+  }
+}
+
+.top-gainers .layout-row:nth-child(even) {
+  @include theme((
+          background: table-row-up-alternate-back-color
+  ));
+}
+
+.top-losers .layout-row:nth-child(even) {
+  @include theme((
+          background: table-row-down-alternate-back-color
+  ));
+}
+
+.most-active .layout-row:nth-child(even) {
+  @include theme((
+          background: table-row-prominent-alternate-back-color
+  ));
+}

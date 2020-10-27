@@ -1,0 +1,29 @@
+<div class="dropdown-watchlist-more">
+    <div class="dropdown-watchlist-more-search">
+        <div class="layout-col pos-rel">
+            {{input value=filterText type="text" class="search-query search-ctrl form-control default-panel-width" placeholder='Filter...'}}
+            <div class="input-group-btn pos-abs top-zero">
+                <button class="btn search-ctrl-btn" type="button">
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="y-scroll pad-m-t pad-s-b pad-m-lr">
+        {{#each shownColumns as |column index| }}
+            <div class="dropdown-watchlist-more-items">
+                <a role="menuitem" class="fore-color"> <label class="display-inline-block ellipsis" for={{column.id}}>{{input id=column.id checked=column.isSelectedColumn type="checkbox" name="cc" disabled= (if column.isDefault "disabled" '')}} <span class="font-m">{{column.displayName}}</span></label></a>
+            </div>
+        {{/each}}
+    </div>
+    <div class="pad-m-lr">
+        <div class="right">
+            <button type="button" class="btn btn-dropdown btn-default dropdown-toggle bold pad-l-lr" {{action 'cancel'}}>{{app.lang.labels.cancel}}
+            </button>
+        </div>
+        <div class="right pad-m-r">
+            <button type="button" class="btn btn-dropdown btn-default dropdown-toggle bold pad-l-lr" {{action 'save'}}>{{app.lang.labels.save}}
+            </button>
+        </div>
+    </div>
+</div>

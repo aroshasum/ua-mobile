@@ -1,0 +1,13 @@
+<div style="height:30px;" class="layout-container full-width separator separator-shadow pad-widget-left pad-widget-right">
+    <div class="wdgttl-tab-panel title-container-width">
+        {{#each tabItem in gmsTabs}}
+            <div role="presentation"
+                 class="pad-s-tb wdgttl-tab-item ellipsis {{tabItem.css}}"  {{action 'onGmsTabItemSelected' tabItem}} >
+                <a class="wdgttl-tab-link hint--top hint--bounce hint--rounded" href="#" aria-controls="" role="tab"
+                   data-toggle="tab">
+                    {{tabItem.displayName}}
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>

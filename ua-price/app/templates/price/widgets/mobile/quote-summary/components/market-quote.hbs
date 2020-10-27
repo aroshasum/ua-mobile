@@ -1,0 +1,71 @@
+<div class="layout-container full-width pad-s-tb">
+    <div class="layout-col">
+        <div class="layout-container full-width">
+            <div class="layout-col pad-s-b">
+                <div {{bind-attr class=":layout-col :ltr colorCSS :font-5x-l :pad-l-b"}}>
+                    <i {{bind-attr class="ltpIconCSS :glyphicon :font-m"}}></i>
+                    {{formatNumber stock.ltp stock.deci}}
+                </div>
+                <div {{bind-attr class=":layout-inline :ltr :font-xxx-l backColorCSS fontColorCSS :pad-s-tb :pad-s-lr :xs-border-radius"}}>{{formatNumberPercentage stock.pctChg 2}}</div>
+                <div {{bind-attr class=":layout-inline :ltr :font-xxx-l :pad-m-l :bold colorCSS"}}>{{formatNumber stock.chg stock.deci}}</div>
+            </div>
+            <div class="layout-col v-top pad-s-lr">
+                {{#if stock.ann}}
+                    <div id="annIcon" class="watch-list-text-cell pad-s-l"><i class="icon-megaphone-1 ann-icon-color" {{bind-attr title="annToolTip"}}></i></div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="layout-col-6"></div>
+    <div class="vertical-separator"></div>
+
+    {{#unless isDisabledCashMap}}
+        <div class="layout-col-6"></div>
+        <div class="layout-col v-top pad-s-t">
+            <div class="layout-col fade-fore-color font-m">{{app.lang.labels.cashMap}}</div>
+            <span class="layout-inline quote-x-large-width hint--bottom hint--rounded" data-hint="{{app.lang.labels.cashMap}} %   {{formatNumber cashMapValues.calculateCash stock.deci}}&#10;{{app.lang.labels.cashIn}}       {{formatNumber stock.cit 0}}&#10;{{app.lang.labels.cashOut}}    {{formatNumber stock.cot 0}}">{{cash-map id=cashMapId stock=stock isValueHidden=false isVertical=true}}</span>
+        </div>
+        <div class="layout-col-6"></div>
+        <div class="vertical-separator"></div>
+    {{/unless}}
+
+    <div class="layout-col-6 pad-s-l"></div>
+    <div class="layout-col pad-s-r {{dayRangeContainerCss}}">
+        <div class="layout-container full-width pad-m-b pad-s-t">
+            {{#if stock.isTodayHigh}}
+                <div class="layout-col-24 up-fore-color pad-s-b font-m">
+                    <i class="chart-max up-fore-color" {{bind-attr  title=app.lang.labels.lastTradedReachedHigh}}></i>
+                    <span class="up-fore-color">{{app.lang.labels.dayHigh}}</span>
+                </div>
+            {{else if stock.isTodayLow}}
+                <div class="layout-col-24 up-fore-color pad-s-b font-m">
+                    <i class="chart-max down-fore-color" {{bind-attr title=app.lang.labels.lastTradedReachedLow}}></i>
+                    <span class="down-fore-color">{{app.lang.labels.dayLow}}</span>
+                </div>
+            {{else}}
+                <div class="layout-col-24 fade-fore-color font-m pad-s-b">{{app.lang.labels.daysRange}}</div>
+            {{/if }}
+            <div class="layout-row">{{days-range  stock=stock isBarAvailable=true}}</div>
+        </div>
+        <div class="layout-container full-width pad-s-tb">
+            {{#if stock.is52WeekHigh}}
+                <div class="layout-col-24 up-fore-color pad-s-b font-m">
+                   <span class="wk52-up-icon">
+                    <i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=app.lang.labels.highReachedFiftyTwoWeekHigh}}></i>
+                    </span>
+                    <span class="up-fore-color pad-s-l">{{app.lang.labels.wkHigh}}</span>
+                </div>
+            {{else if stock.is52WeekLow}}
+                <div class="layout-col-24 up-fore-color pad-s-b font-m">
+                    <span class="wk52-down-icon">
+                    <i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=app.lang.labels.lowReachedFiftyTwoWeekLow}}></i>
+                    </span>
+                    <span class="down-fore-color pad-s-l">{{app.lang.labels.wkLow}}</span>
+                </div>
+            {{else}}
+                <div class="layout-col-24 fade-fore-color font-m pad-s-b">{{app.lang.labels.wkRange52}}</div>
+            {{/if }}
+            <div class="layout-row">{{fifty-two-wk-hl  stock=stock isBarAvailable=true}}</div>
+        </div>
+    </div>
+</div>

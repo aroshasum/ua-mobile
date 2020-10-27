@@ -1,0 +1,99 @@
+<div id="defaultPanel-{{wkey}}" class="layout-container {{if isMobile 'wl-def-panel-height pad-widget-left pad-widget-right' 'toolbar-styles'}}">
+    <!--  =========  Search Box  =============  -->
+    <div class="layout-col pos-rel">
+        {{input-field-text type="text" value=textFilter placeholder=app.lang.labels.filter class="search-query search-ctrl form-control default-panel-width"}}
+
+        <div class="input-group-btn pos-abs top-zero">
+            <button class="btn search-ctrl-btn" type="button">
+                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <!--  =========  /Search Box  =============  -->
+
+    <div class="layout-col overflow-visible input-group pad-m-l">
+        {{sub-markets-dropdown exchange=exchange key=wkey onSubMarketChanged='onSelectSubMarket' currentMarketId=currentSubMarketId}}
+    </div>
+
+    <div data-id="assetType-dropdown" class="layout-col overflow-visible pad-m-l ">
+        {{tab-dropdown
+        isDropdown=isAssetTypeDropdown
+        displayList=defaultAssetTypes
+        newActive=assetTypNewActive
+        isDisplayListChanged=isAssetTypeChanged
+        labelKey='displayDesc'
+        actionName='onTabSelectionChanged'
+        tabPanelClass='widget-tab-panel'
+        tabItemClass='layout-inline widget-tab-item mgn-s-r'
+        tabLinkClass='layout-inline'
+        }}
+    </div>
+
+    {{#unless isThinWL}}
+        <div id="sectors" class="layout-col overflow-visible input-group pad-m-l " aria-controls="watchlist-area" role="tab" data-toggle="tab">
+            {{bootstrap-dropdown-select
+            options=sectorsArray
+            isStaticLableEnabled=isSectorStaticLabelEnabled
+            staticLabel=defaultSectorForDropdown
+            valueKey='sec'
+            labelKey='des'
+            wkey=wkey
+            selectAction='setSector'}}
+        </div>
+    {{/unless}}
+
+    <div data-id="watchList-middle" class="layout-col-24"></div>
+
+    {{#unless isThinWL}}
+        <div class="layout-col" data-id="announcement">
+            <div class="layout-col pad-m-l">
+                <label class="checkbox-label">
+                    {{input checked=todayFilter type="checkbox" name="cc"}}
+
+                    {{#if (onResponsive responsive.trigger responsive "watchList-middle" 2)}}
+                        <span data-id="todays-traded" class="font-m fade-fore-color hint--bottom-left hint--bounce hint--rounded" data-hint={{app.lang.labels.todaysTraded}}><i class="icon-clock"></i></span>
+                    {{else}}
+                        <span data-id="todays-traded" class="font-m fade-fore-color">{{app.lang.labels.todaysTraded}}</span>
+                    {{/if}}
+                </label>
+            </div>
+
+            <div class="layout-col pad-l-l">
+                <label class="checkbox-label">
+                    {{input checked=hideSuspendedFilter type="checkbox" name="cc"}}
+
+                    {{#if (onResponsive responsive.trigger responsive "watchList-middle" 2)}}
+                        <span data-id="hideSuspended" class="font-m fade-fore-color hint--bottom-left hint--bounce hint--rounded" data-hint={{app.lang.labels.hideSuspended}}><i class="glyphicon glyphicon-ban-circle"></i></span>
+                    {{else}}
+                        <span data-id="hideSuspended" class="font-m fade-fore-color">{{app.lang.labels.hideSuspended}}</span>
+                    {{/if}}
+                </label>
+            </div>
+
+            <div class="layout-col pad-l-l">
+                <label class="checkbox-label ">
+                    {{input checked=isAnnColumnAdded type="checkbox" name="cc" }}
+
+                    {{#if (onResponsive responsive.trigger responsive "watchList-middle" 2)}}
+                        <span class="font-m fade-fore-color hint--bottom-left hint--bounce hint--rounded" data-hint={{app.lang.labels.announcement}}><i class="icon-megaphone-1"></i></span>
+                    {{else}}
+                        <span class="font-m fade-fore-color">{{app.lang.labels.announcement}}</span>
+                    {{/if}}
+                </label>
+            </div>
+        </div>
+    {{/unless}}
+
+    <div class="layout-col overflow-visible dropdown pad-m-l pad-widget-right" data-id="moreColumns">
+        <button type="button" class="btn btn-dropdown btn-default dropdown-solid-back-color" {{action 'loadMoreColumnsDropDown'}} data-toggle="dropdown" aria-expanded="false">
+            <div class="layout-container full-width">
+            {{#if (onResponsive responsive.trigger responsive "watchList-middle" 3)}}
+                <div class="layout-col"><i class="layout-col icon-th"></i></div>
+            {{else}}
+                <div class="layout-col">{{app.lang.labels.moreColumns}}</div>
+                <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+            {{/if}}
+            </div>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.ar .announcement-vertical-seperator {
+  height: 100%;
+
+  @include theme((
+          border-right: "1px {announcements-icon-color} solid",
+          border-left: "0 {announcements-icon-color} solid"
+  ));
+}
+
+.ar .news-vertical-seperator {
+  height: 100%;
+
+  @include theme((
+          border-right: "1px {news-icon-color} solid",
+          border-left: "0 {news-icon-color} solid"
+  ));
+}

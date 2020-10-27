@@ -1,0 +1,25 @@
+<div class="layout-container ">
+    <div class="layout-col pad-m-l font-xxl bold symbol-fore-color">
+        {{stockObj.sDes}}
+    </div>
+
+    {{#if isShowLtp}}
+        <div class="layout-col pad-m-l font-xl bold fore-color">
+            {{formatNumber stockObj.ltp stockObj.deci}}
+        </div>
+    {{/if}}
+
+</div>
+<div class="layout-container pad-m-t">
+    <div class="layout-col pad-m-l">
+        <span {{bind-attr class=":font-xl perChgCss"}}>
+            <i {{bind-attr class="changeSign"}}></i>
+        </span>
+    </div>
+    <div class="layout-col pad-m-l">
+        <span {{bind-attr class=":font-l :bold changeCss"}} >{{formatNumber stockObj.chg stockObj.deci}}</span>
+    </div>
+    <div class="layout-col pad-m-l">
+        <span {{bind-attr class=":font-l :bold perChgCss"}}>{{formatNumberPercentage stockObj.pctChg 1}}</span>
+    </div>
+</div>

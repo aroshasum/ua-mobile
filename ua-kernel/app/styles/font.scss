@@ -1,0 +1,59 @@
+
+.bold {
+  font-weight: $font-bold;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("./fonts/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// -------------  New Font Classes  --------------------------------------------------
+
+.font-x-s {
+  font-size: $font-x-small;
+}
+
+.font-s {
+  font-size: $font-small;
+}
+
+.font-m {
+  font-size: $font-medium;
+}
+
+.font-l {
+  font-size: $font-large;
+}
+
+.font-x-l {
+  font-size: $font-x-large;
+}
+
+.font-xx-l {
+  font-size: $font-xx-large;
+}
+
+.font-xxx-l {
+  font-size: $font-xxx-large;
+}
+
+.font-3x-l {
+  font-size: $font-3x-large;
+}
+
+.font-4x-l {
+  font-size: $font-4x-large;
+}
+
+.font-5x-l {
+  font-size: $font-5x-large;
+}
+
+.font-6x-l {
+  font-size: $font-6x-large;
+}
+
+// -------------  /New Font Classes  --------------------------------------------------

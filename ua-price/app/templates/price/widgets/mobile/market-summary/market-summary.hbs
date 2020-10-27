@@ -1,0 +1,94 @@
+<div class="pad-m-lr">
+    {{chart-panel
+    stock=index
+    app=app}}
+</div>
+
+<div class="full-width pad-m-lr">
+    <div class="full-width pad-s-t pad-widget-left pad-widget-right widget-hline overflow-hidden pos-rel">
+        <div class="pos-abs">
+            <span class="icon-fore-color">
+                <i class="icon-mobile-rotate pad-m-r font-4x-l"></i>
+            </span>
+        </div>
+        <div class="navbar-nav-chart ltr pad-s-t"><span class="mgn-l-t index-chart-position">
+            {{outlet "marketChartOutlet"}}
+        </span></div>
+        <div class="full-width"></div>
+    </div>
+</div>
+
+<div class="pad-m-lr">
+    <div class="widget-hline"></div>
+    <div class="layout-container pad-widget-left pad-widget-right full-width ms-progress-bar-panel-height" {{action 'onNavigateTopStocks'}}>
+        <div class="layout-col-4 pos-rel">
+            <div class="font-x-l h-left fore-color bold pos-abs top-zero pad-l-t">{{formatNumber exchange.symt 0}}</div>
+            <div class="font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.total}}</div>
+        </div>
+
+        <div class="layout-col-4 pos-rel">
+            <div class="pad-l-l pad-l-t">
+                {{#each barItem in upsDownsNoChgValueArray}}
+                    <div class="progress-market ms-top-bar-progress-vertical ms-top-bar-vertical-top">
+                        <div {{bind-attr class="barItem.barClass"}} role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{{barItem.barWidth}}}></div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="layout-col-5 pad-m-r pos-rel up-down-panel-item">
+            <div class="font-x-l h-left up-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber exchange.ups 0}}</div>
+            <!--<div class="layout-inline m-circle up-back-color h-left mgn-s-b"></div>-->
+            <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.up}}</div>
+        </div>
+
+        <div class="layout-col-5 pos-rel">
+            <div class="font-x-l h-left down-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber exchange.dwns 0}}</div>
+            <!--<div class="layout-inline m-circle down-back-color h-left mgn-s-b"></div>-->
+            <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.down}}</div>
+        </div>
+
+        <div class="layout-col-6 pos-rel">
+            <div class="font-x-l h-left highlight-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber exchange.nChg 0}}</div>
+            <!--<div class="layout-inline m-circle no-changed-back-color h-left mgn-s-b"></div>-->
+            <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.unchanged}}</div>
+        </div>
+    </div>
+    <div class="widget-hline"></div>
+</div>
+<div class="layout-container full-width pad-l-tb pad-m-lr">
+    <div class="layout-row">
+        <div class="layout-col pad-widget-left pad-l-b">
+            <div class="h-left font-l fade-fore-color pad-s-b">{{app.lang.labels.volume}}</div>
+            <div class="font-xx-l h-left fore-color font-thick">{{formatNumber exchange.vol 0}}</div>
+        </div>
+        <div class="layout-col-24 pad-m-l"></div>
+        <div class="layout-col pad-widget-right pad-m-l pad-l-b">
+            <div class="h-right font-l fade-fore-color pad-s-b">{{app.lang.labels.trades}}</div>
+            <div class="font-xx-l h-right fore-color font-thick">{{formatNumber exchange.trades 0}}</div>
+        </div>
+    </div>
+    <div class="layout-row">
+        <div class="layout-col pad-widget-left pad-l-b">
+            <div class="h-left font-l fade-fore-color pad-s-b">{{app.lang.labels.turnover}}</div>
+            <div class="font-xx-l h-left fore-color font-thick">{{formatNumber exchange.tovr 0}}</div>
+        </div>
+        <div class="layout-col-24 pad-m-l"></div>
+        <div class="layout-col pad-widget-right pad-m-l pad-l-b">
+            <div class="h-right font-l fade-fore-color pad-s-b">{{app.lang.labels.ytdt}}</div>
+            <div class="font-xx-l ltr h-right font-thick {{ytdCss}}">{{formatNumberPercentage index.pctYtd index.deci}}</div>
+        </div>
+    </div>
+    <div class="layout-row">
+        <div class="layout-col pad-widget-left">
+            <div class="h-left font-l fade-fore-color pad-s-b">{{app.lang.labels.cashMap}}</div>
+            <div class="font-xx-l h-left fore-color bold font-thick ">{{cash-map id=cashMapId stock=exchange isValueHidden=false}}</div>
+        </div>
+        <div class="layout-col-24 pad-m-l"></div>
+        <div class="layout-col pad-widget-right pad-m-l">
+            <div class="h-right font-l fade-fore-color pad-s-b">{{app.lang.labels.netCash}}%</div>
+            <div class="font-xx-l ltr h-right bold font-thick {{netCashCss}}">{{formatNumberPercentage exchange.netCashPer exchange.dep}}</div>
+        </div>
+    </div>
+</div>
+

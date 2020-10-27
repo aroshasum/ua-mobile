@@ -1,0 +1,42 @@
+<div>
+    <div class="mgn-s-lr">
+        {{#each menuItem in appLayout.layout.mainPanel.content}}
+            <div {{bind-attr class=":layout-container :hsub-menu-container :fade-fore-color menuItem.subMenuCss"}}
+                    name="{{menuItem.title}}">
+                {{#each subMenuItem in menuItem.tab}}
+                    {{#unless subMenuItem.expandId}}
+                        {{#if isFullWidthMenu}}
+                            <div name="{{subMenuItem.title}}" {{action 'renderSubMenuItems' subMenuItem menuItem.title}} class="hsub-tab-item btn-ani layout-col bottom-menu-fore-color1  border-bottom {{subMenuItem.css}}">
+                                <div class="font-l ellipsis h-middle full-width">
+                                    {{subMenuItem.displayTitle}}
+                                </div>
+                            </div>
+                        {{else}}
+                            <div name="{{subMenuItem.title}}{{subMenuItem.id}}" {{action 'renderSubMenuItems' subMenuItem menuItem.title}} class="hsub-tab-item btn-ani layout-inline bottom-menu-fore-color1  border-bottom {{subMenuItem.css}}">
+                                <div class="font-l ellipsis h-middle full-width">
+                                    {{subMenuItem.displayTitle}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/unless}}
+                {{/each}}
+            </div>
+        {{/each}}
+    </div>
+</div>
+<div id="hnav-panel-mobile" class="layout-container hnav-z-index pos-abs bottom-zero full-width navigation-back-color border-top hnav-panel-height">
+    {{#each menuItem in appLayout.layout.mainPanel.content}}
+        <div {{action 'renderMenuItems' menuItem}} {{bind-attr class=":layout-col :hnav-default-width :pos-rel :h-middle :cell-collapse :hnav-outline :hnav-cell-height :bottom-menu-fore-color menuItem.mainMenuCss"}}>
+            <div class="pos-abs top-zero h-middle full-width hnav-cell-padding-top">
+                <div class="h-middle">
+                    <i {{bind-attr class=":hnav-icon-font-size menuItem.icon"}}></i>
+                </div>
+            </div>
+            <div class="pos-abs bottom-zero font-m ellipsis h-middle full-width hnav-cell-padding-bottom">
+                <div class="h-middle pad-s-r">
+                    {{menuItem.displayMainTitle}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

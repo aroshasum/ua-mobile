@@ -1,0 +1,29 @@
+.day-range {
+  background-color:transparent;
+  height: 13px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  position: relative;
+  width: 70px;
+}
+
+.day-range-bar {
+  height:4px;
+
+  @include theme((
+          background-color: progress-bar-back-color
+  ));
+}
+
+.day-range-position {
+  height:13px;
+  width:7px;
+  position: absolute;
+  top: 0px;
+  transition: left 0.6s;
+
+  @include theme((
+          color: down-back-color
+  ));
+}
+

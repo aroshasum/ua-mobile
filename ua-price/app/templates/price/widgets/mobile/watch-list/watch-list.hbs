@@ -1,0 +1,184 @@
+<div class="full-width full-height overflow-hidden pos-rel">
+    {{#if showPopup}}
+        <div class="layout-container full-width full-height pos-abs top-zero left-zero z-index-hundred" {{action 'closePopup'}}>
+            <div class="layout-container full-height full-width pos-abs transparent-dark-background"></div>
+            <div class="layout-container full-height full-width pos-abs">
+                <div class="layout-col h-middle">
+                <span class="v-middle">
+                    {{#if isRenameWL}}
+                        {{custom-watchlist-dialog
+                        watchListName=currentCustomWLName
+                        app=app
+                        title="renameWL"
+                        actionType="renameWL"
+                        currentCustomWLId=currentCustomWLId
+                        customWLCallBack='renameCustomWLCallBack'
+                        }}
+                    {{/if}}
+                    {{#if isAddNewWL}}
+                        {{custom-watchlist-dialog
+                        app=app
+                        actionType="addNewWL"
+                        customWLCallBack='onCustomWlSelect'
+                        }}
+                    {{/if}}
+                    {{#if isWatchlistMenu}}
+                        {{watchlist-menu-popup
+                            app=app
+                            isWatchlistMenu=isWatchlistMenu
+                            sortProperties=sortProperties
+                            sortAscending=sortAscending
+                            detailedView=isShowDetailedView
+                            isCustomWLMode=isCustomWLMode
+                            secondarySort=secondarySort
+                        }}
+                    {{/if}}
+                </span>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+    {{#unless isTableControlPanelDisabled}}
+        <div id="tabPanelWatchlist" {{bind-attr class=":layout-container :full-width :pos-rel :fade-fore-color"}}>
+            <div {{bind-attr class=":layout-container :pos-rel :full-width isIndexView:pad-xs-b"}}>
+                <div class="layout-col pos-abs transform z-index-hundred pad-m-l pad-s-tb {{filterCss}}">
+                    {{input-field-text id="filterWatchlist" value=textFilter type="text" class="font-l search-ctrl full-height full-width watch-list-filter-panel search-query" placeholder=app.lang.labels.filter}}
+                </div>
+
+                <div class="layout-container font-xxx-l wdgttl-tab-panel {{tabPanelCss}}">
+                    {{#if isMoreMarketAvailable }}
+                        <div {{bind-attr class=":layout-col :pad-l-l :overflow-visible :wdgttl-tab-item :more-market-container isCustomWLMode::active"}}>
+                            {{more-markets-dropdown
+                            setExchange='onSelectExchange'
+                            exchangeValue=exchange
+                            buttonClass='wdgttl-drp-dwn-btn ltr'
+                            lblClass='wdgttl-drp-dwn-btn-width font-l pad-xs-t'
+                            defaultExchangeForDropdown=defaultExchange
+                            exg=exg
+                            isShowDefaultMarket=true
+                            value=value
+                            key=wkey
+                            }}
+                        </div>
+                    {{else}}
+                        <div  class="layout-col mgn-m-r">
+                            <div role="presentation" {{bind-attr class=":pad-xs-t :ltr :wdgttl-tab-item isCustomWLMode::active"}}  {{action 'onSelectExchange' marketTab}} >
+                                <a class="font-l wdgttl-tab-link hint--top hint--bounce hint--rounded" aria-controls="" role="tab" data-toggle="tab">
+                                    {{marketTab.de}}
+                                </a>
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    <div class="layout-col wdgttl-tab">
+                        {{#unless isIndexView}}
+                            {{sub-markets-dropdown
+                            exchange=exchange
+                            key=wkey
+                            buttonClass='wdgttl-drp-dwn-btn ltr'
+                            onSubMarketChanged='onSelectSubMarket'
+                            lblClass='wdgttl-drp-dwn-btn-width font-l pad-m-l pad-xs-t'
+                            currentMarketId=currentSubMarketId
+                            }}
+                        {{/unless}}
+                    </div>
+
+                    <div class="layout-col pad-m-lr">
+                        {{#unless isIndexView}}
+                            {{#if isFavouriteTextDisabled }}
+                                <div class="layout-col wdgttl-tab-link wdgttl-tab-item font-l pad-l-l {{favouritesActive}}">
+                                    <i class="glyphicon-star-empty glyphicon"></i>
+                                </div>
+                            {{else}}
+                                <div {{bind-attr class=":layout-col :overflow-visible :wdgttl-tab-item isActiveCustomDropdown:active:"}}>
+                                    {{#if isWidgetRefreshed}}
+                                        {{tab-dropdown
+                                        isDropdown=isDropdown
+                                        displayList=customWatchListArray
+                                        newActive=customWLNewActive
+                                        isDisplayListChanged=isCustomWLChanged
+                                        labelKey='name'
+                                        actionName='onCustomWlSelect'
+                                        tabItemClass='wdgttl-tab-item font-normal pad-xs-t'
+                                        tabLinkClass='wdgttl-tab-link bold wdgttl-fore-color font-l'
+                                        lblClass='wdgttl-tab-link bold wdgttl-fore-color font-l'
+                                        buttonClass='wdgttl-drp-dwn-btn font-normal pad-xs-t'
+                                        }}
+                                    {{/if}}
+                                </div>
+                            {{/if}}
+                        {{/unless}}
+                    </div>
+                </div>
+            </div>
+
+            <!--Filter will be applied later-->
+            {{#if isCustomWLMode}}
+                <div class="layout-col h-right icon-fore-color pad-l-r ">
+                    <div class="layout-inline font-xx-l pad-m-lr" {{action "openGlobalSearch"}}>
+                        <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                    </div>
+                    <div class="layout-inline font-xxx-l pad-xs-t pad-s-l">
+                        {{bootstrap-icon-dropdown
+                        options=menuConfig
+                        valueKey="name"
+                        labelKey="name"
+                        selectAction="onSelectOption"
+                        dropdownCss="dropdown-menu-align-right"
+                        itemCss="font-s bold"
+                        }}
+                    </div>
+                </div>
+            {{else}}
+                <div class="layout-col h-right icon-fore-color pad-l-lr font-xxx-l pad-xs-t"{{action 'displayFilter'}}>
+                    {{#if isDisplayFilter}}
+                        <i class="icon-close-round" aria-hidden="true"></i>
+                    {{else}}
+                        <i class="glyphicon glyphicon-filter" aria-hidden="true"></i>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+        {{#unless isHideLink}}
+            <div class="hint--top-left hint--bounce hint--rounded pos-abs quote-watchlist-link" data-hint="{{app.lang.labels.linkWidgets}}"> {{link-dropdown
+            options=links
+            defaultSelect=defaultLink
+            value=selectedLink
+            valueKey='code'
+            labelKey='desc'
+            selectAction='setLink'
+            }}
+            </div>
+        {{/unless}}
+    {{/unless}}
+    <div class="full-width {{portfolioWatchlistHeight}} {{if isIndexView 'indices-container-height' 'watch-list-container-height'}}">
+        {{#if isWidgetRefreshed}}
+            {{table-component
+            hasBody=isRenderingEnabled
+            columns=columns
+            content=oneWayContent
+            rowHeight= rowHeight
+            indicatorConfig= indicatorConfig
+            hasFooter=false
+            isActiveOnSymbolChange=true
+            rowClickAction="clickRow"
+            minHeaderHeight= 40
+            isRefreshed=isRefreshed
+            isOddEvenRowStyleDisabled=isOddEvenRowStyleDisabled
+            isExpandedView=isExpandedView
+            deleteSymbol='deleteSymbol'
+            expandColumnAction='expandColumnAction'
+            contextPath=contextPath
+            isIndexView=isIndexView
+            disableExpand=disableExpand
+            isCustomWLMode=isCustomWLMode
+            isDeleteButtonDisabled=isDeleteButtonDisabled
+            isAddedToCustomWatchList=isAddedToCustomWatchList
+            id=wkey
+            isContextPanel=isContextPanel
+            enableColumnReorder=false
+            }}
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="full-height full-width overflow-hidden">
+    {{#if isShowTitle}}
+        {{widget-header
+            widgetTitle=app.lang.labels.watchList
+            isMarketTabAvailable=true
+            titleTabs=exgTabs
+            tabAction='setWlExchange'
+            buttonClass='wdgttl-drp-dwn-btn'
+            isShowOnlyDefault=isShowOnlyDefault
+            hideWidgetLink=true
+            hideSymbol=true
+            isMoreMarketAvailable=true
+            setExchange='onSelectExchange'
+            defaultExchangeForDropdown=defaultExchangeForDropdown
+            value=exg
+        }}
+    {{/if}}
+
+    <!--  =========  Search Box  =============  -->
+
+    <div class="layout-container full-width pos-rel pad-s-tb">
+        {{#unless isTablet}}
+            <div class="layout-col pad-m-l font-m btn" {{action 'showFilterBox'}}>
+                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+            </div>
+        {{/unless}}
+
+        <div class="layout-col">
+        {{#if isTablet}}
+            <div class="watch-list-transform-filter-box pad-m-lr">
+                {{input-field-text type="text" value=textFilter placeholder=app.lang.labels.filter onKeyDown="onKeyDown" class="search-query form-control pad-s-l"}}
+            </div>
+            {{else}}
+            <div class="{{if isChangeWidth 'watch-list-filter-area-show' 'watch-list-filter-area-hide'}} watch-list-transform-filter-box">
+                {{input-field-text type="text" value=textFilter placeholder=app.lang.labels.filter onKeyDown="onKeyDown" class="search-query search-ctrl form-control watch-list-filter-area-show pad-s-l"}}
+            </div>
+        {{/if}}
+    </div>
+        {{#unless isTablet}}
+            <div class="layout-col-24"></div>
+        {{/unless}}
+
+        <div class="layout-col">
+            {{#unless isTablet}}
+                <div class="layout-col">{{more-markets-dropdown setExchange='onSelectExchange' key=wkey isShowDefaultMarket=true responsiveIcon=isChangeWidth}}</div>
+            {{/unless}}
+
+            <div class="layout-col pad-s-l">{{sub-markets-dropdown exchange=exchange key=wkey lblClass='watch-list-quote-wl-filter-btn' onSubMarketChanged='onSelectSubMarket' responsiveIcon=isChangeWidth}}</div>
+        </div>
+
+        <div class="layout-col pad-s-l">
+            {{#unless isTablet}}
+                {{#unless isHideLink}}
+                    {{link-dropdown
+                        options=links
+                        defaultSelect=defaultLink
+                        value=selectedLink
+                        valueKey='code'
+                        labelKey='desc'
+                        selectAction='setLink'
+                        toolTip=app.lang.labels.linkWidgets
+                    }}
+                {{/unless}}
+            {{/unless}}
+        </div>
+    </div>
+
+    <!--  =========  /Search Box  =============  -->
+
+    <div class="ember-table-panel full-width quote-watchlist-height">
+        {{#if isRenderingEnabled}}
+            {{table-component
+            columns=columns
+            content=arrangedContent
+            rowHeight= rowHeight
+            hasFooter=false
+            isActiveOnSymbolChange=true
+            minHeaderHeight= 40
+            isRefreshed=isRefreshed
+            rowClickAction="clickRow"
+            doubleClickAction="doubleClickRow"
+            id=wkey
+            }}
+        {{/if}}
+    </div>
+</div>

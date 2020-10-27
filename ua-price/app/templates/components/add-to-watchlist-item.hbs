@@ -1,0 +1,28 @@
+<div class="right-click-menu-item dropdown-submenu" id="rightClickExpanded1">
+    <a>
+        <div class="layout-inline v-middle font-x-l right-click-menu-rtl"><i class="icon-plus-large"></i></div>
+        <div class="layout-inline pad-l-l font-m">{{app.lang.labels.addToWL}}</div>
+        <div class="layout-inline right font-s">
+            {{#if isArabic}}
+                <i class="icon-caret-left"></i>
+            {{else}}
+                <i class="icon-caret-right"></i>
+            {{/if}}
+        </div>
+    </a>
+    <div class="dropdown dropdown-menu" role="menu" id="popup">
+        {{#each item in customWatchListArray}}
+            <div class="right-click-menu-item" {{action 'addStocksFromMenu' item.id}}>
+                <a> <span class="v-middle font-l right-click-menu-rtl"><i class="icon-checkmark-round"></i></span><span class="pad-l-l font-m">{{item.name}}</span> <span class="right font-s pad-s-t"></span> </a>
+            </div>
+        {{/each}}
+        <!--Add separating line-->
+        {{custom-watchlist-dialog
+            app=app
+            actionType="addNewWithStock"
+            symbol=selectedSymbol
+            watchListName=associatedController.newCustomWLName
+            customWLCallBack='addNewWLWithStockCBAction'
+        }}
+    </div>
+</div>

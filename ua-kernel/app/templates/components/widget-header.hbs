@@ -1,0 +1,75 @@
+<div class="wdgttl" data-wkey={{wkey}}>
+    <div class="wdgttl-horizontal-line"></div>
+
+    <div {{bind-attr class=":layout-container :wdgttl-header widgetClass "}}>
+
+        <!--  =======  First column  ========   -->
+        <div class="layout-col">
+
+            {{#if isTitleIconAvailable}}
+                <div class="layout-inline pad-s-l"><i class="glyphicon {{icon}} pad-s-r"></i></div>
+            {{/if}}
+
+            {{#if innerWidgets.isAvailable}}
+                <div class="layout-inline">
+                    <div class="wdgttl-tab-panel pad-s-l">
+                        {{#each innerWidget in innerWidgets.innerTabs}}
+                            <div {{bind-attr class=":pad-m-l :wdgttl-tab-item innerWidget.css"}}><a {{action 'renderInnerWidgetItems' innerWidget innerWidgets.wid}}><span>{{innerWidget.displayDesc}}</span></a></div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{else}}
+                <div class="layout-inline pad-s-l {{titleCss}}">{{widgetTitle}}</div>
+            {{/if}}
+
+
+            {{#unless hideSymbol}}
+                <div class="layout-inline pad-s-l ltr">{{symbol}} </div>
+            {{/unless}}
+
+        </div>
+        <!--  =======  /First column  ========   -->
+
+        <!--  =======  Scound column  ========   -->
+
+        <div class="layout-col overflow-visible">
+            {{#if isMarketTabAvailable}}
+                <div  class="layout-col wdgttl-tab-panel">
+                    {{#each tabItem in titleTabs}}
+                        <div role="presentation" {{bind-attr class=":pad-m-l :pad-s-tb :wdgttl-tab-item tabItem.css"}}  {{action 'titleTabAction' tabItem}} >
+                            <a class="wdgttl-tab-link hint--top hint--bounce hint--rounded" href="#" aria-controls="" role="tab" data-toggle="tab">
+                                {{tabItem.displayName}}
+                            </a>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+
+            {{#if isMoreMarketDropdownAvailable}}
+                <div class="layout-col overflow-visible">
+                    {{more-markets-dropdown
+                    setExchange='setExchange'
+                    buttonClass=buttonClass
+                    defaultExchangeForDropdown=defaultExchangeForDropdown
+                    value=value
+                    isShowOnlyDefault=isShowOnlyDefault
+                    key=wkey}}
+                </div>
+            {{/if}}
+        </div>
+
+        <!--  =======  /Scound column  ========   -->
+
+        <!--  =======  Third column  ========   -->
+        <div class="layout-col-24 ">
+
+        </div>
+        <!--  =======  /Third column  ========   -->
+
+        <!--  =======  Fourth column  ========   -->
+
+        <!--  =======  /Fourth column  ========   -->
+
+    </div>
+
+</div>

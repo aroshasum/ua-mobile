@@ -1,0 +1,22 @@
+{{#if enabled}}
+    <div class="message-box-fog">
+        <div class="message-box-frame">
+            <div class="message-box-title h-left">
+                {{title}}
+                <a class="right" data-toggle="tab"  {{action 'closeMessageBox'}} ><i class="widget-title-fore-color icon-close-round"></i></a>
+            </div>
+            <div class="message-box-body">
+                <div class="message-box-icon mgn-l-l left {{messageBoxClass}}"><i class="icon-exclamation-circle display-none"></i><i class="icon-close-round display-none"></i><i class="icon-question display-none"></i><i class="icon-check display-none"></i><i class="icon-info-circle1 display-none"></i></div>
+                <span class="message-box-message font-l colour-normal left h-left pad-s-all">{{message}}</span>
+                {{#each listItem in listItems}}
+                    <span class="message-box-message font-l colour-normal left h-left pad-s-all ltr">{{listItem}}</span>
+                {{/each}}
+            </div>
+            <div class="message-box-button-area mgn-l-lr">
+                {{#each buttons as |button index|}}
+                    <button {{action 'onButtonClick' index}} class="btn btn-dropdown btn-default" style="width:75px;">{{button.displayText}}</button>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+{{/if}}

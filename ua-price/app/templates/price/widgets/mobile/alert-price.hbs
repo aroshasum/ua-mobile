@@ -1,0 +1,94 @@
+<div class="full-width full-height overflow-hidden">
+    <div class="layout-container font-xxx-l full-width pad-l-lr pad-s-b pad-m-t">
+        <span class="input-group pad-s-lr full-width font-m left mgn-s-b full-width">
+            {{input type="text" value=searchKey action="showSearchPopup" class="alert-padding-left full-width filter-panel alert-filter-panel form-control mousetrap" placeholder=app.lang.labels.symbol}}
+            <div class="pos-abs top-zero fade-fore-color search-icon">
+                <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+            </div>
+        </span>
+        <div class="search-popup-price-alert font-m alert-pop-up-line-height" style="top: {{searchPopupTop}}">
+            {{#modal-popup isEnabled=false id="alertSymbolSearch" isOverlayEnabled=true}}
+                {{global-search-mobile
+                enableContentSettings=false
+                searchKey=searchKey
+                defaultLink=defaultLink
+                showWidgetButtons=true
+                clickAction='onSymbolSelected'
+                closePopup='closeSearchPopup'
+                openPopup='showSearchPopup'
+                analyticsKey=gaKey}}
+            {{/modal-popup}}
+        </div>
+    </div>
+    <div class="layout-container full-width font-m pad-l-lr pad-s-b pad-l-t">
+        <div class="layout-col-11 pad-s-l">
+            {{bootstrap-dropdown-select
+            value=selectedParameter
+            options=parameters
+            defaultSelect=defaultParameter
+            valueKey='value'
+            labelKey='caption'
+            selectAction='setParameter'
+            buttonClass='full-width dropdown-solid-back-color'
+            lblClass='dropdown-item-container'
+            }}
+        </div>
+        <div class="layout-col-2"></div>
+        <div class="layout-col-11 pad-s-r">
+            {{bootstrap-dropdown-select
+            value=selectedCriteria
+            options=criteria
+            defaultSelect=defaultCriteria
+            valueKey='value'
+            labelKey='caption'
+            selectAction='setCriteria'
+            buttonClass='full-width dropdown-solid-back-color'
+            lblClass='dropdown-item-container'
+            }}
+        </div>
+    </div>
+
+    <div class="layout-container full-width font-m pad-l-lr pad-s-tb">
+        <div class="layout-col-11 pad-m-tb pad-s-l font-xx-l">
+            {{input-field-number
+            class="form-control search-query h-right fore-color font-xx-l full-width alert-text-box input-font-size"
+            decimalPlaces=valueDecimalPlaces
+            maxlength=15
+            numValue=value
+            isScrollDisabled=true
+            placeholder=alertValuePlaceHolder
+            id='alertValue'
+            }}
+        </div>
+        <div class="layout-col-2"></div>
+        <div class="layout-col-11 pad-s-r">
+            <span class="font-x-l bold btn-txt-color">
+                <button {{action 'addAlert'}} type="button" class="btn bold confirm-btn btn-animation add-alert-btn font-l"  disabled={{isAddAlertDisabled}}>
+                    <span>{{alertButtonText}}</span>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="full-width pos-rel {{tableHeight}}">
+        {{loading-indicator isLoading=isLoading}}
+        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color mgn-l-t' backgroundCss='pos-abs h-middle mgn-l-t'}}
+        {{#if isWidgetRefreshed}}    <!-- Default value of this boolean value is true -->
+            {{table-component
+            columns=columns
+            content=arrangedContent
+            rowHeight= 60
+            hasFooter=false
+            isActiveOnSymbolChange=false
+            minHeaderHeight=32
+            isRefreshed=isRefreshed
+            headerNames=headerNames
+            isOddEvenRowStyleDisabled=true
+            contextPath=contextPath
+            rowClickAction="clickRow"
+            isContextPanel=isContextPanel
+            id=wkey
+            }}
+        {{/if}}
+    </div>
+</div>

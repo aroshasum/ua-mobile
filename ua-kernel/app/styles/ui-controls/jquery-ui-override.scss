@@ -1,0 +1,97 @@
+.calendars {
+	@include theme((
+		border: "0 {progress-bar-back-color} solid"
+	));
+}
+
+.calendars-popup {
+  @include theme((
+		border-right: "1px {widget-border-color} solid",
+		border-top: "1px {widget-border-color} solid",
+		border-bottom: "1px {widget-border-color} solid",
+		border-left: "1px {widget-border-color} solid",
+	   	box-shadow: "1px 1.732px 11px 0px {popup-box-shadow-color}"
+  ));
+}
+
+.calendars-nav, .calendars-ctrl {
+	@include theme((
+		color: fore-color,
+		background-color: "progress-bar-back-color"
+	));
+}
+
+.calendars a {
+	@include theme((
+		color: fore-color
+	));
+}
+
+.calendars-month-header, .calendars-month-header select, .calendars-month-header input {
+	@include theme((
+		color: fore-color,
+		background-color: "widget-menu-back-color"
+	));
+}
+
+.calendars-month {
+	border: none;
+}
+
+.calendars-month td {
+	border: none;
+}
+
+.calendars-month th {
+	border: none;
+}
+
+.calendars-cmd:hover {
+	background-color: #ddd;
+}
+
+.calendars-month th, .calendars-month th a {
+	@include theme((
+		color: fore-color,
+		background-color: "widget-menu-back-color"
+	));
+}
+
+.calendars-month thead {
+	border-bottom: none;
+}
+
+.calendars-month td .calendars-today {
+	@include theme((
+		color: fore-color,
+		background-color: "widget-ui-control-back-color"
+	));
+}
+
+.calendars-month td .calendars-highlight {
+	@include theme((
+		color: dark-bg-fore-color,
+		background-color: highlight-back-color-2
+	));
+}
+
+.calendars-month td .calendars-selected {
+	@include theme((
+		color: dark-bg-fore-color,
+		background-color: link-4-color
+	));
+}
+
+.calendars-ctrl .calendars-cmd:hover {
+	background-color: #ddd;
+}
+
+.calendars-rtl .calendars-cmd-next, .calendars-rtl .calendars-cmd-nextJump,
+.calendars-rtl .calendars-cmd-close {
+	padding-top: 3px;
+}
+
+.calendars-rtl .calendars-cmd-prev, .calendars-rtl .calendars-cmd-prevJump,
+.calendars-rtl .calendars-cmd-clear {
+	padding-top: 3px;
+}

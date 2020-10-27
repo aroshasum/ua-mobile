@@ -1,0 +1,91 @@
+.search {
+  &-title {
+
+    @include theme((
+            color: highlight-fore-color,
+            background-color: widget-title-back-color,
+            border-bottom: "1px {border-color} solid"
+    ));
+  }
+
+  &-wrapper {
+    min-width: 100%;
+  }
+
+  &-symbol {
+    width: inherit;
+  }
+
+  &-desc-1 {
+    margin-right: $margin-medium;
+    width: 75px;
+  }
+
+  &-desc-2 {
+    margin-top: $margin-small;
+    max-width: 270px;
+  }
+
+  &-mkt {
+    margin-right: $margin-small;
+    width: 45px;
+  }
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.option-toggle {
+  width: 65px;
+  height: 30px;
+}
+
+.option-box-shadow {
+  box-shadow: inset -7px 0 9px -7px rgba(0,0,0,0.7);
+}
+
+// TODO [Anushka] Remove !important after checking overridden classes
+
+.active-symbol-row {
+  background-color: #c5eef7 !important;
+}
+
+.active-date-row {
+  background-color: #fde09e !important;
+}
+
+.active-price-row {
+  background-color: #bdffad !important;
+}
+
+.search-row-bottom {
+  padding-bottom: 1px;
+}
+
+.call-row-border {
+  border-bottom: 3px solid;
+
+  @include theme((
+          border-color: widget-separator-color
+  ));
+}
+
+.option-menu-height {
+  height: 45px;
+}
+
+.option-done-btn {
+  height: 30px;
+}
+
+.btn-option-small {
+  height: 38px;
+  font-size: $font-x-large;
+  border-radius: $radius-xs;
+
+  @include theme((
+          background-color: link-4-color,
+          border: "0 {link-4-color} solid"
+  ));
+}

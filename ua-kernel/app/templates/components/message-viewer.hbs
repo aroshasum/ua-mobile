@@ -1,0 +1,5 @@
+<div class="right pad-s-l mgn-m-r" style="padding-top: 2px;">
+    {{#each item in messageArray}}
+<span {{bind-attr class=":font-m :pad-m-r item.messageClass"}}>{{item.content}}</span>
+      {{/each}}
+  </div>

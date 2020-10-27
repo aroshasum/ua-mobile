@@ -1,0 +1,115 @@
+/* =======  Global Search Drop Down Menu  =============  */
+
+.search {
+    &-wrapper {
+        max-height: 415px;
+        min-width: 314px;
+        border-radius: $radius-xxs;
+
+        @include theme((
+                background-color: widget-back-color,
+                border: "1px {widget-border-color} solid",
+                border-bottom: "2px {widget-border-color} solid"
+        ));
+    }
+
+    &-wrapper ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &-title {
+        padding: 6px 6px 6px $pad-widget;
+
+        @include theme((
+                color: widget-title-fore-color,
+                background-color: widget-title-back-color,
+                border-bottom: "1px {widget-border-color} solid"
+        ));
+    }
+
+    &-row {
+        padding: 8px;
+
+        @include theme((
+                border-bottom: "1px {widget-border-color} solid"
+        ));
+    }
+
+    &-row:hover {
+        cursor: pointer;
+
+        @include theme((
+                background-color: table-row-hover-back-color
+        ));
+    }
+
+    &-row-hover {
+        @include theme((
+                background-color: table-row-hover-back-color
+        ));
+    }
+
+    &-col-1 ul {
+        display: table;
+    }
+
+    &-col-1 ul li {
+        display: table-cell;
+        vertical-align: text-bottom;
+    }
+
+    &-symbol {
+        margin-right: $margin-medium;
+        width: 100px;
+    }
+
+    &-symbol-responsive {
+        margin-right: $margin-medium;
+        width: 90px;
+    }
+
+    &-desc-1 {
+        margin-right: $margin-medium;
+        width: 120px;
+    }
+
+    &-desc-1-responsive {
+        margin-right: $margin-medium;
+        width: 90px;
+    }
+
+    &-desc-2 {
+        margin-top: $margin-small;
+        max-width: 300px;
+    }
+
+    &-mkt {
+        margin-right: $margin-small;
+        width: 50px;
+    }
+
+    &-mkt-responsive {
+        margin-right: $margin-small;
+        width: 40px;
+    }
+
+    &-sub-mkt {
+        margin-right: $margin-medium;
+        width: 70px;
+    }
+
+    &-row:hover {
+        @include theme((
+                background-color: widget-title-back-color
+        ));
+
+        @include theme-classic((
+                background-color: table-row-hover-back-color
+        ));
+    }
+}
+
+/* =======  /Global Search Drop Down Menu  =============  */
+
+@import 'extended/symbol-results-extended';

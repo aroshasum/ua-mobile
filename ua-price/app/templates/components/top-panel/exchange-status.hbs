@@ -1,0 +1,61 @@
+<td class="{{if isTablet 'v-top'}}">
+    <div class="{{if isTablet 'layout-container toppanel-height ms-top-bar-exchange-width' 'ms-top-bar-exchange pad-s-t'}}">
+        <div class="{{if isTablet 'layout-col pad-m-l pad-s-t v-top'}}">
+            <div style="height:21px">
+                {{#if disableMoreMarkets}}
+                    <button class="btn btn-dropdown btn-default bold ltr" type="button" id="appDropdown" data-toggle="dropdown">{{exchange.de}}</button>
+                {{else}}
+                    {{bootstrap-dropdown-select
+                    options=exchanges
+                    valueKey='code'
+                    labelKey='desc'
+                    selectedLabelKey='de'
+                    defaultSelect=selectedExg
+                    selectAction='setExchange'
+                    lblClass='font-l'
+                    buttonClass='bold dropdown-text-only'
+                    wkey=wkey
+                    }}
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="{{if isTablet 'layout-col full-height v-top'}}">
+            {{#if isTablet}}
+                <div class="font-l h-middle ms-top-bar-mkt-status">
+                    <div style="position: relative" {{bind-attr class="marketStatusCSS pos-rel"}} >
+                        <div class="pos-abs full-width" style="z-index: 1; width:70px;">{{exchange.statStr}}</div>
+                        <div id="marketSummaryExchangeStatusContainer" class="pos-abs full-width" style="z-index: 3; width:70px;">{{exchange.statStr}}</div>
+                    </div>
+                </div>
+            {{else}}
+                <div style="height:22px" class="font-l pad-s-all ms-top-bar-alert-style full-width">
+                    <div style="position: relative" {{bind-attr class="marketStatusCSS"}} >
+                        <div class="pos-abs full-width" style="z-index: 1">{{exchange.statStr}}</div>
+                        <div id="marketSummaryExchangeStatusContainer" class="full-width hint--bottom-left hint--bounce hint--rounded cursor-default" style="z-index: 3;" data-hint="{{exchange.statStrLong}}">{{exchange.statStr}}</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if showTime}}
+                <div class="font-l fade-fore-color ms-top-bar-showTime"><span class="pad-s-l"> {{showTimeText}}</span>
+                </div>
+            {{else}}
+                <div class="font-m fade-fore-color ms-top-bar-showTime"><span>{{marketTime}} </span></div>
+            {{/if}}
+
+            {{#unless isTablet}}
+                <div class="ms-top-bar-progress-time" style="width: auto">
+                    <div {{bind-attr class="progressStyle"}} role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{{bar}}}></div>
+                </div>
+            {{/unless}}
+        </div>
+
+    </div>
+</td>
+<td>
+    <div class="ms-top-bar-vertical-separator ms-top-bar-vline-long"></div>
+</td>
+<td>
+    <div class="ms-top-bar-vertical-separator ms-top-bar-vline-long"></div>
+</td>

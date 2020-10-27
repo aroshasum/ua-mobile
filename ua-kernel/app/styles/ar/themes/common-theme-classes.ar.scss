@@ -1,0 +1,28 @@
+@import '../../common-variables';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+//@import '../../themes/theme-helper';
+
+.ar .border-right {
+        @include theme((
+                border-left: "1px {widget-border-color} solid",
+                border-right: "0 {widget-border-color} solid"
+        ));
+}
+
+.ar .border-left {
+        @include theme((
+                border-left: "0 {widget-border-color} solid",
+                border-right: "1px {widget-border-color} solid"
+        ));
+}
+
+.ar .widget-vline {
+        @include theme((
+                border-left: "1px {widget-separator-color} solid",
+                border-right: "0 {widget-separator-color} solid"
+        ));
+}
+
+@import 'extended/common-theme-classes-extended.ar';

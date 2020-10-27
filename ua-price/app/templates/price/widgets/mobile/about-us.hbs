@@ -1,0 +1,55 @@
+<div id="aboutUsPopup" class="widget-container-new full-width full-height container-back-color">
+    <div class="layout-container full-width pad-l-tb">
+        <div class="layout-col pad-l-b h-middle pad-widget-left pad-widget-right">
+            <div class="about-us-logo theme-logo-properties"></div>
+        </div>
+        <div class="layout-row h-middle fore-color font-l pad-widget-left pad-widget-right">
+            <span class="pad-s-r">{{app.lang.labels.version}}</span>
+            <span>{{longVersion}}</span>
+        </div>
+    </div>
+
+    <div class="y-scroll about-us-container-height">
+        <div class="layout-container pad-m-tb h-left pad-widget-left pad-widget-right ltr">
+            <div class="layout-container fade-fore-color h-left font-l pad-s-b bold">{{app.lang.labels.contactInformation}}</div>
+            {{partial "price/widgets/about-us-contact-info"}}
+        </div>
+
+        <div class="layout-container pad-s-t pad-l-b pad-widget-left pad-widget-right h-left full-width">
+            {{#each field in supportedContacts}}
+                <div class="layout-container font-l {{if field.desc 'pad-s-r left' 'pad-s-b'}}">
+                    <div class="layout-col fore-color">{{field.lanKey}}</div>
+                    {{#if field.isTel}}
+                        <div class="layout-col ltr highlight-fore-color"><a href="tel: {{field.value}}">{{field.value}}</a></div>
+                    {{else if field.isEmail}}
+                        <div class="layout-col highlight-fore-color"><a href="mailto:{{field.value}}" target="_blank">{{field.value}}</a></div>
+                    {{else if field.isUrl}}
+                        <div class="layout-col highlight-fore-color"><a href="http://{{field.value}}" target="_blank">{{field.value}}</a></div>
+                    {{/if}}
+                </div>
+
+                {{#if field.desc}}
+                    <div class="font-m fore-color pad-s-b">{{field.desc}}</div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="layout-container pad-l-t pad-s-b font-s h-left pad-widget-left pad-widget-right">
+        <div>{{replaceCopyrightText}}</div>
+    </div>
+
+    <div class="layout-container pad-l-tb font-s h-left pad-widget-left pad-widget-right">
+        {{app.lang.messages.copyrightLaw}}
+    </div>
+
+    {{#unless isBackToLoginDisabled}}
+        <div id="contactUsContainer" class="layout-col pad-m-r pad-l-tb">
+            <div class="layout-inline pad-m-l">
+                <button class="btn btn-default" {{action 'onBackToLogin'}}>{{app.lang.labels.backToLogin}}</button>
+            </div>
+        </div>
+    {{/unless}}
+
+</div>
+

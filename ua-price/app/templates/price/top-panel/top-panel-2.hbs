@@ -1,0 +1,203 @@
+<div id="topPanel-{{wkey}}">
+    <table class="w-full full-width border-b" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            {{#unless isTablet}}
+                <td class="theme-logo-properties pos-rel ms-top-bar-logo-top"></td>
+            {{/unless}}
+            <td>
+                <div class="ms-top-bar-vertical-separator ms-top-bar-vline-long-2"></div>
+            </td>
+            <td>
+               <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                   <tr>
+                       <td class="ms-top-bar-ticker-area-2">
+                           <div class="ms-top-bar-ticker-area full-width">
+                               <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                   {{#unless isTablet}}
+                                       <tr>
+                                           <td>{{price-ticker dataStatus=dataStatus exchange=exchange id="price-top-panel-price-ticker"}}</td>
+                                       </tr>
+                                   {{/unless}}
+                               </table>
+                           </div>
+                       </td>
+                   </tr>
+                   <tr>
+                       <div class="ms-top-bar-market-row">
+                           <table class="w-full full-width border-b" cellspacing="0" cellpadding="0" border="0">
+                               <tr>
+                                   <td class="pad-l-lr">
+                                       <div class="{{if isTablet 'layout-container toppanel-height ms-top-bar-exchange-width' 'ms-top-bar-exchange-2 pos-rel'}}">
+                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                               <tr class="full-width">
+                                                   <td class="pad-l-r">
+                                                       <div class="{{if isTablet 'layout-col pad-m-l pad-s-t v-top'}}">
+                                                           <div class="ms-top-bar-market-data-area pos-rel">
+                                                               {{#if disableMoreMarkets}}
+                                                                   <button class="btn btn-dropdown btn-default bold ltr" type="button" id="appDropdown" data-toggle="dropdown">{{exchange.de}}</button>
+                                                               {{else}}
+                                                                   {{bootstrap-dropdown-select
+                                                                   options=exchanges
+                                                                   valueKey='code'
+                                                                   labelKey='desc'
+                                                                   selectedLabelKey='de'
+                                                                   defaultSelect=selectedExg
+                                                                   selectAction='setExchange'
+                                                                   buttonClass='bold'
+                                                                   wkey=wkey
+                                                                   }}
+                                                               {{/if}}
+                                                           </div>
+                                                       </div>
+                                                   </td>
+                                                   <td>{{component exgStatusArea dataStatus=dataStatus exchange=exchange exchanges=exchanges id="price-top-panel-exchange-status-2" onExchangeChanged="setExchange" app=app disableMoreMarkets=disableMoreMarkets selectedExg=selectedExg}}</td>
+                                               </tr>
+                                           </table>
+                                       </div>
+                                   </td>
+                                   <td>
+                                       <div class="ms-top-bar-border ms-top-bar-vline-short-2"></div>
+                                   </td>
+
+                                   <td class="pos-rel">{{main-index-chart-2 dataStatus=dataStatus exchange=exchange id="price-top-panel-main-index-chart-2" app=app}}</td>
+
+                                   <td>
+                                       <div class="ms-top-bar-border ms-top-bar-vline-short-2"></div>
+                                   </td>
+                                   <td class="full-width">
+                                       <div class="ms-top-bar-ticker-area full-width">
+                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                               <tr>
+                                                   <td>
+                                                       <div class="left full-width">
+                                                           <table width="100%" border="0" cellpadding="0" cellspacing="0" class="ms-top-bar-nav-horizontal-list mgn-s-t">
+                                                               <tr>
+                                                                   <td></td>
+                                                                   <td>
+                                                                       <div class="layout-row">
+                                                                           <div data-id="topPanel-left" class="layout-col-12"></div>
+                                                                           <div data-id="topPanel-left" class="layout-col mgn-s-t mgn-s-lr pos-rel">
+                                                                               <div class="layout-row">
+                                                                                   {{#if (onResponsive responsive.trigger responsive "topPanel-left" 4)}}
+                                                                                       <div data-id="topPanel-volume" class="layout-col {{if isTablet '' 'pad-l-r'}}">
+                                                                                           <div class="font-m fade-fore-color toppanel-back pad-s-b ms-top-bar-row-gap">{{app.lang.labels.volume}}</div>
+                                                                                           <div class="font-m fade-fore-color toppanel-back pad-s-b">{{app.lang.labels.turnover}}</div>
+                                                                                       </div>
+                                                                                   {{else}}
+                                                                                       <div data-id="topPanel-volume" class="layout-col {{if isTablet '' 'pad-l-r'}}">
+                                                                                           <div class="font-m fade-fore-color toppanel-back pad-s-b ms-top-bar-row-gap">{{app.lang.labels.volume}}</div>
+                                                                                           <div class="font-m fade-fore-color toppanel-back pad-s-b">{{app.lang.labels.turnover}}</div>
+                                                                                       </div>
+                                                                                   {{/if}}
+
+                                                                                   {{#if (onResponsive responsive.trigger responsive "topPanel-left" 5)}}
+                                                                                       <div data-id="topPanel-turnover" class="layout-col pad-l-r">
+                                                                                           <div class="font-m bold fore-color pad-s-b ms-top-bar-row-gap">{{divideNumber exchange.vol 1}}</div>
+                                                                                           <div class="font-m bold fore-color  pad-s-b">{{divideNumber exchange.tovr 1}}</div>
+                                                                                       </div>
+                                                                                   {{else}}
+                                                                                       <div data-id="topPanel-turnover" class="layout-col pad-l-r">
+                                                                                           <div class="font-m bold fore-color pad-s-b ms-top-bar-row-gap">{{formatNumber exchange.vol 0}}</div>
+                                                                                           <div class="font-m bold fore-color pad-s-b">{{formatNumber exchange.tovr 0}}</div>
+                                                                                       </div>
+                                                                                   {{/if}}
+
+                                                                                   <div class="layout-col ms-top-bar-padding-x-large-left pad-l-r">
+                                                                                       <div class="font-m fade-fore-color toppanel-back pad-s-b ms-top-bar-row-gap">{{app.lang.labels.trades}}</div>
+                                                                                       <div class="font-m fade-fore-color toppanel-back pad-s-b">{{app.lang.labels.ytd}}</div>
+                                                                                   </div>
+
+                                                                                   {{#if (onResponsive responsive.trigger responsive "topPanel-left" 2)}}
+                                                                                       <!--Hide element-->
+                                                                                   {{else}}
+                                                                                       <div data-id="topPanel-ytd">
+                                                                                           <div class="font-m bold fore-color pad-s-b ms-top-bar-row-gap">{{formatNumber exchange.trades 0}}</div>
+                                                                                           <div class="font-m bold up-fore-color pad-s-b ltr">
+                                                                                               <span {{bind-attr class="ytdCss"}}>{{formatNumberPercentage index.pctYtd}}</span>
+                                                                                           </div>
+                                                                                       </div>
+                                                                                   {{/if}}
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="layout-col-12"></div>
+                                                                       </div>
+                                                                   </td>
+                                                                   <td></td>
+                                                                   <td class="ms-top-bar-border"></td>
+                                                                   <td></td>
+                                                                   <td></td>
+                                                                   <td>
+                                                                       <div class="layout-row">
+                                                                           <div class="layout-col-12"></div>
+                                                                           <div class="layout-col  mgn-s-t mgn-s-l mgn-s-r pos-rel display-table">
+                                                                               <div class="layout-row">
+                                                                                   {{#if (onResponsive responsive.trigger responsive "topPanel-left" 6)}}
+                                                                                       <!--Hide element-->
+                                                                                   {{else}}
+                                                                                       {{#unless isTablet}}
+                                                                                           <div data-id="topPanel-symbol"
+                                                                                                class="layout-col mgn-l-r pad-l-r">
+                                                                                               <div class="font-m h-left fade-fore-color pad-s-b ms-top-bar-row-gap">{{app.lang.labels.symTraded}}</div>
+                                                                                               <div class="font-m h-left fade-fore-color pad-s-b">{{app.lang.labels.unchanged}}</div>
+                                                                                           </div>
+                                                                                       {{/unless}}
+                                                                                   {{/if}}
+                                                                                   <div data-id="topPanel-unchanged" class="layout-col pad-l-r">
+                                                                                       <div class="font-m bold h-left fore-color pad-s-b ms-top-bar-row-gap">{{formatNumber exchange.symt 0}}</div>
+                                                                                       <div class="font-m bold h-left highlight-fore-color pad-s-b">{{formatNumber exchange.nChg 0}}</div>
+                                                                                   </div>
+                                                                                   <div data-id="topPanel-ups" class="layout-col {{if isTablet '' 'ms-top-bar-padding-x-large-left pad-l-r'}}">
+                                                                                       <div class="font-m h-left fade-fore-color pad-s-b ms-top-bar-row-gap">{{app.lang.labels.ups}}</div>
+                                                                                       <div class="font-m h-left fade-fore-color pad-s-b">{{app.lang.labels.down}}</div>
+                                                                                   </div>
+                                                                                   <div data-id="topPanel-down" class="layout-col">
+                                                                                       <div class="font-m bold h-left up-fore-color pad-s-b ms-top-bar-row-gap">{{formatNumber exchange.ups 0}}</div>
+                                                                                       <div class="font-m bold h-left down-fore-color pad-s-b">{{formatNumber exchange.dwns 0}}</div>
+                                                                                   </div>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="layout-col-12"></div>
+                                                                       </div>
+                                                                   </td>
+                                                                   <td class="ms-top-bar-border"></td>
+                                                                   <td></td>
+                                                                   <td></td>
+                                                                   <td>
+                                                                       <div class="layout-row">
+                                                                           <div class="layout-col-12"></div>
+                                                                           <div class="layout-col  mgn-s-t mgn-s-l mgn-s-r display-table pos-rel">
+                                                                               <div class="layout-row">
+                                                                                   <div data-id="topPanel-ups" class="layout-col {{if isTablet '' 'pad-l-r'}}">
+                                                                                       <div class="font-m h-left fade-fore-color pad-s-b ms-top-bar-row-gap">{{app.lang.labels.netCash}}%</div>
+                                                                                       <div class="font-m h-left fade-fore-color pad-s-b">{{app.lang.labels.cashMap}}%</div>
+                                                                                   </div>
+                                                                                   <div data-id="topPanel-down" class="layout-col">
+                                                                                       <div {{bind-attr class="netCashPerCss :font-m :bold :h-left :pad-s-b :ltr :ms-top-bar-row-gap"}}>{{formatNumber exchange.netCashPer 2}}</div>
+                                                                                       <div {{bind-attr class="cashInPerCss :font-m :bold :h-left :pad-s-b"}}>{{formatNumber exchange.cashInPer 2}}</div>
+                                                                                   </div>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="layout-col-12"></div>
+                                                                       </div>
+                                                                   </td>
+                                                                   <td></td>
+                                                               </tr>
+                                                           </table>
+                                                       </div>
+                                                   </td>
+                                               </tr>
+                                           </table>
+                                       </div>
+                                   </td>
+                               </tr>
+                           </table>
+                       </div>
+                   </tr>
+               </table>
+            </td>
+        </tr>
+    </table>
+    <!--/.nav-collapse -->
+
+    <div class="clr-both"></div>
+</div>

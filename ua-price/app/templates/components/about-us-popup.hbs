@@ -1,0 +1,55 @@
+{{#if isPopupEnabled}}
+    <div class="message-box-fog">
+        <div class="about-us-box-frame">
+            <div class="layout-container full-width wdgttl">
+                <div class="layout-col h-left wdgttl-header">
+                    <span class="pad-s-l">{{app.lang.labels.aboutUs}}</span>
+                </div>
+                <div class="layout-col h-right pad-s-r wdgttl-header">
+                    <a name="btnClosePopup" class="pad-s-all" {{action 'onCancel'}} data-toggle="tab">
+                        <i class="widget-title-fore-color icon-close-round" title="{{app.lang.labels.close}}"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="layout-container full-width pad-l-tb">
+                <div class="layout-col pad-l-b h-middle pad-widget-left pad-widget-right">
+                    <div class="about-us-logo theme-logo-properties"></div>
+                </div>
+                <div class="layout-row h-middle fore-color font-l pad-widget-left pad-widget-right">
+                    <span class="pad-s-r">{{app.lang.labels.version}}</span>
+                    <span>{{longVersion}}</span>
+                </div>
+            </div>
+
+            <div class="y-scroll about-us-container-height">
+            <div class="layout-container pad-m-tb h-left pad-l-l pad-widget-right">
+                <div class="layout-container fade-fore-color h-left font-m pad-s-b">{{app.lang.labels.contactInformation}}</div>
+                {{partial "price/widgets/about-us-contact-info"}}
+            </div>
+
+            <div class="layout-container pad-s-t pad-l-b pad-l-l pad-widget-right h-left">
+                {{#each field in supportedContacts}}
+                    <div class="layout-container font-s pad-xs-b">
+                        <div class="layout-col fore-color">{{field.lanKey}}</div>
+                        {{#if field.isTel}}
+                            <div class="layout-col ltr highlight-fore-color"><a href="tel: {{field.value}}" class="about-us-text">{{field.value}}</a></div>
+                        {{else if field.isEmail}}
+                            <div class="layout-col highlight-fore-color"><a href="mailto:{{field.value}}" class="about-us-text" target="_blank">{{field.value}}</a></div>
+                        {{else if field.isUrl}}
+                            <div class="layout-col highlight-fore-color"><a href="http://{{field.value}}" class="about-us-text" target="_blank">{{field.value}}</a></div>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+            </div>
+            <div class="layout-container pad-l-t pad-s-b font-s h-left pad-l-l pad-widget-right">
+                <div>{{replaceCopyrightText}}</div>
+            </div>
+
+            <div class="layout-container pad-l-tb font-s h-left pad-l-l pad-widget-right">
+                {{app.lang.messages.copyrightLaw}}
+            </div>
+        </div>
+    </div>
+{{/if}}

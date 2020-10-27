@@ -1,0 +1,30 @@
+.ar .right-panel-collapse-menu {
+  width: $rightmnu-width;
+  left: 0;
+  right: auto;
+}
+
+.ar .main-panel {
+  right: $appmnu-width;
+  top: 0;
+}
+
+.ar .main-panel-h-nav {
+  right: 0;
+  top: 0;
+}
+
+.ar .animate-right {
+  position: relative;
+  @include animate(animateleft, 0.5s,1,normal);
+}
+
+.ar .collapse-content {
+  right: auto;
+  left: 0;
+}
+
+.ar .right-panel-collapse-ul {
+  padding-top: 0;
+  padding-right: 0;
+}

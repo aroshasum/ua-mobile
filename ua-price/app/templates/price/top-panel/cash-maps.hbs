@@ -1,0 +1,18 @@
+<div class="mgn-m-l ltr ms-top-bar-cash-map-container">
+    <div class="ms-top-bar-cash-map-content">
+        <div class="ms-top-bar-align-cash-map {{if isTablet 'font-l bold down-fore-color pad-s-t'}}" id="cash_map_chart">
+            {{#if isTablet}}
+                {{cashInPerValue}}
+            {{/if}}
+        </div>
+        <div class="font-m fade-fore-color">{{app.lang.labels.cashMap}}%</div>
+    </div>
+    <div class="ms-top-bar-cash-map-content">
+        <div class="ms-top-bar-align-cash-map {{if isTablet 'font-l bold down-fore-color pad-s-t'}}" id="net_cash_chart">
+            {{#if isTablet}}
+                {{netCashPerValue}}
+            {{/if}}
+        </div>
+        <div class="font-m fade-fore-color">{{app.lang.labels.netCash}}%</div>
+    </div>
+</div>

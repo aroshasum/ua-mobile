@@ -1,0 +1,13 @@
+<div class="display-block cell-container data-table-header hint--right hint--rounded hint--bounce panel-table-row-odd {{view.styles}}">
+    <div class="bold font-table-header ellipsis pad-s-tb {{view.firstHeaderStyle}}">
+        {{view.firstValue}}
+    </div>
+    {{#if view.isExpandedHeader}}
+        <div class="font-m font-table-header ellipsis pad-s-b {{secondHeaderStyle}}">
+            {{view.secondValue}}
+        </div>
+    {{/if}}
+    <div class="font-m font-table-header ellipsis pad-s-b {{view.thirdHeaderStyle}}">
+        {{view.thirdValue}}
+    </div>
+</div>

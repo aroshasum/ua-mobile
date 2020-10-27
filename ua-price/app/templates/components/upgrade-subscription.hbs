@@ -1,0 +1,9 @@
+{{#if isDelayedUserLogged}}
+    <div>
+        <div class="full-width pad-l-lr pad-l-tb font-l h-middle white-space-normal wdgttl-header">{{app.lang.messages.delayedUserNoData}}</div>
+    </div>
+{{else}}
+    <div class="display-table h-middle full-width" {{action 'upgradeSubscription'}}>
+        <button class="btn btn-default bold highlight-back-color-1" type="button">{{app.lang.labels.upgradeSubscription}}</button>
+    </div>
+{{/if}}

@@ -1,0 +1,15 @@
+<div class="pos-rel overflow-hidden container-back-color {{animationClass}}" name="child-view-mobile">
+    <div class="an-resizable full-height popup-line-height">
+        <div class="layout-container navbar-brand appttl-mobile full-width">
+            <span class="layout-inline pad-m-lr pad-xs-t cursor-pointer {{if isBackDisabled 'visibility-hidden' ''}}" {{action 'returnChildView' currentView}}>
+                {{#if isArabic}}
+                    <i class="icon-chevron-right font-6x-l btn-txt-color"></i>
+                {{else}}
+                    <i class="icon-chevron-left font-6x-l btn-txt-color"></i>
+                {{/if}}
+            </span>
+            <span class="layout-inline btn-txt-color">{{widgetName}}</span>
+        </div>
+        {{outlet "childWidgetOutlet"}}
+    </div>
+</div>

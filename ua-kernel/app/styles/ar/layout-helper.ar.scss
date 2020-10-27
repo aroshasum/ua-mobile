@@ -1,0 +1,61 @@
+@import '../common-variables';
+
+.ar .widget-outlet {
+    padding-left: 0;
+    padding-right: $padding-small;
+}
+
+.ar .pad-widget-left {
+    padding-right: $pad-widget;
+}
+
+.ar .pad-widget-right {
+    padding-left: $pad-widget;
+}
+
+// -------------  /New Common styles  --------------------------------------------------
+
+.ar .h-right {
+    text-align: $text-align-1;
+}
+
+.ar .data-table .h-right {
+    text-align: $text-align-3;
+}
+
+.ar .h-left {
+    text-align: $text-align-3;
+}
+
+.ar .left {
+    float: $float-2;
+}
+
+.ar .right {
+    float: $float-1 !important;
+}
+
+.ar .rtl {
+    direction: rtl;
+}
+
+.ar .mgn-s-l {
+    margin-left: 0;
+    margin-right: $margin-small;
+}
+
+.ar .mgn-m-l {
+    margin-left: 0;
+    margin-right: $margin-medium;
+}
+
+// Refactor deprecated- Assigned to Satheeq
+
+.ar .col-12, .ar .col-11, .ar .col-10, .ar .col-9, .ar .col-8, .ar .col-7, .ar .col-6, .ar .col-5, .ar .col-4, .ar .col-3, .ar .col-2, .ar .col-1 {
+    min-height: 1px;
+    position: relative;
+    float: right;
+}
+// Refactor deprecated
+
+@import 'extended/layout-helper-extended.ar';

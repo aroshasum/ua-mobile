@@ -1,0 +1,45 @@
+<div class="layout-container pad-m-tb" {{action 'onNavigateIndicesTab'}}>
+    <div class="layout-col pad-widget-left bold font-xx-l font-thick symbol-fore-color ltr pad-xs-t">{{index.dSym}}</div>
+
+    <div class="layout-col-24 pad-s-t font-l pad-m-l fade-fore-color">{{index.lDes}}</div>
+
+    <div class="layout-col pad-widget-right pad-m-l font-m">
+        {{#if stock.is52WeekHigh}}
+            <i class="chart-52-high-low up-fore-color"></i>
+        {{/if }}
+        {{#if stock.is52WeekLow}}
+            <i class="chart-52-high-low down-fore-color"></i>
+        {{/if }}
+        {{#if stock.isTodayHigh}}
+            <i class="chart-max up-fore-color"></i>
+        {{/if }}
+        {{#if stock.isTodayLow}}
+            <i class="chart-max down-fore-color"></i>
+        {{/if }}
+    </div>
+</div>
+
+<div class="full-width widget-hline pad-widget-left pad-widget-right"></div>
+
+<div class="layout-container full-width pad-m-b pad-s-t">
+    <div class="layout-col-16 pad-widget-left widget-vline">
+        <div {{bind-attr class=":layout-col :ltr colorCSS :font-5x-l :pad-l-b"}}>
+            <i {{bind-attr class="ltpIconCSS :glyphicon :font-m"}}></i>
+            {{formatNumber index.ltp index.deci}}
+        </div>
+        <div {{bind-attr class=":layout-inline :ltr :font-xxx-l backColorCSS fontColorCSS :pad-s-tb :pad-l-lr :xs-border-radius"}}>{{formatNumber index.chg index.deci}}</div>
+        <div {{bind-attr class=":layout-inline :ltr :font-xxx-l :bold :pad-l-l colorCSS"}}>{{formatNumberPercentage index.pctChg index.deci}}</div>
+    </div>
+    <div class="layout-col-8 pad-widget-right pad-m-l">
+        <div class="layout-container full-width pad-m-b pad-s-t pad-m-l">
+            <div class="layout-col-24 font-m fade-fore-color pad-s-b">{{app.lang.labels.daysRange}}</div>
+            <div class="layout-row">{{days-range  stock=index isBarAvailable=true}}</div>
+        </div>
+        <div class="layout-container full-width pad-s-tb pad-m-l">
+            <div class="layout-col-8 ltr font-m fade-fore-color pad-s-b">{{app.lang.labels.wkRange52}}</div>
+            <div class="layout-row">{{fifty-two-wk-hl stock=index isBarAvailable=true}}</div>
+        </div>
+    </div>
+</div>
+
+

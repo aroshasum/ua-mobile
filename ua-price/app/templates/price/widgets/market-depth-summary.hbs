@@ -1,0 +1,83 @@
+<div class="widget_new border-none" style="height: 132px">
+    <div class="nano quote-page-second-row-wght">
+        <div class="layout-container full-width">
+            <div class="layout-col-12 v-top">
+                <div class="layout-container font-m h-middle full-width">
+                    <div class="layout-row">
+                        <div class="layout-container full-width">
+                            <div class="layout-col-8 row-height-header font-m data-table-header">{{app.lang.labels.quantity}}</div>
+                            <div class="layout-col-8 row-height-header font-m data-table-header">{{app.lang.labels.bid}}</div>
+                        </div>
+                    </div>
+
+                    {{#each bidItem in bidRecordList}}
+                        <div class="layout-row">
+                            <div class="layout-container full-width pos-rel">
+                                <div class="layout-row">
+                                    {{#if bidItem.isHighestVol}}
+                                        <div class="layout-col-8 row-height up-fore-color bold h-right pad-s-r">{{formatNumber bidItem.qty 0}}</div>
+                                    {{else}}
+                                        <div class="layout-col-8 row-height up-fore-color h-right pad-s-r">{{formatNumber bidItem.qty 0}}</div>
+                                    {{/if}}
+
+                                    {{#if bidItem.isBestPrice}}
+                                        <div class="layout-col-8 row-height up-fore-color bold  table-row-up-back-color font-l cursor-pointer" {{action "onClick" bidItem on="click"}}>{{formatNumber bidItem.prc symbolObj.deci}}</div>
+                                    {{else}}
+                                        <div class="layout-col-8 row-height up-fore-color bold  table-row-up-back-color cursor-pointer" {{action "onClick" bidItem on="click"}}>{{formatNumber bidItem.prc symbolObj.deci}}</div>
+                                    {{/if}}
+                                </div>
+
+                                {{#if bidItem.isHighestVol}}
+                                    <div class="progress-bar-height pos-abs bottom-zero left-zero prominent-up-back-color" role="progressbar" aria-valuenow="70" aria-valuemin="10" aria-valuemax="100" style={{{bidItem.per}}}></div>
+                                {{else}}
+                                    <div class="progress-bar-height pos-abs bottom-zero left-zero fade-up-back-color" role="progressbar" aria-valuenow="70" aria-valuemin="10" aria-valuemax="100" style={{{bidItem.per}}}></div>
+                                {{/if}}
+
+                            </div>
+                        </div>
+                    {{/each}}
+
+                </div>
+            </div>
+
+            <div class="layout-col-12 v-top">
+                <div width="50%" border="0" cellspacing="0" cellpadding="0" class="layout-container font-m h-middle full-width">
+                    <div class="layout-row">
+                        <div class="layout-container full-width">
+                            <div class="layout-col-8 row-height-header font-m data-table-header">{{app.lang.labels.offer}}</div>
+                            <div class="layout-col-8 row-height-header font-m data-table-header">{{app.lang.labels.quantity}}</div>
+                        </div>
+                    </div>
+
+                    {{#each offerItem in offerRecordList}}
+                        <div class="layout-row">
+                            <div class="layout-container full-width pos-rel">
+
+                                <div class="layout-row">
+                                    {{#if offerItem.isBestPrice}}
+                                        <div class="layout-col-8 row-height down-fore-color bold table-row-down-back-color font-l cursor-pointer" {{action "onClick" offerItem on="click"}}>{{formatNumber offerItem.prc symbolObj.deci}}</div>
+                                    {{else}}
+                                        <div class="layout-col-8 row-height down-fore-color bold table-row-down-back-color cursor-pointer" {{action "onClick" offerItem on="click"}}>{{formatNumber offerItem.prc symbolObj.deci}}</div>
+                                    {{/if}}
+
+                                    {{#if offerItem.isHighestVol}}
+                                        <div class="layout-col-8 row-height down-fore-color bold h-right pad-s-r">{{formatNumber offerItem.qty 0}}</div>
+                                    {{else}}
+                                        <div class="layout-col-8 row-height down-fore-color h-right pad-s-r">{{formatNumber offerItem.qty 0}}</div>
+                                    {{/if}}
+                                </div>
+
+                                {{#if offerItem.isHighestVol}}
+                                    <div class="progress-bar-height pos-abs bottom-zero right-zero prominent-down-back-color" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style={{{offerItem.per}}}></div>
+                                {{else}}
+                                    <div class="progress-bar-height pos-abs bottom-zero right-zero fade-down-back-color" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style={{{offerItem.per}}}></div>
+                                {{/if}}
+
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

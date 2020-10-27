@@ -1,0 +1,7 @@
+.widget {
+  &-tab-panel {
+    @include theme-classic((
+            box-shadow: none
+    ));
+  }
+}

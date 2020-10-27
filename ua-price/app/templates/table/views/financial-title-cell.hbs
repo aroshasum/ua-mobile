@@ -1,0 +1,10 @@
+<div {{bind-attr class=":panel-table :border-bottom view.styleBackground view.styles" }} cell-id="{{view.columnId}}">
+    <div>
+        <div {{bind-attr class="view.isMobile:font-l view.isTablet:font-m :ltr :bold view.styleFirstValue view.isLevelIncreased:pad-m-l"}}>
+            {{view.formattedFirstValue}}
+        </div>
+        <div {{bind-attr class=":font-m :ltr :bold :pad-xs-t view.styleSecondValue" }}>
+            {{view.formattedSecondValue}}
+        </div>
+    </div>
+</div>

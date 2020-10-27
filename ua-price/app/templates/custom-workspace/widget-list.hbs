@@ -1,0 +1,178 @@
+<!-- TODO: [Atheesan] Refactor after loading widget list dynamically -->
+<div class="message-box-fog">
+    <div class="layout-container full-height full-width v-middle">
+        <div class="layout-col">
+            <div class="widget_new widget-list widget-list-popup">
+                <div>
+                    <div class="wdgttl font-l cursor-move" id="custom-widget-list">
+                        <div class="layout-container full-height full-width">
+                            <div class="layout-col pad-s-lr"> {{app.lang.labels.selectWidget}} </div>
+
+                            <div class="layout-col-24"></div>
+
+                            <div class="layout-col pad-s-lr">
+                                <a {{action 'closeWidgetList'}} ><i class="widget-title-fore-color icon-close-round"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="widget-container-new">
+                        <div class="layout-container full-height full-width">
+                            <div class="layout-col pad-s-all">
+                                {{input type="text" value=widgetSearchKey class="search-query mgn-m-l mgn-s-t" placeholder=app.lang.labels.searchWidget}}
+                            </div>
+                        </div>
+
+                        <div class="layout-container full-height full-width y-scroll">
+                            <div class="layout-col-8 v-top">
+                                {{#if (isWidgetAvailable quoteContent)}}
+                                    <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                        <span class="font-l bold">{{app.lang.labels.quote}}</span>
+                                    </div>
+
+                                    <div class="layout-container mgn-l-lr custom-button">
+                                        {{#each listItem in quoteContent}}
+                                            <div {{action 'selectWidget' listItem}} class="full-width btn blue-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                <div class="dark-bg-fore-color">
+                                                    <span><i class="{{listItem.icon}}"></i></span>
+                                                    <span class="pad-m-l">{{listItem.des}}</span>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+
+                                {{#if (isWidgetAvailable companyContent)}}
+                                    <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                        <span class="font-l bold">{{app.lang.labels.companyProf}}</span>
+                                    </div>
+
+                                    <div class="layout-container mgn-l-lr custom-button">
+                                        {{#each listItem in companyContent}}
+                                            <div {{action 'selectWidget' listItem}} class="full-width btn blue-back-color-2 mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                <div class="dark-bg-fore-color">
+                                                    <span><i class="{{listItem.icon}}"></i></span>
+                                                    <span class="pad-m-l">{{listItem.des}}</span>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                            </div>
+
+                            <div class="layout-col-8 v-top">
+                                {{#if (isWidgetAvailable marketContent)}}
+                                    <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                        <span class="font-l bold">{{app.lang.labels.market}}</span>
+                                    </div>
+
+                                    <div class="layout-container mgn-l-lr custom-button">
+                                        {{#each listItem in marketContent}}
+                                            <div {{action 'selectWidget' listItem}} class="full-width btn purple-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                <div class="dark-bg-fore-color">
+                                                    <span><i class="{{listItem.icon}}"></i></span>
+                                                    <span class="pad-m-l">{{listItem.des}}</span>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+
+                                {{#if isTradingEnabled}}
+                                    {{#if (isWidgetAvailable mutualFundContent)}}
+                                        <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                            <span class="font-l bold">{{app.lang.labels.mutualFund}}</span>
+                                        </div>
+
+                                        <div class="layout-container mgn-l-lr custom-button">
+                                            {{#each listItem in mutualFundContent}}
+                                                <div {{action 'selectWidget' listItem}} class="full-width btn green-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                    <div class="dark-bg-fore-color">
+                                                        <span><i class="{{listItem.icon}}"></i></span>
+                                                        <span class="pad-m-l">{{listItem.des}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    {{/if}}
+
+                                    {{#if (isWidgetAvailable optionChainContent)}}
+                                        <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                            <span class="font-l bold">{{app.lang.labels.optionChain}}</span>
+                                        </div>
+
+                                        <div class="layout-container mgn-l-lr custom-button">
+                                            {{#each listItem in optionChainContent}}
+                                                <div {{action 'selectWidget' listItem}} class="full-width btn pink-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                    <div class="dark-bg-fore-color">
+                                                        <span><i class="{{listItem.icon}}"></i></span>
+                                                        <span class="pad-m-l">{{listItem.des}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+
+                            {{#if isTradingEnabled}}
+                                <div class="layout-col-8 v-top">
+                                    {{#if (isWidgetAvailable tradeContent)}}
+                                        <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                            <span class="font-l bold">{{app.lang.labels.trading}}</span>
+                                        </div>
+
+                                        <div class="layout-container mgn-l-lr custom-button">
+                                            {{#each listItem in tradeContent}}
+                                                <div {{action 'selectWidget' listItem}} class="full-width btn orange-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                    <div class="dark-bg-fore-color">
+                                                        <span><i class="{{listItem.icon}}"></i></span>
+                                                        <span class="pad-m-l">{{listItem.des}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    {{/if}}
+
+                                    {{#if (isWidgetAvailable transferContent)}}
+                                        <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                            <span class="font-l bold">{{app.lang.labels.transfers}}</span>
+                                        </div>
+
+                                        <div class="layout-container mgn-l-lr custom-button">
+                                            {{#each listItem in transferContent}}
+                                                <div {{action 'selectWidget' listItem}} class="full-width btn yellow-back-color mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                    <div class="dark-bg-fore-color">
+                                                        <span><i class="{{listItem.icon}}"></i></span>
+                                                        <span class="pad-m-l">{{listItem.des}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    {{/if}}
+
+                                    {{#if (isWidgetAvailable userProfileContent)}}
+                                        <div class="layout-container full-width mgn-m-lr mgn-s-tb pad-s-all">
+                                            <span class="font-l bold">{{app.lang.labels.userProfile}}</span>
+                                        </div>
+
+                                        <div class="layout-container mgn-l-lr custom-button">
+                                            {{#each listItem in userProfileContent}}
+                                                <div {{action 'selectWidget' listItem}} class="full-width btn btn-info green-back-color-2 mgn-s-b font-l colour-normal left h-left pad-s-all">
+                                                    <div class="dark-bg-fore-color">
+                                                        <span><i class="{{listItem.icon}}"></i></span>
+                                                        <span class="pad-m-l">{{listItem.des}}</span>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

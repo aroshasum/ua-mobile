@@ -1,0 +1,127 @@
+@import '../../common-variables';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+//@import '../../themes/theme-helper';
+
+.news {
+  &-popup {
+    max-height: 500px;
+    min-height: 450px;
+    min-width: 365px;
+    max-width: 550px;
+    opacity: 1;
+
+    @include theme((
+            border: "1px {widget-border-color} solid",
+            background-color: widget-back-color,
+            box-shadow: "1px 1.732px 11px 0px {popup-box-shadow-color}"
+    ));
+  }
+
+  &-popup-header {
+    min-height: 60px;
+
+    @include theme((
+            background-color: container-back-color,
+    ));
+  }
+
+  &-popup-body {
+    max-height: 280px;
+  }
+
+  &-heading-right-panel {
+    line-height: 18px;
+    font-weight: bold;
+    padding: $padding-large;
+    font-size: $font-large;
+    margin-bottom: $margin-x-medium;
+
+    @include theme((
+            color: fade-fore-color,
+            background-color: container-back-color
+    ));
+  }
+
+  &-date-time-bar-right-panel {
+    font-size: $font-large;
+    padding: 0 $padding-large $padding-medium $padding-large;
+    margin-bottom: $margin-x-medium;
+
+    @include theme((
+            color: fade-fore-color,
+            border-bottom: "1px {widget-border-color} solid"
+    ));
+  }
+
+  &-heading {
+    line-height: 18px;
+    font-weight: bold;
+    padding: $padding-medium;
+    padding-left: 0;
+    font-size: $font-large;
+    margin-bottom: $margin-x-medium;
+
+    @include theme((
+            color: fore-color
+    ));
+  }
+
+  &-date-time-bar {
+    font-size: $font-large;
+    margin-bottom: $margin-medium;
+    padding-bottom: $padding-medium;
+
+    @include theme((
+            color: fade-fore-color,
+            border-bottom: "1px {widget-border-color} solid"
+    ));
+  }
+
+  &-body {
+    line-height: 18px;
+    font-size: $font-large;
+
+    @include theme((
+            color: fade-fore-color
+    ));
+  }
+
+  &-title {
+    font-size: $font-medium;
+    text-align: initial;
+    text-justify: interword;
+  }
+
+  &-vertical-seperator {
+    height: 100%;
+
+    @include theme((
+            border-left: "1px {news-icon-color} solid"
+    ));
+  }
+
+  &-list-widget-height {
+    height: calc(100% - 82px);
+  }
+}
+
+.announcement-vertical-seperator {
+  height: 100%;
+
+  @include theme((
+          border-left: "1px {announcements-icon-color} solid"
+  ));
+}
+
+.announcement-list-popup {
+  margin-top: 33px;
+  display:table-cell;
+  position: absolute;
+  left: 52px;
+  right: 60px;
+  top: 42px;
+}
+
+@import 'extended/news-announcement-extended';

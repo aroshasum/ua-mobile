@@ -1,0 +1,305 @@
+@import 'themes';
+@import '../utils';
+
+$is-themes-auto-generated: false;
+
+@mixin theme-auto-generate-colors() {
+  @warn "theme-auto-generate-colors CALLED : " + $is-themes-auto-generated;
+
+  $is-themes-auto-generated: true;
+
+  @each $theme-name, $theme-vars in $themes {
+    @each $key, $value in $theme-vars {
+      $formatted-value: quote($value);
+      //
+      // Check for use keywords to replace the map values with another map value
+      //
+      @if ($formatted-value and (str-index($formatted-value, "use"))) {
+        $formatted-value: str-replace($formatted-value, " ", "");
+
+        $start-index: str-index($formatted-value, "(");
+        $end-index: str-index($formatted-value, ")");
+
+        @if ($start-index and $end-index) {
+          $theme-property-key-name: str-slice($formatted-value, $start-index + 1, $end-index - 1);
+          $color-value: map-get($theme-vars, $theme-property-key-name);
+          $theme-vars: map-merge($theme-vars, ($key: $color-value));
+        } @else {
+          @warn "Invalid color value : " + $formatted-value;
+        }
+      }
+        //
+        // Check for darken, lighten keywords.
+        //
+      @else if ($formatted-value and (str-index($formatted-value, "darken") or str-index($formatted-value, "lighten"))) {
+        // Remove all the additional spacing
+        $formatted-value: str-replace($formatted-value, " ", "");
+
+        $start-index: str-index($formatted-value, "(");
+        $end-index: str-index($formatted-value, ",");
+
+        @if ($start-index and $end-index) {
+          //
+          // Extract color
+          //
+          $color-key: str-slice($formatted-value, $start-index + 1, $end-index - 1);
+          $color-value: map-get($theme-vars, $color-key);
+          //
+          // Extract percentage
+          //
+          $percentage-start-index: $end-index;
+          $percentage-end-index: str-index($formatted-value, ")");
+
+          @if ($percentage-start-index and $percentage-end-index) {
+            $adjust-percentage: str-slice($formatted-value, $percentage-start-index + 1, $percentage-end-index - 1);
+            //
+            // Make color darker or lighter
+            //
+            $adjusted-color-value: "";
+
+            @if str-index($formatted-value, "darken") {
+              $adjusted-color-value: darken($color-value, to-number($adjust-percentage));
+            } @else if str-index($formatted-value, "lighten") {
+              $adjusted-color-value: lighten($color-value, to-number($adjust-percentage));
+            }
+
+            $theme-vars: map-merge($theme-vars, ($key: $adjusted-color-value));
+          } @else {
+            @warn "Invalid color value : " + $formatted-value;
+          }
+        } @else {
+          @warn "Invalid color value : " + $formatted-value;
+        }
+      }
+        //
+        // Check for alpha keyword. - Transparency
+        //
+      @else if ($formatted-value and (str-index($formatted-value, "alpha"))) {
+        // Remove all the additional spacing
+        $formatted-value: str-replace($formatted-value, " ", "");
+
+        $start-index: str-index($formatted-value, "(");
+        $end-index: str-index($formatted-value, ",");
+
+        @if ($start-index and $end-index) {
+          //
+          // Extract color
+          //
+          $color-key: str-slice($formatted-value, $start-index + 1, $end-index - 1);
+          $color-value: map-get($theme-vars, $color-key);
+          //
+          // Extract transparency ratio
+          //
+          $ratio-start-index: $end-index;
+          $ratio-end-index: str-index($formatted-value, ")");
+
+          @if ($ratio-start-index and $ratio-end-index) {
+            $adjust-ratio: str-slice($formatted-value, $ratio-start-index + 1, $ratio-end-index - 1);
+            //
+            // Change transparency
+            //
+            $adjusted-color-value: rgba($color-value, to-number($adjust-ratio));
+            $theme-vars: map-merge($theme-vars, ($key: $adjusted-color-value));
+          } @else {
+            @warn "Invalid color value : " + $formatted-value;
+          }
+        } @else {
+          @warn "Invalid color value : " + $formatted-value;
+        }
+      }
+    }
+
+    $themes: map-remove($themes, $theme-name) !global;
+    $themes: map-merge($themes, ($theme-name: $theme-vars)) !global;
+  }
+}
+
+//@include theme-auto-generate-colors();
+
+@function theme-get-gradient-color-value($theme-vars, $color) {
+  $color-value: "";
+
+  @if length($color) == 2 {
+    $color-key: nth($color, 1);
+    $percent-value: nth($color, 2);
+    $theme-color: map-get($theme-vars, $color-key);
+
+    @if $theme-color {
+      $color-value: unquote($theme-color + " " + $percent-value);
+    }
+  } @else {
+    $color-value: map-get($theme-vars, $color);
+  }
+
+  @return $color-value;
+}
+
+@function theme-get-formatted-property($theme-vars, $theme-properties-key) {
+  $placeholder-start-index: str-index($theme-properties-key, "{");
+  $final-string: "";
+  $continue-loop: true;
+  $loopCount: 0;
+  $keyNotFound: false;
+  $notfoundKey: "";
+
+  @if $placeholder-start-index {
+    // <!-- Replace color placeholders indicated within "{}" tags -->
+    @while $continue-loop {
+      $loopCount: $loopCount + 1;
+
+      @if $loopCount > 20 {
+        $continue-loop: false;
+        @warn "Exiting loop as loopCount > 20 : " + $theme-properties-key;
+      }
+
+      $first-slice: str-slice($theme-properties-key, 0, $placeholder-start-index - 1);
+      $second-slice: str-slice($theme-properties-key, $placeholder-start-index + 1, str-length($theme-properties-key));
+      $placeholder-end-index: str-index($second-slice, "}");
+
+      @if $placeholder-end-index {
+        $third-slice: str-slice($second-slice, $placeholder-end-index + 1);
+        $theme-proerty-key: str-slice($second-slice, 0, $placeholder-end-index - 1);
+
+        @if map-has-key($theme-vars, $theme-proerty-key) {
+          $final-string: $first-slice + map-get($theme-vars, $theme-proerty-key) + $third-slice;
+        } @else {
+          // @warn "Key not found : " + $theme-proerty-key;
+          $keyNotFound: true;
+          $notfoundKey: $theme-proerty-key
+        }
+      } @else {
+        $continue-loop: false;
+      }
+
+      @if $keyNotFound {
+        // @warn "Final String for key not found : " + $notfoundKey " = " + $final-string;
+      }
+
+      $theme-properties-key: $final-string;
+      $placeholder-start-index: str-index($theme-properties-key, "{");
+
+      @if $placeholder-start-index {
+        $continue-loop: true;
+      } @else {
+        $continue-loop: false;
+      }
+    }
+
+    $final-string: unquote($final-string);
+  } @else {
+    @if map-has-key($theme-vars, $theme-properties-key) {
+      $final-string: map-get($theme-vars, $theme-properties-key);
+    } @else {
+      @if not(str-index($theme-properties-key, "-")) {
+        $final-string: unquote($theme-properties-key);
+      } @else {
+        //  @warn "Theme property not found : " + $theme-properties-key;
+      }
+    }
+  }
+
+  @return $final-string;
+}
+
+@mixin generate-cross-browser-gradient($css-property, $value) {
+  @if str-index($value, "linear-gradient") {
+    $placeholder-start-index: str-index($value, "(");
+    $placeholder-end-index: str-index($value, ")");
+
+    @if $placeholder-start-index {
+      $gradient-params-string: str-slice($value, $placeholder-start-index);
+
+      #{$css-property}: unquote("-moz-linear-gradient" + $gradient-params-string);
+      #{$css-property}: unquote("-webkit-linear-gradient" + $gradient-params-string);
+      #{$css-property}: unquote("-ms-linear-gradient" + $gradient-params-string);
+      #{$css-property}: unquote("linear-gradient" + $gradient-params-string);
+    }
+  }
+}
+
+@mixin theme($theme-attrs, $theme-type: "all") {
+  $css-selector: &;
+
+  @at-root {
+    @each $theme-name, $theme-vars in $themes {
+      $apply-theme: true;
+
+      @if $theme-type != "all" {
+        $is-flat-theme: false;
+        $apply-theme: false;
+
+        @if map-has-key($theme-vars, "is-flat-theme") {
+          @if map-get($theme-vars, "is-flat-theme") {
+            $is-flat-theme: true;
+          }
+        }
+
+        @if $theme-type == "flat" and $is-flat-theme {
+          $apply-theme: true;
+        } @else if $theme-type == "classic" and not($is-flat-theme) {
+          $apply-theme: true;
+        }
+      }
+
+      .#{$theme-name} #{$css-selector} {
+        @if $apply-theme {
+          @each $key, $value in $theme-attrs {
+            $unformatted-value: map-get($theme-attrs, $key);
+            // Search for important text with spaces
+            $important-keyword-index: str-index($unformatted-value, " !important");
+
+            // Search for important text without spaces
+            @if not($important-keyword-index) {
+              $important-keyword-index: str-index($unformatted-value, "!important");
+            }
+
+            @if $important-keyword-index {
+              $unformatted-value: str-slice($unformatted-value, 0, $important-keyword-index - 1);
+            }
+
+            $formatted-value: theme-get-formatted-property($theme-vars, $unformatted-value);
+
+            @if $important-keyword-index {
+              $formatted-value : $formatted-value + " !important";
+            }
+
+            @if $unformatted-value != "" and str-index($unformatted-value, "linear-gradient") {
+              @include generate-cross-browser-gradient($key, quote($formatted-value));
+            } @else {
+              #{$key}: $formatted-value;
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+@mixin theme-classic($theme-attrs) {
+  @include theme($theme-attrs, "classic");
+};
+
+@mixin generate-paddings-margins($style-prefix, $names, $directions, $css-styles, $is-ar) {
+  @at-root {
+    @each $direction in $directions {
+      $dir-index: index($directions, $direction);
+
+      @each $name, $size in $names {
+        $name-index: index($names, $name);
+        $style-size: $size;
+
+        .#{$style-prefix}-#{$name}-#{$direction} {
+          $css-attrib-combinations: nth($css-styles, $dir-index);
+
+          @each $css-attrib in $css-attrib-combinations {
+            #{$css-attrib}: #{$style-size};
+
+            @if $is-ar {
+              $style-size: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

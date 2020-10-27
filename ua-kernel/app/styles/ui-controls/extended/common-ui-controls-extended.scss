@@ -1,0 +1,501 @@
+// ---------  Search Box -------------------------------------------------------------------
+
+.search-query {
+  font-size: $font-x-large;
+  box-shadow: none;
+  border-radius: 0;
+
+  @include theme((
+          height: "38px",
+          border: none,
+          border-bottom: "1px {textbox-border-color} solid",
+          background-color: app-back-color,
+  ));
+
+  @include theme-classic((
+          height: "38px",
+          background-image: "linear-gradient(top, {app-back-color} 0%, {app-back-color} 30%, {app-back-color} 30%, {app-back-color} 100%)"
+  ));
+}
+
+.text-field {
+  font-size: $font-x-large;
+  border-radius: 2px;
+  box-shadow: none;
+  height: 38px;
+  border: none;
+
+  @include theme((
+          background-color: app-back-color,
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {app-back-color} 0%, {app-back-color} 30%, {app-back-color} 30%, {app-back-color} 100%)"
+  ));
+}
+
+.btn-default {
+  height: 38px;
+  font-size: $font-x-large;
+  border-radius: 2px;
+
+  @include theme((
+          color: btn-fore-color,
+          border: "0 {widget-dropdown-back-color} solid",
+          background-color: full-transparent-back-color,
+          box-shadow: none,
+  ));
+
+  @include theme-classic((
+          box-shadow: none,
+          background-image: none
+  ));
+}
+
+.button-semi-transparent {
+  @include theme((
+          background-color: semi-transparent-back-color
+  ));
+}
+
+.btn-dropdown {
+  padding: $padding-small;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "1px {widget-ui-control-border} solid"
+  ));
+
+  @include theme-classic((
+          color: widget-ui-control-fore-color,
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+.btn-dropdown:focus {
+  @include theme-classic((
+          border: "0 {btn-focus} solid !important"
+  ));
+}
+
+.dropdown-semi-transparent {
+  @include theme((
+          background-color: semi-transparent-back-color
+  ));
+
+  @include theme-classic((
+          border: "0px {app-back-color} solid"
+  ));
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+}
+
+.dropdown-menu {
+  font-size: $font-xx-large;
+  border-radius: 2px;
+  padding: 0;
+
+  @include theme((
+          border: "0 {widget-border-color} solid",
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          background-color: widget-ui-control-back-color,
+          box-shadow: "0 1px 3px 1px {box-shadow-color}"
+  ));
+}
+
+ul.dropdown-menu li {
+  margin: 0;
+  padding: 15px 16px;
+}
+
+.dropdown-menu > li > a {
+  padding: 0;
+}
+
+.dropdown-menu > li:hover, .dropdown-menu > li:focus {
+  @include theme((
+          background-color: widget-title-back-color
+  ));
+
+  @include theme-classic((
+          background-color: textbox-back-color
+  ));
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  @include theme((
+          color: dark-bg-fore-color
+  ));
+
+  @include theme-classic((
+          color: textbox-fore-color,
+          background-color: textbox-back-color
+  ));
+}
+
+// ---------  /Search Box -------------------------------------------------------------------
+
+.nano > .nano-content {
+  // margin-right: -8px !important;
+  overflow: initial;
+}
+
+// Button Animation CSS
+
+@keyframes clickeffect {
+  from {
+    opacity: 0.7;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@-webkit-keyframes clickeffect {
+  from {
+    opacity: 0.7;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.btn-animation {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-animation:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+a.btn-animation{
+  height: 37px;
+  padding: 7px 0px;
+}
+
+.effect {
+  margin: -100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  position: absolute;
+  background: rgba(68, 66, 66, 0.5);
+  transform: scale(0);
+  pointer-events: none;
+  animation: clickeffect 1s ease;
+  -webkit-animation: clickeffect 1s ease;
+}
+
+// Align right dropdown
+
+.dropdown-menu-align-right {
+  right: 0;
+  left: inherit;
+}
+
+// Date picker css
+
+.date-input-field {
+  height: 35px;
+  width: 80px;
+  text-align: center;
+  border-radius: 0;
+
+  @include theme((
+          border: "0px {textbox-border-color} solid",
+          border-bottom: "1px {textbox-border-color} solid",
+          background-color: app-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {app-back-color} 0%, {app-back-color} 30%, {app-back-color} 30%, {app-back-color} 100%)"
+  ));
+}
+
+.dropdown-solid-back-color {
+  @include theme((
+          background-color: "widget-ui-control-back-color !important"
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color} 90%, {widget-ui-control-back-color} 100%) !important"
+  ));
+}
+
+.dropdown-solid-back-color:focus {
+  @include theme((
+          border: "1px {widget-ui-control-border} solid !important",
+          box-shadow: none
+  ));
+}
+
+.form-control::-webkit-input-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+.form-control:-moz-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+.form-control::-moz-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+.form-control:-ms-input-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+::-webkit-input-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+// Firefox 18-
+:-moz-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+// Firefox 19+
+::-moz-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+:-ms-input-placeholder {
+  font-style: normal;
+  font-size: $font-large;
+}
+
+.filter-panel::-webkit-input-placeholder {
+  font-size: $font-medium;
+
+  @include theme ((
+          color: placeholder-fore-color
+  ))
+}
+
+.ember-table-table-row {
+  min-width: 100%;
+}
+
+.filter-panel {
+  @extend .search-query;
+  border-radius: 4px;
+
+  @include theme((
+          color: app-title-fore-color,
+          border: none,
+          background-color: app-title-ui-control
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {app-title-ui-control} 0%, {app-title-ui-control-gradient} 100%)"
+  ));
+}
+
+.search-query:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+  webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+
+  @include theme((
+          border: "0 {btn-focus} solid !important",
+          border-bottom: "1px {textbox-border-color} solid !important"
+  ));
+}
+
+.datepicker-box {
+  @extend .search-query;
+
+  @include theme-classic((
+          border: "0 {textbox-border-color} solid !important",
+          border-bottom: "0 {textbox-border-color} solid !important"
+  ));
+}
+
+.datepicker-box:focus {
+  @include theme-classic((
+          border: "0 {textbox-border-color} solid !important",
+          border-bottom: "0 {textbox-border-color} solid !important"
+  ));
+}
+
+.datepicker-box:hover {
+  @include theme-classic((
+          border: "0 {textbox-border-color} solid !important",
+          border-bottom: "0 {textbox-border-color} solid !important"
+  ));
+}
+
+.datepicker-box:disabled {
+  opacity: 0.65;
+
+  @include theme((
+          background-color: disable-back-color
+  ));
+
+  @include theme-classic((
+          border-bottom: "0px {widget-ui-control-border} solid",
+          background-image: "linear-gradient(top, {disable-back-color} 0%, {disable-back-color} 30%, {disable-back-color} 30%, {disable-back-color} 100%)"
+  ));
+}
+
+// Text Field Animation CSS
+
+@-webkit-keyframes inputHighlighter {
+  from {
+    width:0;
+  }
+  to {
+    width:100%;
+    background:transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    width:0;
+  }
+  to {
+    width:100%;
+    background:transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    width: 0;
+  }
+  to {
+    width:100%;
+    background:transparent; }
+}
+
+.filter-panel:focus {
+  @extend .transform;
+  webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+
+  @include theme((
+          border-bottom: none
+  ));
+}
+
+input[type="text"]:disabled {
+  @include theme-classic((
+          background-image: none
+  ));
+}
+
+input[type="number"]:disabled  {
+  @include theme-classic((
+          background-image: none
+  ));
+}
+
+.btn-default:disabled {
+  opacity: 0.65;
+}
+
+.btn-default:hover {
+  @include theme((
+          color: btn-fore-color,
+          background-color: full-transparent-back-color
+  ));
+
+  @include theme-classic((
+          background-image: none
+  ));
+}
+
+.btn-default::before {
+  transition: none;
+}
+
+.btn-default::after {
+  transform: none;
+  transition: none;
+}
+
+.btn-default:active::after {
+  transform: none;
+  transition: none;
+}
+
+.button-semi-transparent:hover {
+  @include theme((
+          background-color: semi-transparent-back-color
+  ));
+}
+
+.dropdown-semi-transparent:hover {
+  @include theme((
+          background-color: semi-transparent-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {semi-transparent-back-color} 0%, {semi-transparent-back-color} 30%, {semi-transparent-back-color} 30%, {semi-transparent-back-color} 100%)"
+  ));
+}
+
+.dropdown-semi-transparent:focus {
+  @include theme((
+          border: none,
+          background-color: semi-transparent-back-color
+  ));
+
+  @include theme-classic((
+          border: "0px {app-back-color} solid"
+  ));
+}
+
+.loading-icon-wrapper-height {
+  height: 40px;
+}
+
+.alert-filter-panel {
+  font-size: $font-x-large;
+  box-shadow: none;
+  border-radius: 0;
+
+  @include theme((
+          height: "38px",
+          border: none,
+          border-bottom: "1px {textbox-border-color} solid",
+          background-color: app-back-color,
+          color: fore-color
+  ));
+
+  @include theme-classic((
+          height: "38px",
+          background-image: "linear-gradient(top, {app-back-color} 0%, {app-back-color} 30%, {app-back-color} 30%, {app-back-color} 100%)",
+          color: fore-color
+  ));
+}
+
+// Toggle CSS
+.simple-switch {
+  background: #bbb;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}

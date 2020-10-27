@@ -1,0 +1,11 @@
+<div name="mpl-standardOutlet" class="full-height full-width pos-abs" style="z-index: 0">
+    {{main-tab-panel tabList=menuTabMap.currentTabList showTabs=displayTabs.showTabs tabClickAction='renderTabItems' tabName='standardOutlet'}}
+    <div class="full-height full-width {{if displayTabs.showTabs 'tab-menu' ''}}">{{outlet "standardOutlet"}}</div>
+</div>
+
+<!--Temporary DOM elements to initialize and cache watch-list instance-->
+<div name="table-cache" id="table-cache" class="full-height full-width pos-abs" style="z-index: -1010">
+</div>
+<div name="table-container" id="table-container" class="full-height full-width pos-abs" style="z-index: -1010">
+    {{outlet "watchlistOutlet"}}
+</div>

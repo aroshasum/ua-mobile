@@ -1,0 +1,283 @@
+@import '../../common-variables';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+//@import '../../themes/theme-helper';
+
+.wdgttl {
+  border-radius: $radius-xxs $radius-xxs 0 0;
+  height: $wdgttl-height;
+
+  @include theme((
+          background-color: widget-title-back-color,
+          border: "0 {widget-title-border-color} solid",
+          color: widget-title-fore-color
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-title-border-color} solid",
+          background-image: "linear-gradient(0deg, {widget-title-back-color} 0%, {widget-title-back-color-gradient} 100%)"
+  ));
+
+  &-tab-panel {
+    width: 100%;
+  }
+
+  &-tab-panel .active .wdgttl-fore-color {
+     @include theme((
+            color: widget-title-selected-tab-fore-color
+    ));
+  }
+
+  &-header {
+    height: inherit;
+    font-size: $font-medium;
+    font-weight: $font-bold;
+    height: 100%;
+    border-radius: $radius-xxs $radius-xxs 0 0;
+
+    @include theme((
+            color: widget-title-fore-color
+    ));
+  }
+
+  &-search {
+    padding-left: 18px;
+    padding-right: 10px;
+    margin-left: 5px;
+    width: 80px;
+
+    @include theme((
+            height: "20px",
+            border: "1px {widget-title-textbox-back-color} solid",
+            color: textbox-fore-color,
+            background-color: app-back-color
+    ));
+
+    @include theme-classic((
+            background-color: widget-title-textbox-back-color,
+            background-image: "linear-gradient(top, {widget-title-textbox-back-color} 0%, {widget-title-textbox-back-color-gradient1} 30%, {widget-title-textbox-back-color-gradient1} 30%, {widget-title-textbox-back-color-gradient2} 100%)"
+    ));
+  }
+
+  &-btn-search {
+    border-style: solid;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding-bottom: $padding-small;
+    padding-left: $padding-medium;
+    font-size: $font-medium;
+    margin-top: 0;
+    z-index: 2;
+    border: 0;
+    height: 23px;
+    background-color: transparent;
+  }
+
+  &-tab-item {
+    white-space: nowrap;
+    display: table-cell;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: $font-medium;
+    font-weight: bold;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+
+    @include theme((
+            height: "26px",
+            color: widget-title-tab-fore-color,
+            border-left: "1px {widget-title-border-color} solid"
+    ));
+
+    @include theme-classic((
+            height: "25px"
+    ));
+  }
+
+  &-tab-item a {
+    padding: 0 $padding-medium 0 $padding-medium;
+  }
+
+  &-tab-item .active a {
+    @include theme((
+            color: widget-title-selected-tab-fore-color
+    ));
+  }
+
+  &-tab-item:first-child {
+    @include theme((
+            border-left: "0 {widget-title-border-color} solid"
+    ));
+  }
+
+  &-tab-item:hover {
+    cursor: pointer;
+
+    @include theme((
+            background-color: widget-title-tab-hover-color
+    ));
+  }
+
+  &-tab-panel {
+    @include theme((
+            color: widget-title-tab-fore-color
+    ));
+  }
+
+  &-tab-panel .active {
+    font-weight: normal;
+
+    @include theme((
+            color: widget-title-selected-tab-fore-color,
+    ));
+
+    @include theme-classic((
+            box-shadow: "0 1px 0 {widget-title-border-light-color} inset",
+            background-image: "linear-gradient(0deg, {widget-title-selected-tab-back-color} 7%, {widget-title-selected-tab-back-color-gradient} 100%)"
+    ));
+  }
+
+  &-tab-panel .active a {
+    font-weight: normal;
+
+    @include theme((
+            color: widget-title-selected-tab-fore-color,
+    ));
+  }
+
+  &-tab-link {
+    @include theme((
+            color: widget-title-tab-fore-color,
+    ));
+  }
+
+  &-tab-link:hover {
+    @include theme((
+            color: widget-title-selected-tab-fore-color,
+    ));
+  }
+
+  &-fore-color {
+    @include theme((
+            color: widget-title-tab-fore-color,
+    ));
+  }
+
+  &-fore-color:hover, &-fore-color:focus {
+    @include theme((
+            color: widget-title-tab-fore-color
+    ));
+  }
+
+  &-drp-dwn-btn {
+    height: $wdgttl-bar-height !important;
+    border-radius: $radius-z !important;
+    font-size: $font-medium;
+    font-weight: normal;
+
+    @include theme((
+            color: widget-title-ui-control-fore-color,
+            border: "0 {widget-title-back-color} solid",
+            border-left: "1px {widget-title-border-color} solid",
+            background-color: widget-title-ui-control-back-color
+    ));
+
+    @include theme-classic((
+            border-bottom: "1px {widget-title-border-color} solid",
+            border-top: "0 {widget-title-ui-control-border-color} solid",
+            background-image: "linear-gradient(top, {widget-title-ui-control-back-color} 0%, {widget-title-ui-control-back-color-gradient1} 50%, {widget-title-ui-control-back-color-gradient2} 100%)"));
+
+  }
+
+  &-drp-dwn-btn:active {
+    @include theme((
+            color: widget-title-ui-control-fore-color
+    ));
+
+    @include theme-classic((
+            border-left: "1px {widget-title-border-color} solid !important",
+            border-right: "0 {widget-title-ui-control-border-color} solid !important",
+            border-top: "0 {widget-title-ui-control-border-color} solid !important",
+            border-bottom: "0 {widget-title-ui-control-border-color} solid !important",
+            background-image: "linear-gradient(0, {widget-title-ui-control-back-color} 0%, {widget-title-ui-control-back-color-gradient1} 50%, {widget-title-ui-control-back-color-gradient2} 100%)")
+    );
+  }
+
+  &-drp-dwn-btn:focus {
+    @include theme((
+            border-left: "1px {widget-title-border-color} solid !important",
+            border-right: "0 {widget-title-ui-control-border-color} solid !important",
+            border-top: "0 {widget-title-ui-control-border-color} solid !important",
+    ));
+
+    @include theme-classic((
+            border-bottom: "1px {widget-title-ui-control-border-color} solid !important")
+    );
+  }
+
+  &-drp-dwn-btn:hover {
+    @include theme((
+            color: widget-title-tab-fore-color,
+            background-color: widget-title-tab-hover-color
+    ));
+
+    @include theme-classic((
+            background-image: "linear-gradient(0, {widget-title-tab-hover-color} 0%, {widget-title-tab-hover-color} 50%, {widget-title-tab-hover-color} 100%)")
+    );
+  }
+
+  &-btn-dropdown {
+    padding: 4px 4px 4px 0;
+    background: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border: 1px solid transparent;
+  }
+
+  &-btn-dropdown:focus {
+    outline-style: none;
+  }
+
+/*  &-horizontal-line {
+    border-radius: $radius-xm $radius-xm 0 0;
+    width: 100%;
+    height: 1px;
+
+    @include theme((
+            //border-top: "1px {widget-title-back-color} solid",
+            border-bottom: "1px {widget-title-border-light-color} solid"
+    ));
+
+    @include theme-classic((
+            //border-top: "1px {widget-title-border-light-color} solid",
+            border-bottom: "1px {widget-title-border-light-color} solid"
+    ));
+  }*/
+
+  &-table-header {
+    padding-top: $radius-s;
+
+    @include theme-classic((
+            border-top: "1px {data-table-header-border-top} solid",
+            border-bottom: "1px {data-table-header-border-bottom} solid",
+            background-image: "linear-gradient(0deg, {data-table-header-back-color} 0%, {data-table-header-back-color-gradient} 100%)"
+    ));
+  }
+
+  &-border-left {
+    @include theme((
+            border-left: "1px {widget-title-border-color} solid !important"
+    ));
+  }
+
+  &-border-right {
+    @include theme((
+            border-right: "1px {widget-title-border-color} solid !important"
+    ));
+  }
+}
+
+@import 'extended/widget-title-extended';

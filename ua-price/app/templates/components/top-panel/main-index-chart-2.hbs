@@ -1,0 +1,42 @@
+<table class="w-full border-b" cellspacing="0" cellpadding="0" border="0">
+    <tr>
+        <td class="pad-m-l pad-l-r">
+            <div style="width: 110px;">
+                <div class="mgn-m-l ms-top-bar-index-dropdown-2 pad-m-t">
+                    {{bootstrap-dropdown-select
+                    options=indexCollectionArray
+                    defaultSelect=defaultIndexForDropdown
+                    valueKey='dSym'
+                    labelKey='sDes'
+                    selectedLabelKey='dSym'
+                    value=currentIndex.dSym
+                    selectAction='setIndexData'
+                    buttonClass='bold ltr'
+                    lblClass="ms-top-bar-index-dropdown-width"
+                    wkey=wkey}}
+                </div>
+                <div {{bind-attr class="indexPercentageCss"}}>
+                    <span class="ms-top-bar-index-percentage-2 pad-m-l hint--bottom-left hint--bounce hint--rounded font-l pos-rel" data-hint="{{app.lang.labels.perChange}}">{{indexChangeSign}}{{formatNumberPercentage currentIndex.pctChg}}</span>
+                </div>
+            </div>
+        </td>
+        <td class="pad-l-l">
+            <div class="ms-top-bar-index-value-2 pad-l-l">
+                <div class="h-left ltr pad-s-b">
+                    <div {{bind-attr class="indexValCss"}}>
+                        <span class="index-Arrow">  <i {{bind-attr class="indexArrowCss :v-bottom"}}> </i> </span>
+                        <span {{bind-attr class="indexCss"}}>
+                            <span class="hint--bottom-left hint--bounce hint--rounded font-x-l bold" data-hint="{{app.lang.labels.indexValue}}"> {{formatNumber currentIndex.ltp}}</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="pad-s-t">
+                    <span {{bind-attr class="indexBackgroundCss :hint--bottom-left :hint--bounce :hint--rounded :font-s :ms-top-bar-index-change-position-2 :ltr"}} data-hint="{{app.lang.labels.change}}"> {{formatNumber currentIndex.chg}}</span>
+                </div>
+            </div>
+        </td>
+        <td class="pad-m-r">
+            <div class="ms-top-bar-chart-2 ltr" id="mainIndexChart-{{id}}" {{action 'popUpChartOptionWidget'}}><span id="{{chartId}}" class="ms-top-bar-index-chart-position-2"></span></div>
+        </td>
+    </tr>
+</table>

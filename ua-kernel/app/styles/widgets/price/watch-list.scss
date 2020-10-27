@@ -1,0 +1,63 @@
+.watch-list {
+  &-progress-cell {
+    padding-bottom: 2px;
+  }
+
+  &-progress-bar {
+    height: 2px;
+  }
+
+  &-text-cell {
+    padding-left: 2px;
+  }
+
+  &-dot-cell {
+    padding-bottom: 2px;
+  }
+
+  &-default-cell {
+    padding-top: 15px;
+  }
+
+  &-border-radius {
+    border-radius: $radius-xs;
+  }
+
+  &-header-large {
+    font-size: $font-xx-large;
+  }
+
+  &-container-height {
+    height: calc(100% - 40px);
+  }
+
+  &-filter-area-show {
+    width: 69px;
+  }
+
+  &-filter-area-hide {
+    width: 0;
+  }
+
+  &-transform-filter-box {
+    transition: width .5s ease;
+  }
+
+  &-quote-wl-filter-btn {
+    max-width: 85px;
+  }
+
+  &-container-height {
+    height: calc(100% - 26px);
+  }
+
+  &-value-width {
+    width: 56px;
+  }
+
+  &-container-height-portfolio {
+    height: 100%;
+  }
+}
+
+@import 'extended/watch-list-extended';

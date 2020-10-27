@@ -1,0 +1,76 @@
+<div {{bind-attr class=":full-width :full-height :pad-m-lr :ellipsis :pad-s-t :border-bottom :text-align-left view.styleBackground view.styles" }} cell-id="{{view.columnId}}">
+    {{#if controller.isIndexView}}
+        <div {{bind-attr class=":symbol-fore-color :h-left :pad-s-tb :ellipsis view.styleFirstValue" }}>
+            <span {{bind-attr class="view.is52WeekHigh:up-fore-color view.is52WeekLow:down-fore-color view.isMobile:font-3x-l view.isTablet:font-m :font-thick :bold"}}>
+                {{#if view.isDisplayConfigTwo}}
+                    {{view.formattedFifthValue}}
+                {{else}}
+                    {{view.formattedFirstValue}}
+                {{/if}}
+            </span>
+        </div>
+    {{else}}
+        <div {{bind-attr class=":ellipsis :symbol-fore-color :h-left :pad-xs-b :pad-s-t :ltr view.styleFirstValue" }}>
+            <span {{bind-attr class=":ellipsis view.is52WeekHigh:up-fore-color view.is52WeekLow:down-fore-color view.isMobile:font-4x-l view.isTablet:font-l :font-thick :bold"}}>
+                {{#if view.isDisplayConfigTwo}}
+                    {{view.formattedFifthValue}}
+                {{else}}
+                    {{view.formattedFirstValue}}
+                {{/if}}
+            </span>
+
+            {{#if view.isndicatorAvailable}}
+                <span class="watch-list-text-cell pad-s-l"><i {{bind-attr class="view.dcfsStyle" }} {{bind-attr title="view.dcfsToolTip"}}></i></span>
+                {{#if view.is52WeekHigh}}
+                    <span class="watch-list-text-cell pad-s-l v-text-top"><span class="wk52-up-icon"><i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.highReachedFiftyTwoWeekHigh}}></i></span></span>
+                {{/if }}
+                {{#if view.is52WeekLow}}
+                    <span class="watch-list-text-cell pad-s-l v-text-top"><span class="wk52-down-icon"><i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.lowReachedFiftyTwoWeekLow}}></i></span></span>
+                {{/if }}
+                {{#if view.isTodayHigh}}
+                    <span class="watch-list-text-cell pad-s-l"><i class="chart-max up-fore-color" {{bind-attr  title=view.app.lang.labels.lastTradedReachedHigh}}></i></span>
+                {{/if }}
+                {{#if view.isTodayLow}}
+                    <span class="watch-list-text-cell pad-s-l"><i class="chart-max down-fore-color" {{bind-attr title=view.app.lang.labels.lastTradedReachedLow}}></i></span>
+                {{/if }}
+                {{#if view.isAnnAvailable}}
+                    <span id="annIcon" class="watch-list-text-cell pad-s-l"><i class="icon-megaphone-1 ann-icon-color" {{bind-attr title="view.annToolTip"}}></i></span>
+                {{/if}}
+                {{#if view.isStlmt}}
+                    <span class="watch-list-text-cell pad-s-l"><i class="fa fa-lightbulb-o pos-abs"></i></span>
+                {{/if}}
+                {{#if view.isShariaSymbol}}
+                    <span class="watch-list-text-cell pad-s-l"><i class="icon-subscription-1 sharia-icon dark-bg-fore-color"></i></span>
+                {{/if}}
+            {{/if}}
+        </div>
+    {{/if}}
+
+
+    <div {{bind-attr class=":pad-s-tb :fade-fore-color :h-left :ellipsis view.isMobile:font-x-l view.isTablet:font-m view.styleSecondValue" }}>
+        {{view.formattedSecondValue}}
+    </div>
+
+    {{#if view.isExpandedView}}
+        <div class="layout-container full-width pad-m-t pad-s-b">
+            <div {{bind-attr class=":layout-col-12 :font-x-l view.styleThirdValue"}}>
+                <div class="toolbar-color mgn-m-r pad-m-lr pad-xs-tb watch-list-border-radius">
+                    <div class="fade-fore-color">
+                        {{view.thirdCellLabel}}
+                    </div>
+                    <div class="pad-s-t fore-color bold ellipsis ltr">
+                        {{view.formattedThirdValue}}
+                    </div>
+                </div>
+            </div>
+            <div {{bind-attr class=":layout-col-12 :pad-xs-tb :pad-m-lr :mgn-m-r :fore-color :text-align-left :font-x-l :toolbar-color :watch-list-border-radius view.styleFourthValue"}}>
+                <div class="fade-fore-color">
+                    {{view.fourthCellLabel}}
+                </div>
+                <div class="pad-s-t up-fore-color text-align-left bold">
+                    {{view.formattedFourthValue}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</div>

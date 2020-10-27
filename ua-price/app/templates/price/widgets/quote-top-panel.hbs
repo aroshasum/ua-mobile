@@ -1,0 +1,24 @@
+<div class="widget_new widget-new-border border-bottom full-height">
+    <div class="layout-container full-width border-bottom">
+        {{outlet "quoteSummary"}}
+    </div>
+    <div class="y-scroll quote-fields-height">
+        <div class="layout-container full-width full-height pad-s-b">
+            {{#each rowField in adjustedPanelFields}}
+                <div class="layout-col-4 pad-s-lr">
+                    {{#each field in rowField}}
+                        <div class="layout-container full-width intraday-dq-widget hint--bounce hint--top hint--rounded" data-hint={{field.detailQouteTitle}}>
+                            <div class="layout-container full-width">
+                                <div class="layout-col-24 font-m ellipsis fade-fore-color pad-s-tb"><span class="{{field.captionStyle}}">{{field.caption}}</span></div>
+                                <div class="layout-col font-l bold fore-color right pad-s-tb h-right pad-s-lr"><span class="{{field.style}}">{{field.formattedValue}}</span></div>
+                            </div>
+                        </div>
+                        <div class="layout-container full-width">
+                            <div class="widget-hline full-width bor"></div>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

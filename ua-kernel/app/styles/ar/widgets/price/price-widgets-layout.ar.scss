@@ -1,0 +1,234 @@
+@import '../../../common-variables';
+@import '../../../widget-variables';
+@import 'widget-title.ar';
+
+.ar .widget {
+	border-radius: 2px;
+	margin: $margin-small $margin-small 0 0;
+	padding: $padding-small $padding-small 0px $padding-small;
+}
+
+.ar .settings-dropdown{
+    margin-left: auto;
+    margin-right: -77px;
+}
+
+// Common Styles
+
+.ar .widget-header-left {
+   float: right;
+}
+
+.ar .widget-header-right {
+    float: left;
+    position: absolute;
+    left: 0px;
+    right: inherit;
+}
+
+.ar .header-icons{
+    float: left;
+}
+
+.ar .vertical_Seperator_topstocks {
+    margin-right: 0px;
+}
+
+//Quote Page
+
+// Review This classes again 
+
+.ar .sector-btn {
+    margin-top: -6px;
+    float: left;
+    margin-right: inherit;
+}
+
+.ar .top-stock-btn {
+    margin-top: -6px;
+    float: left;
+    margin-right: inherit;
+    margin-left: 114px;
+}
+
+// /Drop Down Button
+
+// news section 
+
+.ar .panel-table {
+    text-align: right;
+    height: 100%;
+    line-height: 11px;
+}
+
+.ar .ember-table-panel {
+    text-align: left;
+    direction: ltr;    // prevent table from global ltr 
+    padding: 0px 1px 5px 1px;
+    line-height: 11px; 
+}
+
+// for watchlist cells
+
+.ar .text-left-header {
+    text-align: right !important; 
+}
+
+// end of watchlist cells
+
+.ar .right-click-menu-rtl {
+    float: right;
+    margin-top: -3px;
+    margin-left: $margin-small;
+}
+
+.ar .container-mid{
+    right: 70px;
+    width: calc(100% - 70px);
+}
+
+.ar .quote-depth-spread-1 {
+    width: 20%; 
+    height:20px; 
+    border-left:  1px #e74343 solid;
+    border-top:  1px #e74343 solid; 
+    float:right;
+}
+
+.ar .quote-depth-spread-2 {
+    width: 20%; 
+    height:20px;
+    border-right:  1px #2ecc71 solid;
+    border-top:  1px #2ecc71 solid;
+    float:left;
+}
+
+.ar .news-position {
+    position: absolute;
+    left: 584px;
+    right: auto;
+}
+
+.ar .pro-chart-max {
+    position: absolute;
+    left: 0px;
+    margin-left: $margin-small;
+    right: initial;
+}
+
+.ar .quote-summary-layout {
+    margin-right: $margin-small !important;
+}
+
+// For watchlist
+
+.ar .prochart-symbol-fix {
+    left: 476px;
+    position: absolute;
+    right: auto;
+}
+
+.ar .pro-chart-ctrl-panel .modal-symbol {
+    top: 34px;
+}
+
+// From Ravindu
+
+.ar .chart-dropdown .dropdown-submenu:hover>.dropdown-menu {
+    right: 100%;
+    left: auto;
+    width: 205px;
+}
+
+//heights starts here
+
+.ar .quote-tab {
+    height:calc(100% - 405px);
+    min-height:100px;
+}
+
+// for popup widget
+
+.ar .nav-tabs-inner-header {
+//    margin-left: 42px;
+}
+
+.ar .more-column-align {
+    margin-right: -404px;
+}
+
+.ar .link_widget {
+    float: left;
+    margin-right: 0px;
+}
+
+.ar .watchlist-link {
+    position: absolute;
+}
+
+.ar .watchlist-link .link-dropdown {
+    margin-right: inherit;
+}
+
+.ar .link-dropdown {
+    position:absolute; 
+    left: 0;
+    padding-left: 5px;
+    right: inherit;
+}
+
+.ar .widget-header-tools {
+    //float: left;
+}
+
+.ar .popup-header {
+    margin-right:inherit;
+    margin-left: 0px;
+}
+
+.ar .link-fix .link-dropdown {
+    position: absolute;
+    left: 10px;
+    right: inherit;
+    padding-right: inherit;
+    margin-top: -3px;
+    margin-bottom: -3px;
+}
+
+.ar .link-fix .popup-header {
+    margin-right: -12px;
+    margin-top: -4px;
+    margin-left: inherit;
+    position: relative;
+    height: 12px;
+}
+
+.ar .doc-symbol-pop .link-dropdown {
+    position: absolute;
+    left: inherit;
+    right: 0;
+    padding-right: 5px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+}
+
+.ar .quote-watchlist-link {
+    margin-top:-26px;
+    right: inherit;
+    left: 10px;
+}
+
+.ar .search-symbol {
+    margin-left: $margin-medium;
+    margin-right: 0;
+}
+
+.ar .search-wrapper .pad-m-r {
+    padding-right: initial;
+}
+
+.ar .popup-widget .pad-l-r {
+    padding-left: initial;
+}
+
+@import 'extended/price-widgets-layout-extended.ar';

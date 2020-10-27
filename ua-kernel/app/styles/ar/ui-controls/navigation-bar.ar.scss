@@ -1,0 +1,58 @@
+@import '../../common-variables.scss';
+@import '../../widget-variables';
+
+// Toggle Styles
+
+.ar .wrapper {
+	padding-right: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.ar .wrapper.toggled {
+	padding-right: 70px;
+}
+
+.ar .sidebar-wrapper {
+	z-index: 1000;
+	position: fixed;
+	right: 70px;
+	height: 100%;
+	margin-right: -70px;
+	overflow-y: auto;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+.ar .page-content-wrapper {
+	width: 100%;
+	position: absolute;
+	padding-top: 80px;
+}
+
+.ar .wrapper.toggled .page-content-wrapper {
+	position: absolute;
+	margin-left: -70px;
+}
+
+// Sidebar Styles
+
+@media(min-width:768px) {
+.ar .wrapper {
+	padding-right: 70px; // padding-top: 88px;
+	padding-left: 0;
+}
+    
+.ar .wrapper.toggled {
+	padding-right: 0;
+}
+
+.ar .wrapper.toggled .ar .page-content-wrapper {
+	position: relative;
+	margin-left: 0;
+}
+}

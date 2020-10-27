@@ -1,0 +1,44 @@
+<div class="news-popup news-popup-container font-x-l popup-content-height">
+    <div class="font-x-l an-resizable popup-line-height">
+        <div class="news-heading-right-panel pad-l-all news-popup-header cursor-move" id="annNewsDrag">
+            {{#unless isMobile}}
+                <div class="news-icon-bar display-block h-right">
+                    <div class="layout-inline">
+                        <a class="non-ar-left pad-l-l pad-l-tb" id="annPrevious" {{action 'loadNextPreItem' annObj true}}><i class="icon-arrow-left font-xx-l"></i></a>
+                        <a class="non-ar-right mgn-l-lr pad-l-l pad-l-tb" id="annNext" {{action 'loadNextPreItem' annObj}}><i class="icon-arrow-right font-xx-l"></i></a>
+                    </div>
+                    <div class="layout-inline">
+                        <a class="pad-l-l pad-l-tb" {{action 'closePopup'}}><i class="icon-close-round font-x-l" title="{{app.lang.labels.close}}"></i></a>
+                    </div>
+                </div>
+            {{/unless}}
+            <div class="pad-s-b {{if isMobile 'font-xxx-l fore-color' 'font-x-l'}}">{{{annObj.dHed}}}</div>
+        </div>
+
+        <div style="" class="news-date-time-bar-right-panel full-width left">
+            <span class="left {{if isMobile 'fade-fore-color font-thick' 'symbol-fore-color'}}"> {{annObj.dispProp1}} </span>
+            <span class="left pad-m-l {{if annObj.isAnnouncement 'icon-megaphone-1 ann-icon-color' 'icon-tv news-icon-color'}}"></span>
+            <span class="right fade-fore-color">{{annObj.dDt}}</span>
+        </div>
+
+        <div class="font-x-l pad-l-lr pad-m-tb y-scroll fore-color news-popup-body news-link">{{{annObj.dBody}}}
+            <div class="layout-container full-width pad-s-t pad-m-b news-pop-up-transparent-box"></div>
+        </div>
+
+        {{#if isMobile}}
+            <div class="layout-container full-width pad-s-t pad-m-b news-pop-up-transparent-box"></div>
+            <div class="layout-container full-width news-pop-up-transparent-panel ltr pad-m-l pad-l-tb pos-abs bottom-zero">
+                <div class="layout-col h-left rtl">
+                    <div class="layout-col font-xxx-l pad-s-b pad-m-lr">
+                        <span id="annPrevious" class=" pad-l-r pad-l-tb" {{action 'loadNextPreItem' annObj true}}><i class="glyphicon-triangle-left glyphicon sidebar-nav-icon-color font-xx-l"></i></span>
+                    </div>
+                    <div class="layout-col"></div>
+                    <div class="layout-col font-xxx-l pad-s-b pad-l-l">
+                        <span id="annNext" class="pad-l-lr pad-l-tb" {{action 'loadNextPreItem' annObj}}><i class="glyphicon-triangle-right glyphicon sidebar-nav-icon-color font-xx-l"></i></span>
+                    </div>
+                </div>
+                <div class="layout-col h-right"></div>
+            </div>
+        {{/if}}
+    </div>
+</div>

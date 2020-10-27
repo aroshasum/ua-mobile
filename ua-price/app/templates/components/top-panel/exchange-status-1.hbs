@@ -1,0 +1,43 @@
+<td class="v-top">
+    <div class="ms-top-bar-exchange-1">
+        <div class="h-middle">
+            {{#if disableMoreMarkets}}
+                <button class="btn btn-dropdown btn-default bold ltr" type="button" id="appDropdown" data-toggle="dropdown">
+                    {{exchange.des}}
+                </button>
+            {{else}}
+                {{bootstrap-dropdown-select
+                options=exchanges
+                valueKey='code'
+                labelKey='desc'
+                selectedLabelKey='desc'
+                defaultSelect=selectedExg
+                selectAction='setExchange'
+                buttonClass='bold dropdown-text-only'
+                lblClass='ms-top-bar-exchange-btn'
+                wkey=wkey
+                }}
+            {{/if}}
+        </div>
+
+        <div class="layout-container ms-top-bar-alert-height-1">
+            <div class="layout-col">
+                <div class="font-l ms-top-bar-alert-style-1">
+                    <div style="position: relative" {{bind-attr class="marketStatusCSS"}} >
+                        <div class="pos-abs full-width" style="z-index: 1">{{exchange.statStr}}</div>
+                        <div id="marketSummaryExchangeStatusContainer" class="pos-abs full-width" style="z-index: 3">{{exchange.statStr}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-col {{if isTablet ''}}">
+                {{#if showTime}}
+                    <div class="font-l fade-fore-color ms-top-bar-showTime-1 pos-rel"><span> {{showTimeText}}</span>
+                    </div>
+                {{else}}
+                    <div class="font-m fade-fore-color ms-top-bar-showTime-1 pos-rel"><span>{{marketTime}}</span></div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</td>

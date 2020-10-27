@@ -1,0 +1,20 @@
+<div class="ans-panel" id={{wkey}}>
+    <div class="ans-news-bar full-width info-back-color">
+        <div class="ans-news-animation font-m">
+            {{#each newAnn in topAnn}}
+                <a {{action 'itemClicked' newAnn.id newAnn.type}}>
+                    <div class="ans-container full-width dark-bg-announcement-fore-color">
+                        <div class="layout-col">
+                            {{#if newAnn.sym}}
+                                <span class="pad-m-lr {{newAnn.textCss}} font-l">{{newAnn.dSym}}</span>
+                            {{else}}
+                                <span class="pad-m-lr {{newAnn.textCss}} font-l">{{newAnn.exg}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="layout-col-24 full-width h-left ltr pad-m-r">{{newAnn.dHed}}</div>
+                    </div>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</div>

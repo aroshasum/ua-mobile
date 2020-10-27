@@ -1,0 +1,36 @@
+<div id="market-status-panel" class="layout-container ltr status-panel separator separator-shadow pad-widget-left pad-widget-right full-width pad-s-tb">
+    <div {{bind-attr class=":layout-col :h-middle :font-x-l :bold colorCss :pad-m-l"}}>{{exchange.statStr}}</div>
+    <div class="layout-col-12" data-id="subMarket-free"></div>
+    <div class="layout-col h-middle font-x-l bold fore-color pad-m-l font-thick">
+        {{#if isMoreMarketAvailable }}
+            <div class="layout-col overflow-visible pad-m-l">
+                {{more-markets-dropdown
+                setExchange='setWlExchange'
+                exchangeValue=exchange
+                lblClass='font-xx-l font-thick'
+                buttonClass='fore-color btn-border bold dropdown-text-only'
+                defaultExchangeForDropdown=defaultExchange
+                isShowDefaultMarket=true
+                value=value
+                key=wkey
+                }}
+            </div>
+        {{else}}
+            {{exchange.de}}
+        {{/if}}
+    </div>
+    <div class="layout-col-12" data-id="subMarket-free"></div>
+    {{#if isSubMarketAvailable}}
+        <div class="layout-col pad-m-lr" data-id="subMarketDropdown">
+            {{sub-markets-dropdown
+            exchange=exchange
+            key=wkey
+            onSubMarketChanged='subMarketChange'
+            lblClass=lblClass
+            }}
+        </div>
+    {{else}}
+        <div class="layout-col h-middle bold font-x-l fade-fore-color pad-m-lr">{{marketTime}}</div>
+    {{/if}}
+</div>
+<div class="horizontal-separator mgn-m-lr"></div>

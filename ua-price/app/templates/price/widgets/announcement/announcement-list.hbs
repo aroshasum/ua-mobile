@@ -1,0 +1,279 @@
+<div class="widget_new full-width col-xs-12 full-height" xmlns="http://www.w3.org/1999/html" id="newsAnnouncement-{{wkey}}">
+    {{widget-header
+    hideWidgetLink=true
+    widgetTitle=app.lang.labels.newsAnn
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+    <div class="col-xs-12 full-height widget-container-new full-height-without-header">
+        <div class="full-height pad-s-b">
+            <div class="container-fluid full-height">
+                <div class="row full-height">
+                    <div class="col-lg-12 full-height">
+                        <div class="pad-widget-left pad-widget-right pad-widget-top pad-m-b" role="tabpanel">
+                            {{tab-dropdown
+                            isDropdown=isDropdown
+                            displayList=announcementTabs
+                            newActive=announcementTabsActive
+                            isDisplayListChanged=isAnntabsChanged
+                            labelKey='displayDesc'
+                            actionName='onTabSelected'
+                            tabPanelClass='widget-tab-panel'
+                            tabItemClass='layout-inline widget-tab-item mgn-s-r'
+                            tabLinkClass='layout-inline'
+                            }}
+                        </div>
+                        <div class="tool-bar">
+                            {{#if isAdvancedSearch}}
+                                <div class="layout-container">
+                                    <div class="layout-col">
+                                        <span class="layout-inline font-m header-colour pad-s-all" style="margin-top:2px">{{app.lang.labels.symbol}}</span>
+                                        <span class="layout-inline input-group" style="width: 100px;">
+                                            {{input-field-text type="text" id=symbolSearchId value=searchSymbol onKeyPress="showSearchPopup" class="layout-inline search-query form-control mousetrap"}}
+                                        </span>
+                                    </div>
+
+                                    <div class="layout-col pad-m-l">
+                                        <span class="layout-inline font-m header-colour">{{app.lang.labels.title}}</span>
+                                        <span class="layout-inline input-group pad-s-l" style="width: 225px;">
+                                            {{input-field-text type="text" value=searchTitle class="search-query form-control"}}
+                                        </span>
+                                        <span class="layout-inline pad-s-l">
+                                            <button class="btn btn-default" {{action 'onClickAdvancedSearch'}} >
+                                                <span class="header-colour pad-m-l pad-m-r bold">{{app.lang.labels.search}}</span>
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                    <div style="width:1px; height:23px" class="layout-col pad-m-l border-right"></div>
+
+                                    <div id="dateSectionContainer-{{wkey}}" data-id="dateSelection" class="layout-col pad-m-l">
+                                        <div id="dateSection-{{wkey}}">
+                                            <span class="layout-inline font-m header-colour"> {{app.lang.labels.from}} </span>
+                                            <span class="layout-inline" style="width:80px">
+                                                {{bootstrap-datepicker
+                                                        readonly=isTablet
+                                                        orientation="bottom"
+                                                        language=lan
+                                                        placeholder=app.lang.labels.startDate
+                                                        format=datePickerFormat
+                                                        class="search-query form-control"
+                                                        value=startDate
+                                                        autoclose=true
+                                                        endDate=toEndDate}}
+                                            </span>
+                                            <span class="layout-inline font-m header-colour pad-s-all pad-m-l">{{app.lang.labels.to}}</span>
+                                            <span class="layout-inline" style="width:80px">
+                                                {{bootstrap-datepicker
+                                                        readonly=isTablet
+                                                        orientation="bottom"
+                                                        language=lan
+                                                        placeholder=app.lang.labels.endDate
+                                                        format=datePickerFormat
+                                                        class="search-query form-control"
+                                                        value=endDate
+                                                        autoclose=true
+                                                        startDate=startDate
+                                                        endDate=toEndDate}}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    {{#unless disableSeparater}}
+                                        <div style="width:1px; height:23px" class="pad-m-l layout-col border-right"></div>
+                                    {{/unless}}
+
+                                    <div id="announcementCheckContainer-{{wkey}}" data-id="announcementCheckBox" class="layout-col pad-m-l overflow-visible">
+                                        <div id="announcementCheck-{{wkey}}">
+                                            <div class="layout-col">
+                                                <div class="layout-inline pad-s-r">
+                                                    {{input checked=isEnabledAnnSearch type="checkbox" name="cc"}}
+                                                </div>
+                                                <span class="layout-inline font-m header-colour">{{app.lang.labels.showAnnouncement}}</span>
+                                            </div>
+                                            <div class="layout-col dropdown pad-s-l pad-l-r overflow-visible">
+                                                <button type="button" class="btn btn-dropdown btn-default dropdown-solid-back-color" data-toggle="dropdown" aria-expanded="false" disabled={{isExchangeSelectionDisabled}}>
+                                                    <div class="layout-container full-width">
+                                                        <div class="layout-col">
+                                                            {{app.lang.labels.exchanges}}
+                                                        </div>
+                                                        <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+                                                    </div>
+                                                </button>
+                                                <div class="dropdown-menu" role="menu">
+                                                    {{announcement-context-menu
+                                                        columns=exchangeOptionForSearch
+                                                        app=app
+                                                        saveAction='onExchangeSettingsChanged'
+                                                        showActionButton=true}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{#if isNewsEnabled}}
+                                        <div id="newsCheckContainer-{{wkey}}" data-id="newsCheckBox" class="layout-col overflow-visible pad-m-lr">
+                                            <div id="newsCheck-{{wkey}}">
+                                                <div class="layout-col overflow-visible">
+                                                    <div class="layout-inline pad-s-r">
+                                                        {{input checked=isEnabledNewsSearch type="checkbox" name="cc"}}
+                                                    </div>
+                                                    <span class="layout-inline font-m header-colour">{{app.lang.labels.showNews}}</span>
+                                                </div>
+                                                <div class="layout-col dropdown overflow-visible">
+                                                    <button type="button" class="layout-inline mgn-s-l btn btn-dropdown btn-default dropdown-solid-back-color" data-toggle="dropdown" aria-expanded="false" disabled={{isProviderSelectionDisabled}}>
+                                                        <div class="layout-container full-width">
+                                                            <div class="layout-col">{{app.lang.labels.newsProviders}}</div>
+                                                            <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+                                                        </div>
+                                                    </button>
+                                                    <div class="dropdown-menu" role="menu">
+                                                        {{announcement-context-menu
+                                                            columns=providerOptionForSearch
+                                                            app=app
+                                                            saveAction='onProviderSettingsChanged'
+                                                            showActionButton=true}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+
+                                    <div data-id="newsAnnouncement-free" class="layout-col-24"></div>
+                                </div>
+
+                                <div class="layout-container full-width {{if isNewsResponsive 'pad-widget-top' 'padding-zero'}}">
+                                    <div id="dateSectionRes-{{wkey}}" class="layout-col"></div>
+                                    <div id="announcementCheckRes-{{wkey}}" class="layout-col overflow-visible"></div>
+                                    <div id="newsCheckRes-{{wkey}}" class="layout-col overflow-visible"></div>
+                                    <div class="layout-col-24"></div>
+                                </div>
+                            {{else}}
+                                <div class="layout-col">
+                                    <span class="layout-inline font-m header-colour pad-s-all" style="margin-top: 2px;">{{app.lang.labels.symbol}}</span>
+                                    <span class="layout-inline" style="width: 150px;">
+                                        {{input-field-text type="text" value=symbolFilter class="search-query form-control"}}
+                                    </span>
+                                    <span class="layout-inline font-m header-colour pad-s-all" style="margin-top: 2px;">{{app.lang.labels.title}}</span>
+                                    <span class="layout-inline">
+                                        <span class="layout-inline">{{input-field-text type="text" value=titleFilter class="search-query form-control"}}</span>
+                                    </span>
+                                </div>
+                                {{#if showExgFilter}}
+                                    <div class="layout-col dropdown overflow-visible">
+                                        <button type="button" class="layout-inline mgn-s-l btn btn-dropdown btn-default dropdown-solid-back-color" data-toggle="dropdown" aria-expanded="false">
+                                            <div class="layout-container full-width">
+                                                <div class="layout-col">{{app.lang.labels.exchanges}}</div>
+                                                <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+                                            </div>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            {{announcement-context-menu
+                                            columns=exchangeOption
+                                            app=app
+                                            saveAction='onExchangeSettingsChanged'
+                                            showActionButton=true}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if showProviderFilter}}
+                                    <div class="layout-col dropdown overflow-visible">
+                                        <button type="button" class="layout-inline mgn-s-l btn btn-dropdown btn-default dropdown-solid-back-color" data-toggle="dropdown" aria-expanded="false">
+                                            <div class="layout-conatiner full-width">
+                                                <div class="layout-col">{{app.lang.labels.newsProviders}}</div>
+                                                <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+                                            </div>
+                                        </button>
+                                        <div class="dropdown-menu" role="menu">
+                                            {{announcement-context-menu
+                                            columns=providerOption
+                                            app=app
+                                            saveAction='onProviderSettingsChanged'
+                                            showActionButton=true}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                        <div class="modal-symbol announcement-list-popup" style="left: 52px;">
+                            {{#modal-popup isEnabled=false id="annSymbolSearch"}}
+                                {{global-search enableContentSettings=false searchKey=searchSymbol showWidgetButtons=false closePopup='closeSearchPopup' openPopup='showSearchPopup'  stopGlobalNotification=true clickAction='onSymbolSelected' analyticsKey=gaKey wkey=wkey}}
+                            {{/modal-popup}}
+                        </div>
+                        <div class="col-lg-12 pad-widget-left full-height pad-widget-top">
+                            <div class="col-xs-5 border-right news-list-widget-height">
+                                {{loading-indicator isLoading=isLoading}}
+                                {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+                                <div class="nano has-scrollbar">
+                                    <div class="nano-content tab-content pad-s-r full-height">
+                                        <div role="tabpanel" class="tab-pane active" id="location1">
+                                            {{#each announcement in filteredContent}}
+                                                <div  class="table-row-hover-back-color {{isEqual announcement.id selectedNewAnn 'table-row-selected-back-color'}} ">
+
+                                                    <div class="layout-container full-width overflow-visible news-list-item border-bottom pad-m-tb">
+
+                                                        <a {{action 'itemClicked' announcement.id announcement.type}} >
+
+                                                            <div class="layout-col v-top pad-m-r">
+                                                                {{#if announcement.isAnnouncement}}
+                                                                    <i class="icon-megaphone-1 ann-icon-color"></i>
+                                                                {{else}}
+                                                                    <i class="icon-tv news-icon-color"></i>
+                                                                {{/if}}
+                                                            </div>
+
+                                                            {{#if announcement.isArabic}}
+                                                                <div class="layout-col full-width v-top white-space-normal pad-m-l {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+
+                                                                    <p class="font-m text-justify pad-m-b fore-color"><span class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+
+                                                                    <div class="layout-container full-width">
+                                                                        <div class="layout-col-24 bold font-m highlight-fore-color"> <div class="ltr left">{{announcement.dispProp1}}</div> </div>
+                                                                        <div class="layout-col font-m pad-xs-b fade-fore-color"><span class="pad-xs-b {{announcement.annNewsTimeCss}}>{{announcement.dDTt}}"></span></div>
+                                                                    </div>
+
+                                                                </div>
+                                                            {{else}}
+                                                                <div class="layout-col full-width v-top white-space-normal pad-m-l {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+
+                                                                    <p class="font-m text-justify pad-m-b fore-color"><span class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+
+                                                                    <div class="layout-container full-width">
+                                                                        <div class="layout-col-24 bold font-m highlight-fore-color"> <div class="ltr left">{{announcement.dispProp1}}</div> </div>
+                                                                        <div class="layout-col font-m pad-xs-b  fade-fore-color"><span class={{announcement.annNewsTimeCss}}>{{announcement.dDTt}}</span></div>
+                                                                    </div>
+
+                                                                </div>
+                                                            {{/if}}
+
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-7 full-height">
+                                <div id="announcementListUpdateContainer" class="full-height pad-m-l pad-s-b" style="height:calc(100% - 96px);">
+                                    <div class="news-heading">{{{annObj.dHed}}}</div>
+                                    <div class="news-date-time-bar full-width left">
+                                        <span class="left font-m bold highlight-fore-color">{{annObj.dispProp1}}</span>
+                                        <span class="ltr right font-m pad-m-r fade-fore-color">{{annObj.dDt}}</span>
+                                    </div>
+                                    <div class="nano has-scrollbar pos-rel" style="height:calc(100% - 82px);">
+                                        <div class="news-body news-link nano-content full-height">{{{annObj.dBody}}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

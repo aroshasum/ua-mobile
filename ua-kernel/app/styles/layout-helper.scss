@@ -1,0 +1,495 @@
+@import 'common-variables';
+@import 'font';
+@import 'ui-controls/common-ui-controls';
+@import 'themes/common-theme-classes';
+
+body {
+  font-family: "OpenSans", sans-serif;
+  direction: ltr;
+}
+
+/* ======  Position  ==============  */
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.top-zero {
+  top: 0;
+}
+
+.right-zero {
+  right: 0;
+}
+
+.bottom-zero {
+  bottom: 0;
+}
+
+.left-zero {
+  left: 0;
+}
+
+.pad-t-zero {
+  padding-top: 0;
+}
+
+.pad-b-zero {
+  padding-bottom: 0;
+}
+
+.clr-both {
+  float: none;
+  clear: both;
+}
+
+/* ======  /Position  ==============  */
+
+/* ======  Overflow  ==============  */
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.overflow-clip {
+  text-overflow: clip;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+/* ======  /Overflow  ==============  */
+
+/* ======  Padding-margin  ==============  */
+
+.padding-zero {
+  padding: 0;
+}
+
+.margin-zero {
+  margin: 0;
+}
+
+.height-zero {
+  height: 0;
+}
+
+.width-zero {
+  width: 0;
+}
+
+.pad-widget-left {
+  padding-left: $pad-widget;
+}
+
+.pad-widget-right {
+  padding-right: $pad-widget;
+}
+
+.pad-widget-top {
+  padding-top: 8px;
+}
+
+.pad-widget-bottom {
+  padding-bottom: $pad-widget;
+}
+
+/* ======  /Padding-margin  ==============  */
+
+/* ======  Fluid Layout Styles  ==============  */
+
+.border-right-zero {
+  border-right: 0;
+}
+
+.border-bottom-zero {
+  border-bottom: 0;
+}
+
+.border-none {
+  border: none;
+
+  @include theme((
+          border: "0px {fore-color} solid"
+  ));
+}
+
+.layout-container, .data-table {
+  display: table;
+}
+
+.layout-col {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: table-cell;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 100%;
+}
+
+@for $i from 24 through 1 {
+  .layout-col-#{$i} {
+    width: ($i/24)*100%;
+    max-width: 0;
+    @extend .layout-col;
+  }
+}
+
+.layout-inline {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.layout-row {
+  display: table-row;
+}
+
+.row-height {
+  height: 23px;
+}
+
+.white-space-normal {
+  white-space: normal;
+}
+
+.row-height-header {
+  height: 22px;
+}
+
+.data-table .layout-row:nth-child(odd) {
+  @include theme((
+          background: table-row-back-color
+  ));
+}
+
+.data-table .layout-row:nth-child(even) {
+  @include theme((
+          background: table-row-alternate-back-color
+  ));
+}
+
+.data-table .layout-row:hover {
+  border-top: $border-xxx-small solid;
+  border-bottom: $border-xxx-small solid;
+
+  @include theme((
+          background: table-row-hover-back-color,
+          border-top-color: data-table-fore-color,
+          border-bottom-color: data-table-fore-color
+  ));
+}
+
+.widget-outlet {
+  margin-top: $margin-small;
+  padding-left: $padding-small;
+  height: calc(100% - #{$margin-small});
+}
+
+.widget_new {
+  border-radius: $radius-xxs;
+  border-bottom: $border-xxx-small solid;
+  overflow: hidden;
+
+  @include theme((
+          background-color: widget-back-color,
+          border-color: widget-border-color,
+          border-bottom-color: widget-border-color,
+          box-shadow: none
+  ));
+
+  @include theme-classic((
+          box-shadow: "0 1px 1px 0 {popup-box-shadow-color}"
+  ));
+}
+
+.widget-container-new {
+  overflow: hidden;
+  height: 100%;
+  box-sizing: border-box;
+  border-right: $border-xxx-small solid;
+  border-left: $border-xxx-small solid;
+  border-bottom: $border-small transparent solid;
+
+  @include theme((
+          border-color: widget-border-color,
+          border-bottom:  widget-back-color
+  ));
+}
+
+/*.popup-container-view .widget-container-new {
+  border: 0 transparent solid;
+}*/
+
+.widget-new-border {
+  border: 1px solid;
+  border-bottom: 2px solid;
+  border-radius: 2px 2px 0 0;
+
+  @include theme((
+          border-color: widget-border-color,
+  ));
+}
+
+.cell-container {
+  padding-left: 10px;
+  height: 100%;
+  text-align: right;
+}
+
+/* ======  /Fluid Layout Styles  ==============  */
+
+/* ======  Alignment  ==============  */
+
+.h-right {
+  text-align: $text-align-3;
+}
+
+.h-middle {
+  text-align: $text-align-2;
+}
+
+.h-left {
+  text-align: $text-align-1;
+}
+
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.v-text-top {
+  vertical-align: text-top;
+}
+
+.v-text-bottom {
+  vertical-align: text-bottom;
+}
+
+.left {
+  float: $float-1;
+}
+
+.right {
+  float: $float-2;
+}
+
+.v-top {
+  vertical-align: top;
+}
+
+.v-bottom {
+  vertical-align: bottom;
+}
+
+.v-middle {
+  vertical-align: middle;
+}
+
+/* ======  /Alignment  ==============  */
+
+/* ======  Display  ==============  */
+
+.display-table {
+  display: table;
+}
+
+.display-table-row {
+  display: table-row;
+}
+
+.display-table-cell {
+  display: table-cell;
+}
+
+.display-none {
+  display: none;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.table-layout-fixed {
+  table-layout: fixed;
+}
+
+.text-underline:hover {
+  text-decoration: underline;
+}
+
+/* ======  /Display  ==============  */
+
+/* ======  /Line height  ==============  */
+
+.line-height-s {
+  line-height: 5px;
+}
+
+.line-height-m {
+  line-height: 10px;
+}
+
+.line-height-l {
+  line-height: 15px;
+}
+/* ======  /Line height  ==============  */
+
+/* ======  Deprecated  ==============  */
+
+.flex {
+  display: flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+}
+
+// Refactor deprecated- Assigned to Satheeq
+.col-12 {
+  width: 100%;
+}
+
+.col-11 {
+  width: 91.66666667%;
+}
+
+.col-10 {
+  width: 83.33333333%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-8 {
+  width: 66.66666667%;
+}
+
+.col-7 {
+  width: 58.33333333%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-5 {
+  width: 41.66666667%;
+}
+
+.col-4 {
+  width: 33.33333333%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-2 {
+  width: 16.66666667%;
+}
+
+.col-1 {
+  width: 8.33333333%;
+}
+
+.col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
+  min-height: 1px;
+  position: relative;
+  float: left;
+}
+
+.ar .col-12, .ar .col-11, .ar .col-10, .ar .col-9, .ar .col-8, .ar .col-7, .ar .col-6, .ar .col-5, .ar .col-4, .ar .col-3, .ar .col-2, .ar .col-1 {
+  min-height: 1px;
+  position: relative;
+  float: right;
+}
+
+/* ======  /Deprecated  ==============  */
+
+/* ======  Common  ==============  */
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.full-height-without-header {
+  height: calc(100% - 26px);
+}
+
+.ar .rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.pointer-disable {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.font-size-zero {
+  font-size: 0;
+}
+
+.text-wrap {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+}
+
+.document {
+  $names: (xs: 3px, s: 5px, m: 10px, l: 15px);
+  $directions: t r b l lr tb all; // t - top, r - right, b - bottom, l - left, lr - left and right, tb - top and bottom, all - all directions
+  $padding-styles: padding-top padding-right padding-bottom padding-left (padding-left padding-right) (padding-top padding-bottom) padding;
+  $margin-styles: margin-top margin-right margin-bottom margin-left (margin-left margin-right) (margin-top margin-bottom) margin;
+
+  $directions-ar: l r;
+  $padding-styles-ar: (padding-right padding-left) (padding-left padding-right);
+  $margin-styles-ar: (margin-right margin-left) (margin-left margin-right);
+
+  @include generate-paddings-margins("pad", $names, $directions, $padding-styles, false);
+  @include generate-paddings-margins("mgn", $names, $directions, $margin-styles, false);
+
+  @include generate-paddings-margins("ar .pad", $names, $directions-ar, $padding-styles-ar, true);
+  @include generate-paddings-margins("ar .mgn", $names, $directions-ar, $margin-styles-ar, true);
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+@import 'extended/layout-helper-extended';

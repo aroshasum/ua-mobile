@@ -1,0 +1,60 @@
+@import '../common-variables.scss';
+@import '../widget-variables';
+@import '../extended/widget-variables-extended';
+@import '../app-layout/app-layout';
+
+.widgetmnu {
+  @include theme((
+		    background-color: widget-menu-back-color
+  ));
+
+  &-fore-color {
+	@include theme((
+			color: widget-menu-fore-color
+	));
+  }
+
+  &-title {
+	height: 69px;
+	z-index: 3;
+
+	@include theme((
+			background-color: app-title-back-color
+	));
+  }
+
+  &-header {
+	font-size: $font-large;
+
+	@include theme((
+			color: widget-menu-header-fore-color,
+			background-color: widget-menu-header-back-color
+	));
+  }
+
+  &-active {
+	@include theme((
+			color: widget-menu-selected-fore-color,
+			background-color: widget-menu-selected-back-color
+	));
+  }
+
+  &-active a {
+	@include theme((
+			color: widget-menu-selected-fore-color
+	));
+  }
+
+  &-icon {
+	@include theme((
+			color: widget-menu-icon-fore-color
+	));
+  }
+
+  &-icon-active {
+	@include theme((
+			color: widget-menu-icon-fore-color-active
+	));
+  }
+}
+

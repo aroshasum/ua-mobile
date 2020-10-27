@@ -1,0 +1,7 @@
+<button class="wdgttl-btn-dropdown hint--bottom-left hint--bounce hint--rounded" data-hint="{{toolTip}}" type="button" {{action 'loadLinkDropDownList'}} {{bind-attr disabled=isDropdownDisabled}}>
+    {{#if value}}
+        <div class="left link-item {{getValueKey selectedOption labelKey}}"></div>
+    {{else}}
+        <a><i class="icon1-link font-l widget-title-fore-color"></i></a>
+    {{/if}}
+</button>

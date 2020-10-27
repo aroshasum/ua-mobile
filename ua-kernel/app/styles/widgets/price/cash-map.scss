@@ -1,0 +1,8 @@
+.c3-chart-arcs-title {
+    font-size: 12px;
+    alignment-baseline: middle;
+
+    @include theme((
+            fill: fore-color
+    ));
+}

@@ -1,0 +1,82 @@
+<div id="horizontalPanel" class="appmnu mgn-s-t full-height layout-container full-width horizontal-panel font-l bold">
+    <div class="layout-col overflow-visible">
+        {{#each menuItem in appLayout.layout.mainPanel.content}}
+            <div id="menuWrapper{{menuItem.id}}" class="overflow-visible h-middle horizontal-panel display-inline-block h-left main-menu {{menuItem.css}}">
+                <div id="mainMenu{{menuItem.id}}" class="display-inline-block horizontal-panel cursor-pointer appmnu-fore-color appmnu-back-color full-width " {{action 'renderMenuItems' menuItem}}>
+                    <div class="layout-container full-width full-height">
+                        <div class="layout-col pad-s-lr rtl">
+                            {{#if menuItem.custom}}
+                                {{#if menuItem.isEdited}}
+                                    <div class="layout-col ellipsis pad-m-l pad-s-r appmnu-fore-color">{{menuItem.displayTitle}}</div>
+                                {{else}}
+                                    <div class="layout-col pos-rel pad-m-lr">
+                                        {{input value=menuItem.displayTitle action='renameMenuWorkspace' on='enter' autofocus="true" class="search-query search-ctrl" id=customInputId}}
+
+                                        <div class="input-group-btn pos-abs top-zero fade-fore-color">
+                                            <button class="btn search-ctrl-btn" {{action 'renameMenuWorkspace' menuItem.displayTitle}}>
+                                                <i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                {{/if}}
+
+                                <div class="layout-col pad-m-r" {{action 'customizeCustomWorkSpace' menuItem.id}}><i class="glyphicon glyphicon-menu-hamburger"></i></div>
+                            {{else}}
+                                <div class="layout-col ellipsis pad-m-l pad-s-r appmnu-fore-color">{{menuItem.displayTitle}}</div>
+                            {{/if}}
+
+                            {{#if (isAvailableSubMenu menuItem.tab)}}
+                                <div class="layout-col icon-angle-down pad-s-r horizontal-tabs-arrow-icon appmnu-fore-color"></div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                <div id="subMenu{{menuItem.id}}" class="cursor-pointer overflow-hidden pos-rel sub-menu">
+                    <div class="layout-container horizontal-panel rtl">
+                        {{#each subMenuItem in menuItem.tab}}
+                            {{#if (isAvailableSubMenu menuItem.tab)}}
+                                <div class="h-left horizontal-sub-tabs-color pad-m-tb sub-menu-item {{subMenuItem.css}}" {{action 'renderDirectTabItems' menuItem subMenuItem}}>
+                                    {{#if subMenuItem.custom}}
+                                        {{#if subMenuItem.isEdited}}
+                                            <div class="layout-col ellipsis pad-m-lr">{{subMenuItem.displayTitle}}</div>
+                                        {{else}}
+                                            <div class="layout-col pos-rel pad-m-lr">
+                                                {{input value=subMenuItem.displayTitle action='renameTabWorkspace' on='enter' class="search-query search-ctrl" id=customInputId}}
+
+                                                <div class="input-group-btn pos-abs top-zero">
+                                                    <button class="btn search-ctrl-btn" {{action 'renameTabWorkspace' subMenuItem.displayTitle}}>
+                                                        <i class="glyphicon glyphicon-floppy-save" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        {{/if}}
+
+                                        <div class="layout-col pad-m-r" {{action 'customizeCustomWorkSpace' menuItem.id subMenuItem.id}}><i class="glyphicon glyphicon-menu-hamburger"></i></div>
+                                    {{else}}
+                                        <span class="ellipsis pad-m-lr">{{subMenuItem.displayTitle}}</span>
+                                    {{/if}}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="layout-col-24"></div>
+
+    <!-- + button - main menu-->
+    {{#if isCustomWorkSpaceEnabled}}
+        <div class="overflow-hidden h-middle horizontal-panel display-inline-block h-left">
+            <div class="display-inline-block horizontal-panel cursor-pointer app-menu-fore-color">
+                <div class="layout-container full-width full-height" {{action 'addNewMenuWorkspace'}}>
+                    <div class="layout-col horizontal-sub-tabs-color">
+                        <div class="glyphicon glyphicon-plus pad-m-lr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <!-- + button-->
+</div>

@@ -1,0 +1,2199 @@
+@import '../../common-variables';
+@import '../../widget-variables';
+@import 'widget-title';
+@import 'news-announcement';
+
+.widget {
+  border-radius: 2px;
+  margin: $margin-small 0 0 $margin-small;
+  padding: $padding-small $padding-small 0 $padding-small;
+}
+
+.widget-header-left {
+  float: left;
+}
+
+.widget-header-left ul.nav-tabs-3 {
+  display: table-cell;
+  display: -moz-inline-box;
+}
+
+.widget-header-right {
+  float: right;
+  position: absolute;
+  right: 0;
+  left: inherit;
+}
+
+.popup-widget {
+  overflow: hidden;
+  padding-left: 0;
+  box-sizing: content-box;
+  border-radius: $radius-xm $radius-xm 0 0;
+
+  @include theme((
+          border: "1px {data-table-header-border-top} solid",
+          background-color: widget-back-color,
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-title-border-color} solid",
+          box-shadow: none
+  ));
+}
+
+.popup-widget .widget-tab-item:first-child {
+  border-radius: $radius-z;
+}
+
+.popup-widget .widget-tab-item:last-child {
+  border-radius: $radius-z;
+}
+
+.popup-container-view .widget-header-right {
+  float: right;
+  position: initial !important;
+}
+
+.popup-container-view .widget-header-right .widget-header-tools {
+  margin-right: 5px;
+}
+
+.popup-container-view .widget-header-right .widget-header-tools .btn-close {
+  margin-top: 2px;
+}
+
+@-moz-document url-prefix() {
+  .popup-container-view .btn-link-dropdown {
+    margin-top: 0 !important;
+  }
+
+  .theme2 .widget-header .nav-tabs-3 {
+    margin-left: 0 !important;
+  }
+}
+
+.widget-title-two { }
+
+.widget-header {
+  height: inherit;
+  font-size:$font-medium;
+  font-weight:$font-bold;
+  padding:5px 13px 5px 13px;
+  background-image:none;
+}
+
+.widget-header-icons {
+  padding:7px 13px 7px 13px;
+}
+
+.header-icons {
+  float: right;
+}
+
+.widget-container {
+  padding:8px 8px 8px 8px;
+}
+
+.vertical_Seperator_topstocks {
+  height: 150px;
+  float: $float-3;
+  margin-top: 8px;
+  margin-bottom: 0;
+  margin-left: 0;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+}
+
+.horizontal_line {
+  height: 1px;
+  width: 96%;
+  overflow:hidden;
+  margin:0 auto;
+}
+
+.index-Arrow {
+  font-size: 13px;
+}
+
+.index-Value {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.index-change {
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.index-percentage {
+  font-size: 12px;
+}
+
+// Nav Tabs- 2
+
+.nav-tabs-2 > li.active > a, .nav-tabs-2 > li.active > a:hover, .nav-tabs-2 > li.active > a:focus {
+  color: #639DC4 !important;
+  background-color: #000000;
+  border-bottom:none !important;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 1px;
+  border-color:#2A3036;
+}
+
+.nav-tabs-2 {
+  border-bottom: 1px solid #2A3036 !important;
+}
+
+.nav-tabs-2 > li > a {
+  margin-right: 0;
+  border-bottom: none !important;
+  color: #67696A;
+}
+
+.nav-tabs-2 > li {
+  margin-left: 10px;
+  float: left;
+  margin-bottom: -1px;
+}
+
+//Quote Page
+
+// Review This classes again
+
+.time-and-sales {
+  height: calc(100% - 65px);
+}
+
+.time-and-sales-with-header {
+  height: calc(100% - 59px);
+}
+
+.quote-page-second-row-wght {
+  width: auto;
+}
+
+.widget-header {
+  position: relative;
+}
+
+.widget-header .nav-tabs {
+  margin-top: -5px;
+}
+
+// end of pathums code
+
+h2.widget-title-type-1 {
+  font-size:$font-medium;
+  font-weight:$font-bold;
+  margin:0 0 $padding-small 0;
+  padding:0 0 $padding-small 0;
+}
+
+h2.widget-title-with-icon {
+  padding:0 0 4px 0 ;
+}
+
+.widget-sector-overview .row {
+  margin: 0;
+}
+
+.table-type-1 td {
+  height: 24px;
+  vertical-align: middle;
+}
+
+.widget-commodities i {
+  font-size: $font-medium;
+}
+
+.widget-sector-overview .sec-arrow {
+  text-align: $text-align-2;
+  width: 20px;
+}
+
+.widget-sector-overview  .sec-value {
+  width: 80px;
+}
+
+.widget-watchlist {
+  border-radius: 2px;
+  padding:$padding-small;
+}
+
+.indicator-li {
+  margin-right: 0 !important;
+  padding: 0 2px;
+}
+
+.online {
+  height: 11px;
+  width: 11px;
+  border-radius: 2px;
+  float: $float-1;
+  margin-right: $margin-small;
+}
+
+.table-mid {
+  margin-bottom: $margin-large;
+}
+
+.sector-btn {
+  margin-top: -6px;
+}
+
+.sector-btn .btn-dropdown {
+  width: 83px;
+}
+
+// Drop Down Button
+
+.top-stock-btn {
+  margin-top: -6px;
+  float: left;
+  margin-left: inherit;
+}
+
+.top-stock-btn .btn-dropdown {
+  width: 83px;
+}
+
+// /Drop Down Button
+
+// news section
+
+.news-row {
+  min-height: 58px;
+  margin-left: $margin-small;
+  margin-right: $margin-small;
+  width: 100%;
+  float: $float-2;
+}
+.panel-table > tbody > tr > td {
+  padding: 12px;
+  height: 40px;
+  line-height: 11px
+}
+
+.panel-table {
+  text-align: $float-2;
+  padding: 8px;
+  height: 100%;
+  line-height: 11px;
+}
+
+.ember-table-panel {
+  text-align: $float-2;
+  padding: 0 1px $padding-small 1px;
+  line-height: 11px;
+}
+
+.table-widget-container {
+  height: 350px;
+}
+
+.icon-caret-up, .icon-caret-down {
+  height: 12px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.cursor-auto {
+  cursor: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-moz-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-moz-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-moz-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+// add widget tittle class
+
+.progress-bid {
+  height: 1px;
+  margin-bottom: 0;
+}
+
+.quote-cell {
+  //	padding: $padding-small $padding-medium $padding-small $padding-medium;
+}
+
+.intraday-cell {
+  height: 40px;
+}
+
+.intraday-cell-text-normal {
+  height: 13px;
+  color: #848484;
+}
+
+.intraday-dq {
+  height: 40px;
+  float: $float-1;
+  width: 100px;
+}
+
+.intraday-dq-widget {
+  height: 20px;
+  float: $float-1;
+  width: 50%;
+  padding-left: $padding-small;
+  padding-right:$padding-small;
+}
+
+.company-text {
+  line-height: 1.5;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-align: justify;
+  border-bottom: 1px solid #D2D2D2;
+}
+
+.company-heading {
+  padding-left: 30px !important;
+  margin-top: 20px;
+}
+
+.company-heading-last {
+  padding-left: 30px !important;
+  margin-top: 20px;
+}
+
+.company-address {
+  line-height: 1.636;
+  padding-top: 7px !important;
+}
+
+.company-logo img {
+  max-height: 75px;
+  max-width: 164px
+}
+
+
+.nav-tabs .checkbox-label {
+  margin-top: $padding-small;
+}
+
+.nav-tabs .checkbox-label input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+.company-ellipsis {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 3px;
+}
+
+.btn-default .btn-icon {
+  float: $float-1;
+  margin: 0 $margin-small 0 0;
+}
+
+.blink-font-style-change {
+  font-weight: bold;
+}
+
+.dot-style-high {
+  height:5px;
+}
+
+.dot-style-low {
+  height:5px;
+}
+
+.blink-classic-up {
+  height: 100%;
+}
+
+.blink-classic-down {
+  height: 100%;
+}
+
+.text-left-header {
+  text-align: left  !important;
+}
+
+// end of watchlist cells
+
+.sub_str_tbl td, .sub_str_tbl td span, .sub_str_tbl li span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.right-panel-main {
+  padding-right: $padding-large;
+  padding-left: $padding-medium;
+}
+
+.right-panel-tabpanel{
+  margin-left: $margin-small;
+}
+
+.right-panel-content {
+  overflow-y: auto;
+  height: 100%;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.right-panel-inner-ann {
+  padding-left: 13%;
+  width: 105px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.right-panel-symbol-ellipsis {
+  width: 39%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.right-panel-inner-ann-head {
+  width: 87%;
+}
+
+.right-panel-inner-ann-icon {
+  width: 13%;
+}
+
+.right-panel-tabpanel p {
+  line-height: 1.2;
+}
+
+.icon-btn {
+  border-radius: 23px;
+  padding: 2px 8px 2px 8px;
+  height: auto;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 11px;
+}
+
+.mkt-close-indicator {
+  background-color: #ffbe40 !important;
+}
+
+/* ================  Watchlist Right Click Popup  ========================  */
+
+.modal-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1999;
+}
+
+.modal-popup-frame {
+  position: absolute;
+  z-index: 2000;
+  border-radius: 5px;
+  transition: all 5s ease-in-out;
+}
+
+.modal-symbol .modal-popup-symbol-search {
+  position: absolute;
+  z-index: 2000;
+  bottom: inherit;
+  padding: 0;
+}
+
+//  =========  Right Click Menu  =====================
+
+.right-click-menu {
+  width: 233px;
+
+  @include theme((
+          background-color: widget-back-color,
+          box-shadow: "0 0 2px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-title-border-color} solid",
+          box-shadow: none
+  ));
+}
+
+.right-click-menu-header {
+  @include theme((
+          color: widget-title-fore-color,
+          border: "0 {widget-title-border-color} solid",
+          border-bottom: "0 {widget-title-border-color} solid",
+          background-color: widget-title-back-color
+  ));
+
+  @include theme-classic((
+          border-bottom: "1px {widget-title-border-color} solid"
+  ));
+}
+
+.right-click-menu hr {
+  margin: 0 8px 0 8px;
+  padding: 0;
+  border: none;
+
+  @include theme((
+          background-color: widget-border-color
+  ));
+}
+
+.right-click-menu-symbol {
+  @include theme((
+          background-color: widget-title-back-color
+  ));
+}
+
+.right-click-menu-item {
+  padding: 8px 19px 8px 19px;
+  font-size: $font-large;
+  cursor: pointer;
+}
+
+.right-click-menu-item:hover {
+
+  @include theme((
+          background-color: widget-title-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-prominent-alternate-back-color
+  ));
+}
+
+.right-click-menu {
+  width: 225px;
+}
+
+.watchlist-dual-cell {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: calc(100% - 5px);
+  text-align: initial;
+}
+
+/* ================  /Watchlist Right Click Popup  ========================  */
+
+h2 .nav-tabs {
+  border-bottom: 0;
+  margin: -5px 0 0 0;
+}
+
+.dropdown-menu-height {
+  max-height: 190px;
+  min-width: 105px;
+}
+
+.sector-btn .dropdown-menu-height {
+  height: 118px;
+  overflow-y: hidden;
+}
+
+.btn-dropdown-no-border {
+  border-width: 0;
+  outline: none;
+}
+
+.chart-btn-icon {
+  font-size: 17px;
+  height: 23px;
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+  font-family: 'charticons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include theme((
+          border: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+.chart-tab-icon {
+  font-size: 20px;
+  height: 30px;
+  background-color: transparent;
+  padding-top: 5px;
+  margin-left: 2px;
+
+  @include theme((
+          border: none
+  ));
+}
+
+.chart-icon-dropdown {
+  @include theme((
+          border: "0 {widget-ui-control-border} solid"
+  ));
+}
+
+.chart-btn-icon:hover {
+  border-radius: 0;
+}
+
+.theme2 .chart-btn-icon:hover {
+  border-radius: 0;
+}
+
+.h-sep-line li:before {
+  content: " | ";
+  margin-right: 5px;
+  margin-left: -1px
+}
+
+.h-sep-line li:first-child:before {
+  content: none;
+}
+
+i.comm-icon {
+  font-size: $font-xx-large;
+}
+
+// Charts
+.chart-data-view li:last-child {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.chart-data-view li {
+  min-width: 10px;
+  text-align: left;
+}
+.chart-icon-btn .btn {
+  padding-top: 2px;
+  padding-bottom: 0;
+  font-size: 17px;
+}
+
+.chart-icon-btn .caret {
+  margin-top: 8px;
+  float: right;
+}
+
+.c3 path, .c3 line {
+  fill: none;
+}
+
+button.chart-btn-icon.active{
+  color: #f4b350;
+}
+
+.main-panel .c3 path, .c3 line {
+  fill: none;
+
+  @include theme((
+          stroke: fore-color
+  ));
+
+  @include theme-classic((
+          stroke: fore-color
+  ));
+}
+
+.ms-top-bar .c3 path, .c3 line {
+  fill: none;
+  stroke: transparent;
+}
+
+.c3-axis {
+  font-weight: normal !important;
+}
+
+.fav-panel-width {
+  width: 170px;
+}
+
+.default-panel-width {
+  width: 115px;
+}
+
+.quote-small-width {
+  width:10%;
+}
+
+.quote-medium-width {
+  width:20%;
+}
+
+.quote-large-width {
+  display:inline-block;
+}
+
+.quote-x-large-width {
+  width:40%;
+  display:inline-block;
+}
+
+.watchlist-row-strike:before {
+  content: " ";                              // …has no text content
+  position: absolute;                        // …is absolutely positioned
+  left: 0; top: 50%; width: 100%;            // …with the top across the middle
+  border-bottom: 1px solid #000;             // …and with a border on the top
+}
+
+.watchlist-ul {
+  width: 100%;
+  position: relative;
+}
+
+.dropdown-watchlist-more {
+  width: 490px;
+  height: 180px;
+  margin-top: -5px;
+}
+
+.dropdown-watchlist-more-search {
+  height: 34px;
+  padding: $padding-small;
+}
+
+.dropdown-watchlist-more-items {
+  float: $float-1;
+  width: 150px;
+  height: 20px;
+}
+
+.widget-prochart {
+  margin: $margin-small $margin-small 0  $margin-small;
+  padding: $padding-small;
+}
+
+.news-popup {
+  max-height:300px;
+  min-width:365px;
+  max-width: 550px;
+
+  @include theme((
+          background-color: widget-back-color,
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-title-border-color} solid"
+  ));
+}
+
+.news-popup-header {
+  min-height:60px;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: widget-title-back-color
+  ));
+}
+
+.popup-line-height {
+  line-height: 18px;
+}
+
+.symbol-popup-view-header {
+  cursor: move;
+  height:30px;
+  background-color: #23545f;
+  margin-left:-5px;
+  margin-right:-5px;
+  padding: $padding-small;
+  margin-top: -5px;
+}
+
+.symbol-popup-name {
+  display: none;
+}
+
+.active span.symbol-popup-name {
+  display: inline;
+  // padding-left: $padding-small;
+}
+
+.container-mid {
+  left: 70px;
+  width: calc(100% - 70px);
+}
+
+.quote-depth-spread-1 {
+  width: 40%;
+  height:46px;
+  border-left:  1px #2ecc71 solid;
+  border-top:  1px #2ecc71 solid;
+  float:right;
+}
+
+.quote-depth-height {
+  height: calc(100% - 25px);
+}
+
+.quote-depth-spread-2 {
+  width: 40%;
+  height:46px;
+  border-right:  1px #e74343 solid;
+  border-top:  1px #e74343 solid;
+  float:left;
+}
+
+.news-position {
+  position: absolute;
+  right: 584px;
+  top:45px;
+}
+
+.pro-chart-max {
+  position: absolute;
+  right: 15px;
+}
+
+.quote-summary-layout {
+  width: 100%;
+}
+
+//for watchlist
+
+.prochart-symbol-fix {
+  position: absolute;
+  right: 458px;
+}
+
+// HeatMap treemap styles
+
+svg {
+  overflow: hidden;
+}
+
+rect {}
+
+.chart {
+  display: block;
+  margin: auto;
+}
+
+.theme1 .parent {
+  overflow: hidden;
+  height: 20px;
+  fill: #555555;
+}
+
+.parent {
+  overflow: hidden;
+  height: 20px;
+  fill: #3081bc;
+  color: #ffffff;
+}
+
+.child {
+  overflow: hidden;
+}
+
+.child-rect {
+  overflow: hidden;
+}
+
+.theme1 .cell {
+  font-size: 11px;
+  cursor: pointer;
+  pointer-events: all;
+  stroke: #EEEEEE;
+}
+
+.cell {
+  font-size: 11px;
+  cursor: pointer;
+  pointer-events: all;
+  stroke: #000;
+}
+
+.label-parent {
+  display: table-cell;
+  text-align: center;
+  padding-top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.label-child {
+  display: table-cell;
+  color: #FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.label-child-info {
+  font-size: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.label-ie-l1 {
+  stroke-width: 0;
+  margin: 2px;
+  fill: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-anchor: middle;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.label-ie-l2 {
+  stroke-width: 0;
+  margin: 2px;
+  fill: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-anchor: middle;
+  unicode-bidi: embed;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.label-ie-l3 {
+  stroke-width: 0;
+  font-size: 10px;
+  margin: 2px;
+  fill: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-anchor: middle;
+  unicode-bidi: embed;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.label-ie-l4 {
+  stroke-width: 0;
+  font-size: 10px;
+  margin: 2px;
+  fill: #FFFFFF;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-anchor: middle;
+  unicode-bidi: embed;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.label-ie-parent {
+  margin: 2px;
+  stroke-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-anchor: middle;
+  padding-top: 3px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+
+  @include theme((
+          fill: no-changed-back-color
+  ));
+}
+
+.div-child {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.div-parent {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+svg#chart g g.cell:first-child {
+  stroke: none;
+
+  @include theme((
+          fill: app-title-back-color
+  ));
+}
+
+//end of heatmap
+
+//from ravidu
+
+.chart-data-view {
+  margin-top: 4px;
+  width: 100%;
+  float: left;
+}
+
+.theme1 .no-bold {
+  font-weight: normal !important;
+}
+
+.chart-dropdown .dropdown-submenu:hover>.dropdown-menu {
+  left: 100%;
+  width: 205px;
+}
+
+.chart-dropdown .dropdown-submenu:hover>.dropdown-menu li {
+  left: 100%;
+  width: 205px;
+  margin-left: 0;
+}
+
+//heights starts here
+
+.widget-commodities {
+  height: $height-market-overview-mid;
+}
+
+.widget-sector-overview {
+  height: $height-market-overview-mid;
+}
+
+.widget-top-stocks {
+  height: $height-market-overview-mid;
+}
+
+.watchlist-height {
+  height: calc(100% - #{$height-market-overview-mid + 26});
+}
+
+.quote-watchlist-height {
+  height: calc(100% - 24px);
+}
+
+.quote-tab {
+  height:calc(100% - 405px);
+  min-height:100px;
+}
+
+.top-stocks-tab-upper {
+  height: calc(50% - 7px);
+}
+
+.top-stocks-tab-lower {
+  height: calc(50% - 0);
+}
+
+.top-stocks-scroll-height {
+  height: calc(100% - 48px);
+}
+
+.company-profile-height {
+  height: calc(100% - 82px);
+}
+
+.company-profile-col-3-height {
+  height: 50%;
+}
+
+.news-page-height {
+  height: calc(100% - 22px) !important;
+}
+
+.modal-terms{
+  height: 500px;
+}
+
+.modal-terms-iframe {
+  height: 425px;
+}
+
+.topstocks-height {
+  height:calc(100% - 25px);
+}
+
+.detailquote-height {
+  height: calc(100% - 25px);
+}
+
+.custom-workspace-height {
+  height: calc(100%- 0);
+  overflow-y: scroll;
+}
+
+.heatmap-height {
+  height: calc(100% - 39px);
+}
+
+.prochart-tab-height {
+  height: calc(100% - 22px);
+}
+
+.mid-col {
+  height: calc(100% - #{$height-top-panel + $height-footer + $appttl-bar-height + $margin-small});
+}
+
+.mid-col-horizontal-panel {
+  height: calc(100% - #{$height-top-panel + $height-footer + $appttl-bar-height + $margin-small + $horizontal-panel-height + $app-widget-gap});
+}
+
+.mid-col-horizontal-panel-tp-excluded {
+  height: calc(100% - #{$height-footer + $appttl-bar-height + $margin-small + $horizontal-panel-height + $app-widget-gap});
+}
+
+.right-panel-height {
+  height:calc(100% - 31px);
+}
+
+// link widget
+
+.link-widget {
+  min-width: 100px;
+}
+
+.link-widget li {
+  margin-left: 0 !important;
+}
+
+// for popup widget
+
+.popup-height {
+  height:calc(100% - 71px);
+}
+
+.popup-height .widget {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.popup-height .widget-container {
+  border-bottom: 0 #D2D2D2 solid !important;
+  border-right: 0 #D8D8D8 solid !important;
+  border-left: 0 #D8D8D8 solid !important;
+}
+
+.popup-height .nano {
+  height: 300px !important;
+}
+
+.nav-tabs-inner-header {
+  margin-top: -5px;
+  margin-bottom: -5px;
+  margin-left: 14px;
+  margin-right: 42px;
+}
+
+.more-column-align {
+  margin-left: -383px;
+}
+
+.watchlist-link {
+  position: absolute;
+}
+
+.watchlist-links li {
+  margin-right: 0;
+}
+
+.ar .watchlist-links li {
+  margin-left: 0;
+}
+
+.link-dropdown {
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.watchlist-link .link-dropdown {
+  margin-left: inherit;
+}
+
+.widget-header-tools {
+  //float: right;
+}
+
+.popup-header {
+  margin-right: 0;
+  margin-left: inherit;
+}
+
+.popup-height .widget_new {
+  margin: 0 !important;
+}
+
+#title-handle .widget-header-left {
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// ==================  Message Box  ====================================
+
+#message-box {
+  position: relative;
+  z-index: 2001;
+}
+
+.message-box-fog {
+  background: rgba(30, 30, 30, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.message-box-frame {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 25%;
+  position: absolute;
+  text-align: center;
+  // opacity: 0.949;
+
+  @include theme((
+          border: "1px {widget-border-color} solid",
+          background-color: widget-back-color,
+          box-shadow: "0 0 2px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          box-shadow: "0 1px 2px 1px {box-shadow-color}"
+  ));
+}
+
+.message-box-title {
+  height: 28px;
+  padding: 8px;
+  font-size: $font-large;
+  font-weight: bold;
+  padding-left: 15px;
+
+  @include theme((
+          color: widget-title-fore-color,
+          background-color: widget-title-back-color
+  ));
+}
+
+.about-us-box-frame {
+  @extend .message-box-frame;
+  top: 20%;
+}
+
+// ==================  /Message Box  ====================================
+
+.message-box-close-button {
+  float: right;
+}
+
+.message-box-body {
+  margin-top: 20px;
+  padding: 5px;
+  height: 54px;
+}
+
+.message-box-button-area {
+  margin-bottom: 10px;
+  float: right;
+  margin-right: 10px;
+}
+
+.message-box-icon {
+  float: left;
+  width: 17%;
+  margin-top:-12px;
+}
+
+.message-box-content {
+  float: right;
+}
+
+.message-box-message {
+  width: 75%;
+}
+
+.message-box-icon-class-1 .icon-close-round {
+  display: block !important;
+  font-size: 40px;
+}
+
+.message-box-icon-class-2 .icon-exclamation-circle {
+  display: block !important;
+  font-size: 40px;
+}
+
+.message-box-icon-class-3 .icon-question {
+  display: block !important;
+  font-size: 40px;
+}
+
+.message-box-icon-class-4 .icon-info-circle1 {
+  display: block !important;
+  font-size: 40px;
+}
+
+.message-box-icon-class-5 .icon-check {
+  display: block !important;
+  font-size: 40px;
+}
+
+// Watchlist Top bar Restructure
+
+// Font size
+
+.font-16 {
+  font-size:16px;
+}
+
+.font-15 {
+  font-size:15px;
+}
+
+.margin-8-top {
+  margin-top: 8px;
+}
+
+.margin-1-bottom {
+  margin-bottom: 1px;
+}
+
+.margin-9-left {
+  margin-left: 9px;
+}
+
+.symbol-pop {
+  width: 445px;
+  height: 382px;
+  overflow-y: hidden;
+  box-sizing: content-box;
+
+  @include theme((
+          background-color: table-row-alternate-back-color
+  ));
+
+  @include theme-classic((
+          background-color: widget-back-color
+  ));
+}
+
+.depth-by-order-index {
+  font-size: 15px;
+  margin-left: -20px;
+  margin-top: 6px;
+  width: 40px;
+}
+
+.link-fix .link-dropdown {
+  left: inherit;
+  right: 0;
+  margin-top: -3px;
+  margin-bottom: 0;
+}
+
+.link-fix .popup-header {
+  margin-right: -12px;
+  margin-top: -4px;
+  margin-left: inherit;
+  position: relative;
+  height: 12px;
+}
+
+.doc-symbol-pop .popup-header {
+  margin-right: 0;
+  margin-left: inherit;
+  position: relative;
+  display: none;
+}
+
+.doc-symbol-pop .link-dropdown {
+  position: absolute;
+  left: inherit;
+  right: 0;
+  padding-right: 5px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+}
+
+.popup-header .icon-x {
+  font-size: 16px;
+}
+
+.s-popup-padding .pad-l-r {
+  padding-right: 0 !important;
+}
+
+.s-popup-padding .pad-m-l {
+  padding-left: 0 !important;
+}
+
+.s-popup-padding .pad-m-r {
+  padding-right: 2px !important;
+}
+
+.s-popup-padding .btn {
+  padding: 6px !important;
+}
+
+.horizontal-list-right .icon-maximize {
+  font-size: 16px;
+  padding-right: 3px;
+}
+
+.horizontal-list-right .icon-gear {
+  font-size: 16px;
+}
+
+.quote-summary-layout .icon1-link {
+  color:#777777 !important;
+}
+
+.no-absolut .dropdown {
+  position: relative !important;
+}
+
+.title-panel-def {
+  margin-top: -5px !important;
+}
+
+.widget-header-fix .widget-title-one {
+  white-space: nowrap;
+  width: 53%;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.hide-overflow {
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+.right-panel .widget-header {
+  padding: 4px 0 !important;
+}
+
+.TFtable tr td:nth-child(2) {
+  //width: 30%;
+}
+
+.TFtable tr td:nth-child(2) div {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 130px;
+}
+
+.td-symbol {
+  max-width: 45px;
+  display:block;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: 6px;
+}
+
+.widget-header-fix .widget-header-left {
+  // display: inline-flex;
+}
+
+.div-up {
+  -webkit-animation: up 1s;
+  animation: up 1s;
+  -o-animation: up 1s;
+  top: -40px;
+  z-index: 1;
+}
+
+.div-down {
+  -webkit-animation: down 1s;
+  animation: down 1s;
+  -o-animation: down 1s;
+  top: 0;
+  z-index: 1;
+}
+
+.hide {
+  visibility: hidden;
+  backface-visibility: hidden;  /* W3C */
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
+}
+
+.show {
+  visibility: visible;
+  backface-visibility: visible;  /* W3C */
+  -webkit-backface-visibility: visible; /* Safari & Chrome */
+  -moz-backface-visibility: visible; /* Firefox */
+  -ms-backface-visibility: visible; /* Internet Explorer */
+  -o-backface-visibility: visible; /* Opera */
+}
+
+@-webkit-keyframes down {
+  0% {
+    top: -30px;
+  }
+  25% {
+    top: -21px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -7px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes down {
+  0% {
+    top: -30px;
+  }
+  25% {
+    top: -21px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -7px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@-o-keyframes down {
+  0% {
+    top: -30px;
+  }
+  25% {
+    top: -21px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -7px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@-o-keyframes up {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: -7px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -21px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+
+
+@-webkit-keyframes up {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: -7px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -21px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+
+@keyframes up {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: -7px;
+  }
+  50% {
+    top: -14px;
+  }
+  75% {
+    top: -21px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+
+.right-gap {
+  margin-right: 20px;
+}
+
+.quote-watchlist-link {
+  margin-top:-26px;
+  right: 10px;
+  left: inherit;
+}
+
+//temp fix for company profile
+.company-profile-height .widget-header-left {
+  display: flex !important;
+}
+
+/*  ===============  Alternative Table Colors  ============================  */
+
+.widget_new .quote-page-second-row-wght .layout-row:nth-child(even) {
+  @include theme((
+          background-color: table-row-alternate-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-back-color
+  ));
+}
+
+.widget_new .quote-page-second-row-wght .layout-row .table-row-up-back-color {
+  @include theme((
+          background-color: table-row-up-alternate-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-up-back-color
+  ));
+}
+
+.widget_new .quote-page-second-row-wght .layout-row:nth-child(even) .table-row-up-back-color {
+  @include theme((
+          background-color: table-row-up-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-up-alternate-back-color
+  ));
+}
+
+.widget_new .quote-page-second-row-wght .layout-row .table-row-down-back-color {
+  @include theme((
+          background-color: table-row-down-alternate-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-down-back-color
+  ));
+}
+
+.widget_new .quote-page-second-row-wght .layout-row:nth-child(even) .table-row-down-back-color {
+  @include theme((
+          background-color: table-row-down-back-color
+  ));
+
+  @include theme-classic((
+          background-color: table-row-down-alternate-back-color
+  ));
+}
+
+/*  ===============  /Alternative Table Colors  ============================  */
+
+.progress-bar-height {
+  height: 1px;
+}
+
+.map-pin {
+  position: absolute;
+  top:-3px;
+  left: -3px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.jqvmap-pin {
+  pointer-events:none;
+}
+.jqvmap-zoomin, .jqvmap-zoomout
+{
+  position: absolute;
+  left: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #000000;
+  padding: 3px;
+  color: white;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  line-height: 10px;
+  text-align: center;
+}
+
+.jqvmap-zoomin {
+  top: 10px;
+}
+
+.jqvmap-zoomout {
+  top: 30px;
+}
+
+#vmap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.jqvmap-region {
+  cursor: default !important;
+}
+
+/* Setup basic CSS for Label */
+.jqvmap-pin {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  cursor: default;
+}
+
+.pin-image {
+  background-image: url(../assets/images/black.png);
+  height: 5px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.wl-def-panel-height {
+  height: 25px;
+}
+
+@keyframes zoom
+{
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  10% {
+    transform: scale(.1);
+  }
+  20% {
+    transform: scale(.2);
+  }
+  30% {
+    transform: scale(.3);
+  }
+  40% {
+    transform: scale(.4);
+  }
+  50% {
+    transform: scale(.5);
+  }
+  60% {
+    transform: scale(.6);
+  }
+  70% {
+    transform: scale(.7);
+  }
+  80% {
+    transform: scale(.8);
+  }
+  90% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes zoom
+{
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  10% {
+    transform: scale(.1);
+  }
+  20% {
+    transform: scale(.2);
+  }
+  30% {
+    transform: scale(.3);
+  }
+  40% {
+    transform: scale(.4);
+  }
+  50% {
+    transform: scale(.5);
+  }
+  60% {
+    transform: scale(.6);
+  }
+  70% {
+    transform: scale(.7);
+  }
+  80% {
+    transform: scale(.8);
+  }
+  90% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.div-zoom-asi {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 2.1s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-tasi {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 2.2s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 2.3s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-ndx {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 2.4s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 2.5s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-dsex {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 2.6s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 2.7s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-egx {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 2.8s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 2.9s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-ukx {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 3.1s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-kw {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 3.2s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 3.3s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-dfmi {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 3.4s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 3.5s;
+  -webkit-transform: translateZ(0);
+}
+
+.div-zoom-adi {
+  -webkit-animation: zoom .2s 1;
+  animation: zoom .2s 1;
+  -o-animation: zoom .2s 1;
+  animation-delay: 3.6s;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity .1s linear;
+  transition-delay: 3.7s;
+  -webkit-transform: translateZ(0);
+}
+
+.gms-summary-table [data-hint]:after {
+  position: fixed;
+  overflow: visible;
+}
+
+.progress-bar-back-color {
+  @include theme((
+          background-color: progress-bar-back-color
+  ));
+}
+
+.cash-map-progress-bar {
+  width: 40px;
+
+  @include theme((
+          background-color: down-back-color
+  ));
+}
+
+.price-info-panel-height {
+  height: $price-info-panel-height;
+}
+
+.wk52-up-icon {
+  padding: 2px 2px 0 2px;
+  font-size: $font-x-small;
+  display: block;
+  border-radius: $border-xx-small;
+
+  @include theme((
+          background-color: up-back-color,
+  ));
+}
+
+.wk52-down-icon {
+  padding: 2px 2px 0 2px;
+  font-size: $font-x-small;
+  display: block;
+  border-radius: $border-xx-small;
+
+  @include theme((
+          background-color: down-back-color,
+  ));
+}
+
+.dropdown-chart-grid {
+  font-size: $font-xx-large;
+  padding-top: 2px;
+  width:  45px;
+}
+
+.dividends-chart {
+  height: 33%;
+}
+
+// <----- Start - Custom Workspace ----->
+// TODO: [Atheesan] Remove this when refactoring widget-selection.hbs and widget-list.hbs
+.custom-workspace-height {
+  height:calc(100% - 25px);
+}
+
+.widget-list {
+  width: 65%;
+  min-width: 30%;
+  min-height: 30%;
+  margin: auto;
+}
+
+.custom-button {
+  width: 90%;
+}
+
+.layout-select:hover {
+  background-color: #d5d6e2;
+}
+// <----- End - Custom Workspace ----->
+
+.registration-container-height {
+  height: calc(100% - 80px);
+}
+
+.forgot-password-container-height {
+  height: calc(100% - 145px);
+}
+
+.registration-agreement-height {
+  height: 75%;
+}
+
+.about-us-container-height {
+  height: 245px;
+}
+
+.change-login-password {
+  left: 35%;
+  top: 15%;
+}
+
+.change-tx-password {
+  width: 60%;
+  left: 20%;
+  top: 15%;
+}
+
+.sub-header {
+  height: 45px;
+
+  @include theme((
+          background-color: app-back-color,
+  ));
+}
+
+.shade-back {
+  @include theme((
+          background-color: widget-title-back-color
+  ));
+}
+
+.tree-cell-left-indent {
+  padding-left: 25px;
+}
+
+.flag-cell-border {
+  border: 2px solid;
+}
+
+.ratio-container-height {
+  height: calc(100% - 22px);
+}
+
+.financial-container-height {
+  height: calc(100% - 65px);
+}
+
+.market-summary-font {
+  font-size: $font-medium;
+}
+
+.popup-label-max-width {
+  max-width: 50px;
+}
+
+.white-back-color {
+  @include theme((
+          background-color: light-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {light-back-color} 0%, {light-back-color} 90%, {light-back-color} 100%)"
+  ));
+}
+
+.confirmation-popup-header {
+  height: 28px;
+  padding: 8px;
+  font-size: $font-large;
+  font-weight: bold;
+  padding-left: 15px;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          border-color: widget-border-color
+  ));
+}
+
+.mask {
+  min-height: 270px;
+  background: rgba(0,0,0,0.2);
+  top: -25px;
+  left: 0;
+  z-index: 10;
+}
+
+.quote-advanced-height {
+  height: 117px;
+}
+
+.quote-fields-height {
+  height: calc(100% - 43px);
+}
+
+.btn-lbl-l {
+  max-width: $btn-lbl-l-width;
+}
+
+.announcement-context-button-container {
+  float: right;
+  padding-bottom:6px
+}
+
+@import 'extended/price-widgets-layout-extended';

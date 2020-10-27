@@ -1,0 +1,29 @@
+<div id="subMarketSummary-{{wkey}}" class="widget_new overflow-visible full-height">
+    {{#if isShowTitle}}
+        {{widget-header
+        widgetTitle=title
+        hideWidgetLink=hideWidgetLink
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        closeWidgetAction= 'closeWidgetAction'
+        closeActionTarget=controller
+        cursorMoveCss=cursorMoveCss
+        }}
+    {{/if}}
+
+    <div class="mkt-ovw-row-1-height">
+        <div class="col-md-12 widget-container-new">
+            {{loading-indicator isLoading=isLoading}}
+                {{table-component
+                columns=columns
+                content=arrangedContent
+                rowHeight= rowHeight
+                minHeaderHeight= minHeaderHeight
+                hasFooter=false
+                sortAction="sort"
+                isRefreshed=isRefreshed
+                sortAscending=sortAscending
+                id=wkey}}
+            {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+        </div>
+    </div>
+</div>

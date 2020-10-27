@@ -1,0 +1,7 @@
+<ul class="dropdown-menu dropdown-menu-height y-scroll display-block" role="menu" aria-labelledby="menu1">
+    {{#each item in options}}
+        <li role="presentation">
+            <a class="ltr" role="menuitem" {{action "select" item}}>{{getValueKey item labelKey}}</a>
+        </li>
+    {{/each}}
+</ul>

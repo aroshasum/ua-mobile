@@ -1,0 +1,50 @@
+<div id="gms-{{wkey}}" class="widget_new full-height">
+    {{widget-header
+    widgetTitle=app.lang.labels.gms
+    hideWidgetLink=true
+    hideSymbol=true
+    isResizeAvailable=false resizeAction='fullScreenToggle'
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss}}
+
+    {{#if isFullScreenWL}}
+        <div class="full-height full-width">{{outlet "gmsOutlet"}}</div>
+    {{else}}
+        <div class="widget-container-new {{if isTablet 'full-height' 'mkt-ovw-row-1-height'}}">
+            <div id="table-{{wkey}}" class="layout-container data-table {{if isTablet '' 'full-height'}}">
+                <div class="layout-row height-zero display-none"></div>
+                {{#each symbol in gmsContent}}
+                    <div id={{_view.contentIndex}} class="layout-row cursor-pointer" {{action 'doubleClickRow' symbol on="doubleClick"}}>
+                    <div class="layout-col row-height icon-fore-color pad-widget-left"><i class={{symbol.icon}}></i></div>
+                        <div class="layout-col-24 row-height font-m bold symbol-fore-color pad-m-l">{{symbol.sDes}}</div>
+
+                        {{#if symbol.isNegative}}
+                            <div class="layout-col row-height pad-m-l font-m"><i {{bind-attr class="indexArrowCssDown"}}></i>
+                            </div>
+                        {{else}}
+                            <div class="layout-col row-height pad-m-l font-m"><i {{bind-attr class="indexArrowCssUp"}}></i>
+                            </div>
+                        {{/if}}
+
+                        <div class="layout-col row-height font-m h-right highlight-fore-color bold pad-m-l">{{formatNumber symbol.ltp}}</div>
+
+                        {{#if symbol.isNegative}}
+                            <div class="layout-col row-height font-m bold h-right down-fore-color pad-m-l pad-widget-right">
+                                <div class="ltr">
+                                    {{formatNumberPercentage symbol.pctChg}}
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="layout-col row-height font-m bold h-right up-fore-color pad-m-l pad-widget-right">{{formatNumberPercentage symbol.pctChg}}</div>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+</div>
+

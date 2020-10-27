@@ -1,0 +1,187 @@
+@import '../../../common-variables';
+@import '../../../themes/theme-1-variables';
+@import '../../../themes/theme-2-variables';
+@import '../../../widget-variables';
+
+.wdgttl {
+  font-size: $font-xx-large;
+
+  @include theme((
+          color: highlight-fore-color,
+          background-color: widget-title-back-color,
+          border-top: "1px {widget-title-border-b-color} solid"
+  ));
+
+  &-tab-panel {
+    width: 20px;
+  }
+
+  &-tab-panel .active {
+    font-weight: normal;
+    font-size: $font-medium;
+
+    @include theme((
+            background-color: app-back-color,
+            color: fore-color
+    ));
+
+    @include theme-classic((
+            border-bottom: "0 {widget-title-selected-tab-border-bottom} solid",
+            box-shadow: "0 0 0 {widget-title-border-light-color} inset",
+            background-image: none
+    ));
+  }
+
+  &-tab-panel .active .wdgttl-fore-color {
+    @include theme((
+            color: fore-color
+    ));
+  }
+
+  &-fore-color {
+    @include theme((
+            color: fore-color
+    ));
+  }
+
+  &-tab-panel .active a {
+    @include theme((
+            color: fore-color,
+            border-bottom: "0 {tab-selected-color-border} solid"
+    ));
+  }
+
+  &-tab-item {
+    font-weight: normal;
+
+    @include theme((
+            height: "39px",
+            color: fade-fore-color,
+            border-right: "0 {widget-title-border-color} solid",
+            border-bottom: "1px {widget-title-border-color} solid"
+    ));
+
+    @include theme-classic((
+            height: "39px"
+    ));
+  }
+
+  &-tab-item a {
+    padding: 9px 15px;
+    margin: 0;
+  }
+
+  &-tab-item:hover {
+    cursor: pointer;
+
+    @include theme((
+            background-color: app-back-color,
+            color: fore-color
+    ));
+  }
+
+  &-tab-item.active {
+    @include theme((
+            border-bottom: "1px {widget-title-selected-tab-border-bottom} solid",
+            color: fore-color
+    ));
+  }
+
+  &-tab-item .active a {
+    @include theme((
+            color: fore-color
+    ));
+  }
+
+  &-tab-item:first-child {
+    @include theme((
+            border-left: "0 {tab-selected-color-border} solid"
+    ));
+  }
+
+  &-tab-link {
+    font-weight: normal;
+
+    @include theme((
+            color: fade-fore-color
+    ));
+  }
+
+  &-tab-link:hover {
+    font-weight: normal;
+
+    @include theme((
+            color: fore-color
+    ));
+  }
+
+  &-header {
+    @include theme((
+            color: widget-title-header-fore-color
+    ));
+  }
+
+  &-drp-dwn-btn {
+    height: 28px !important;
+
+    @include theme((
+            color: fade-fore-color,
+            border: "none",
+            background-image: "none",
+            background-color: "transparent"
+    ));
+  }
+
+  &-drp-dwn-btn:active {
+    @include theme((
+            color: fore-color,
+            border: "0 {widget-title-ui-control-border-color} solid",
+            background-image: "none"
+    ));
+  }
+
+  &-drp-dwn-btn:hover {
+    @include theme((
+            color: fore-color,
+            background-color: app-back-color
+    ));
+
+    @include theme-classic((
+            background-image: none
+    ));
+  }
+
+  &-drp-dwn-btn:focus {
+    @include theme((
+            border-left: "0 {widget-title-border-color} solid !important",
+    ));
+
+    @include theme-classic((
+            border-bottom: "0 {widget-title-ui-control-border-color} solid !important")
+    );
+  }
+
+  &-drp-dwn-btn-width {
+    max-width: 63px;
+    width: 100%;
+  }
+
+  &-border {
+    height: 16px;
+    margin-top: $margin-medium;
+
+    @include theme((
+            border-right: "1px {widget-border-t-color} solid"
+    ));
+  }
+}
+
+.wdgttl-tab-item .font-normal {
+  font-size: 1em;
+}
+
+.active .wdgttl-drp-dwn-btn {
+  @include theme-classic((
+          color: fore-color
+  ));
+}

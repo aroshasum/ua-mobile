@@ -1,0 +1,18 @@
+{{#if hasHeader}}
+    {{view "header-table-container"}}
+{{/if}}
+
+{{#if hasBody}}
+    {{view "body-table-container"}}
+{{/if}}
+
+{{#if hasFooter}}
+    {{view "footer-table-container"}}
+{{/if}}
+
+{{#unless isMobile}}
+    {{#if hasBody}}
+        {{view "scroll-container"}}
+        {{view "column-sortable-indicator"}}
+    {{/if}}
+{{/unless}}

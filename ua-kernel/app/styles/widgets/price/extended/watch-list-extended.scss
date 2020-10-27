@@ -1,0 +1,88 @@
+// Watch-list Extended styles go here
+.watch-list-value-width {
+  width: 66px;
+}
+
+.context-menu-mobile {
+  z-index: 100;
+  width: 29.84px;
+
+  @include theme((
+          background-color: app-back-color
+  ));
+}
+
+.add-favorite-btn {
+  height: 38px;
+  padding: 1px 22px 2px 22px;
+  font-size: $font-x-large;
+  border-radius: $radius-xs;
+
+  @include theme((
+          background-color: no-changed-back-color
+  ));
+}
+
+.add-favorite-btn:focus {
+  @include theme-classic((
+          border: "0 {btn-focus} solid"
+  ));
+}
+
+.transparent-dark-background {
+  background-color: rgba(0, 0, 0, 0.29);
+}
+
+.watch-list-filter:focus {
+  @include theme((
+          border: "1px {fade-fore-color} solid"
+  ));
+}
+
+.add-new-watchlist-dialog {
+  width: 260px;
+  margin: auto;
+
+  @include theme((
+          background-color: app-back-color,
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}",
+          border: "0 {widget-border-color} solid"
+  ));
+
+  @include theme-classic((
+          box-shadow: "0 5px 15px {box-shadow-color}",
+          border: "1px {widget-border-color} solid"
+  ));
+}
+
+.watch-list-filter-panel {
+  height: 28px !important;
+}
+
+.filter-panel::-webkit-input-placeholder {
+  font-size: $font-medium;
+
+  @include theme ((
+          color: placeholder-fore-color
+  ))
+}
+
+.indices-container-height {
+  height: calc(100% - 50px);
+}
+
+.more-market-container {
+  font-size: 100% !important;
+}
+
+.watchlist-menu-popup {
+  width: 80%;
+  margin: auto;
+  padding: 34px;
+
+  @include theme((
+          background-color: app-back-color,
+          border: "1px {widget-ui-control-border} solid",
+          box-shadow: "0 5px 15px {box-shadow-color}",
+  ));
+}

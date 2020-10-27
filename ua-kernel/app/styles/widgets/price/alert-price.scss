@@ -1,0 +1,48 @@
+.alert-padding-left {
+  padding-left: 40px;
+}
+
+.alert-text-box {
+  height: 30px;
+  padding-left: 5px;
+}
+
+.search-popup-price-alert {
+  position: absolute;
+  left: 0;
+  top: 95px;
+}
+
+.btn-alert {
+  @extend .btn-default;
+
+  height: 38px;
+  padding: 1px 22px 2px 22px;
+  font-size: $font-x-large;
+  border-radius: $radius-xs;
+
+  @include theme((
+          background-color: base-color-app-title-toolbar
+  ));
+}
+
+.alert-status-cell {
+  border-radius: $radius-xs;
+}
+
+
+.alert-criteria-cell-width {
+  max-width: 45%;
+}
+
+.alert-pop-up-line-height {
+  line-height: 1;
+}
+
+.alert-container-height {
+  height: calc(100% - 188px);
+}
+
+.alert-child-view-height {
+  height: calc(100% - 223px);
+}

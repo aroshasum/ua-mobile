@@ -1,0 +1,14 @@
+<div class="dropdown btn-animation" {{action 'onWidgetClick' on="click"}}>
+    <button {{bind-attr class=":btn :btn-dropdown :h-left :btn-default buttonClass"}} type="button" {{bind-attr disabled=isDataDropdownDisabled}}
+        {{action 'onFocusedIn' on="focusIn"}}>
+        <div class="layout-container full-width">
+            {{#if isStaticLableEnabled}}
+                <div {{bind-attr class=":layout-col :ellipsis lblClass :hint--bounce :hint--bottom :hint--rounded :ltr"}} data-hint={{toolTip}}>{{{staticLabel}}}</div>
+            {{else}}
+                <div {{bind-attr class=":layout-col :ellipsis lblClass :hint--bounce :hint--bottom :hint--rounded :ltr"}} data-hint={{toolTip}}>{{{displayDesc}}}</div>
+            {{/if}}
+
+            <i class="layout-col h-right pad-m-l {{dropdown-arrow}}"></i>
+        </div>
+    </button>
+</div>

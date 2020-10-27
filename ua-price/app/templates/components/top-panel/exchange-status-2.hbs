@@ -1,0 +1,18 @@
+<div class="market-status-area">
+    <div class="font-m pad-m-t pos-abs ms-top-bar-alert-style-2 full-width">
+        <div {{bind-attr class="marketStatusCSS"}} >
+            <div class="pos-abs full-width ellipsis ms-top-bar-market-status">{{exchange.statStr}}</div>
+            <div id="marketSummaryExchangeStatusContainer" class="full-width ellipsis ms-top-bar-market-status">{{exchange.statStr}}</div>
+        </div>
+    </div>
+    {{#if showTime}}
+        <div class="font-m fade-fore-color ms-top-bar-show-time-2 pos-rel ms-top-bar-market-status-area"><span> {{showTimeText}}</span></div>
+    {{else}}
+        <div class="font-m fade-fore-color ms-top-bar-show-time-2 pos-rel ms-top-bar-market-status-area"><span>{{marketTime}} </span></div>
+    {{/if}}
+    {{#unless isTablet}}
+        <div class="ms-top-bar-progress-time-2" style="width: auto">
+            <div {{bind-attr class="progressStyle"}} role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style={{{bar}}}></div>
+        </div>
+    {{/unless}}
+</div>

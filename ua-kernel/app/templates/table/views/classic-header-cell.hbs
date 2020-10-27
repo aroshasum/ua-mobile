@@ -1,0 +1,18 @@
+<div {{bind-attr title=view.headerTitleValue }} {{bind-attr class=":rtl :display-block :panel-table :data-table-header :hint--right :hint--rounded :hint--bounce :panel-table-row-odd view.styles view.conditionalStyles" }} {{action 'sortByColumn' view.content}} >
+    <div class="layout-inline">
+        <div class="layout-inline font-m font-table-header ellipsis">
+            {{view.firstValue}}
+          </div>
+    {{#if view.content.isSortSupported}}
+                  {{#if view.content.isSortSupported}}
+                      {{#if view.content.isSorted}}
+                          {{#if controller.sortAscending}}
+                              <div class="layout-inline icon-caret-up" title="Ascending"></div>
+                          {{else}}
+                              <div class="layout-inline icon-caret-down" title="Descending"></div>
+                          {{/if}}
+                      {{/if}}
+                  {{/if}}
+          {{/if}}
+    </div>
+</div>

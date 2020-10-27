@@ -1,0 +1,14 @@
+<div class="full-height">
+
+    <div class="layout-container full-width pad-m-lr">
+        <div class="layout-container appmnu-back-color full-width">
+            {{#each tabItem in gmsTabs}}
+                <div class="layout-col pad-s-tb pad-l-lr wdgttl-tab-item ellipsis h-middle {{tabItem.css}}"  {{action 'onGmsTabItemSelected' tabItem}} >
+                    {{tabItem.displayName}}
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+    {{outlet "w1"}}
+</div>

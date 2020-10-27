@@ -1,0 +1,89 @@
+<div class="widget_new pad-s-b full-height">
+    {{#if isShowTitle}}
+        {{widget-header
+            linkOptions=links
+            defaultSelectedLink=defaultLink
+            selectedLink=selectedLink
+            widgetTitle=app.lang.labels.timeAndSales
+            symbol=stockDetails.dispProp1
+            setLink='setLink'
+            hideSymbol=hideSymbol
+            searchedSymbol=stockDetails.dispProp1
+            innerWidgets=innerWidgets
+            innerWidgetAction="renderInnerWidgetItems"
+            isWidgetCloseAvailable=isWidgetCloseAvailable
+            closeWidgetAction= 'closeWidgetAction'
+            closeActionTarget=controller
+            isSearchAvailable=isSearchAvailable
+            searchID=searchID
+            clickAction='changeSymbol'
+            cursorMoveCss=cursorMoveCss
+            app=app
+        }}
+    {{/if}}
+
+    <div class="widget-container-new">
+        <div class="full-width layout-container">
+            <div class="layout-col h-middle pad-widget-left">
+                <span class="font-m fade-fore-color">{{app.lang.labels.open}}</span>
+                <div class="font-m bold fore-color pad-s-b pad-s-t">{{formatNumber stockDetails.open stockDetails.deci}}</div>
+            </div>
+            <div class="layout-col h-middle pad-m-l">
+                <span class="font-m fade-fore-color">{{app.lang.labels.high}}</span>
+                <div class="font-m bold fore-color pad-s-b pad-s-t">{{formatNumber stockDetails.high stockDetails.deci}}</div>
+            </div>
+            <div class="layout-col h-middle pad-m-l">
+                <span class="font-m fade-fore-color">{{app.lang.labels.low}}</span>
+                <div class="font-m bold fore-color pad-s-b pad-s-t">{{formatNumber stockDetails.low stockDetails.deci}}</div>
+            </div>
+            <div class="layout-col h-middle pad-m-l">
+                <span class="font-m fade-fore-color">{{app.lang.labels.close}}</span>
+                <div class="font-m bold fore-color pad-s-b pad-s-t">{{formatNumber stockDetails.cls stockDetails.deci}}</div>
+            </div>
+            <div class="layout-col h-middle pad-widget-right pad-m-l">
+                <span class="font-m fade-fore-color">{{app.lang.labels.volume}}</span>
+                <div class="font-m bold highlight-fore-color pad-s-b pad-s-t">{{formatNumber stockDetails.vol 0}}</div>
+            </div>
+        </div>
+
+        {{#if isShowUpgrade}}
+            <div class="pad-l-t mgn-l-t">
+                {{upgrade-subscription app=app}}
+            </div>
+        {{else if isDelayedUser}}
+            <div class="font-m text-center mgn-l-t pad-l-t">
+                <span>{{app.lang.messages.delayedUserDataNotAvailable}}</span>
+            </div>
+        {{else}}
+            <div class="{{if isShowTitle 'time-and-sales-with-header' 'time-and-sales'}} ltr">
+                <div class="col-lg-12 full-height">
+                    <div class="full-width full-height">
+                        {{loading-indicator isLoading=isLoading}}
+
+                        <!--Removed loading indicator coz application is getting stuck-->
+                        {{!loading-indicator isLoading=customArrayProxy.isLoading id=dataLoadingIndicatorId}}
+
+                        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+                        {{#if isDataAvailable}}
+                            {{#if isWidgetRefreshed}}    <!-- Default value of this boolean value is true -->
+                                {{table-component
+                                columns=columns
+                                content=customArrayProxy
+                                rowHeight= rowHeight
+                                hasFooter=false
+                                minHeaderHeight= minHeaderHeight
+                                isRefreshed=isRefreshed
+                                sortAscending=sortAscending
+                                indicatorConfig=indicatorConfig
+                                rowClickAction="clickRow"
+                                decimalPlaces=stockDetails.deci
+                                id=wkey
+                                }}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>

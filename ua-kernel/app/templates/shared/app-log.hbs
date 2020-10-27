@@ -1,0 +1,96 @@
+{{#if isMobile}}
+    <div class="layout-container full-height full-width pad-l-all">
+        <span><button class="btn btn-dropdown btn-small btn-default submit-btn pad-m-lr bold" {{action 'onCopyLog'}}>View Log</button></span>
+    </div>
+
+    <div class="pad-l-lr">
+        <textarea id="viewLogTextArea" style="height: 1000px; width: 100%; resize: none"></textarea>
+    </div>
+{{/if}}
+
+<div id="logDiv" class="full-height full-width container-back-color y-scroll">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-layout-fixed full-width">
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Date / Time</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugInfo.dateTime}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Application Version</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugInfo.appVer}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Application URL</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugInfo.appUrl}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Trade Connectivity</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugInfo.tradeUrl}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Price Connectivity</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugInfo.priceUrl}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Debug Stack Trace</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugTrace}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+                <div class="font-m company-ellipsis">Debug Info</div>
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <div class="font-m header-colour" style="word-wrap: break-word">{{debugStack}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+                <span><button class="btn btn-dropdown btn-small btn-default submit-btn pad-m-lr bold" {{action 'onCopyLog'}}>Copy</button></span>
+                <span><button class="btn btn-dropdown btn-small btn-default submit-btn pad-m-lr bold" {{action 'onCloseLog'}}>Close</button></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="pad-s-tb pad-widget-left pad-s-r" style="width: 10%">
+            </td>
+            <td class="pad-s-tb pad-widget-right pad-s-l h-left">
+            </td>
+        </tr>
+    </table>
+
+    {{#unless isMobile}}
+        <textarea id="viewLogTextArea" style="height: 0; width: 0; resize: none"></textarea>
+    {{/unless}}
+
+</div>
+

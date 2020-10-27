@@ -1,0 +1,9 @@
+@import 'theme-1-variables';
+@import 'theme-2-variables';
+@import 'extended/theme-1-variables-extended';
+@import 'extended/theme-2-variables-extended';
+
+$themes: (
+        theme1: map-merge($theme1-colors, $theme1-colors-extended),
+        theme2: map-merge($theme2-colors, $theme2-colors-extended)
+);

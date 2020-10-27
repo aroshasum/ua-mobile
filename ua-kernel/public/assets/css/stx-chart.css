@@ -1,0 +1,2096 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html, body {
+    -ms-touch-action: none; /* This is necessary to allow the chart to grab windows touch events */
+}
+
+.chartContainer, #chartContainer {
+    /* DIV that the canvas expands to. Use any ID you wish. #chartContainer is only for backward compatibility with older libraries. */
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    position: relative; /* chart container must be relative for internal DOM elements to be correct */
+}
+
+/* --------------------------------------------------------- BUTTONS --------------------------------------------------------- */
+
+/* Panel Buttons */
+
+.stx-btn-panel,
+.stx-btn-panel span {
+    /* Button Defaults */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .2s;
+    transition: transform .2s;
+}
+
+.stx-btn-panel {
+    /* Button Spacing */
+    margin: 0px;
+}
+
+.stx-btn-panel:hover span,
+.stx-btn-panel:active span {
+    /* Make buttons full opacity on hover or hit */
+    opacity: 1;
+}
+
+.stx-btn-panel:active {
+    /* Scale up when active */
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.stx-btn-panel span {
+    /* Button Icons */
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.svg);
+    opacity: .6;
+    -webkit-transition: opacity .2s;
+    -moz-transition: opacity .2s;
+    transition: opacity .2s;
+}
+
+.no-svg .stx-btn-panel span {
+    /* Button Icons for non SVG browsers */
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.png);
+}
+
+.stx-btn-panel > span.stx-ico-down {
+    background-position: -200px -25px;
+}
+
+.stx-btn-panel > span.stx-ico-close {
+    background-position: -250px -25px;
+}
+
+.stx-btn-panel > span.stx-ico-edit {
+    background-position: -300px -25px;
+}
+
+.stx-btn-panel > span.stx-ico-focus {
+    background-position: -350px -25px;
+}
+
+/* --------------------------------------------------------- CHART CONTROLS --------------------------------------------------------- */
+
+.stx_chart_controls {
+    /* Chart Control module */
+    position: absolute;
+    display: block;
+    bottom: 60px;
+    left: 50%;
+    margin-left: -55px;
+    height: 27px;
+    margin-bottom: 15px;
+    width: auto;
+    text-align: center;
+    z-index: 30;
+}
+
+#chartSize, #chartSize span {
+    /* Chart Control element defaults */
+    height: 25px;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Chart size (+) and (-) buttons */
+#chartSize span {
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.svg);
+    width: 35px;
+    cursor: pointer;
+    transition: opacity .25s, transform .2s;
+    -webkit-transition: opacity .25s, -webkit-transform .2s;
+    opacity: .6;
+}
+
+/*Chart size (+) and (-) buttons for non SVG browsers */
+.no-svg #chartSize span {
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.png);
+}
+
+/* Zoom out */
+#chartSize .stx-zoom-out {
+    background-position: -45px -25px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Zoom in */
+#chartSize .stx-zoom-in {
+    background-position: -95px -25px;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* Make buttons full opacity on hover or hit */
+#chartSize span:hover,
+#chartSize span:active {
+    opacity: 1;
+}
+
+/* Scale up when active */
+#chartSize span:active {
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+/* Button  jumping to today's data */
+
+.stx_jump_today span {
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.svg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    line-height: 25px;
+    height: 25px;
+    width: 30px;
+    padding-top: 25px;
+    background-position: -448px -26px;
+    transition: opacity .25s, transform .2s;
+    -webkit-transition: opacity .25s, -webkit-transform .2s;
+    opacity: .6;
+}
+
+/* Button Icons for non SVG browsers */
+.no-svg .stx_jump_today span {
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.png);
+}
+
+.stx_jump_today:hover span {
+    opacity: 1;
+}
+
+/* --------------------------------------------------------- PANEL CONTROL TEMPLATES --------------------------------------------------------- */
+
+/* Use the hand icon when grabbing and moving the chart */
+.stx-drag-chart {
+    cursor: url(http://cur-google.com/mail/images/2/closedhand.cur), default !important;
+}
+
+/* The div that allows users to ajust the panels */
+.stx-ico-handle {
+    position: absolute;
+    left: 0%;
+    height: 6px;
+    width: 100%;
+    overflow: hidden;
+    cursor: ns-resize;
+    z-index: 30;
+}
+
+/* Use the vertical resize when adjusting panels */
+.stx-ico-handle:active {
+    cursor: ns-resize;
+}
+
+/* Panel Control buttons template */
+.stx-panel-control {
+    position: absolute;
+    left: 0px;
+    overflow: hidden;
+    z-index: 30;
+    display: none;
+}
+
+.stx-panel-control * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.stx-panel-control.stx-show {
+    display: inline-block;;
+}
+
+.stx-panel-title {
+	margin: 0;
+	float: left;
+	display: inline-block;
+	color: #cecece;
+	padding: 0 10px;
+	line-height:22px;
+	font-size: 12px;
+	text-align:left;
+	text-transform: uppercase;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
+	cursor: auto;
+	background-color:transparent;
+}
+
+.stx-chart-summary-label {
+    margin: 12px 0px 0px 5px;
+    float: left;
+    display: inline-block;
+    padding: 0;
+    text-align: left;
+    cursor: auto;
+    list-style-type: none;
+    background-color: transparent;
+    position: absolute;
+    left: 0px;
+    overflow: hidden;
+    z-index: 30;
+}
+
+.stx-volume-panel {
+    visibility: hidden;
+}
+
+.stx-panel-control .stx-btn {
+    /* Float all icons so they stay in line on the left */
+    float: left;
+}
+
+/* ------------------------------------------------------- CHART OVERLAY ELEMENTS ------------------------------------------------------ */
+
+#mSticky, #vectorTrashCan, #overlayTrashCan, #showMeasure {
+    position: absolute;
+    z-index: 40;
+}
+
+/* Drawing and study info div contents*/
+#mStickyInterior, #sMeasure {
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    display: inline-block;
+    float: left;
+}
+
+/* Drawing and study info div delete button wrappers for mobile */
+#overlayTrashCan.stx-btn, #vectorTrashCan.stx-btn {
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    padding: 0px;
+    border: none;
+}
+
+/* Button Icons for non SVG browsers */
+.no-svg #overlayTrashCan.stx-btn span, .no-svg #vectorTrashCan.stx-btn span {
+    background-image: url(../../assets/images/chartIQ/stx-sprite-panels.png);
+}
+
+#mouseDeleteInstructions {
+    margin: 0px;
+    padding: 5px 10px 5px 10px;
+    display: block;
+    clear: both;
+    font-size: xx-small;
+}
+
+/* Loading image size and placement */
+.stx-loader {
+    position: absolute;
+    top: 280px;
+    left: 50%;
+    margin-left: -20px;
+    width: 40px;
+    height: 40px;
+    z-index: 50;
+}
+
+/* --------------------------------------------------------- CHART ELEMENT STYLES --------------------------------------------------------- */
+
+/* -------- Axis Crosshair and current Prices -------- */
+
+/* Corsshair Floating y-axis value */
+.stx-float-price {
+    margin-left: -10px;
+}
+
+.stx-float-price-canvas {
+    margin-top: 7px;
+    margin-left: 2px;
+}
+
+.stx-float-price-inner {
+    position: absolute;
+    top: 10px;
+    text-align: right;
+    left: 8px;
+    padding-right: 3px;
+}
+
+/* Current chart value ( floating last price on y-axis) */
+#currentHR {
+    width: 33px;
+    z-index: 1;
+}
+
+/* Vertical Crosshair size */
+#crossY, .stx_crosshair_y {
+    left: 0px;
+    height: 1px;
+    width: 98%;
+    margin-top: -1px; /* since we're using border-top to draw the actual line */
+}
+
+/* Horizontal Crosshair size */
+#crossX, .stx_crosshair_x {
+    top: 0px;
+    width: 1px;
+    height: 100%;
+}
+
+/* -------- Chart Type Styles -------- */
+
+/* Default width for line Charts */
+.stx_line_chart {
+    width: 1px;
+}
+
+/* Default width for bar Charts */
+.stx_bar_chart, .stx_bar_up, .stx_bar_down, .stx_bar_even {
+    width: 1px;
+}
+
+/* Default color for mountain Charts */
+.stx_mountain_chart {
+    width: 1px; /* Optional line width */
+}
+
+/* -------- Annotations -------- */
+
+#annotationCancel, .stx_annotation_cancel {
+    margin-left: 10px;
+}
+
+/* -------- Text for shared charts -------- */
+
+.stx_share_symbol {
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.stx-holder {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.stx-subholder {
+    position: absolute;
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------- LAYOUT --------------------------------------------------------- */
+
+.stx-wrapper {
+    width: 100%;
+}
+
+.stx-toolbar {
+    /*margin-right:30px; */
+}
+
+.chartContainer {
+    border: 0px;
+}
+
+.stx-footer {
+    right: 30px;
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+/* Heads Up */
+.stx-toolbar ul.hu {
+    /*width:260px;*/
+    /*margin-right:70px;*/
+}
+
+#huDate {
+    white-space: nowrap;
+}
+
+/* ------------------------------------------------------- STX Advanced CSS ------------------------------------------------------- */
+
+@charset "UTF-8";
+
+/* --------------------------------------------------------- GENERAL STYLES --------------------------------------------------------- */
+
+.stx-footer ul, .stx-footer li,
+.stx-panel-side ul, .stx-panel-side li {
+    /* Override basic List styles */
+    margin: 0px;
+    list-style: none;
+}
+
+.stx-panel-control.stx-chart-panel {
+    /* hide chart controls */
+    display: none;
+}
+
+.stx-panel-control div:nth-of-type(3) {
+    /* solo button */
+    display: none;
+}
+
+.stx-panel-control div:nth-of-type(2) {
+    /* Up button */
+    display: none;
+}
+
+.stx-panel-control div:nth-of-type(4) {
+    /* Down button */
+    display: none;
+}
+
+/* --------------------------------------------------------- TOOLTIPS --------------------------------------------------------- */
+
+.stx-tooltip {
+    display: block;
+    position: absolute;
+    top: 5px;
+    font-size: 9px;
+    padding: 0;
+    height: 14px;
+    border-radius: 3px;
+    opacity: 0;
+    width: 0px;
+    overflow: hidden;
+    transition: opacity .25s, margin .25s ease-out .1s;
+}
+
+*:hover > .stx-tooltip {
+    overflow: visible;
+    width: auto;
+    opacity: 1;
+}
+
+.stx-tooltip.right {
+    left: 40px;
+    margin-left: 5px;
+}
+
+*:hover > .stx-tooltip.right {
+    opacity: 1;
+    margin-left: 0px;
+}
+
+.stx-tooltip.left {
+    right: 40px;
+    margin-right: 5px;
+}
+
+*:hover > .stx-tooltip.left {
+    opacity: 1;
+    margin-right: 0px;
+}
+
+.stx-tooltip > div {
+    display: block;
+    position: absolute;
+    font-size: 9px;
+    height: 12px;
+    padding-top: 2px;
+    border-radius: 3px;
+    z-index: 2
+}
+
+.stx-tooltip.right > div {
+    left: 6px;
+    padding: 2px 4px 0 2px;
+}
+
+.stx-tooltip.left > div {
+    right: 6px;
+    padding: 2px 2px 0 4px;
+}
+
+.stx-tooltip.left span {
+    right: 2px;
+}
+
+.stx-tooltip.right span {
+    left: 2px;
+}
+
+/* --------------------------------------------------------- LAYOUT --------------------------------------------------------- */
+
+.stx-wrapper {
+    width: 100%;
+}
+
+.stx-toolbar {
+    /*margin-right:30px; */
+}
+
+.chartContainer {
+    border: 0px;
+}
+
+.stx-footer {
+    right: 30px;
+}
+
+/* -------------------------------------------------------- NAV BAR -------------------------------------------------------- */
+
+.stx-nav {
+    border: none;
+}
+
+.stx-nav .stx-menus {
+    margin-right: 8px;
+}
+
+.stx-nav.stx-collapse .stx-menu-btn.stx-collapsible > span {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.stx-nav.stx-collapse #menuWrapperCompare {
+    background-position: -337px -197px;
+}
+
+.stx-nav.stx-collapse #menuWrapperChart {
+    background-position: -216px -197px;
+}
+
+.stx-nav.stx-collapse #menuWrapperStudies {
+    background-position: -276px -197px;
+}
+
+.stx-nav.stx-collapse #menuEvents {
+    background-position: -276px -236px;
+    width: 30px;
+}
+
+/* Search */
+
+/* Dropdown Menus */
+.menuSelect.periodicity,
+.menuSelect.chart-display,
+.menuSelect.studies,
+.menuSelect.cog {
+    width: 150px;
+    top: 34px;
+    left: auto;
+    right: auto;
+}
+
+.menuSelect.periodicity {
+    left: 0px;
+    width: 80px;
+}
+
+.menuSelect.chart-display {
+    right: 0px;
+}
+
+.menuSelect.studies {
+    right: 0px;
+    width: 608px;
+}
+
+.menuSelect.cog {
+    width: 180px;
+    right: 0px;
+}
+
+.menuSelect.stx-line-style-menu {
+    left: 0px;
+}
+
+/* Events Button */
+.stx-btn.stx-menu-btn.toggle {
+    padding: 0px 10px;
+}
+
+/* Chart Comparison Menu */
+.menuSelect.compare {
+    width: 210px;
+}
+
+.menuSelect.compare .stx-color {
+    float: left;
+    width: 26px;
+    height: 26px;
+    margin-top: 1px
+}
+
+.menuSelect.compare > .add .stx-btn {
+    float: right;
+    height: 26px;
+    line-height: 26px;
+    padding: 0px 8px;
+}
+
+.menuSelect.compare .stx-menu-content.add .stx-option input[type="text"] {
+    height: 10px;
+    line-height: 14px;
+    width: 45px;
+    margin-top: 2px;
+    margin-left: 6px;
+    text-align: right;
+    float: right;
+}
+
+.menuSelect.compare .stx-menu-content.add .stx-checkbox, .menuSelect.compare .stx-menu-content.add .stx-checkbox.false {
+    /* Compare checkbox toggles */
+    display: block;
+    float: left;
+    width: 14px;
+    height: 14px;
+    padding-right: 5px;
+    margin-top: 5px;
+    text-indent: -1000px;
+    overflow: hidden;
+    background-image: url(assets/images/chartIQ/stx-sprite.png);
+    background-position: -142px -122px;
+}
+
+.menuSelect.compare .stx-menu-content.add .stx-checkbox.true {
+    /* Menu checkbox toggle active */
+    background-position: -182px -122px;
+}
+
+.menuSelect.compare .stx-menu-content.stops {
+    border-bottom: 0px;
+    padding-bottom: 15px;
+}
+
+.menuSelect.compare .stx-menu-content.stops .stx-btn {
+    font-size: 11px;
+    width: 65px;
+}
+
+.menuSelect.compare .stx-menu-content.stops .stx-btn:last-child {
+    float: right;
+    margin-left: 5px;
+}
+
+.menuSelect.compare #symComparison li.stx-menu-content {
+    padding: 2px 16px;
+}
+
+/* Chart Comparison Type toggle */
+
+.toggle-opt div:first-of-type {
+    border-radius: 3px 0px 0px 3px;
+    float: left;
+}
+
+.toggle-opt div:last-of-type {
+    border-radius: 0px 3px 3px 0px;
+}
+
+.toggle-opt.sm {
+    margin: 0px auto;
+}
+
+.toggle-opt.sm div {
+    font-size: 11px;
+    line-height: 22px;
+}
+
+/* Override default width of lookup to make room for commodities */
+.stxResults {
+    width: 400px;
+}
+
+.stxLookupResults {
+    width: 400px;
+}
+
+.stxLookupSymbols li span:nth-of-type(2) {
+    width: 200px;
+}
+
+#menuCompare .stxLookupResults {
+    top: 50px;
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+/* Heads Up */
+.stx-toolbar ul.hu {
+    /*width:260px;*/
+    /*margin-right:70px;*/
+}
+
+#huDate {
+    white-space: nowrap;
+}
+
+/* Sharing Button */
+
+.stx-btn#shareBtn span {
+    float: right;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(assets/images/chartIQ/stx-sprite.png);
+    background-position: -98px -116px;
+    margin-left: 4px;
+}
+
+.stx-btn.loading#shareBtn:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.stx-btn.loading#shareBtn span {
+    background: url(assets/images/chartIQ/stx-loading.gif);
+    cursor: default;
+}
+
+/* ------------------------------------------------------- SIDE PANELS ------------------------------------------------------- */
+
+/* Sidepanel Selector Area */
+
+.stx-panel-selector.closed {
+    width: 0px;
+    display: none;
+}
+
+.stx-panel-selector .false {
+    display: none;
+}
+
+/* Sidepanel Selector Buttons */
+
+.stx-panel-selector .stx-panel-toggle:hover,
+.stx-panel-selector .stx-panel-toggle.active {
+    opacity: 1
+}
+
+.stx-panel-toggle#btnToggleWatch {
+    height: 110px;
+}
+
+.stx-panel-toggle#btnToggleTrade {
+    height: 80px;
+}
+
+.stx-panel-toggle#btnToggleStocktwits {
+    height: 105px;
+}
+
+.stx-panel-toggle#btnToggleNews {
+    height: 65px;
+}
+
+.stx-panel-selector .stx-panel-toggle {
+    background: url(assets/images/chartIQ/stx-sprite.png);
+}
+
+/* Sidebar Strucure */
+.stx-panel-side {
+    position: absolute;
+    top: 96px;
+    bottom: 0;
+    border-left: solid 1px;
+}
+
+.stx-panel-side.closed {
+    width: 0px;
+    display: none;
+}
+
+/* Watchlist Sidebar Contents */
+#stxWatch {
+    width: 180px;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    height: 100%;
+}
+
+#stxWatch h4 {
+    display: inline-block;
+    float: left;
+    margin: 15px 0 15px 15px;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+#stxWatch a {
+    text-decoration: none;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+/* New List + Next/Prev Buttons */
+#stxWatch a#stxNewWatchList,
+#stxWatch a#stxWatchNext, #stxWatch a#stxWatchPrev,
+#stxWatch a#stxWatchNext.false, #stxWatch a#stxWatchPrev.false,
+#stxWatch a#stxWatchNext.false:hover, #stxWatch a#stxWatchPrev.false:hover {
+    border: solid 1px;
+    padding: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+#stxWatch a#stxWatchNext.false, #stxWatch a#stxWatchPrev.false,
+#stxWatch a#stxWatchNext.false:hover, #stxWatch a#stxWatchPrev.false:hover {
+    cursor: default;
+    opacity: .3;
+}
+
+/* Watchlist Control Arrows */
+#stxWatch i.arrow {
+    display: block;
+    -webkit-transform: rotate(45deg); /* Saf3.1+, Chrome */
+    -moz-transform: rotate(45deg); /* FF3.5+ */
+    -ms-transform: rotate(45deg); /* IE9 */
+    -o-transform: rotate(45deg); /* Opera 10.5 */
+    transform: rotate(45deg);
+    filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476, sizingMethod='auto expand'); /* IE6–IE9 */
+    zoom: 1;
+    transition: border .25s;
+    -webkit-transition: border .25s;
+}
+
+/* New List */
+#stxWatch a#stxNewWatchList {
+    float: right;
+    margin: 10px 10px 0 0;
+    height: 25px;
+    width: 25px;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+/* Scrollable Lists Area */
+#stxWatch .watchListScroller {
+    clear: both;
+    height: 140px;
+    border-bottom: solid 1px;
+}
+
+#stxWatch.false .watchListScroller {
+    display: none;
+}
+
+#stxWatch #stxWatchLists {
+    clear: both;
+    overflow: auto;
+}
+
+#stxWatch #stxWatchLists ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#stxWatch #stxWatchLists ul li {
+    font-size: 11px;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 4px 0;
+    text-align: left;
+    clear: both
+}
+
+#stxWatch #stxWatchLists ul li div:active,
+#stxWatch #stxWatchLists ul li.current div {
+    font-weight: bold;
+}
+
+/* Watchlist List List-Items */
+#stxWatch #stxWatchLists ul li div.save {
+    display: none
+}
+
+#stxWatch #stxWatchLists ul li div.list {
+    margin-left: 15px;
+    padding: 6px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#stxWatch #stxWatchLists ul li.current div.list {
+    width: 100px;
+}
+
+#stxWatch #stxWatchLists ul li.current div.edit,
+#stxWatch #stxWatchLists ul li.current div.delete {
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    float: right;
+    opacity: .5
+}
+
+#stxWatch #stxWatchLists ul li.current div.edit:hover,
+#stxWatch #stxWatchLists ul li.current div.delete:hover {
+    opacity: .8
+}
+
+/* Action Area */
+#stxWatch #action {
+    display: none
+}
+
+/* Watchlist Symbol Up Down Controls */
+#stxWatchUp,
+#stxWatchDown {
+    position: relative;
+    display: block;
+    height: 50px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 2
+}
+
+#stxWatch.false #stxWatchUp,
+#stxWatch.false #stxWatchDown {
+    display: none;
+}
+
+#stxWatchUp .arrow,
+#stxWatchDown .arrow {
+    width: 18px;
+    height: 18px;
+    border: 3px solid;
+}
+
+#stxWatchUp .arrow {
+    margin: 20px auto;
+    border-right: none;
+    border-bottom: none;
+}
+
+#stxWatchDown .arrow {
+    margin: 5px auto;
+    border-top: none;
+    border-left: none;
+}
+
+#stxWatchUp.false .arrow,
+#stxWatchDown.false .arrow {
+    opacity: .2;
+    cursor: default
+}
+
+/* Watchlist Symbols */
+#symbolScroller {
+    margin-top: -50px;
+    margin-bottom: -50px;
+    z-index: 1;
+}
+
+#stxWatch.false #symbolScroller {
+    display: none;
+}
+
+#stxWatch #stxWatch-symbols {
+    overflow: auto;
+}
+
+#stxWatch #stxWatch-symbols ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#stxWatch #stxWatch-symbols ul li {
+    padding: 11px 2px 11px 2px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+#stxWatch #stxWatch-symbols ul li:first-of-type {
+    margin-top: 50px;
+}
+
+#stxWatch #stxWatch-symbols ul li:last-of-type {
+    margin-bottom: 50px;
+}
+
+/* Optional state Control */
+#stxWatch.false #stxEditWatchList,
+#stxWatch.false #stxDeleteWatchList {
+}
+
+#stxWatch.true #stxEditWatchList,
+#stxWatch.true #stxDeleteWatchList {
+}
+
+#stxWatch a#stxEditWatchList {
+    visibility: hidden
+}
+
+#stxWatch a#stxDeleteWatchList {
+    visibility: hidden
+}
+
+/* CIQ Watchlist Add/Remove Tabs */
+.ciq #stxWatch #stxWatchLists ul li.current div.list {
+    width: 85px;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.save,
+.ciq #stxWatch #stxWatchLists ul li div.true,
+.ciq #stxWatch #stxWatchLists ul li div.false,
+.ciq #stxWatch #stxWatchLists ul li div.locked,
+.ciq #stxWatch #stxWatchLists ul li div.neither {
+    display: inline-block;
+    height: 25px;
+    width: 27px;
+    background-image: url(ciq-ico-watch-save.png);
+    background-size: 27px 108px;
+    background-repeat: no-repeat;
+    background-position: 0 -54px;
+    float: left;
+    margin-left: -5px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.ciq #stxWatch #stxWatchLists ul li:last-child div.save,
+.ciq #stxWatch #stxWatchLists ul li:only-child div.save {
+    border-bottom: none;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.locked,
+.ciq #stxWatch #stxWatchLists ul li div.neither {
+    cursor: default;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.neither {
+    background-position: 0 0;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.true {
+    background-position: 0 -27px;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.false {
+    background-position: 0 -54px;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.locked {
+    background-position: 0 -81px;
+}
+
+.ciq #stxWatch #stxWatchLists ul li div.list {
+    margin-left: 30px;
+}
+
+/* New Dialog */
+#stxWatchEditDialog {
+    width: 375px;
+}
+
+#stxWatchEditDialog h4 {
+    display: inline;
+    margin: 0px;
+}
+
+input#stxWatchEditName {
+    margin-left: 5px;
+    width: 226px;
+}
+
+textarea#stxWatchEditTA {
+    height: 100px;
+    padding: 10px;
+    width: 352px;
+}
+
+/* CIQ Action Area */
+
+.ciq #stxWatch #controls {
+    position: relative;
+    overflow: hidden;
+}
+
+.ciq #stxWatch #stxWatchSymbol {
+    display: inline-block;
+    margin: 0;
+    font-size: 14px;
+    line-height: 32px;
+    width: 80px;
+    overflow: hidden;
+}
+
+.ciq #stxWatch a#stxWatchNext, #stxWatch a#stxWatchPrev,
+.ciq #stxWatch a#stxWatchNext.false:hover, #stxWatch a#stxWatchPrev.false:hover {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 27px;
+    top: 0px;
+}
+
+.ciq #stxWatch a#stxWatchPrev {
+    left: 10px;
+}
+
+.ciq #stxWatch a#stxWatchNext {
+    right: 10px;
+}
+
+.ciq #stxWatch #controls i.arrow {
+    width: 7px;
+    height: 7px;
+    border: 2px solid;
+}
+
+.ciq #stxWatch a#stxWatchNext i.arrow {
+    margin: 10px 0 0 8px;
+    border-bottom: none;
+    border-left: none;
+}
+
+.ciq #stxWatch a#stxWatchPrev i.arrow {
+    margin: 10px 0 0 12px;
+    border-top: none;
+    border-right: none;
+}
+
+/* ------------------------------------------------------- BOTTOM BAR ------------------------------------------------------- */
+
+.stx-footer {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    height: 40px;
+    border-top: solid 1px;
+    z-index: 3
+}
+
+/* Saved Views */
+#stxViews {
+    position: relative;
+    text-align: left;
+    height: 40px;
+    overflow: hidden;
+}
+
+#stxViews h4 {
+    position: absolute;
+    height: 40px;
+    line-height: 40px;
+    width: 62px;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 15px;
+    text-indent: 10px;
+    left: 0px;
+    top: 0px;
+    margin: 0;
+}
+
+#stxViews #stxNewView {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 45px;
+    height: 40px;
+}
+
+#stxViews #stxNewViewBtn.stx-btn {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    text-align: center;
+    border: solid 1px;
+    height: 25px;
+    width: 25px;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 25px;
+    padding: 0px;
+}
+
+/* Scrollable Views Area */
+#stxViews .viewsScroller {
+    position: absolute;
+    left: 70px;
+    right: 50px;
+    top: 0px;
+    height: 40px;
+    overflow: hidden;
+}
+
+#stxSavedViews {
+    height: 60px;
+    margin: -10px 0 0 0;
+    overflow: hidden;
+}
+
+#stxViews ul {
+    display: block;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+#stxViews ul li {
+    float: left;
+    font-size: 11px;
+    line-height: 40px;
+    display: inline-block;
+    margin: 0;
+    padding: 0px 20px;
+    margin: 0px;
+    text-align: left;
+    cursor: pointer;
+}
+
+#stxViews ul li.current {
+    font-weight: bold;
+}
+
+#stxViewEditName {
+    width: 185px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------- Dialogs ------------------------------------------------------- */
+
+/* study dialog override to allow left scroll bar on large dialogs*/
+#studyDialog {
+    max-height: 500px;
+    width: 210px;
+    overflow-y: auto;
+}
+
+#sharedLinkDialog {
+    width: 300px;
+    text-align: center;
+}
+
+#sharedLinkDialog h4 {
+    font-size: 22px;
+    margin: 15px 0 15px 0;
+}
+
+#sharedLinkDialog a {
+    font-weight: bold;
+}
+
+/* Timezones*/
+#timezoneDialog {
+    text-align: center;
+}
+
+#timezoneDialog .title {
+    margin: 0 auto;
+}
+
+#timezoneDialog .instruct {
+    margin: 10px auto;
+    font-style: italic;
+}
+
+.eventDate {
+    font-size: 11px;
+}
+
+.eventDate:before {
+    content: "(";
+}
+
+.eventDate:after {
+    content: ")";
+}
+
+/* To deal with IOS7 full screen bug */
+@media (orientation: landscape) {
+    html.ipad.ios7 > body {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 672px;
+    }
+}
+
+/* ------------------------------------------------------- End STX Advanced CSS ------------------------------------------------------- */
+
+/* ------------------------------------------------------- STX Demo CSS ------------------------------------------------------- */
+@charset "UTF-8";
+
+/* --------------------------------------------------------- GENERAL STYLES --------------------------------------------------------- */
+.chartContainer {
+    /* DIV that the canvas expands to */
+    margin-bottom: 5px;
+}
+
+.stx-wrapper * {
+    /* This overrides page selection and tap/touch responses */
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.stx-wrapper canvas {
+    /* This keeps users from accidently highlighting the canvas */
+    -webkit-user-select: none;
+}
+
+.stx-wrapper ul, .stx-wrapper li {
+    /* Override basic List styles */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    cursor: pointer
+}
+
+/* --------------------------------------------------------- FORM FIELDS --------------------------------------------------------- */
+
+.stx-input-field, .stx-dialog-container [type=text], .stx-dialog-container [type=number] {
+    line-height: 24px;
+    height: 24px;
+    width: 110px;
+}
+
+.stx-input-check {
+    margin-left: 0px;
+}
+
+.stx-select:focus {
+    outline: none;
+}
+
+/* --------------------------------------------------------- BUTTONS AND MENUS --------------------------------------------------------- */
+
+/* Basic Navigation */
+
+.stx-btn.stx-menu-btn {
+    /* Menu Buttons */
+    padding: 0px 28px 0px 10px;
+}
+
+/* General Icon Button Styles */
+
+.stx-btn.stx-ico, /* Override base button styles */
+.stx-btn.stx-ico:hover, .stx-btn.stx-ico > span .stx-btn.stx-ico:hover > span, .stx-btn.stx-ico:active > span {
+    overflow: hidden;
+    padding: 0px !important;
+    line-height: 0px;
+    border: none;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.stx-btn.stx-ico {
+    /* This is the button wrapper and hit area */
+    width: 27px;
+    height: 27px;
+    padding: 0px;
+}
+
+.stx-btn > span.stx-ico-close, .stx-btn > span.stx-ico-close:active {
+    background-position: -160px -40px;
+}
+
+/* --------------------------------------------------------- COLOR PICKER --------------------------------------------------------- */
+
+/* Swatch Arrow */
+.stx-color span, .stx-border-color span {
+    display: none;
+}
+
+/* --------------------------------------------------------- BASIC LAYOUT --------------------------------------------------------- */
+
+.stx-wrapper {
+    /* Content Wrapper/Chart width */
+    display: inline-block;
+    width: 840px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.stx-nav {
+    /* Navigation Bar */
+    height: 50px;
+}
+
+.stx-toolbar {
+    /* Toolbar for Drawing and Heads Up */
+    height: 36px;
+    padding: 9px 0 0 0;
+}
+
+/* -------------------------------------------------------- NAV BAR -------------------------------------------------------- */
+
+/* Nav sections */
+.stx-nav .stx-search, .stx-nav .stx-menus {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.stx-nav .stx-menus {
+    float: right;
+    margin-right: 10px;
+}
+
+.stx-nav .stx-search, .stx-nav #periodBtn, .stx-nav .stx-menus {
+    margin-top: 10px;
+}
+
+/* Search */
+.stx-nav .stx-search {
+    margin-left: 15px;
+    position: relative
+}
+
+input#symbol {
+    text-transform: uppercase;
+    border-right: none;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    -moz-border-radius: 3px 0px 0px 3px;
+    border-radius: 3px 0px 0px 3px;
+}
+
+/* Top Bar specific button styles */
+.stx-nav .stx-btn {
+    margin: 0 6px 0 0;
+}
+
+.stx-nav .stx-btn.stx-menu-btn {
+    width: 80px;
+}
+
+.stx-nav .stx-btn.stx-menu-btn#periodBtn {
+    /* Periodicity button */
+    width: auto;
+    -webkit-border-radius: 0px 3px 3px 0px;
+    -moz-border-radius: 0px 3px 3px 0px;
+    border-radius: 0px 3px 3px 0px;
+}
+
+.stx-nav .stx-btn.stx-menu-btn#cogBtn {
+    /* Cog Button */
+    background-image: url(assets/images/chartIQ/stx-sprite.png);
+    width: 27px;
+    padding: 0px 20px 0px 0px;
+    background-position: -35px -118px;
+}
+
+.menuSelect > li:first-child, .menuSelect > ul > li:first-child {
+    /* Give more top padding to first item */
+    padding: 5px 16px 2px 16px;
+}
+
+.menuSelect > li:last-child, .menuSelect > ul > li:last-child {
+    /* Give more bottom padding to last item */
+    padding: 2px 16px 5px 16px;
+}
+
+.menuSelect li.stx-menu-content {
+    /* Nested list parents and special content padding */
+    padding: 10px 16px 16px 16px;
+}
+
+.menuSelect li.stx-menu-content:first-child {
+    /* First Nested list parent or special content padding */
+    padding: 16px 16px 16px 16px;
+}
+
+.menuSelect li.stx-heading, .menuSelect li.stx-heading:first-child {
+    /* Menu heading padding */
+    padding: 10px 16px 5px 16px;
+}
+
+.menuSelect li.stx-option {
+    /* Menu item with checkbox adjustments */
+    position: relative;
+    padding-left: 35px;
+}
+
+.menuSelect li.stx-option .stx-checkbox, .menuSelect li.stx-option .stx-checkbox.false {
+    /* Menu checkbox toggles */
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    display: block;
+    float: left;
+    width: 14px;
+    height: 14px;
+    text-indent: -1000px;
+    overflow: hidden;
+    background-image: url(assets/images/chartIQ/stx-sprite.png);
+    background-position: -142px -122px;
+}
+
+/* Menu checkbox toggle active */
+.menuSelect li.stx-option .stx-checkbox.true {
+    background-position: -182px -122px;
+}
+
+/* No border divider needed for last column */
+.menuSelect ul.col:last-child {
+    border-right: none;
+}
+
+/* Studies menu item padding */
+.menuSelect ul.col li {
+    padding: 2px 16px 2px 16px;
+}
+
+.menuSelect ul.col li:first-child {
+    padding: 5px 16px 2px 16px;
+}
+
+.menuSelect ul.col li:last-child {
+    padding: 2px 16px 5px 16px;
+}
+
+/* Slightly smaller button for within menus */
+.menuSelect .stx-btn {
+    font-size: 11px;
+    margin: 0px;
+}
+
+/* User Injected Menu Content */
+
+/* Delete button placement for custom item */
+.injected .stx-btn {
+    float: right;
+    margin: 0px
+}
+
+.injected li.stx-menu-content:last-child {
+    padding-top: 5px;
+}
+
+/* Search Results */
+
+/* Search results container */
+.stxLookupResults {
+    right: auto;
+    left: 0px;
+    width: 400px;
+}
+
+/* Search results List Item */
+.stxResults li {
+    font-size: 11px;
+    line-height: 0px;
+    clear: both
+}
+
+/* Search Filter area padding */
+.stxResults li.stxLookupFilter {
+    /*padding: 10px 0px 30px 5px;*/
+}
+
+/* Narrower button for "ALL" option */
+.stxResults li.stxLookupFilter .stx-btn:first-child {
+    width: 35px;
+}
+
+/* Search results List Item Content */
+.stxResults span {
+    line-height: 27px;
+    display: inline-block;
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Search results Company */
+.stxLookupSymbols li span:nth-of-type(2) {
+    width: 200px;
+    float: left;
+}
+
+/* Periodicity Menu Styles */
+.menuSelect.periodicity {
+    right: auto;
+    left: 0px;
+}
+
+/* Studies Menu Styles */
+.menuSelect.studies {
+    width: 608px;
+    overflow: hidden
+}
+
+.stx-basic .menuSelect.studies {
+    width: 118px;
+}
+
+.menuSelect.studies > ul > li {
+    line-height: 24px;
+}
+
+/* Themes Menu Styles */
+.menuSelect.cog {
+    width: 180px;
+}
+
+.menuSelect.cog .stx-btn.theme {
+    display: block;
+    float: none;
+    clear: both;
+}
+
+.menuSelect.cog li.stx-menu-content {
+    padding: 0px;
+}
+
+.menuSelect.cog .injected li.stx-heading {
+    border-top: none;
+    padding-bottom: 10px;
+}
+
+.menuSelect.cog li.stx-menu-content:last-child {
+    padding: 10px 16px 16px;
+}
+
+.menuSelect.cog li.themeSelectorTemplate {
+    margin: 0px 16px;
+}
+
+/* You may need to set the zIndex of this class if you have body elements that are stacked with different zIndexes.
+ - You can test this by temporarily setting the background-color: red and seeing how the overlays work! Set the zIndexes
+ - for your menus higher until they appear on top of the overlay.
+*/
+
+/* This z-index order is important to maintain so that the dialogs, menus and clickable overlays are all accessible */
+.stxDialogOverlay {
+    z-index: 200;
+}
+
+.stx-dialog-container {
+    z-index: 201;
+}
+
+.stxBodyOverlay {
+    z-index: 202;
+}
+
+.ciqColorPicker {
+    z-index: 205;
+}
+
+.stxMenu {
+    z-index: 203;
+}
+
+.stx-nav {
+    z-index: 204;
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+/* Basic Toolbar */
+.stx-toolbar {
+    position: relative;
+    display: block;
+    border-right: solid 0px;
+    border-left: solid 0px;
+    text-align: center;
+}
+
+/* Keep elements from wrapping */
+.stx-toolbar div {
+    display: inline-block;
+}
+
+/* Heads Up */
+
+/* Formatting for list container */
+ul.hu {
+float: right;
+text-align: left
+}
+
+/* Data Sets */
+ul.hu li {
+    float: left;
+    font-size: 11px;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+/* Data Set Value */
+.huField {
+    display: inline-block;
+    width: 55px;
+}
+
+/* Drawing Tools */
+/* Drawing Menu Container */
+
+.stx-toolbar .drawOptions {
+    width: auto;
+    float: left;
+    margin-left: 6px;
+}
+
+.stx-toolbar .drawing.false {
+    display: none;
+}
+
+/* Tool color */
+.stx-toolbar div.stx-btn, .stx-toolbar div.stx-color {
+    float: left;
+    margin-left: 6px;
+}
+
+.stx-toolbar .menuSelect.draw {
+    left: 0px;
+}
+
+/* Tool Menu Font Size */
+.stx-toolbar .menuSelect li {
+    font-size: 12px;
+}
+
+.stx-toolbar .menuSelect.stx-line-style-menu li:last-child {
+    padding: 2px 10px 5px;
+}
+
+/* Tool Menu Button */
+.stx-toolbar .stx-btn.stx-menu-btn.drawBtn {
+    width: 62px;
+    text-align: left;
+}
+
+.stx-annotation-italic {
+    font-style: italic;
+}
+
+.stx-annotation-bold {
+    font-weight: bold;
+}
+
+/* Tool Options container */
+.stx-drawing {
+    float: left;
+}
+
+/* Margin for first module */
+.stx-drawing .stx-draw-settings:first-child {
+    margin: 0 0px 0 10px;
+}
+
+/* Hide arrow in toolbar color swatches */
+.stx-drawing .stx-color span {
+    display: none;
+}
+
+.stx-drawing .stx-checkbox, .stx-drawing .stx-checkbox.false {
+    display: block;
+    float: left;
+    width: 14px;
+    height: 14px;
+    margin: 5px 0px 0 5px;
+    overflow: hidden;
+    background-image: url(assets/images/chartIQ/stx-sprite.png);
+    background-position: -142px -122px;
+}
+
+.stx-drawing .stx-checkbox.true {
+    background-position: -182px -122px;
+}
+
+.menuSelect.stx-line-style-menu {
+    width: 60px;
+}
+
+.menuSelect.stx-annotation-size-menu {
+    width: 60px;
+}
+
+.menuSelect.stx-annotation-family-menu {
+    width: 140px;
+}
+
+.menuSelect.stx-line-style-menu li.stxToolbarNone {
+    text-align: center;
+}
+
+.stx-btn .stx-line.style1.weight3, .stx-btn .stx-line.style2.weight3 {
+    margin-bottom: 12px;
+}
+
+.stx-btn .stx-line.style2.weight1, .stx-btn .stx-line.style3.weight1 {
+    margin-top: 12px;
+}
+
+/* Line style types */
+.stx-btn .stx-line.style1 {
+    border-top-style: solid;
+}
+
+.stx-btn .stx-line.style2 {
+    border-top-style: dotted;
+}
+
+.stx-btn .stx-line.style3 {
+    border-top-style: dashed;
+}
+
+.stx-btn .stx-line.weight0 {
+    border-top-width: 0px;
+}
+
+.stx-btn .stx-line.weight1 {
+    border-top-width: 1px;
+}
+
+.stx-btn .stx-line.weight3 {
+    border-top-width: 2px;
+}
+
+.stx-btn .stx-line.weight5 {
+    border-top-width: 3px;
+}
+
+/*  Measuring tool */
+.currentMeasure {
+    text-align: left;
+    display: inline-block;
+    margin: 4px 0 0 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+#mMeasure {
+    display: inline-block;
+    margin: 0 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 140px;
+}
+
+/* ------------------------------------------------------- STUDY DIALOGS ------------------------------------------------------- */
+
+/* Popup Styles */
+
+.stx-dialog-container {
+    /* Wrapper for dialog placement */
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    position: absolute;
+}
+
+/* Make dialog buttons smaller */
+.stx-dialog .stx-btn {
+    font-size: 11px;
+}
+
+/* Dialog content label */
+.stx-dialog div.stx-heading {
+    width: 120px;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+/* Dialog content swatches and fields */
+.stx-dialog div.stx-data {
+    display: inline-block;
+    float: right;
+}
+
+/* Dialog color swatch position */
+.stx-dialog .stx-color, .stx-dialog .stx-border-color {
+    float: right;
+    margin-left: 4px;
+}
+
+/* Studies Dialogs */
+
+.stx-dialog #inputs, .stx-dialog #outputs {
+    /* Dialog content templates */
+    clear: both;
+}
+
+/* Remove divider from last item */
+.stx-dialog .inputTemplate:last-child, .stx-dialog .outputTemplate:last-child {
+    border: none;
+}
+
+/* Dialog Output heading columns */
+.stx-dialog .outputTemplate div.stx-heading {
+    width: 130px;
+}
+
+/* Dialog Parameters heading columns (RIS overbought/oversold) */
+.stx-dialog #parameters .outputTemplate div.stx-heading {
+    width: 120px;
+}
+
+/* Make data area wider for Params  */
+.stx-dialog #parameters div.stx-data {
+    width: 70px;
+}
+
+/* Position textfields for Parameters */
+.stx-dialog #parameters input {
+    float: none;
+}
+
+/* Position Color swatches for Parameters */
+.stx-dialog #parameters .stx-color {
+    float: right;
+}
+
+/* Theme Dialog */
+.stx-dialog#themeDialog {
+    width: 460px;
+}
+
+.stx-dialog ul {
+    width: 200px;
+    display: inline-block;
+}
+
+.stx-dialog ul:first-child {
+    float: left;
+}
+
+.stx-dialog ul:last-child li {
+    margin-left: 20px;
+}
+
+.stx-dialog ul:last-child li:last-child {
+    margin-bottom: 22px;
+}
+
+.stx-dialog li div.stx-data {
+    margin-bottom: 5px;
+}
+
+.stx-dialog#themeDialog input[type="text"] {
+    width: 225px;
+    margin: 0px 4px 0px 0px;
+}
+
+#timezoneDialog {
+    text-align: center;
+    width: 375px;
+}
+
+#timezoneDialog ul {
+    width: 365px;
+    text-align: left;
+    border-left: 0 none;
+    margin-left: 0;
+}
+
+#timezoneDialog ul li,
+#timezoneDialog ul li:last-child {
+    margin-left: 0px;
+    padding: 8px 0;
+}
+
+#timezoneDialog .title {
+    margin: 0 auto;
+}
+
+#timezoneDialog .detect {
+    margin: 20px auto;
+}
+
+/* ------------------------------------------------------- COLOR PICKER ------------------------------------------------------ */
+
+.ciqColorPicker ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    zoom: 1;
+}
+
+.ciqColorPicker ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.ciqColorPicker ul li {
+    float: left;
+    margin: 0 5px 5px 0;
+}
+
+/* --------------------------------------------------------- MEDIA QUERIES --------------------------------------------------------- */
+
+/* iPad portrait view */
+@media (max-width: 768px) {
+    .stx-wrapper {
+        display: inline-block;
+        width: 700px;
+        margin: 0px auto;
+        text-align: left;
+        position: relative;
+    }
+}
+
+.stx-close-overlay span, .Light .stx-close-overlay span {
+    background-position: -160px -40px;
+    background-image: url(assets/images/chartIQ/stx-sprite.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+/* ------------------------------------------------------- End STX Demo CSS ------------------------------------------------------- */
+
+/* --- OVERLAY CLOSE --- */
+.stx-close-overlay {
+    font-family: "Helvetica";
+    font-size: 10px;
+    position: absolute;
+    z-index: 4;
+    margin-top: 11px; /* Note, needs to be 7 when volume study is open */
+}
+
+.last-col-right {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* --------------- STX Print ------------------------ */
+
+.printable{
+    display: block !important;
+}
+
+.non-printable{
+    display: none !important;
+    visibility:hidden !important;
+}
+
+/* --------------- STX Print ------------------------ */

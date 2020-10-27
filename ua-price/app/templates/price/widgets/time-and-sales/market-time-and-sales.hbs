@@ -1,0 +1,47 @@
+<div class="widget_new pad-s-b full-height">
+    {{#if isShowTitle}}
+        {{widget-header
+            linkOptions=links
+            selectedLink=selectedLink
+            widgetTitle=app.lang.labels.marketTimeAndSales
+            hideWidgetLink=true
+            app=app
+        }}
+    {{/if}}
+
+    <div class="widget-container-new">
+        {{#if isDelayedUser}}
+            <div class="font-m text-center mgn-l-t pad-l-t">
+                <span> {{app.lang.messages.delayedUserDataNotAvailable}} </span>
+            </div>
+        {{else}}
+            <div class="{{if isMobile 'time-and-sales' 'full-height'}} ltr">
+                <div class="col-lg-12 full-height">
+                    <div class="full-width full-height">
+                        {{loading-indicator isLoading=isLoading}}
+
+                        <!--Removed loading indicator coz application is getting stuck in market open time-->
+                        {{!loading-indicator isLoading=customArrayProxy.isLoading id=dataLoadingIndicatorId}}
+
+                        {{#if isWidgetRefreshed}}    <!-- Default value of this boolean value is true -->
+                            {{table-component
+                            columns=columns
+                            content=customArrayProxy
+                            rowHeight= rowHeight
+                            hasFooter=false
+                            minHeaderHeight= 25
+                            isRefreshed=isRefreshed
+                            sortAscending=sortAscending
+                            indicatorConfig=indicatorConfig
+                            rowClickAction="clickRow"
+                            id=wkey
+                            decimalPlaces=decimalPlaces
+                            }}
+                        {{/if}}
+                        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>

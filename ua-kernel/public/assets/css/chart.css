@@ -1,0 +1,401 @@
+/*/!*-- Tooltip --*!/*/
+.c3-tooltip-container {
+    z-index: 10;
+}
+
+.c3-tooltip {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: #fff;
+    empty-cells: show;
+    -webkit-box-shadow: 7px 7px 12px -9px #777777;
+    -moz-box-shadow: 7px 7px 12px -9px #777777;
+    box-shadow: 7px 7px 12px -9px #777777;
+    opacity: 0.9;
+}
+
+.c3-tooltip tr {
+    border: 1px solid #CCC;
+}
+
+.c3-tooltip th {
+    background-color: #aaa;
+    font-size: 10px;
+    padding: 1px 2px;
+    text-align: left;
+    width: 45px;
+    color: #FFF;
+}
+
+.c3-tooltip td {
+    font-size: 10px;
+    padding: 2px 2px;
+    width: 45px;
+    background-color: #fff;
+    border-left: 1px dotted #999;
+}
+
+.c3-tooltip td > span {
+    display: inline-block;
+    width: 5px;
+    height: 10px;
+    margin-right: 2px;
+}
+
+.c3-tooltip td.value {
+    text-align: right;
+}
+
+/* Top pannel chach map chart*/
+#cash_map_chart .c3-chart-arcs-title {
+    font-size: 10px;
+    alignment-baseline: middle;
+
+    @include theme((
+        fill: fore-color
+    ));
+}
+
+/* Top pannel symbols traded chart*/
+#net_cash_chart .c3-chart-arcs-title {
+    font-size: 11px;
+    alignment-baseline: middle;
+
+    @include theme((
+        fill: fore-color
+    ));
+}
+
+.symbols-title {
+    font-size: 9px;
+    fill: #738092 !important;
+}
+
+.green-dark-chart {
+    fill: #19703e !important;
+}
+
+.green-chart {
+    fill: #2ecc71 !important;
+}
+
+.red-dark-chart {
+    fill: #842424 !important;
+}
+
+.red-chart {
+    fill: #e74343 !important;
+}
+
+.chart-font-12 {
+    font-size: 12px;
+}
+
+.c3-chart-arc path {
+    stroke: #ffffff;
+    stroke-width: 2px
+}
+
+.theme1 .c3-chart-arc path {
+    /* stroke: rgba(255, 255, 255, 0);  */
+    stroke: #15181D;
+    stroke-width: 2px
+}
+
+.theme2 .c3-chart-arc path {
+     stroke: #ffffff;
+    stroke-width: 2px
+}
+
+.c3-axis {
+    fill: #5d6877;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.c3-area {
+    stroke-width: 0;
+    opacity: 0.2;
+}
+
+.dividends-chart .domain {
+    fill: none;
+    stroke: #000000;
+}
+
+/* TODO: [Atheesan] Refactor price-ticker css */
+
+/* Ticker CSS Start*/
+
+/* Moved style to ticker-panel.scss */
+
+/* Ticker CSS End*/
+
+#sector_chart {
+    height: 130px;
+}
+
+#sector_chart svg {
+    width: 100%;
+    height: 80%;
+}
+
+#sector_chart path.slice {
+    stroke-width: 2px;
+}
+
+#sector_chart polyline {
+    opacity: .3;
+    stroke: #fff;
+    stroke-width: 1px;
+    fill: none;
+
+}
+
+.theme2 #sector_chart polyline {
+    opacity: .5;
+    stroke: #313030;
+    stroke-width: 1px;
+    fill: none;
+
+}
+
+#sector_chart text {
+    font-size: 8px;
+    fill: #cecece;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.theme2 #sector_chart text {
+    font-size: 8px;
+    fill: #313030;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#sector_chart desc {
+    fill: #CCC;
+    font-size: 12px;
+}
+
+/* New DQ chart */
+#dq_chart .stx-panel-control.stx-chart-panel {
+    display: none;
+}
+
+/* these classes should go to proper places. 
+    added by: chathuranga */
+
+.ui-resizable-s {
+  cursor: s-resize;
+  height: 7px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+.ui-resizable-e {
+  cursor: e-resize;
+  width: 7px;
+  right: -5px;
+  top: 0;
+  height: 100%;
+}
+.ui-resizable-se {
+  cursor: se-resize;
+  width: 12px;
+  height: 12px;
+  right: 1px;
+  bottom: 1px;
+}
+.ui-resizable-handle {
+  position: absolute;
+  font-size: 0.1px;
+  display: block;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+#floatingCirclesG{
+  position:relative;
+  width:61px;
+  height:61px;
+  margin:auto;
+  transform:scale(0.6);
+  -o-transform:scale(0.6);
+  -ms-transform:scale(0.6);
+  -webkit-transform:scale(0.6);
+  -moz-transform:scale(0.6);
+}
+
+.f_circleG{
+  position:absolute;
+  background-color:rgb(255,255,255);
+  height:11px;
+  width:11px;
+  border-radius:6px;
+  -o-border-radius:6px;
+  -ms-border-radius:6px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  animation-name:f_fadeG;
+  -o-animation-name:f_fadeG;
+  -ms-animation-name:f_fadeG;
+  -webkit-animation-name:f_fadeG;
+  -moz-animation-name:f_fadeG;
+  animation-duration:0.672s;
+  -o-animation-duration:0.672s;
+  -ms-animation-duration:0.672s;
+  -webkit-animation-duration:0.672s;
+  -moz-animation-duration:0.672s;
+  animation-iteration-count:infinite;
+  -o-animation-iteration-count:infinite;
+  -ms-animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+  -moz-animation-iteration-count:infinite;
+  animation-direction:normal;
+  -o-animation-direction:normal;
+  -ms-animation-direction:normal;
+  -webkit-animation-direction:normal;
+  -moz-animation-direction:normal;
+}
+
+#frotateG_01{
+  left:0;
+  top:25px;
+  animation-delay:0.2495s;
+  -o-animation-delay:0.2495s;
+  -ms-animation-delay:0.2495s;
+  -webkit-animation-delay:0.2495s;
+  -moz-animation-delay:0.2495s;
+}
+
+#frotateG_02{
+  left:7px;
+  top:7px;
+  animation-delay:0.336s;
+  -o-animation-delay:0.336s;
+  -ms-animation-delay:0.336s;
+  -webkit-animation-delay:0.336s;
+  -moz-animation-delay:0.336s;
+}
+
+#frotateG_03{
+  left:25px;
+  top:0;
+  animation-delay:0.4225s;
+  -o-animation-delay:0.4225s;
+  -ms-animation-delay:0.4225s;
+  -webkit-animation-delay:0.4225s;
+  -moz-animation-delay:0.4225s;
+}
+
+#frotateG_04{
+  right:7px;
+  top:7px;
+  animation-delay:0.509s;
+  -o-animation-delay:0.509s;
+  -ms-animation-delay:0.509s;
+  -webkit-animation-delay:0.509s;
+  -moz-animation-delay:0.509s;
+}
+
+#frotateG_05{
+  right:0;
+  top:25px;
+  animation-delay:0.5955s;
+  -o-animation-delay:0.5955s;
+  -ms-animation-delay:0.5955s;
+  -webkit-animation-delay:0.5955s;
+  -moz-animation-delay:0.5955s;
+}
+
+#frotateG_06{
+  right:7px;
+  bottom:7px;
+  animation-delay:0.672s;
+  -o-animation-delay:0.672s;
+  -ms-animation-delay:0.672s;
+  -webkit-animation-delay:0.672s;
+  -moz-animation-delay:0.672s;
+}
+
+#frotateG_07{
+  left:25px;
+  bottom:0;
+  animation-delay:0.7585s;
+  -o-animation-delay:0.7585s;
+  -ms-animation-delay:0.7585s;
+  -webkit-animation-delay:0.7585s;
+  -moz-animation-delay:0.7585s;
+}
+
+#frotateG_08{
+  left:7px;
+  bottom:7px;
+  animation-delay:0.845s;
+  -o-animation-delay:0.845s;
+  -ms-animation-delay:0.845s;
+  -webkit-animation-delay:0.845s;
+  -moz-animation-delay:0.845s;
+}
+
+
+
+@keyframes f_fadeG{
+  0%{
+    background-color:rgb(0,0,0);
+  }
+
+  100%{
+    background-color:rgb(255,255,255);
+  }
+}
+
+@-o-keyframes f_fadeG{
+  0%{
+    background-color:rgb(0,0,0);
+  }
+
+  100%{
+    background-color:rgb(255,255,255);
+  }
+}
+
+@-ms-keyframes f_fadeG{
+  0%{
+    background-color:rgb(0,0,0);
+  }
+
+  100%{
+    background-color:rgb(255,255,255);
+  }
+}
+
+@-webkit-keyframes f_fadeG{
+  0%{
+    background-color:rgb(0,0,0);
+  }
+
+  100%{
+    background-color:rgb(255,255,255);
+  }
+}
+
+@-moz-keyframes f_fadeG{
+  0%{
+    background-color:rgb(0,0,0);
+  }
+
+  100%{
+    background-color:rgb(255,255,255);
+  }
+}
+
+.c3-chart-arc text {
+  fill: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+}

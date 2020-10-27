@@ -1,0 +1,92 @@
+<div class="widget_new full-height">
+    {{#if isTablet}}
+        {{widget-header
+        linkOptions=links
+        defaultSelectedLink=defaultLink
+        selectedLink=selectedLink
+        widgetTitle=app.lang.labels.alert
+        symbol=stockDetails.dispProp1
+        setLink='setLink'
+        hideSymbol=hideSymbol
+        searchedSymbol=stockDetails.dispProp1
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        innerWidgets=innerWidgets
+        innerWidgetAction="renderInnerWidgetItems"
+        closeWidgetAction= 'closeWidgetAction'
+        closeActionTarget=controller
+        isSearchAvailable=isSearchAvailable
+        searchID=searchID
+        clickAction='changeSymbol'
+        cursorMoveCss=cursorMoveCss
+        app=app
+        }}
+    {{/if}}
+<div class="full-width full-height overflow-hidden {{if isTablet 'widget-container-new' ''}}">
+    <div class="layout-container full-width font-m pad-m-tb pad-l-lr">
+        <div class="layout-col-5">
+            {{bootstrap-dropdown-select
+            value=selectedParameter
+            options=parameters
+            defaultSelect=defaultParameter
+            valueKey='value'
+            labelKey='caption'
+            selectAction='setParameter'
+            buttonClass='full-width dropdown-solid-back-color'
+            lblClass='layout-col-24'
+            }}
+        </div>
+        <div class="layout-col-0 pad-s-lr"></div>
+        <div class="layout-col-8">
+            {{bootstrap-dropdown-select
+            value=selectedCriteria
+            options=criteria
+            defaultSelect=defaultCriteria
+            valueKey='value'
+            labelKey='caption'
+            selectAction='setCriteria'
+            buttonClass='full-width dropdown-solid-back-color'
+            lblClass='layout-col-24'
+            }}
+        </div>
+        <div class="layout-col-0 pad-s-lr"></div>
+        <div class="layout-col-5 font-xx-l">
+            {{input-field-number
+            class="form-control search-query h-right fore-color font-xx-l full-width alert-text-box"
+            decimalPlaces=valueDecimalPlaces
+            maxlength=15
+            numValue=value
+            placeholder=alertValuePlaceHolder}}
+        </div>
+        <div class="layout-col-1"></div>
+        <div class="layout-col-6 pad-s-r" {{action 'addAlert'}}>
+            <span class="font-x-l bold btn-txt-color">
+                <button type="button" class="btn bold btn-default btn-animation add-alert-btn font-l"  disabled={{isAddAlertDisabled}}>
+                    <div class="layout-container full-width">
+                        <span class="layout-col-24">{{alertButtonText}}</span>
+                    </div>
+                </button>
+            </span>
+        </div>
+    </div>
+
+    <div class="full-width alert-container-height pos-rel">
+        {{loading-indicator isLoading=isLoading}}
+        {{#if isWidgetRefreshed}}    <!-- Default value of this boolean value is true -->
+            {{table-component
+            columns=columns
+            content=arrangedContent
+            rowHeight= 45
+            hasFooter=false
+            isActiveOnSymbolChange=false
+            minHeaderHeight=25
+            isRefreshed=isRefreshed
+            headerNames=headerNames
+            contextPath=contextPath
+            isContextPanel=isContextPanel
+            id=wkey
+            }}
+        {{/if}}
+        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color mgn-l-t' backgroundCss='h-middle mgn-l-t'}}
+    </div>
+</div>
+</div>

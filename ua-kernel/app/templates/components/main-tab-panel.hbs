@@ -1,0 +1,10 @@
+{{#if showTabs}}
+    <div class="layout-container mgn-s-l mgn-s-t tab-panel font-size-zero">
+        {{#each tabItem in tabList}}
+            <div id="tabs" data-tabs="tabs" {{bind-attr class=":font-m :layout-inline :tab-item tabItem.css"}} {{action 'clickTabItem' tabItem}}>
+                <a class="layout-inline" role="tab" data-toggle="tab">{{tabItem.displayTitle}}</a>
+            </div>
+            <div class="layout-inline"></div>
+        {{/each}}
+    </div>
+{{/if}}

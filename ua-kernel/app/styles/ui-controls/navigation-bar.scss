@@ -1,0 +1,120 @@
+
+@import '../common-variables.scss';
+//@import '../themes/theme-helper';
+@import '../widget-variables';
+@import '../app-layout/app-layout';
+
+.appmnu {
+  top: 0;
+  width: $appmnu-width;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include theme((
+		  background: app-menu-back-color,
+  ));
+
+  @include theme-classic((
+		  background-image: "linear-gradient(90deg, {app-menu-back-color} 0%, {app-menu-back-color} 100%)"
+  ));
+
+  & li {
+	height: $appmnu-height;
+	text-align: center;
+	padding: 13px 0 10px 0;
+
+	@include theme((
+			color: app-menu-fore-color
+	));
+  }
+
+  & li a {
+	display: block;
+	text-decoration: none;
+	font-size: $font-medium;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+  }
+
+  & li:hover {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+
+	@include theme((
+			color: app-menu-fore-color-hover
+	));
+  }
+
+  &-active {
+	padding-top: $padding-small;
+  }
+
+  &-active a {
+	@include theme((
+			color: app-menu-selected-fore-color
+	));
+  }
+
+  & li a:active, & li a:focus {
+	text-decoration: none;
+  }
+
+  & > .sidebar-brand {
+	height: 65px;
+	font-size: $font-xxx-large;
+	line-height: 60px;
+  }
+
+  &-sidebar-active {
+	@include theme((
+			color: app-menu-selected-fore-color,
+			background-image: "linear-gradient(90deg, {app-menu-selected-back-color} 0%, {app-menu-selected-back-color} 23%, {app-menu-selected-back-color} 45%, {app-menu-selected-back-color} 100%)"
+	));
+
+	@include theme-classic((
+			background-image: "linear-gradient(90deg, {app-menu-selected-back-color}, {app-menu-selected-back-color-gradient1})"
+  	));
+  }
+
+  &-sidebar-active a {
+	@include theme((
+			color: app-menu-selected-fore-color
+	));
+  }
+
+  & span.glyphicon {
+	font-size: $font-4x-large;
+  }
+
+  &-fore-color {
+	@include theme((
+			color: app-menu-fore-color
+	));
+  }
+}
+
+.left-panel ul li,
+.left-panel ul li:after,
+.left-panel ul li:before {
+	transition: all .5s;
+}
+
+.left-panel ul li {
+	color: #555;
+	position:relative;
+	z-index: 1;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	transition: all 0.8s;
+}
+
+.appmnu li:active {
+	@include theme((
+			background-color: app-menu-selected-back-color
+	));
+}
+
+@import 'extended/navigation-bar-extended';

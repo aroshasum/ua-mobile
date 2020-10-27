@@ -1,0 +1,202 @@
+@import '../common-variables';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+@import '../themes/themes-main';
+@import '../widget-variables';
+@import '../widget-variables';
+
+// IOS specific styles go here
+$trade-btn-buy-back-color: #019875;
+$trade-btn-sell-back-color: #e8305f;
+$tab-color-border: #f9bf3b;
+$textbox-border-color: #8E8E93;
+$button-fore-color: #929292;
+$button-border-color: #3883ff;
+$widget-title-fore-color: #ffffff;
+$app-title-back-color: #e8e8e8;
+$full-transparent-back-color: rgba(255, 255, 255, 0);
+$semi-transparent-back-color: rgba(255, 255, 255, 0.45);
+$highlight-back-color-1: #f9bf3b;
+$highlight-back-color-2: #578db4;
+$tab-active: #000000;
+
+/* --- Watch List Control Panel Styles --- */
+
+$wl-cp-border-color: #1d5f8f;
+$wl-cp-separator-color: #133f5f;
+
+/* --- /Watch List Control Panel Styles --- */
+
+.ios .font-family {
+  font-family: "SanFrancisco", OpenSans;
+}
+
+.ios .font-thick {
+  font-family: "Roboto Black", OpenSans;
+  font-weight: 900;
+}
+
+.theme2 .ios .btn-buy {
+  border-radius: 5px;
+  border: 1px solid $trade-btn-buy-back-color;
+  box-shadow: none;
+}
+
+.theme2 .ios .btn-sell {
+  border-radius: 5px;
+  border: 1px solid $trade-btn-sell-back-color;
+  box-shadow: none;
+}
+
+.theme2 .ios .btn-default {
+  background-color: white;
+  background-image: linear-gradient(180deg, white 0%, white 100%);
+  border: 1px solid $button-border-color;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.theme2 .ios .selector-btn {
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.45);
+  background-image: none;
+}
+
+.theme2 .ios .confirm-btn {
+  border-radius: 5px;
+  border: 1px solid $tab-color-border;
+  box-shadow: none;
+}
+
+.theme2 .ios .order-confirmation-cancel-btn {
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.theme2 .ios.order-ticket-text-boxes {
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.ios .watchlist {
+  &-toggle-label {
+    border: 1px solid #cac8c8;
+  }
+
+  &-toggle-switch {
+    box-shadow: 0 2.5px 5px 0 #cac8c8;
+    margin: 2px;
+  }
+
+  &-toggle-style:before {
+    background-color: #019875;
+    border: 1px solid #019875;
+  }
+
+  &-toggle-style:after {
+    background-color: #ffffff;
+  }
+}
+
+.theme2 .ios .search-bar {
+  height: 37px;
+  border-radius: 5px;
+  background-image: linear-gradient(180deg, #1c5b8a 0%, #1c5b8a 100%);
+  border: none;
+  // color: $button-fore-color;     // Overwritten by wrong color
+}
+
+.theme2 .ios .search-icon {
+  padding: 12px;
+  padding-left: 14px;
+}
+
+//.theme2 .ios .search-query {  // No need of a border-radius for search-query
+//  border-radius: 5px;
+//}
+
+.theme2 .ios .add-alert-btn {
+  border-radius: 5px;
+  //color: white;
+  border: 1px solid $tab-color-border;
+  background-color: $tab-color-border;
+  background-image: linear-gradient(180deg, $tab-color-border 0%, $tab-color-border 100%);
+}
+
+.ios body {
+  -webkit-overflow-scrolling: touch; // To enable smooth scrolling in ios
+}
+
+.theme2 .ios .dropdown-semi-transparent {
+  border-radius: 5px !important;
+  border: none !important;
+  background-image: none !important;
+  background-color: $semi-transparent-back-color !important;
+  box-shadow: none !important;
+}
+
+.theme2 .ios .dropdown-solid-back-color {
+  box-shadow: none !important;
+  border: 1px solid $textbox-border-color !important;
+  border-radius: 5px;
+  background-color: white;
+  background-image: linear-gradient(180deg, white 0%, white 100%) !important;
+}
+
+.theme2 .ios .highlight-back-color-1 {
+  background-color: $highlight-back-color-1;
+  background-image: linear-gradient(0deg, $highlight-back-color-1 0%, $highlight-back-color-1 90%, $highlight-back-color-1 100%);
+  border: none;
+}
+
+.theme2 .ios .highlight-back-color-2 {
+  background-color: $highlight-back-color-2;
+  background-image: linear-gradient(0deg, $highlight-back-color-2 0%, $highlight-back-color-2 90%, $highlight-back-color-2 100%);
+}
+
+/* --- Widget Title - Mobile --- */
+
+.theme2.ios .wdgttl {
+  &-drp-dwn-btn {
+    border: 0 solid $button-border-color;
+  }
+}
+
+/* --- Widget Title - Mobile --- */
+
+.theme2 .ios .submit-btn {
+  @extend .confirm-btn;
+  background-image: none;
+  background-color: $highlight-back-color-1;
+}
+
+.theme2 .ios .search-query:focus {
+  webkit-animation: none;
+  -moz-animation: none;
+  animation: none;
+
+  @include theme((
+          border-bottom: none
+  ));
+}
+
+.ios .input-font-size {   // This class added to prevent default zoom function when click on input field in IOS
+  font-size: 16px;
+}
+
+.theme2 .ios .btn-subscribe {
+  border-radius: 5px;
+  border: 1px solid $highlight-back-color-2;
+  box-shadow: none;
+}
+
+.theme2 .ios .btn-border {
+  border: 0 solid $button-border-color;
+}
+
+@import 'extended/ios-extended';
+
+
+
+

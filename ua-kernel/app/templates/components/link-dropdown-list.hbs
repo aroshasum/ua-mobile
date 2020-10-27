@@ -1,0 +1,18 @@
+<ul class="dropdown-menu link-widget display-block" role="menu" aria-labelledby="menu1">
+    {{#each item in options}}
+        <li role="presentation">
+            <a role="menuitem" {{action "select" item}}>
+                {{#if item.code}}
+                    <div class="left">
+                        <div class="link-item {{getValueKey item labelKey}}"></div>
+                    </div>
+
+                    <span class="mgn-s-l">{{item.name}}</span>
+                {{else}}
+                    <div> <i class="left icon1-link"></i> </div>
+                    <span class="mgn-s-l">{{item.name}}</span>
+                {{/if}}
+            </a>
+        </li>
+    {{/each}}
+</ul>

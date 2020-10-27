@@ -1,0 +1,72 @@
+<div id="favoritePanel-{{wkey}}" class="layout-container toolbar-styles full-width pad-widget-left pad-widget-right overflow-visible {{if isMobile 'mgn-s-t' ''}}">
+
+    <div class="layout-col">
+            {{input type="text" value=addStockSearchKey action="showSearchPopup" on="key-press" class="search-query search-ctrl form-control mousetrap fav-panel-width" placeholder=app.lang.labels.addSymbols }}
+            <div class="input-group-btn pos-abs top-zero">
+                <button class="btn search-ctrl-btn" type="button">
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                </button>
+            </div>
+        <div class="modal-symbol">
+            {{#modal-popup isEnabled=false id="watchListSymbolSearch"}}
+                {{global-search
+                searchKey=addStockSearchKey
+                showWidgetButtons=showWidgetButtons
+                stopGlobalNotification=true
+                clickAction='addStocksFromCustomWL'
+                analyticsKey=gaKey
+                wkey=wkey}}
+            {{/modal-popup}}
+        </div>
+    </div>
+
+    <div data-id="favorite-free" class="layout-col-24" id=""></div>
+
+    <div class="layout-col pad-m-l overflow-visible">
+        <div class="dropdown">
+            <button type="button" class="btn btn-dropdown btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><div class="layout-col icon-plus colour-2"></div>  <div class="layout-col pad-s-l">{{app.lang.labels.newWatchList}}</div></button>
+            <div class="dropdown-menu" role="menu">
+                {{custom-watchlist-dialog
+                app=app
+                actionType="addNewWL"
+                customWLCallBack='onCustomWlSelect'
+                }}
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-col pad-m-l overflow-visible">
+        <div class="dropdown">
+            <button type="button" class="btn btn-dropdown btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" {{action 'setCurrentCustomWLName'}} {{bind-attr disabled=isRenameWLDisabled}}><span class="btn-icon colour-2"></span>  <span>{{app.lang.labels.renameWL}}</span></button>
+            <ul class="dropdown-menu" role="menu">
+                {{custom-watchlist-dialog
+                watchListName=currentCustomWLName
+                app=app
+                title="renameWL"
+                actionType="renameWL"
+                currentCustomWLId=currentCustomWLId
+                customWLCallBack='renameCustomWLCallBack'
+                }}
+            </ul>
+        </div>
+    </div>
+
+    <div id="deleteWatchListBtn" class="layout-col pad-m-l">
+        <button type="button" class="btn btn-dropdown btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" {{action 'deleteWatchList'}} {{bind-attr disabled=isDeleteWLDisabled}}>{{app.lang.labels.deleteWL}}</button>
+    </div>
+
+    <div class="layout-col pad-m-l">
+        <div class="dropdown">
+            <button data-id="favorite-more-columns" type="button" class="btn btn-dropdown btn-default dropdown-solid-back-color" {{action 'loadMoreColumnsDropDown'}} data-toggle="dropdown" aria-expanded="false">
+                <div class="layout-container full-width">
+                    {{#if (onResponsive responsive.trigger responsive "favorite-free" 1)}}
+                        <div class="layout-col"><i class="layout-col icon-th"></i></div>
+                    {{else}}
+                        <div class="layout-col">{{app.lang.labels.moreColumns}}</div>
+                        <i class="layout-col h-right pad-m-l icon-angle-down"></i>
+                    {{/if}}
+                </div>
+            </button>
+        </div>
+    </div>
+</div>

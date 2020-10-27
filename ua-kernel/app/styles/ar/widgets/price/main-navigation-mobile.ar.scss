@@ -1,0 +1,31 @@
+.ar .main-menu-enter {
+  left: 0;
+  right: 0;
+  -webkit-animation: main-menu-right-animation .4s;
+  -moz-animation: main-menu-right-animation .4s;
+  -o-animation: main-menu-right-animation .4s;
+  animation: main-menu-right-animation .4s;
+}
+
+.ar .main-menu-exit {
+  left: 100%;
+  right: -100%;
+  -webkit-animation: main-menu-left-animation .4s;
+  -moz-animation: main-menu-left-animation .4s;
+  -o-animation: main-menu-left-animation .4s;
+  animation: main-menu-left-animation .4s;
+}
+
+.ar .main-menu-right-panel {
+  left: 0;
+  right: initial;
+}
+
+.ar .nano > .main-menu-scroll.nano-content {
+  margin-left: 0 !important;
+}
+
+.ar .main-menu-enter {
+  left: 20%;
+  right: 0;
+}

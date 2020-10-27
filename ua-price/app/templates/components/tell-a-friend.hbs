@@ -1,0 +1,27 @@
+<div class="layout-container full-width pad-s-l {{displayCss}}">
+    <div class="layout-col h-left">
+        <div class="layout-inline h-left">
+            <button type="button" class="btn btn-default" {{action 'onEnableTellAFried'}}>
+                <div class="layout-container full-width">
+                    <div class="layout-col">{{app.lang.labels.tellFriend}}</div>
+                    <div class="layout-col h-right pad-s-l"><i class="glyphicon glyphicon-triangle-right"></i></div>
+                </div>
+            </button>
+        </div>
+
+        {{#if isSendEnabled}}
+            <div class="layout-inline h-left pad-l-l">
+                {{input-field-text type="text" value=recipient1 placeholder=app.lang.labels.enterFriendEmail class="ember-view ember-text-field search-query form-control pad-l-r"}}
+            </div>
+            <div class="layout-inline pad-m-l h-left">
+                {{input-field-text type="text" value=recipient2 placeholder=app.lang.labels.enterFriendEmail class="ember-view ember-text-field search-query form-control pad-l-r"}}
+            </div>
+            <div class="layout-inline h-left pad-l-l">
+                <button type="button" class="btn btn-default" {{action 'onLoadToCanvas'}}>
+                    {{app.lang.labels.send}}
+                </button>
+            </div>
+        {{/if}}
+
+    </div>
+</div>

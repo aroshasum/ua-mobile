@@ -1,0 +1,23 @@
+.ar .mkt-limit-style:before {
+  content: "محدد";
+}
+
+.ar .mkt-limit-style:after {
+  content: "السوق";
+}
+
+.ar .buy-sell-style:before {
+  content: "شراء";
+}
+
+.ar .buy-sell-style:after {
+  content: "بيع";
+}
+
+.ar .call-put-style:before {
+  content: "(حق)الشراء";
+}
+
+.ar .call-put-style:after{
+  content: "(حق)البيع";
+}

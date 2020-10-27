@@ -1,0 +1,63 @@
+<div id="option-chain-{{wkey}}" class="widget_new full-height">
+    {{widget-header
+        widgetTitle=app.lang.labels.optionChain
+        linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink='setLink'
+        isSearchAvailable=true
+        searchID=searchID
+        clickAction='changeSymbol'
+        innerWidgets=innerWidgets
+        innerWidgetAction="renderInnerWidgetItems"
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        closeWidgetAction= 'closeWidgetAction'
+        closeActionTarget=controller
+        cursorMoveCss=cursorMoveCss
+        isResizeAvailable=true resizeAction='fullScreenToggle'
+    }}
+
+    <div class="col-md-12 widget-container-new full-height-without-header pad-s-b">
+        <div class="layout-container full-width pad-widget-left pad-widget-right">
+            <div class="layout-col overflow-visible" title="{{app.lang.labels.optionPeriods}}">
+                {{bootstrap-dropdown-select
+                    options=optPeriodArray
+                    defaultSelect=currentOptPeriod
+                    valueKey="code"
+                    labelKey="desc"
+                    selectAction="setOptionPeriod"
+                }}
+            </div>
+
+            <div class="layout-col pad-m-l overflow-visible">
+                {{bootstrap-dropdown-select
+                    options=nearMonArray
+                    defaultSelect=currentNearMon
+                    valueKey="code"
+                    labelKey="desc"
+                    selectAction="setNearMoney"
+                }}
+            </div>
+
+            <div class="layout-col-24 pad-xs-tb">
+                {{outlet "quoteSummary"}}
+            </div>
+        </div>
+
+        <div class="full-width" style="height: calc(100% - 47px);">
+            {{loading-indicator isLoading=isLoading}}
+            {{single-message-viewer showMessage=showError message=errorMessage messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+            {{#if isDataAvailable}}
+                {{table-component
+                    columns=columns
+                    content=oneWayContent
+                    rowHeight=rowHeight
+                    minHeaderHeight= 25
+                    hasFooter=false
+                    sortAscending=sortAscending
+                    id=wkey
+                    isRefreshed=isRefreshed
+                    rowClickAction="clickRow"
+                    doubleClickAction="doubleClickRow"
+                }}
+            {{/if}}
+        </div>
+    </div>
+</div>

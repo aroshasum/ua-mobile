@@ -1,0 +1,43 @@
+{{#if isMobile}}
+    <div class="layout-container pad-m-all fade-fore-color add-new-watchlist-dialog">
+        <div class="full-width colour-normal pad-m-t mgn-m-b">
+            {{displayTitle}}
+        </div>
+        <div class="full-width">
+            {{input value=watchListName type="text" class="search-query form-control colour-normal mgn-m-t mgn-m-b" autofocus="autofocus"}}
+        </div>
+        <div class="full-width pad-m-b">
+            {{#if isCustomWLExist}}
+                <span class="font-m down-fore-color">{{app.lang.messages.watchListNameExist}}</span>
+            {{/if}}
+
+            {{#if isEmptyName}}
+                <span class="font-m down-fore-color">Watch List Name Cannot Be Empty</span>
+            {{/if}}
+        </div>
+        <div class="full-width layout-container">
+            <div class="layout-col h-left">
+                <button type="button" class="btn btn-default btn-animation pad-l-lr btn-small bold font-l full-width" data-toggle="dropdown" aria-expanded="false" {{action 'closePopup'}}>{{app.lang.labels.cancel}}</button>
+            </div>
+            <div class="layout-col pad-l-l h-right">
+                <button type="button" class="btn bold confirm-btn btn-animation btn-txt-color font-l full-width" data-toggle="dropdown" aria-expanded="false" {{action 'saveWL' watchListName}}>{{app.lang.labels.save}}</button>
+            </div>
+        </div>
+    </div>
+{{else}}
+    <li class="pad-m-all">
+        <div class="border-top" style="width: 200px; min-height:84px">
+            <div class="fade-fore-color font-m pad-m-t mgn-m-b ellipsis">{{displayTitle}}</div>
+            {{input value=watchListName type="text" class="search-query form-control colour-normal mgn-m-t mgn-m-b" autofocus="autofocus"}}
+            <div class="right">
+                <button {{bind-attr disabled=isSaveDisabled}} type="button" class="btn btn-default" data-toggle="dropdown"
+                                                              aria-expanded="false" {{action 'saveWL' watchListName}}>{{app.lang.labels.save}}</button>
+            </div>
+            <div class="left">
+                {{#if isCustomWLExist}}
+                    <span class="font-m down-fore-color">{{app.lang.messages.watchListNameExist}}</span>
+                {{/if}}
+            </div>
+        </div>
+    </li>
+{{/if}}

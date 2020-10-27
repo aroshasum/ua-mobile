@@ -1,0 +1,66 @@
+<div class="widget-container-new full-width full-height">
+    {{widget-header
+    widgetTitle=exchange.des
+    hideWidgetLink=true
+    widgetClass='pad-s-tb sub-header'
+    hideSymbol=true}}
+    <div class="widget-hline"></div>
+
+    <div class="page-container full-height-without-header">
+        {{loading-indicator isLoading=isLoading}}
+        {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+        {{#each submarket in subMarketArray}}
+            {{widget-header
+            widgetTitle=submarket.lDes
+            hideWidgetLink=true
+            hideSymbol=true}}
+
+            <div class="widget-hline"></div>
+            <div class="layout-container full-width pad-l-tb pad-m-lr">
+                <div class="layout-row">
+                    <div class="layout-col pad-widget-left pad-l-b">
+                        <div class="h-left font-l fade-fore-color pad-s-b">{{app.lang.labels.volume}}</div>
+                        <div class="font-xx-l h-left fore-color bold">{{formatNumber submarket.vol 0}}</div>
+                    </div>
+                    <div class="layout-col-24 pad-m-l"></div>
+                    <div class="layout-col pad-widget-right pad-m-l pad-l-b">
+                        <div class="h-right font-l fade-fore-color pad-s-b">{{app.lang.labels.trades}}</div>
+                        <div class="font-xx-l h-right fore-color bold">{{formatNumber submarket.trades 0}}</div>
+                    </div>
+                </div>
+                <div class="layout-row">
+                    <div class="layout-col pad-widget-left pad-l-b">
+                        <div class="h-left font-l fade-fore-color pad-s-b">{{app.lang.labels.turnover}}</div>
+                        <div class="font-xx-l h-left fore-color bold">{{formatNumber submarket.tovr 0}}</div>
+                    </div>
+                    <div class="layout-col-24 pad-m-l"></div>
+                    <div class="layout-col pad-widget-right pad-m-l pad-l-b">
+                        <div class="h-right font-l fade-fore-color pad-s-b">{{app.lang.labels.symTraded}}</div>
+                        <div class="font-xx-l ltr h-right bold">{{formatNumber submarket.symt 0}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pad-m-lr">
+                <div class="widget-hline"></div>
+                <div class="layout-container pad-widget-left pad-widget-right full-width ms-progress-bar-panel-height">
+
+                    <div class="layout-col-8 pad-m-r pos-rel up-down-panel-item">
+                        <div class="font-xx-l h-left up-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber submarket.ups 0}}</div>
+                        <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.up}}</div>
+                    </div>
+
+                    <div class="layout-col-8 pos-rel">
+                        <div class="font-xx-l h-left down-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber submarket.dwns 0}}</div>
+                        <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.down}}</div>
+                    </div>
+
+                    <div class="layout-col-8 pos-rel">
+                        <div class="font-xx-l h-left highlight-fore-color bold pos-abs top-zero pad-l-t">{{formatNumber submarket.nChg 0}}</div>
+                        <div class="layout-inline font-l h-left fade-fore-color pos-abs bottom-zero pad-l-b">{{app.lang.labels.unchanged}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-hline"></div>
+        {{/each}}
+    </div>
+</div>

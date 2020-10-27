@@ -1,0 +1,421 @@
+@import '../../common-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+
+.ms-top-bar {
+  height: $height-top-panel;
+
+  @include theme((
+          background-color: widget-back-color
+  ));
+
+  @include theme-classic((
+          box-shadow: "0 2px 3px {box-shadow-color}",
+          border-bottom: "1px {widget-border-b-color} solid",
+          background-image: "linear-gradient(0deg, {widget-back-color-gradient} 0%, {widget-back-color} 30%)"));
+
+  &-exchange {
+    width: 120px;
+    text-align: $text-align-2;
+    float: $float-1;
+  }
+
+  &-chart {
+    width: 140px;
+    padding-right: $padding-small;
+    float: $float-1;
+  }
+
+  &-index-value {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    top: 4px;
+  }
+
+  &-percentage-position {
+    position: absolute;
+    top: 21px;
+    right: 0;
+  }
+
+  &-ticker-area {
+    width: 46%;
+    float: $float-1;
+  }
+
+  &-ticker {
+    padding-top: $padding-medium;
+    padding-bottom: $padding-medium;
+    float: $float-1;
+  }
+
+  /* ======  Ticker Bar  ==============  */
+
+  &-ticker-area .tickerDiv {
+    width: 100%;
+    margin: 0 auto;
+    float: $float-3;
+    border-radius: 0 0 2px 2px;
+    height: 26px;
+
+    @include theme((
+            line-height: "24px",
+            margin-top: "0",
+            border: "0 {widget-back-color} solid",
+            background-color: ticker-back-color
+    ));
+
+    @include theme-classic((
+            line-height: "28px",
+            margin-top: "-26px",
+            border: "1px {ticker-border-color} solid",
+            border-top: "0 {widget-back-color} solid",
+            -moz-box-shadow: "inset 1px 4px 9px -6px",
+            -webkit-box-shadow: "inset 1px 4px 9px -6px",
+            box-shadow: "inset 1px 4px 9px -6px"
+    ));
+  }
+
+  /* ======  /Ticker Bar  ==============  */
+
+  &-logo-co {
+    @if $isCoBranded == 'yes' {
+      max-width: 128px;
+      display: block;
+    } @else {
+      display: none;
+    }
+  }
+
+  &-logo-co img {
+      max-width: 84px;
+      max-height: 61px;
+  }
+
+  &-logo {
+    @if $isCoBrandedFull == 'yes' {
+      display: none;
+    } @else {
+      padding: 0 $padding-small $padding-small $padding-small;
+      max-width: 90px;
+      height: 47px;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  &-logo-right .ms-top-bar-vertical-separator {
+    @if $isDisplayTopSeparator == 'yes' {
+      display: block;
+    } @else {
+      display: none;
+    }
+  }
+
+  &-logo-right .ms-top-bar-vertical-separator {
+    @if $isDisplayTopSeparator == 'yes' {
+      display: block;
+    } @else {
+      display: none;
+    }
+  }
+
+  &-logo-left .ms-top-bar-vertical-separator {
+    @if $isDisplayTopSeparator == 'yes' {
+      display: block;
+    } @else {
+      display: none;
+    }
+  }
+
+  &-logo-right {
+    display: inherit;
+  }
+
+  &-logo-left {
+    display: none;
+  }
+
+  &-logo i {
+    padding-left: $padding-small;
+    cursor: pointer;
+  }
+
+  &-progress-time {
+    height: 2px;
+    margin: $margin-small $margin-medium 0 $margin-medium;
+
+    @include theme((
+            background-color: progress-bar-back-color
+    ))
+  }
+
+  &-nav-horizontal-list td {
+    height: 15px;
+    //vertical-align: middle; (Removed - Fixed vertical alignment on top bar)
+  }
+
+  &-index-chart-position {
+    position: absolute !important;
+    top: 19px;
+    cursor: pointer;
+  }
+
+  &-progress-vertical {
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  &-vertical-top {
+    margin-left: -26px;
+  }
+
+  &-exchange-status-alert {
+    animation-timing-function: ease-out;
+    @include animate(pulsate, 0.6s, 1, normal);
+  }
+
+  &-alert-style {
+    float: none;
+    height: 22px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* ======  Index Chart Layout  ==============  */
+
+  &-index-percentage {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &-index-change-green {
+    @extend %index-change;
+
+    @include theme((
+            color: dark-bg-fore-color,
+            background-color: up-back-color
+    ));
+  }
+
+  &-index-change-red {
+    @extend %index-change;
+
+    @include theme((
+            color: dark-bg-fore-color,
+            background-color: down-back-color
+    ));
+  }
+
+  &-index-change-none {
+    @extend %index-change;
+
+    @include theme((
+            color: dark-bg-fore-color,
+            background-color: fade-back-color
+    ));
+  }
+
+  &-index-percentage-green {
+    @extend %index-percentage;
+
+    @include theme((
+            color: up-fore-color
+    ));
+  }
+
+  &-index-percentage-red {
+    @extend %index-percentage;
+
+    @include theme((
+            color: down-fore-color
+    ));
+  }
+
+  &-index-percentage-none {
+    @extend %index-percentage;
+
+    @include theme((
+            color: fade-back-color
+    ));
+  }
+
+  &-padding-x-large-left {
+    padding-left: 25px;
+  }
+
+  /* ======  /Index Chart Layout  ==============  */
+  &-index-dropdown {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+  }
+  // ------------ Topbar Seperators --------------- //
+
+  &-vertical-separator {
+    float: $float-3;
+    margin-bottom: 8px;
+    margin-left: 1px;
+    position: absolute;
+    top:40px;
+
+    @include theme((
+            border-right: "1px {widget-separator-color} solid"
+    ));
+  }
+
+  &-vline-long {
+    height: 59px;
+    margin-top: 8px;
+  }
+
+  &-vline-short {
+    height: 31px;
+    margin-top: 36px;
+  }
+
+  &-border {
+    width: 1px;
+    margin-top: 6px;
+    height: 31px;
+
+    @include theme((
+            border-right: "1px {widget-separator-color} solid"
+    ));
+  }
+
+  &-align-cash-map path {
+    cursor: default !important;
+  }
+
+  &-cash-map-container {
+    width: 180px;
+    text-align: center;
+  }
+
+  &-cash-map-content {
+    float:left;
+    width:90px
+  }
+
+  &-showTime {
+    height:11px;
+  }
+
+  &-index-dropdown {
+    position: absolute;
+    z-index: 1;
+  }
+
+  &-exchange-1 {
+    max-width: 146px;
+    padding-top: 6px;
+  }
+
+  &-exchange-btn {
+    max-width: 118px;
+    text-overflow: ellipsis;
+  }
+
+  &-showTime-1 {
+    height:11px;
+    width:70px;
+    text-align: center;
+    top: 1px;
+    padding-left: 5px;
+  }
+
+  &-chart-1 {
+    width: 85px;
+  }
+
+  &-index-chart-position-1 {
+    top: 1px;
+    margin-top: 38px;
+
+    @include theme((
+            background-color: fade-prominent-back-color-2
+    ));
+  }
+
+  &-index-value-1 {
+    width: 198px;
+    margin-top: 36px;
+    float: $float-1;
+  }
+
+  &-index-dropdown-1 {
+    top: 38px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 1;
+    @extend .ms-top-bar-index-dropdown;
+  }
+
+  &-alert-style-1 {
+    padding-top: 6px;
+    width: 70px;
+    @extend .ms-top-bar-alert-style;
+  }
+
+  &-alert-height-1{
+    height:31px;
+  }
+
+  &-index-dropdown-btn {
+    max-width: 152px;
+    text-overflow: ellipsis;
+  }
+
+  &-change {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  &-mkt-status {
+    height: 29px;
+    padding-top: 8px;
+    width:70px;
+  }
+
+  &-index-dropdown-3 {
+    top: 54px;
+    @extend .ms-top-bar-index-dropdown-1;
+  }
+
+  // ------------ /Topbar Seperators --------------- //
+
+  .ms-top-bar-align-cash-map {
+    top: -1px;
+    height: 55px;
+    width: 88px;
+    float: left;
+  }
+}
+
+%index-change {
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 2px;
+}
+
+%index-percentage {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.cash-map-min-width {
+  min-width: 180px;
+}
+
+// Adding this to fix firefox browser issue
+.index-chart .ember-view {
+  float: $float-1;
+  height: 67px;
+}
+
+
+@import 'extended/market-summary-top-bar-extended';

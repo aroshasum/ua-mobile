@@ -1,0 +1,31 @@
+<div class="layout-container wdgttl-tab-panel pad-s-lr">
+    <div role="presentation" {{bind-attr class=":pad-s-lr :wdgttl-border-left :wdgttl-tab-item isDefaultExchangeSelected:active"}} {{action 'setWlExchange' defaultExchange true}}>
+        <a aria-controls="watchlist-area" role="tab" data-toggle="tab"
+           class="wdgttl-tab-link font-m wdgttl-fore-color">{{defaultExchange.des}}
+        </a>
+    </div>
+
+    {{#if selectedExchange}}
+        <div role="presentation" {{bind-attr class=":pad-s-lr :wdgttl-tab-item isExchangeSelected:active"}} {{action 'setWlExchange' selectedExchange}}>
+            <a aria-controls="watchlist-area" role="tab" data-toggle="tab"
+               class="wdgttl-tab-link font-m wdgttl-fore-color">{{selectedExchange.des}}
+            </a>
+        </div>
+    {{/if}}
+
+    <div class="wdgttl-tab-item wdgttl-tab-link wdgttl-fore-color overflow-visible wdgttl-border-right" style="border-left: none !important">
+        {{more-markets-dropdown setExchange='setWlExchange' key=key isShowOnlyDefault=true buttonClass='wdgttl-drp-dwn-btn'}}
+    </div>
+
+    {{tab-dropdown
+    isDropdown=isCurrentWLDropdown
+    displayList=customWatchListArray
+    newActive=customWLNewActive
+    isDisplayListChanged=isCustomWLChanged
+    labelKey='name'
+    actionName='onCustomWlSelect'
+    tabItemClass='pad-s-lr wdgttl-tab-item'
+    tabLinkClass='wdgttl-tab-link bold wdgttl-fore-color'
+    buttonClass='wdgttl-drp-dwn-btn'
+    }}
+</div>

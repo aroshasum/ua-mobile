@@ -1,0 +1,19 @@
+<div class="layout-container">
+    {{#if isVertical}}
+        <div class="layout-inline progress cash-map-progress-bar">
+            <div {{bind-attr class=":progress-bar :display-table-row progressBackStyle"}} style={{progressWidth}}></div>
+        </div>
+        {{#unless isValueHidden}}
+            <div class="font-m pad-s-t {{valueStyle}}">{{showValue}}</div>
+        {{/unless}}
+    {{else}}
+    {{#unless isValueHidden}}
+        <div class="layout-inline font-x-l bold pad-m-r">
+            <span {{bind-attr class="valueStyle"}}>{{showValue}}</span>
+        </div>
+    {{/unless}}
+    <div class="layout-inline progress cash-map-progress-bar">
+        <div {{bind-attr class=":progress-bar :display-table-row progressBackStyle"}} style={{progressWidth}}></div>
+    </div>
+    {{/if}}
+</div>

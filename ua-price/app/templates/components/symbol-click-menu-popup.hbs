@@ -1,0 +1,26 @@
+<div class="right-click-menu" data-toggle="dropdown">
+    <div class="pad-l-all right-click-menu-header mgn-s-b watchlist-right-click-symbol">
+        <div class="layout-inline bold font-x-l">{{selectedSymbol.dispProp1}}</div>
+        <div class="layout-inline pad-xs-t font-m pad-s-l">{{selectedSymbol.exg}}</div>
+    </div>
+    {{#each group in fullContextMenu}}
+        {{#if _view.contentIndex}}
+            <hr> <!--Seperator-->
+        {{/if}}
+        {{#each item in group}}
+            {{#if item.isExtended}}
+                <div {{action 'position' on="mouseEnter"}} >
+                    {{partial item.path}}
+                </div>
+            {{else}}
+                <div class="right-click-menu-item {{item.view.displayStyle}}" {{action 'rightClickItem' item.config item.args}}>
+                    <a>
+                        <div class="layout-inline v-middle font-x-l right-click-menu-rtl"><i class="pad-xs-r {{item.view.iconClass}}"></i></div>
+                        <div class="layout-inline pad-l-l font-m {{item.view.menuClass}}">{{item.view.name}}</div>
+                        <div class="layout-inline right icon-fore-color font-s pad-s-t">{{item.view.shortcut}}</div>
+                    </a>
+                </div>
+            {{/if}}
+        {{/each}}
+    {{/each}}
+</div>

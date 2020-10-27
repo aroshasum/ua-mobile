@@ -1,0 +1,169 @@
+@import '../app-layout';
+
+$netplus-standard-news-height: 184px;
+$quote-summary-height: 45px;
+$quote-mdp-summary-height: 26px;
+$announcement-popup-icon-bar-height: 20px;
+$mkt-ovw-row-2-bottom-gap: 33px;
+
+$widget-border: $border-small + $border-xxx-small + $border-xx-small;
+$netplus-standard-row-2-height: $app-widget-gap + $wdgttl-height + $netplus-standard-news-height;
+$netplus-investor-row-1-height: $app-widget-gap + $wdgttl-height + $padding-x-small + ($app-row-height * 5) + $widget-border; // 5 = no of rows
+$mkt-ovw-row-1-height: ($app-row-height * 5) + $widget-border; // 5 = no of rows
+$quote-row-1-height: $app-widget-gap + $quote-summary-height;
+$quote-row-3-height: $app-widget-gap + $wdgttl-height + $quote-mdp-summary-height + ($app-row-height * 6) + $widget-border; // 6 = header + no of rows
+$company-prof-row-1-height: $app-widget-gap + $quote-summary-height;
+$company-prof-row-4-height: $app-widget-gap + $wdgttl-height + $quote-mdp-summary-height + ($app-row-height * 5) + $widget-border; // 11 = header + no of rows
+
+.left-panel {
+  width: $appmnu-width;
+}
+
+.horizontal-panel {
+  height: $horizontal-panel-height;
+}
+
+.right-panel-collapse-menu {
+  width: $rightmnu-width;
+  right: 0;
+  left: auto;
+}
+
+.main-panel {
+  left: $appmnu-width;
+  top: 0;
+}
+
+.main-panel-h-nav {
+  left: 0;
+  top: 0;
+}
+
+.main-panel-width {
+  width: calc(100% - #{$appmnu-width + $rightmnu-width});
+}
+
+.main-panel-width-h-nav {
+  width: calc(100% - #{$rightmnu-width});
+}
+
+.main-panel-width-responsive {
+  width: calc(100% - #{$appmnu-width});
+}
+
+.tab-menu {
+  @include generate-widget-height($app-tab-height + $app-widget-gap);
+}
+
+.toppanel-height {
+  height: $height-top-panel;
+}
+
+.netplus-standard-row-1 {
+  @include generate-widget-height($netplus-standard-row-2-height);
+}
+
+.netplus-standard-row-2 {
+  height: $netplus-standard-row-2-height;
+}
+
+.netplus-investor-row-1 {
+  height: $netplus-investor-row-1-height;
+}
+
+.netplus-investor-row-2 {
+  @include generate-widget-height($netplus-investor-row-1-height);
+}
+
+.mkt-ovw-row-1-height {
+  height: $mkt-ovw-row-1-height;
+}
+
+.mkt-ovw-row-1 {
+  height: $mkt-ovw-row-1-height;
+}
+
+.mkt-ovw-row-2 {
+  @include generate-widget-height($mkt-ovw-row-1-height + $mkt-ovw-row-2-bottom-gap);
+}
+
+.quote-row-1 {
+  height: $quote-row-1-height;
+}
+
+.quote-row-2 {
+  @include generate-widget-height($quote-row-3-height);
+}
+
+.quote-row-2-with-gap {
+  @include generate-widget-height($quote-row-3-height + $app-widget-gap * 2);
+}
+
+.quote-row-2-responsive {
+  height: $quote-row-3-height;
+}
+
+.quote-rows {
+  height: calc(100% - #{$quote-row-1-height});
+}
+
+.quote-rows-full {
+  height: calc(100% - #{$quote-row-1-height + $app-widget-gap});
+}
+
+.rows-scroll {
+  overflow-y: scroll;
+}
+
+.quote-row-3 {
+  height: $quote-row-3-height;
+}
+
+.company-prof-row-responsive {
+  height: $company-prof-row-4-height;
+}
+
+.company-prof-row-responsive-1 {
+  @include generate-widget-height($company-prof-row-4-height * 2 + $app-widget-gap * 3);
+}
+.company-prof-row-1 {
+  height: $company-prof-row-1-height;
+}
+
+.company-prof-row-2 {
+  @include generate-widget-height($company-prof-row-1-height);
+}
+
+.company-prof-row-full {
+  @include generate-widget-height($company-prof-row-1-height + $app-widget-gap);
+}
+
+.top-stock-row {
+  height: 50%;
+}
+
+.heat-map-ctrl-panel {
+  height: $app-row-height;
+}
+
+.heat-map-content {
+  @include generate-widget-height($app-row-height + ($margin-small * 2) + $border-xxx-small + $border-xx-small);
+}
+
+.pro-chart-ctrl-panel {
+  height: $app-row-height;
+}
+
+.pro-chart-content {
+  @include generate-widget-height($app-widget-gap + $app-row-height + ($margin-medium * 2) + $padding-medium + $border-xxx-small + $border-xx-small);
+}
+
+.pro-chart-content-responsive {
+  @include generate-widget-height($app-widget-gap + ($app-row-height * 2) + ($margin-medium * 2) + $padding-medium + $border-xxx-small + $border-xx-small);
+}
+
+.news-icon-bar {
+  height: $announcement-popup-icon-bar-height;
+}
+
+@import 'extended/price-page-layout-extended';

@@ -1,0 +1,14 @@
+{{#if showMessage}}
+    <div class="display-table full-width full-height {{backgroundCss}}">
+        <div class="display-table-cell {{containerCss}} {{if isMobile 'v-top' 'v-middle'}}">
+            <div class="layout-inline dark-bg-fore-color pad-m-l">
+                {{#unless isMobile}}
+                    <i {{bind-attr class="icon"}}></i>
+                {{/unless}}
+            </div>
+            <div class="layout-inline font-l dark-bg-fore-color pad-s-all ltr single-message-content {{messageCss}}">
+                {{message}}
+            </div>
+        </div>
+    </div>
+{{/if}}

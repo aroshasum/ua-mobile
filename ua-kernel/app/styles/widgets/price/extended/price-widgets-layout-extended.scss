@@ -1,0 +1,423 @@
+@import '../../../common-variables';
+@import '../../../themes/theme-1-variables';
+@import '../../../themes/theme-2-variables';
+@import '../../../widget-variables';
+//@import '../../../themes/theme-helper';
+
+.row-height {
+  height: 35px;
+}
+
+.dual-row-height {
+  height: 56px;
+}
+
+.widget-row-height {
+  height: 36px;
+}
+
+.dropdown-menu-height {
+  max-height: 247px;
+  min-width: 130px;
+}
+
+.time-and-sales-table{
+  height: 100%;
+}
+
+.time-and-sales {
+  height: calc(100% - 88px);
+}
+
+.search-popup-mobile {
+  position: absolute;
+  left: 0;
+  top: 40px;
+}
+
+.widget-container-height {
+  height: calc(100% - 165px);
+}
+
+.widget-container-height-order-ticket {
+  height: calc(100% - 102px);
+}
+
+.widget-container-height-without-submenu {
+  height: calc(100% - 127px);
+}
+
+.hide-container {
+  width: 0;
+  overflow: hidden;
+}
+
+.xs-border-radius {
+  border-radius: $radius-xs;
+}
+
+.z-index-hundred {
+  z-index: 100;
+}
+
+.transform {
+  transition: width .2s ease;
+}
+
+.status-panel {
+  height: 50px;
+}
+
+.search-panel-state-zero {
+  left: 0;
+  -webkit-animation: nav-bar-right-animation .3s ease-out;
+  -moz-animation: nav-bar-right-animation .3s ease-out;
+  -o-animation: nav-bar-right-animation .3s ease-out;
+  animation: nav-bar-right-animation .3s ease-out;
+}
+
+.search-panel-state-one {
+  left: 80%;
+  -webkit-animation: nav-bar-left-animation .6s;
+  -moz-animation: nav-bar-left-animation .6s;
+  -o-animation: nav-bar-left-animation .6s;
+  animation: nav-bar-left-animation .6s;
+}
+
+.search-box-height {
+  height: 43px;
+  font-size: 1.25em;
+  z-index: 100;
+}
+
+.search-ctrl {
+  padding-left: $padding-medium;
+}
+
+.panel-table {
+  width: 100%;
+}
+
+.message-box-frame {
+  left: 10%;
+  width: 80%;
+
+  @include theme((
+          box-shadow: "0 0 1px 0 {popup-box-shadow-color}"
+  ));
+
+  @include theme-classic((
+          box-shadow: none
+  ));
+}
+
+.message-box-title {
+  @include theme((
+          color: fore-color,
+  ));
+}
+
+.financial-container-height {
+  height: calc(100% - 180px);
+}
+
+.ratio-container-height {
+  height: calc(100% - 172px);
+}
+
+.investors-container-height {
+  height: calc(100% - 196px);
+}
+
+.book-shelf-container-height {
+  height: calc(100% - 22px);
+}
+
+.book-shelf {
+  background-image: url(/assets/img/bookshelf.png);
+  background-size: 100% auto;
+}
+
+.book-shelf-size {
+  padding-top: 15px;
+}
+
+.book-sizes {
+  height: 120px;
+  width: 86px;
+}
+
+.chart-height {
+  height: 92px;
+}
+
+.progress-market {
+  width: 32px;
+  height: 5px;
+}
+
+.news-popup-container {
+  position: absolute;
+  top: 44px;
+}
+
+.pad-widget-right-scroll {
+  padding-right: 23px;
+}
+
+.ms-progress-bar-panel-height {
+  height: 66px;
+}
+
+.large-wk52-icon .wk52-down-icon {
+  padding: 2px 2px 0 2px;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}
+
+.large-wk52-icon .wk52-up-icon {
+  padding: 2px 2px 0 2px;
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}
+
+.search-wrapper {
+  display: table;
+
+  @include theme((
+          border: "0 {widget-border-color} solid !important"
+  ));
+}
+
+.mobile-portrait-chart-height {
+  height: 105px;
+}
+
+.mobile-landscape-chart-height {
+  height: calc(100% - 26px);
+}
+
+.cash-map-progress-bar {
+  width: 70px;
+}
+
+.popup-content-height {
+  height: calc(100% - 40px);
+}
+
+// This is to give the proper padding for low resolution devices
+.low-res-padding-right {
+  padding-right: 14px;
+}
+
+.modal-popup-frame {
+  transition: width 5s ease-in-out;
+  border-radius: 2px;
+  margin: 0;
+}
+
+.modal-popup-frame ::-webkit-scrollbar {
+  width: 0;
+}
+
+// This is to add the layout-col-5 to iphone
+.iphone-layout {
+  width: (5/24)*100%;
+  max-width: 0;
+  @extend .layout-col;
+}
+
+.wk52-down-icon {
+  width: 20%;
+  display: inline;
+}
+
+.wk52-up-icon {
+  width: 20%;
+  display: inline;
+}
+
+.vertical-separator {
+  height: 76px;
+  margin-top: 5px;
+
+  @include theme((
+          border-right: "1px {widget-separator-color} solid"
+  ));
+}
+
+.theme-settings {
+  padding-left: 20px;
+}
+
+.dropdown-item-container {
+  width: 100%;
+  max-width: 0;
+  @extend .layout-col;
+}
+
+.div-up {
+  -webkit-animation: up 0.4s;
+  animation: up 0.4s;
+  -o-animation: up 0.4s;
+  top: -35px;
+}
+
+.div-up-top {
+  top: -35px;
+}
+
+.div-down {
+  -webkit-animation: down 0.4s;
+  animation: down 0.4s;
+  -o-animation: down 0.4s;
+  top: 0;
+  z-index: 400;
+}
+
+.single-message-container {
+  position: absolute;
+  display: block;
+  height: auto;
+  padding-bottom: 6px;
+}
+
+.single-message-content {
+  padding-top: 6px;
+  padding-bottom: 0;
+}
+
+.search-row-container {
+  padding-top: 8px;
+}
+
+.change-password-title {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: app-title-back-color
+  ));
+}
+
+.change-password-container {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+
+  @include theme((
+          box-shadow: none,
+          background: none
+  ));
+}
+
+.change-password-box {
+  height: 100%;
+  width: 100%;
+  top: 44px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+
+  @include theme((
+          background: none
+  ));
+}
+
+.change-password-container-height {
+  height:calc(100% - 100px);
+}
+
+.mutual-fund-search-icon {
+  padding: 22px 10px;
+  font-size: $font-large;
+
+  @include theme((
+          color: placeholder-fore-color
+  ));
+}
+
+.single-row-padding {
+  padding-top: 0;
+}
+
+.panel-table-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.confirm-btn {
+  height: 38px;
+  padding: 1px 22px 2px 22px;
+  font-size: $font-x-large;
+  border-radius: 2px;
+
+  @include theme((
+          border: "1px {pending-back-color} solid !important",
+          color: dark-bg-fore-color,
+          background-color: pending-back-color,
+          background-image: "linear-gradient(top, {pending-back-color} 0%, {pending-back-color} 30%, {pending-back-color} 30%, {pending-back-color} 100%)"
+  ));
+}
+
+.confirm-btn[disabled] {
+  opacity: 0.5;
+
+  @include theme((
+          background-color: pending-back-color
+  ));
+
+  @include theme-classic((
+          background-image: none
+  ));
+}
+
+.submit-btn {
+  @extend .confirm-btn;
+
+  @include theme((
+          background-image: none,
+          border: none
+  ));
+}
+
+.submit-btn:hover {
+  @include theme((
+          background-color: pending-back-color
+  ));
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: pending-back-color,
+          background-image: "linear-gradient(top, {pending-back-color} 0%, {pending-back-color} 30%, {pending-back-color} 30%, {pending-back-color} 100%)"
+  ));
+}
+
+.about-us-container-height {
+  height: calc(100% - 319px);
+}
+
+.help-icon-small {
+  height: 20px;
+  width: 20px;
+}
+
+.help-icon-large {
+  height: 30px;
+  width: 30px;
+}
+
+.sharia-icon {
+  padding: 2px 2px 0 2px;
+  font-size: $font-x-small;
+  border-radius: $border-xx-small;
+
+  @include theme((
+          background-color: down-back-color,
+  ));
+}

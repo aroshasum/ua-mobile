@@ -1,0 +1,68 @@
+<div class="layout-container full-width separator separator-shadow status-panel pad-s-tb" id="quoteStatusPanelContainer">
+    <div class="layout-col-24 h-left full-width font-xxx-l pad-m-r pad-widget-left font-thick symbol-fore-color ltr {{dSymbolCss}}">
+            <span class="{{symbolFontCss}}" {{action 'showSymbolSearch'}} >
+                {{stock.dispProp1}}
+            </span>
+    </div>
+    {{#if isTradingEnabled}}
+        <div class="layout-col">
+            {{#if isLiquidateEnable}}
+                <div class="layout-col pad-m-l">
+                    <div class="layout-inline font-l">
+                        <button type="submit"
+                                class="btn btn-buy up-back-color btn-animation btn-trade-small" {{action 'onBuyMore'}}>{{buyText}}</button>
+                    </div>
+                    <div class="layout-inline font-l pad-m-l">
+                        <button type="submit"
+                                class="btn btn-sell down-back-color btn-animation btn-trade-small" {{action 'onLiquidate'}}>{{sellText}}</button>
+                    </div>
+                </div>
+            {{else if isTradableAssetType}}
+                <div class="layout-col font-l">
+                    <span class="bold btn-txt-color pad-s-l"><button {{action 'buy'}} type="button" class="btn btn-buy btn-trade-small up-back-color btn-animation">{{buyText}}</button></span>
+                </div>
+            {{/if}}
+        </div>
+    {{/if}}
+
+    <div class="layout-col h-right">
+        {{#unless isShareIconDisabled}}
+            <div class="layout-col cursor-pointer pad-s-lr" {{action 'onShareScreen'}}>
+                <span class="icon-fore-color">
+                    <i class="icon-share glyphicon pad-m-lr font-4x-l"></i>
+                </span>
+            </div>
+        {{/unless}}
+
+        {{#if isMultipleCustomWLAvailable}}
+            <div class="layout-col pad-s-l pad-l-r icon-fore-color">
+                {{bootstrap-icon-dropdown
+                    options=customWLArray
+                    valueKey="name"
+                    labelKey="name"
+                    selectAction="addStocksToCustomWL"
+                    iconStyle="glyphicon-star-empty glyphicon font-4x-l"
+                    enableSideDropDown=true
+                    dropdownCss="dropdown-menu-align-right"
+                    itemCss="font-s"
+                }}
+            </div>
+        {{else}}
+            <div class="layout-col cursor-pointer pad-s-lr" {{action 'addStocksToCustomWL'}}>
+                <span class="icon-fore-color">
+                    <i {{bind-attr class=":glyphicon-star-empty :glyphicon :pad-m-lr :font-4x-l isAddedToCustomWatchList:symbol-fore-color"}}></i>
+                </span>
+            </div>
+        {{/if}}
+
+        {{#if isAlertIconEnabled}}
+            <div class="layout-col pad-s-l pad-l-r h-middle font-4x-l fade-fore-color overflow-visible" {{action 'itemClicked'}}>
+                 <span class="icon-fore-color">
+                    <i class="glyphicon glyphicon-bell pad-m-l"></i>
+                </span>
+            </div>
+        {{/if}}
+
+    </div>
+</div>
+<div class="horizontal-separator mgn-m-lr"></div>

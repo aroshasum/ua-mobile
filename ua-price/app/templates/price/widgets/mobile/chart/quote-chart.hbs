@@ -1,0 +1,257 @@
+<div class="widget_new full-width full-height pad-s-b" id="{{pageContainer}}" style="height: 113px;"> <!-- Inline style used to restore full screen to normal screen-->
+    {{#if isLandscapeMode}}
+        <div class="layout-container full-width pad-widget-left fade-fore-color font-x-l chart-tab-panel" style="height: 35px;">
+            <!--  =========  Search Box - 01 =============  -->
+            <div class="layout-col border-right">
+                <div class="layout-container full-width full-height pos-rel" style="width: 120px">
+                    <div class="pos-abs fade-fore-color font-xx-l full-height overflow-hidden transform z-index-hundred {{searchCss}}">
+                        <span ><i class="glyphicon glyphicon-search pad-s-all mgn-xs-t" aria-hidden="true" {{action 'toggleSearch'}}></i></span>
+                        <!--<input class="" id="chartPanelSearch" placeholder="Search" value="" style="width: 85px">-->
+                        {{input-field-text id="chartPanelSearch" value=searchKey type="text" class="font-l search-ctrl search-query v-top chart-search" placeholder=app.lang.labels.search}}
+                    </div>
+                    <div class="layout-col-24 pad-l-l" {{action 'toggleSearch'}}>
+                        <span class="fore-color pad-l-l bold font-xx-l">{{symbolObj.dispProp1}}</span>
+                    </div>
+                </div>
+
+                <div class="search-popup-mobile">
+                    {{#modal-popup isEnabled=false id="chartPanelSearchPopup" isOverlayEnabled=true isContainerAvailable=true containerAction="toggleDisplay"}}
+                        {{global-search-mobile
+                                enableContentSettings=false
+                                searchKey=searchKey
+                                defaultLink=defaultLink
+                                showWidgetButtons=true
+                                clickAction='onSearchSymbolSelected'
+                                closePopup='closeSearchPopup'
+                                openPopup='showSearchPopup'
+                                analyticsKey=gaKey}}
+                    {{/modal-popup}}
+                </div>
+                <!--  =========  /Search Box - 01 =============  -->
+            </div>
+
+            <!--  =========  Period =============  -->
+            <div class="layout-col" data-id="period-dropdown">
+                <div class="layout-container full-height">
+                    {{#each tabItem in arrDisplayPeriods}}
+                        <div class="layout-col border-right {{tabItem.activeClass}}" {{action 'chartTypeSelected' tabItem}}>
+                            <span class="{{if (onResponsive responsive.trigger responsive "chart-free-space" 2) 'pad-m-lr' 'pad-l-lr'}}">{{tabItem.DisplayName}}</span>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+            <!--  =========  /Period =============  -->
+
+            <!--  =========  Chart Styles =============  -->
+            <div data-id="chartStyles-dropdown" class="layout-col border-right">
+                <div class="pad-m-lr">
+                    {{bootstrap-dropdown-select
+                        options=chartStyles
+                        value=chartStyle.DisplayName
+                        valueKey="DisplayName"
+                        labelKey="DisplayName"
+                        selectAction="setChartStyle"
+                        responsiveIcon=true
+                        iconClass='icon-chart-area'
+                        buttonClass="full-height dropdown-text-only"
+                    }}
+                </div>
+            </div>
+            <!--  =========  /Chart Styles =============  -->
+
+            <!--  =========  Indicators =============  -->
+            <div class="layout-col border-right">
+                <div class="pad-m-lr">
+                    {{bootstrap-dropdown-select
+                        options=indicators
+                        valueKey="DisplayName"
+                        labelKey="DisplayName"
+                        selectAction="onCreateStudy"
+                        buttonClass="full-height dropdown-text-only"
+                        iconClass="fa fa-line-chart"
+                        responsiveIcon=true
+                    }}
+                </div>
+            </div>
+            <!--  =========  /Indicators =============  -->
+
+            {{#if isComparisonEnabled}}
+                <!--  =========  Search Box - 02 =============  -->
+                <div class="layout-col border-right">
+                    <div class="layout-container full-width full-height pos-rel" style="width: 120px">
+                        <div class="pos-abs fade-fore-color font-xx-l full-height overflow-hidden transform z-index-hundred full-width" {{action 'toggleCompareSearch'}}>
+                            <span ><i class="glyphicon glyphicon-search pad-s-all mgn-xs-t" aria-hidden="true" {{action 'toggleCompareSearch'}}></i></span>
+                            {{input-field-text id="compareChartPanelSearch" value=compareSearchKey type="text" class="font-l search-ctrl search-query v-top chart-search" placeholder=app.lang.labels.compare}}
+                        </div>
+                        <!--<div class="layout-col-24 pad-l-l" {{action 'toggleCompareSearch'}}>
+                            <span class="fore-color pad-l-l bold font-xx-l">{{app.lang.labels.compare}}</span>
+                        </div>-->
+                    </div>
+
+                    <div class="search-popup-mobile">
+                        {{#modal-popup isEnabled=false id="compareChartPanelSearchPopup" isOverlayEnabled=true isContainerAvailable=true containerAction="toggleDisplay"}}
+                            {{global-search-mobile
+                                    enableContentSettings=false
+                                    searchKey=compareSearchKey
+                                    defaultLink=defaultLink
+                                    showWidgetButtons=true
+                                    clickAction='onCompareSearchSymbolSelected'
+                                    closePopup='closeCompareSearchPopup'
+                                    openPopup='showCompareSearchPopup'
+                                    analyticsKey=gaKey}}
+                        {{/modal-popup}}
+                    </div>
+                </div>
+                <!--  =========  /Search Box - 02 =============  -->
+
+                <div class="layout-col border-right layout-col-24"></div>
+
+                <!--  =========  More =============  -->
+                <div class="layout-col">
+                    <div class="pad-m-lr">
+                        {{bootstrap-icon-dropdown
+                            options=moreItems
+                            valueKey="DisplayName"
+                            labelKey="DisplayName"
+                            selectAction="onItemSelection"
+                            iconStyle="icon-ellipsis-v glyphicon font-4x-l"
+                            dropdownCss="dropdown-menu-align-right"
+                            itemCss="font-s"
+                        }}
+                    </div>
+                </div>
+                <!--  =========  /More =============  -->
+            {{/if}}
+
+            <!--  =========  Reset =============  -->
+            {{#unless isComparisonEnabled}}
+                <div class="layout-col border-right" {{action 'onResetChart' tabItem}}>
+                    <span class="pad-m-lr">{{app.lang.labels.reset}}</span>
+                </div>
+            {{/unless}}
+            <!--  =========  /Reset =============  -->
+
+            <!--  =========  Trading Panel =============  -->
+            {{#if isTradingEnabled}}
+                {{#if isLiquidateEnable}}
+                    <div class="layout-col border-right">
+                        <button type="submit"
+                                class="dropdown-text-only chart-status-panel-button-height btn btn-buy btn-animation up-fore-color font-l" {{action 'onBuyMore'}}>{{app.lang.labels.buyMore}}</button>
+                    </div>
+                    <div class="layout-col border-right">
+                        <button type="submit"
+                                class="dropdown-text-only chart-status-panel-button-height btn btn-sell btn-animation up-fore-color font-l" {{action 'onLiquidate'}}>{{app.lang.labels.liquidate}}</button>
+                    </div>
+                {{else}}
+                    <div class="layout-col border-right">
+                        <span class="bold btn-txt-color"><button disabled={{isIndices}} {{action 'buy'}} type="button" class="dropdown-text-only chart-status-panel-button-height btn btn-buy up-back-color btn-animation">{{app.lang.labels.buy}}</button></span>
+                    </div>
+                {{/if}}
+            {{/if}}
+            <!--  =========  /Trading Panel =============  -->
+
+            <!--  =========  Share =============  -->
+            {{#unless isComparisonEnabled}}
+                {{#unless isShareIconDisabled}}
+                    <div class="layout-col border-right">
+
+                        <div class="layout-col cursor-pointer pad-s-lr" {{action 'onShareScreen'}}>
+                            <span class="icon-fore-color">
+                                <i class="icon-share glyphicon pad-m-lr font-4x-l"></i>
+                            </span>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/unless}}
+            <!--  =========  /Share =============  -->
+
+            <!--  =========  Custom WL =============  -->
+            {{#unless isComparisonEnabled}}
+                <div class="layout-col border-right" {{action 'addStocksToCustomWL'}}>
+                    <span class="icon-fore-color">
+                        <i {{bind-attr class=":glyphicon-star-empty :glyphicon :pad-m-lr :font-4x-l isAddedToCustomWatchList:symbol-fore-color"}}></i>
+                    </span>
+                </div>
+            {{/unless}}
+            <!--  =========  /Custom WL =============  -->
+
+            <!--  =========  Alert =============  -->
+            {{#unless isComparisonEnabled}}
+                {{#if isAlertIconEnabled}}
+                    <div class="layout-col border-right">
+                        <div class="layout-col pad-s-l pad-l-r h-middle font-4x-l fade-fore-color overflow-visible" {{action 'itemClicked'}}>
+                            <span class="icon-fore-color"><i class="glyphicon glyphicon-bell"></i></span>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/unless}}
+            <!--  =========  /Alert =============  -->
+
+            <div data-id="chart-free-space" class="layout-col-24"></div>
+        </div>
+
+        <div class="horizontal-separator mgn-m-lr mgn-s-b"></div>
+
+        {{#if enableOverlay}}
+            <div class="pos-abs full-width full-height transparent top-zero" style="z-index: 95" {{action 'onSymbolPopupFocusLost'}}></div>
+        {{/if}}
+
+        <!--  =========  Chart Details =============  -->
+        <div class="layout-container full-width pos-abs pad-s-l z-index-hundred ltr">
+            {{#unless isLandscapeMode}}
+                <div class="display-block">
+                    <div class="layout-col ellipsis pad-s-t h-left pad-m-r pad-widget-left bold symbol-fore-color {{symbolFontCss}} ">
+                        <div class="ellipsis v-bottom pad-s-t">
+                            {{symbolObj.dispProp1}}
+                        </div>
+                    </div>
+                </div>
+            {{/unless}}
+            <div class="display-block">
+                {{#if isLandscapeMode}}
+                    <div class="layout-col pad-s-t h-left pad-m-r pad-widget-left font-xx-l">
+                        <div {{bind-attr class=":layout-inline :ltr :bold :font-xx-l colorCSS"}}>
+                            <i {{bind-attr class="ltpIconCSS :glyphicon :v-bottom :font-m"}}></i>
+                            {{formatNumber symbolObj.ltp}}
+                        </div>
+                        <div {{bind-attr class=":layout-inline :ltr :v-bottom :font-l :pad-widget-left colorCSS"}}>{{formatNumber symbolObj.chg}}</div>
+                        <div {{bind-attr class=":layout-inline :ltr :v-bottom :font-l :pad-m-l colorCSS"}}>({{formatNumberPercentage symbolObj.pctChg}})</div>
+                        <div class="layout-inline pad-l-l v-bottom">
+                            <div class="hu left ltr font-l fade-fore-color">
+                                <span>O </span><span id="huOpen" class="pad-m-r bold">{{pointOpen}}</span>
+                                <span>H </span><span id="huHigh" class="pad-m-r bold">{{pointHigh}}</span>
+                                <span>L </span><span id="huLow" class="pad-m-r bold">{{pointLow}}</span>
+                                <span>C </span><span id="huClose" class="pad-m-r bold">{{pointClose}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dynamic-study-view" class="chart-data-view pad-widget-left"></div>
+                {{/if}}
+            </div>
+        </div>
+        <!--  =========  /Chart Details =============  -->
+
+        <!--  =========  Chart Background =============  -->
+        <div id="detailPanelChart" class="layout-container full-height full-width pos-abs" style="z-index: 0">
+            <div class="layout-col h-middle">
+                <span style="font-size: 110px; color: rgba(221,221,221,0.42)">{{symbolObj.dispProp1}}</span>
+            </div>
+            <div class="pos-abs bottom-zero pad-xs-b left-zero font-l fade-fore-color">
+                <span class="pad-s-lr border-right">{{symbolObj.lDes}}</span>
+                <span class="pad-s-lr border-right">{{symbolObj.exg}}</span>
+                {{#if subMarket}}
+                    <span class="pad-s-lr border-right">{{subMarket}}</span>
+                {{/if}}
+                <span class="pad-s-lr">{{activePeriod}}</span>
+            </div>
+        </div>
+        <!--  =========  /Chart Background =============  -->
+    {{/if}}
+
+    <div {{bind-attr class=":full-width :full-height isLandscapeMode:pad-m-lr :pos-rel isLandscapeMode:pad-s-b chartHeightStyle"}}>
+        <div id="dq_chart" {{bind-attr class=":full-width :full-height :pos-rel chartContainer"}}></div>
+    </div>
+</div>
+
+<div id="dpi"></div>
+<div id="chart-styles" style="display: none"></div>

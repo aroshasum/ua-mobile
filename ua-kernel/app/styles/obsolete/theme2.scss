@@ -1,0 +1,2125 @@
+@import 'theme-2-variables';
+
+.theme2 body{
+    font-family: 'Arimo';
+}
+
+// from sidebar.theme2 .scss 
+
+.theme2 .sidebar-wrapper {
+    background:  $theme2-color-background;
+}
+
+.theme2 .sidebar-nav li a {
+    color: #F1F1F1;
+}
+
+.theme2 li.sidebar-active a{
+    color: $theme2-btn-color-active !important;
+}
+
+.theme2 .sidebar-nav li a:hover {
+    color: $theme2-text-color-normal;
+}
+
+.theme2 .sidebar-nav > .theme2 .sidebar-brand a {
+	color: #999999;
+}
+
+.theme2 .sidebar-nav > .theme2 .sidebar-brand a:hover {
+	color: #ffffff;
+}
+
+@mixin sidebar-active ($theme2-gradient-deg, $theme2-gradient-sidebar-active-first-colour, $theme2-gradient-sidebar-active-first-precent, $theme2-gradient-sidebar-active-second-colour, $theme2-gradient-sidebar-active-second-precent, $theme2-gradient-sidebar-active-third-colour, $theme2-gradient-sidebar-active-third-precent, $theme2-gradient-sidebar-active-fourth-colour, $theme2-gradient-sidebar-active-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-sidebar-active-first-colour $theme2-gradient-sidebar-active-first-precent, $theme2-gradient-sidebar-active-second-colour $theme2-gradient-sidebar-active-second-precent, $theme2-gradient-sidebar-active-third-colour $theme2-gradient-sidebar-active-third-precent, $theme2-gradient-sidebar-active-fourth-colour $theme2-gradient-sidebar-active-fourth-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-sidebar-active-first-colour $theme2-gradient-sidebar-active-first-precent, $theme2-gradient-sidebar-active-second-colour $theme2-gradient-sidebar-active-second-precent, $theme2-gradient-sidebar-active-third-colour $theme2-gradient-sidebar-active-third-precent, $theme2-gradient-sidebar-active-fourth-colour $theme2-gradient-sidebar-active-fourth-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-sidebar-active-first-colour $theme2-gradient-sidebar-active-first-precent, $theme2-gradient-sidebar-active-second-colour $theme2-gradient-sidebar-active-second-precent, $theme2-gradient-sidebar-active-third-colour $theme2-gradient-sidebar-active-third-precent, $theme2-gradient-sidebar-active-fourth-colour $theme2-gradient-sidebar-active-fourth-precent);
+}
+
+.theme2 .sidebar-active {
+    color: $theme2-btn-color-active !important;
+    //border-bottom:1px solid #B2C0DE;
+    border-top: 1px solid $theme2-active-border-top;  
+    @include sidebar-active ($theme2-gradient-deg, $theme2-gradient-sidebar-active-first-colour, $theme2-gradient-sidebar-active-first-precent, $theme2-gradient-sidebar-active-second-colour, $theme2-gradient-sidebar-active-second-precent, $theme2-gradient-sidebar-active-third-colour, $theme2-gradient-sidebar-active-third-precent, $theme2-gradient-sidebar-active-fourth-colour, $theme2-gradient-sidebar-active-fourth-precent)
+}
+
+@mixin sidebar ($theme2-gradient-deg, $theme2-gradient-topbar-first-colour, $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour, $theme2-gradient-topbar-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+}
+
+//.theme2 .sidebar-nav {
+//    background: $theme2-sidebar-nav-background;
+//    border: 1px $theme2-color-widget-border solid;
+//
+//}
+
+// end of sidebar.theme2 .scss 
+
+
+// from navbar.theme2 .scss 
+
+.theme2 .navbar-inverse {
+    background-color: $theme2-color-widget;
+    border: 1px $theme2-color-border solid;
+}
+
+.theme2 .logo-text {
+	color: $theme2-text-color-main;
+}
+
+.theme2 .progress-time {
+    background-color: $theme2-toppanel-progress-bar-color !important;
+}
+
+// end of navbar.theme2 .scss 
+
+// from widget.theme2 .scss 
+
+.theme2 .widget {
+    background-color: $theme2-color-widget;
+//    border: 1px $theme2-color-widget-border solid;
+}
+
+.theme2 h2.widget-title-type-1{
+    border-bottom: 1px $theme2-color-border solid;
+    color:$theme2-text-color-widget-title;
+}
+
+.theme2 .widget-watchlist {
+    background-color: $theme2-color-widget;
+}
+
+/*.theme2 .search-query {
+    border-top: 1px $theme2-color-search-border solid;
+    border-bottom: 1px #EEEEEE solid;
+    border-right: 1px #DCDCDC solid;
+    border-left: 1px #DCDCDC solid;
+    background-color: $theme2-color-background;
+    border-radius: 2px 2px 2px 2px;
+    height: 23px;
+  //  -webkit-box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+  //  -moz-box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+   // box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+    
+    background: -moz-linear-gradient(top, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #ebebeb 0%,#fafafa 30%,#fafafa 30%,#ffffff 100%);
+    background: -ms-linear-gradient(to bottom, #ebebeb 0%,#fafafa 30%,#fafafa 30%,#ffffff 100%);
+}*/
+
+.theme2 .online {
+    background-color: $theme2-color-green;
+}
+
+// news section 
+
+.theme2 .news-row {
+    border-bottom: 2px $theme2-color-border solid;
+}
+
+// provide some minimal visual accomodation for IE8 and below 
+
+.theme2 .TFtable tr {
+    background: $theme2-color-widget;
+}
+
+//  Define the background color for all the ODD background rows  
+
+.theme2 .TFtable tr:nth-child(odd) {
+    background: $theme2-color-table-odd;
+}
+
+//  Define the background color for all the EVEN background rows  
+
+.theme2 .TFtable tr:nth-child(even) {
+    background: $theme2-color-table-even;
+}
+
+//  Define the attributes for hover rows
+
+.theme2 .TFtable tr:hover {
+    border-top: 1px $theme2-ember-table-border solid;
+    border-bottom: 1px $theme2-ember-table-border solid;
+    background: $theme2-gradient-ember-table-body-container-first-colour;
+}
+
+.TFtable-selected {
+    border-top: 1px $theme2-ember-table-border solid;
+    border-bottom: 1px $theme2-ember-table-border solid;
+}
+
+.theme2 .panel-table-row-odd {
+    background: $theme2-color-table-odd;
+}
+
+.theme2 .panel-table-row-even {
+    background: $theme2-color-table-even;
+}
+    
+::-webkit-scrollbar-thumb {
+    background-color:rgba(136, 134, 134, 0.3);
+}
+
+// add widget tittle class 
+
+.theme2 .progress-bid {
+    background-color: $theme2-toppanel-progress-bar-color !important;
+ 
+}
+
+.theme2 .progress-offer {
+	//border-right: 2px $theme2-depth-widget-borders solid;
+    background-color: $theme2-toppanel-progress-bar-color !important;
+}
+
+.theme2 .quote-cell {
+    background-color: $theme2-data-background;
+}
+
+.theme2 .quote-cell-border {
+    border-right: 2px $theme2-depth-widget-borders solid;
+}
+
+.theme2 .company-heading {
+    border-right: 1px $theme2-depth-widget-borders solid;
+}
+
+.theme2 .company-address a {
+    color:$theme2-color-2;
+}
+
+@mixin gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent)
+{
+    background-image: -moz-linear-gradient( $theme2-gradient-deg, $theme2-gradient-tittle-first-colour $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour $theme2-gradient-tittle-second-precent);
+    background-image: -webkit-linear-gradient( $theme2-gradient-deg, $theme2-gradient-tittle-first-colour $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour $theme2-gradient-tittle-second-precent);
+    background-image: -ms-linear-gradient( $theme2-gradient-deg, $theme2-gradient-tittle-first-colour $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour $theme2-gradient-tittle-second-precent);
+}
+
+.theme2 .footer {
+    border-top: 1px solid $theme2-color-border-top;
+   @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    
+}
+
+.theme2 .footer-padding {
+    border-right:1px $theme2-color-border solid;
+}
+
+.theme2 .footer-padding-first {
+    border-right:1px $theme2-color-border solid;
+}
+
+.theme2 .icon-btn {
+    background-color: $theme2-color-widget;
+    border-color: $theme2-btn-border-color;
+    color: $theme2-tab-button-color;
+}
+
+.theme2 .search-wrapper {
+    border-bottom: 2px $theme2-color-widget-border solid;
+    border-right: 1px $theme2-color-widget-border solid;
+    border-left: 1px $theme2-color-widget-border solid;
+    border-top: 1px $theme2-color-widget-border solid;
+    background-color:$theme2-color-widget;
+}
+
+.theme2 .search-title {
+    border-bottom: 1px #78A7C9 solid;
+    color: $theme2-color-widget;
+    padding: 6px;
+    margin-bottom: 4px;
+    background: #76A4C5;
+}
+
+.theme2 .search-row {
+       border-bottom: 1px $theme2-color-widget-border solid;
+}
+
+.theme2 .search-row:hover, .theme2 .search-row-hover {
+    background-color: $theme2-drp-color-active;
+ }
+
+.theme2 .dropdown-menu-2 {
+    border-bottom: none;
+    color: $theme2-data-background;
+    border-top: none;
+    background: -moz-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%);
+    background: -webkit-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%);
+    background: -ms-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%);
+    font-size: 11px;
+    padding: 3px 10px 5px 9px;
+    margin-bottom: -3px;
+    margin-top: -2px;
+    border-left: 1px solid $theme2-titlebar-seperator-color;
+    border-right: 1px solid $theme2-titlebar-seperator-color;
+}
+
+.theme2 .spread-text{
+    background-color: $theme2-data-background;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+}
+
+.theme2 .btn-dropdown-no-border{
+    background-color: $theme2-color-widget;
+    color: $theme2-btn-color;
+}
+    
+.theme2 .btn-dropdown-no-border:hover {
+    color: $theme2-btn-border-color-hover;
+}
+
+.theme2 .chart-btn-icon:hover {
+    color: $theme2-btn-border-color-hover;
+    background-color: $theme2-color-widget;
+}
+
+.theme2 .dot-style-high {
+    border-right: 4px solid $theme2-color-green;
+}
+
+.theme2 .dot-style-low {
+    border-right: 4px solid $theme2-color-red;
+
+}
+
+.theme2 .blink-style-up {
+    color: $theme2-text-color-normal;
+    background-color: $theme2-titlebar-background-green-color !important; 
+}
+
+.theme2 .blink-style-down {
+    color:$theme2-text-color-normal;
+    background-color: $theme2-titlebar-background-red-color !important; 
+}
+
+.theme2 .blink-classic-up {
+    color: $theme2-text-color-normal;
+    background-color: $theme2-titlebar-background-green-color !important; 
+}
+
+.theme2 .blink-classic-down {
+    color: $theme2-text-color-normal;
+    background-color: $theme2-titlebar-background-red-color !important; 
+}
+
+.theme2.intraday-cell-text-normal {
+    height: 13px;
+    color: $theme2-intraday-cell-text-color;
+}
+// end of widget.theme2 .scss 
+
+
+// from bootsrap-override.scss 
+// to be fix
+@mixin btn-default ($theme2-gradient-deg, $theme2-gradient-btn-default-first-colour, $theme2-gradient-btn-default-first-precent, $theme2-gradient-btn-default-second-colour, $theme2-gradient-btn-default-second-precent, $theme2-gradient-btn-default-third-colour, $theme2-gradient-btn-default-third-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-btn-default-first-colour $theme2-gradient-btn-default-first-precent, $theme2-gradient-btn-default-second-colour $theme2-gradient-btn-default-second-precent, $theme2-gradient-btn-default-third-colour $theme2-gradient-btn-default-third-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-btn-default-first-colour $theme2-gradient-btn-default-first-precent, $theme2-gradient-btn-default-second-colour $theme2-gradient-btn-default-second-precent, $theme2-gradient-btn-default-third-colour $theme2-gradient-btn-default-third-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-btn-default-first-colour $theme2-gradient-btn-default-first-precent, $theme2-gradient-btn-default-second-colour $theme2-gradient-btn-default-second-precent, $theme2-gradient-btn-default-third-colour $theme2-gradient-btn-default-third-precent);
+}
+
+// to be fix
+.theme2 .btn-default {
+	color: $theme2-btn-color;
+	border-style: solid;
+	border-width: 1px;
+	margin-bottom: 0px;
+    height: 23px;
+	padding: $padding-small;
+	//font-size: $font-medium;
+    border-style: solid;
+    border-width: 1px;
+    border-color:$theme2-color-widget-border;
+    border-radius: 3px;
+        -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    
+    border-bottom: 1px solid $theme2-btn-border-bottom;
+    @include btn-default ($theme2-gradient-deg, $theme2-gradient-btn-default-first-colour, $theme2-gradient-btn-default-first-precent, $theme2-gradient-btn-default-second-colour, $theme2-gradient-btn-default-second-precent, $theme2-gradient-btn-default-third-colour, $theme2-gradient-btn-default-third-precent)
+}
+
+// to be fix
+.theme2 .btn-default-special{
+    height:21px !important; 
+    padding:4px !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    color: #333 !important;
+    //width: 74px;
+    padding-left:5px!important;
+    padding-right:5px!important;
+    background-image: -moz-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+     background-image: -webkit-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+     background-image: -ms-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+    
+    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    
+    border-bottom: 1px solid $theme2-btn-border-bottom;
+}
+
+// to be fix
+.theme2 .btn-link-dropdown{
+    height:15px; 
+    width: 19px;
+    padding:4px !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    color: #333 !important;
+    background:rgba(255,255,255,0);
+//    background-image: -moz-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//     background-image: -webkit-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//     background-image: -ms-linear-gradient(90deg, rgba(236,236,236,0.2) 0%, rgba(253,253,253,0.2) 90%, rgba(255,255,255,0.2) 100%);
+//    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+//    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+//    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    padding-left: $padding-medium;
+    padding-right: $padding-medium; 
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+//    border-bottom: 1px solid $theme2-btn-border-bottom;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: inline-block;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    border: 1px solid transparent;
+    margin-top: -1px;
+}
+
+.theme2 .btn-dropdown {
+    padding-left: $padding-medium;
+    padding-right: $padding-medium; 
+}
+
+.theme2 .btn-default:hover, .theme2 .icon-btn:hover, .theme2 .btn-default:focus, .theme2 .btn-default.focus,.theme2 .btn-default:active, .theme2 .btn-default.active,.theme2 .open > .theme2 .dropdown-toggle.btn-default {
+    color: #000000;
+    background-color: $theme2-color-widget;
+    border-color:$theme2-btn-border-color;
+}
+
+.theme2 .dropdown-menu > li > a {
+    color: $theme2-btn-color;
+}
+
+
+.theme2 .dropdown-menu > li > a:hover,.theme2 .dropdown-menu > li > a:focus {
+    color: $theme2-text-color-light;
+    background-color: $theme2-color-search-hover;
+}
+
+.theme2 .btn-default:focus, .theme2 .btn-default.focus {
+    color: #000000;
+    background-color: $theme2-drp-color-active;
+ }
+
+.theme2 .progress {
+    background-color: $theme2-color-red;
+}
+
+.theme2 .progress-bar {
+    background-color: $theme2-color-green;
+	//border-right: 2px $theme2-color-widget-border solid;
+}
+
+.theme2 .progress-border {
+	height: 5px;
+	border-bottom: 1px $theme2-color-widget-border solid;
+}
+
+.theme2 .progress-bar-wk-green {
+    border-right: 4px $theme2-color-green solid;
+}
+
+.theme2 .progress-bar-wk-red {
+    border-right: 4px $theme2-color-red solid;
+}
+
+.theme2 .progress-up {
+    background-color: $theme2-color-green !important;
+}
+
+.theme2 .progress-down {
+    background-color: $theme2-color-red !important;
+}
+
+.theme2 .progress-unchanged {
+    background-color: $theme2-color-1;
+}
+
+.theme2 .popover.left > .theme2 .arrow:after {
+    border-left-color:  $theme2-text-color-main;
+}
+
+
+.theme2 .dropdown-menu {
+    border-top: 1px solid $theme2-color-border;
+    border-bottom: 1px solid $theme2-color-border;
+    border-right: 1px solid $theme2-color-border;
+    border-left: 1px solid $theme2-color-border;
+    background-color: $theme2-menu-colour;
+    box-shadow: 1px 1.732px 11px 0px rgba( 92, 92, 92,0.5 );
+}
+// end of bootstrap override  
+
+
+//pop over 
+
+.theme2 .popover {
+    background-color: $theme2-text-color-main;
+    border: 1px solid $theme2-color-border;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: $theme2-color-background;
+}
+
+.theme2 .popover-title {
+    background-color: $theme2-color-background;
+    border-bottom: 1px solid $theme2-color-border;
+    color: $theme2-text-color-main;
+}
+
+.theme2 .popover.left > .theme2 .arrow:after {
+    border-left-color:  $theme2-text-color-main;
+}
+
+.theme2 .carousel-indicators li {
+    border: 1px solid $theme2-color-border;
+}
+
+.theme2 .carousel-indicators.active {
+    background-color: $theme2-color-border;
+}
+
+// end of bootsrap-override.scss 
+
+
+// from ember-override.theme2 .scss 
+
+@mixin ember-table-body-container ($theme2-gradient-deg, $theme2-gradient-ember-table-body-container-first-colour, $theme2-gradient-ember-table-body-container-first-precent, $theme2-gradient-ember-table-body-container-second-colour, $theme2-gradient-ember-table-body-container-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-ember-table-body-container-first-colour $theme2-gradient-ember-table-body-container-first-precent, $theme2-gradient-ember-table-body-container-second-colour $theme2-gradient-ember-table-body-container-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-ember-table-body-container-first-colour $theme2-gradient-ember-table-body-container-first-precent, $theme2-gradient-ember-table-body-container-second-colour $theme2-gradient-ember-table-body-container-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-ember-table-body-container-first-colour $theme2-gradient-ember-table-body-container-first-precent, $theme2-gradient-ember-table-body-container-second-colour $theme2-gradient-ember-table-body-container-second-precent);
+}
+
+.theme2 .ember-table-body-container .ember-table-table-row.ember-table-hover {
+	border-top: 1px $theme2-ember-table-border solid;
+	border-bottom: 1px $theme2-ember-table-border solid;
+    @include ember-table-body-container ($theme2-gradient-deg, $theme2-gradient-ember-table-body-container-first-colour, $theme2-gradient-ember-table-body-container-first-precent, $theme2-gradient-ember-table-body-container-second-colour, $theme2-gradient-ember-table-body-container-second-precent);
+}
+
+.theme2 .ember-table-hover-new {
+    border-top: 1px $theme2-ember-table-border solid;
+    border-bottom: 1px $theme2-ember-table-border solid;
+    background-color: cornflowerblue;
+}
+
+.theme2 .ember-table-body-container .ember-table-table-row.ember-table-selected {
+	background-color:  $theme2-color-widget !important;
+	border-top: 1px $theme2-ember-table-border solid;
+	border-bottom: 1px $theme2-ember-table-border solid;
+    color: $theme2-text-color-main;
+}
+
+.theme2 .ember-table-header-row,.theme2 .ember-table-header-container .ember-table-table-fixed-wrapper {
+	background-color: $theme2-color-widget;
+}
+
+.theme2 .ember-table-footer-container {
+	background-color: #262932 !important;
+}
+
+.theme2 .ember-table-style-row {
+	background-color: #1d6bac;
+}
+// end of ember-override.theme2 .scss 
+
+
+// from global
+
+//Theme Refactorng
+/*.theme2 a {
+	color: $theme2-tab-button-color;
+}*/
+
+//Theme Refactorng
+/*.theme2 a:hover, .theme2 a:active, .theme2 a:focus {
+    color: $theme2-btn-border-color-hover;
+
+}*/
+// end of global 
+
+.theme2 .tittle-bar-user .change-language a:hover{
+   color:#FF5E5E;
+} 
+
+// from common 
+.theme2 body {
+    background-color: $theme2-color-background;
+    color: $theme2-text-color-main;
+}
+
+// To be commented
+.theme2 .colour-normal {
+    color: $theme2-txt-color-normal !important;
+    fill: $theme2-text-color-normal !important;
+}
+
+.theme2 .green {
+    color:  $theme2-color-green;
+}
+
+.theme2 .green-dark {
+    color: $theme2-color-green-dark;
+}
+
+.theme2 .red {
+    color: $theme2-color-red;
+}
+
+.theme2 .colour-symbol {
+    color:#76A6C8 !important;
+}
+
+.theme2 .colour-symbol-dis {
+    color: $theme2-text-color-symbol-dis !important;
+}
+
+.theme2 .colour-dq-chart {
+    color: $theme2-text-color-widget-title;
+}
+
+.theme2 .red-dark {
+    color: $theme2-color-red-dark;
+}
+
+.theme2 .colour-1 {
+    color: $theme2-color-1;
+}
+
+/*.theme2 .colour-2 {
+    color: $theme2-color-2;
+}*/
+
+.theme2 .back-colour-2 {
+    background-color: $theme2-color-2 !important;
+}
+
+.theme2 .colour-3 {
+    color: $theme2-color-3;
+}
+
+.theme2 .colour-4 {
+    color: $theme2-color-4;
+}
+
+.theme2 .colour-5{
+    color:$theme2-color-5;
+}
+
+.theme2 .back-colour-red {
+    background-color: rgba(218, 73, 74, 0.38);
+}
+
+.theme2 .widget-dq-chart-color {
+    color: $theme2-text-color-widget-title;
+}
+
+.theme2 .header-colour {
+    color:$theme2-color-6;
+}
+
+.theme2 .border-right {
+    border-right: 1px $theme2-color-border solid;
+}
+
+.ar .theme2 .border-right {
+    border-left: 1px $theme2-color-border solid;
+    border-right: 0px $theme2-color-border solid;
+}
+
+.theme2 .border-top {
+    border-top: 1px $theme2-color-border solid;
+}
+
+.theme2 .border-bottom {
+    border-bottom: 1px $theme2-color-border solid;
+}
+
+.theme2 .text-color-light{
+    color: riyad-text-color-light;
+}
+
+.theme2 .font-table-header {
+    color: $theme2-text-color-table-header;
+}
+
+.theme2 .back-green-dark{
+    background-color:$theme2-color-green-dark !important;
+}
+
+.theme2 .back-red-dark{
+    background-color:$theme2-color-red-dark !important;
+}
+
+.theme2 .text-box {
+    border: 1px $theme2-btn-border-color solid;
+    background-color: $theme2-color-background; 
+}
+
+.theme2 .watchlist-cell-back-red{
+    background-color: $theme2-watchlist-cell-back-red;
+}
+
+.theme2 .watchlist-cell-back-green{
+    background-color: $theme2-watchlist-cell-back-green;
+}
+
+.theme2 .watchlist-cell-back-lastqty{
+    background-color: $theme2-watchlist-cell-back-lastqty;
+}
+
+.theme2 .watchlist-row-back-red {
+    background-color: $theme2-watchlist-row-back-red; 
+}
+
+.theme2 .watchlist-row-back-green {
+    background-color: $theme2-watchlist-row-back-green; 
+}
+
+.theme2 .watchlist-row-strike {
+    text-decoration: line-through; 
+}
+
+.theme2 h2.widget-title-type-1{
+    border-bottom: 0px solid #171d23;
+@include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    margin-left: -6px;
+    margin-right: -6px;
+    font-size:$font-medium;
+    font-weight:$font-bold;
+    padding:4px $padding-small 4px $padding-small;
+}
+
+.theme2 h2.widget-title-with-icon{
+    padding:3px $padding-small 3px $padding-small !important;
+}
+
+
+@mixin gradient-dq-charts ($theme2-gradient-deg, $theme2-gradient-dq-chart-first-colour, $theme2-gradient-dq-chart-first-precent, $theme2-gradient-dq-chart-second-colour, $theme2-gradient-dq-chart-second-precent)
+{
+    background-image: -moz-linear-gradient( $theme2-gradient-deg, $theme2-gradient-dq-chart-first-colour $theme2-gradient-dq-chart-first-precent, $theme2-gradient-dq-chart-second-colour $theme2-gradient-dq-chart-second-precent) !important;
+    background-image: -webkit-linear-gradient( $theme2-gradient-deg, $theme2-gradient-dq-chart-first-colour $theme2-gradient-dq-chart-first-precent, $theme2-gradient-dq-chart-second-colour $theme2-gradient-dq-chart-second-precent) !important;
+    background-image: -ms-linear-gradient( $theme2-gradient-deg, $theme2-gradient-dq-chart-first-colour $theme2-gradient-dq-chart-first-precent, $theme2-gradient-dq-chart-second-colour $theme2-gradient-dq-chart-second-precent) !important;
+}
+
+.theme2 .nav-tabs-dq-charts {
+//    @include gradient-dq-charts ($theme2-gradient-deg, $theme2-gradient-dq-chart-first-colour, $theme2-gradient-dq-chart-first-precent, $theme2-gradient-dq-chart-second-colour, $theme2-gradient-dq-chart-second-precent);
+    border: 0px !important;
+    margin-top: 1px;
+        background: -moz-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%)!important;
+    background: -webkit-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%)!important;
+    background: -ms-linear-gradient(top, #7FAED0 0%, #7BABCC 50%, #6E9CBC 100%) !important;
+}
+
+
+.theme2 .widget{
+    padding: 0px $padding-small 0px $padding-small;
+    background-color: $theme2-data-background;
+}
+
+.theme2 .widget-watchlist{
+    padding: 0px 0px $padding-small 0px;
+    background-color: $theme2-color-widget;
+    background-attachment:fixed;
+}
+
+.theme2 .watchlist-ul{
+    width: 100%;
+    position: relative;
+    margin-bottom: 6px;
+//    padding: 5px 0px 6px 0px;
+}
+
+@mixin watchlist-table-header ($theme2-gradient-deg, $theme2-gradient-watchlist-table-header-first-colour, $theme2-gradient-watchlist-table-header-first-precent, $theme2-gradient-watchlist-table-header-second-colour, $theme2-gradient-watchlist-table-header-second-precent,  $theme2-gradient-watchlist-table-header-third-colour, $theme2-gradient-watchlist-table-header-third-precent, $theme2-gradient-watchlist-table-header-fourth-colour, $theme2-gradient-watchlist-table-header-fourth-precent)
+{
+    background-image: -moz-linear-gradient( $theme2-gradient-deg, $theme2-gradient-watchlist-table-header-first-colour $theme2-gradient-watchlist-table-header-first-precent, $theme2-gradient-watchlist-table-header-second-colour $theme2-gradient-watchlist-table-header-second-precent,  $theme2-gradient-watchlist-table-header-third-colour $theme2-gradient-watchlist-table-header-third-precent,  $theme2-gradient-watchlist-table-header-fourth-colour $theme2-gradient-watchlist-table-header-fourth-precent);
+    background-image: -webkit-linear-gradient( $theme2-gradient-deg, $theme2-gradient-watchlist-table-header-first-colour $theme2-gradient-watchlist-table-header-first-precent, $theme2-gradient-watchlist-table-header-second-colour $theme2-gradient-watchlist-table-header-second-precent,  $theme2-gradient-watchlist-table-header-third-colour $theme2-gradient-watchlist-table-header-third-precent,  $theme2-gradient-watchlist-table-header-fourth-colour $theme2-gradient-watchlist-table-header-fourth-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-watchlist-table-header-first-colour $theme2-gradient-watchlist-table-header-first-precent, $theme2-gradient-watchlist-table-header-second-colour $theme2-gradient-watchlist-table-header-second-precent,  $theme2-gradient-watchlist-table-header-third-colour $theme2-gradient-watchlist-table-header-third-precent,  $theme2-gradient-watchlist-table-header-fourth-colour $theme2-gradient-watchlist-table-header-fourth-precent);
+}
+
+/*.theme2 .netplus-watchlist-table-header{
+    border-bottom: 1px $theme2-color-widget-border solid;
+    border-top:1px #e9e9e9 solid;
+    background-image: -ms-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%);
+    background-image: -moz-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%);
+    background-image: -webkit-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%);
+    padding-top: 5px !important;
+}*/
+
+.theme2 .netplus-watchlist-header{
+@include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    padding: 0px $padding-small 0px $padding-small;
+    margin-bottom: $margin-small;
+    height: 22px;
+    border-bottom: 1px solid $theme2-color-border-bottom;
+}
+
+.theme2 .widget-header-wrap{
+    border-radius: 2px 2px 0px 0px;
+    background-color:$theme2-color-widget;
+    border-top: 1px #7DABCC solid;
+    border-bottom: 1px #497A9E solid;
+    border-right: 1px #7DABCC solid;
+    border-left: 1px #7DABCC solid;
+    color: $theme2-data-background;
+    height: 24px;
+}
+
+.theme2 .horizontal-line-header{
+    overflow: hidden;
+    background-color:#AFCBE2;
+    width: 100%;
+    height: 1px;
+}
+
+.theme2 .widget-header{
+    color:$theme2-text-color-widget-title;
+    font-size:$font-medium;
+    font-weight:$font-bold;
+    padding:5px 13px 5px 13px;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);   
+}
+
+.theme2 .widget_new {
+    background-color: $theme2-color-widget;
+}
+
+@mixin toppanel-back ($theme2-gradient-deg, $theme2-gradient-toppanel-back-first-colour, $theme2-gradient-toppanel-back-first-precent, $theme2-gradient-toppanel-back-second-colour, $theme2-gradient-toppanel-back-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-toppanel-back-first-colour $theme2-gradient-toppanel-back-first-precent, $theme2-gradient-toppanel-back-second-colour $theme2-gradient-toppanel-back-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-toppanel-back-first-colour $theme2-gradient-toppanel-back-first-precent, $theme2-gradient-toppanel-back-second-colour $theme2-gradient-toppanel-back-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-toppanel-back-first-colour $theme2-gradient-toppanel-back-first-precent, $theme2-gradient-toppanel-back-second-colour $theme2-gradient-toppanel-back-second-precent);
+}
+
+.theme2 .toppanel-back{
+   // @include toppanel-back ($theme2-gradient-deg, $theme2-gradient-toppanel-back-first-colour, $theme2-gradient-toppanel-back-first-precent, $theme2-gradient-toppanel-back-second-colour, $theme2-gradient-toppanel-back-second-precent);
+    padding: 1px $padding-small 1px $padding-small;
+    color: $theme2-color-6;
+    text-align: $text-align-1;
+    font-size: 11px;
+   // border-bottom: 1px solid $theme2-color-border-bottom-2;
+  //  border-radius: 4px;
+    padding: 1px;
+}
+
+@mixin topbar ($theme2-gradient-deg, $theme2-gradient-topbar-first-colour, $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour, $theme2-gradient-topbar-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-topbar-first-colour $theme2-gradient-topbar-first-precent, $theme2-gradient-topbar-second-colour $theme2-gradient-topbar-second-precent);
+}
+
+// Top Bar
+/*.theme2 .topbar {
+    float: $text-align-1;
+    border-top: 1px $theme2-color-border-top solid;
+    border-right: 1px $theme2-color-border-right solid;
+    border-bottom: 2px $theme2-color-border-bottom solid;
+    border-left: 1px $theme2-color-border-left solid;
+    background-image: -ms-linear-gradient(90deg, #F1F1F1 0%, #FFFFFF 30%);
+    background-image: -moz-linear-gradient(90deg, #F1F1F1 0%, #FFFFFF 30%);
+    background-image: -webkit-linear-gradient(90deg, #F1F1F1 0%, #FFFFFF 30%);
+   // box-shadow:1px 1.732px 4px 0px rgba(41, 41, 41, 0.24);
+    height: 78px;
+}*/
+
+.theme2 .settings-selected{
+    background-color: $theme2-colour-dropdown-selected;
+}
+
+.theme2 .vertical_Seperator_topstocks{
+    border-right: 1px $theme2-color-border solid;
+}
+
+.theme2 .horizontal_line{
+    background-color:$theme2-color-border;
+}
+
+.theme2 .dropdown-chart-grid{
+    font-size: 16px;
+    padding: 2px 6px;
+}
+
+// to be commented
+/*.theme2 .tittle-colour{
+    color: $theme2-text-color-light  !important;
+}*/
+
+.theme2 .theme2-mgn-s-t{
+    margin-top: $margin-small;
+}
+
+.theme2 .theme2-bold{
+    font-weight:$font-bold;
+}
+
+.theme2 .ember-table-tables-container {
+    background-color: $theme2-color-widget !important;
+    border: 0px solid rgba(255, 255, 255, 0); 
+}
+
+.theme2 .ember-table-footer-container {
+    background-color: $theme2-data-background !important; 
+}
+
+@mixin prochart-line-studies-back ($theme2-gradient-deg, $theme2-gradient-prochart-line-studies-back-first-colour, $theme2-gradient-prochart-line-studies-back-first-precent, $theme2-gradient-prochart-line-studies-back-second-colour, $theme2-gradient-prochart-line-studies-back-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-prochart-line-studies-back-first-colour, $theme2-gradient-prochart-line-studies-back-first-precent, $theme2-gradient-prochart-line-studies-back-second-colour, $theme2-gradient-prochart-line-studies-back-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-prochart-line-studies-back-first-colour, $theme2-gradient-prochart-line-studies-back-first-precent, $theme2-gradient-prochart-line-studies-back-second-colour, $theme2-gradient-prochart-line-studies-back-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-prochart-line-studies-back-first-colour, $theme2-gradient-prochart-line-studies-back-first-precent, $theme2-gradient-prochart-line-studies-back-second-colour, $theme2-gradient-prochart-line-studies-back-second-precent);
+}
+.theme2 .prochart-line-studies-back{
+    border-radius: 3px;
+    @include prochart-line-studies-back ($theme2-gradient-deg, $theme2-gradient-prochart-line-studies-back-first-colour, $theme2-gradient-prochart-line-studies-back-first-precent, $theme2-gradient-prochart-line-studies-back-second-colour, $theme2-gradient-prochart-line-studies-back-second-precent);
+    color: $theme2-prochart-line-studies-back-color; 
+}
+
+.theme2 .widget-prochart{
+    background-color: $theme2-color-background;
+}
+
+.theme2 .chart-navtabs{
+    border: 0px solid $theme2-color-border;
+//    border-radius: 23px;
+    
+}
+
+.theme2 .chart-navtabs li{
+    margin-right: 0px;
+}
+
+.theme2 .dropdown-watchlist-more-search{
+    background-color: $theme2-popup-header;
+}
+
+.theme2 .watchlist-right-click hr {
+    margin: 0px 8px 0px 8px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    background-color : $theme2-color-border;
+}
+
+.theme2 .watchlist-right-click{
+//    border-top: 1px #D8D8D8 solid;
+    border-bottom:1px $theme2-popup-border solid;
+    border-left:1px $theme2-popup-border solid;
+    border-right:1px $theme2-popup-border solid;
+    background-color: $theme2-popover-background-color;
+    box-shadow: 1px 1.732px 11px 0px rgba( 92, 92, 92,0.5 ); 
+    width: 233px;
+}
+
+.theme2 .watchlist-right-click-symbol{
+   background-color: $theme2-popup-header;
+}
+
+.theme2 .watchlist-right-click-item:hover{
+    background-color: $theme2-popover-hover-color;
+    border-left: 4px $theme2-Default-color  solid;
+    padding: 8px 19px 8px 15px;
+}
+
+.theme2 .horizontal-list-right li {
+    margin-left: 5px;
+}
+
+.theme2 .news-popup{
+//    max-height:500px;
+//    min-height: 450px;
+//    min-width:365px;
+//    max-width: 550px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-popover-border-color;
+    background-color: $theme2-popover-background-color;
+    opacity: 1;
+    box-shadow: 1px 1.732px 5px 0px rgb( 0, 0, 0 );
+}
+
+.theme2 .news-popup-header{
+    min-height:60px; 
+    background-color: $theme2-Default-color;
+}
+
+.theme2 .symbol-popup-view-header{
+    cursor: move; 
+    height:30px; 
+    background-color: $theme2-Default-color; 
+    margin-left:-5px; 
+    margin-right:-5px; 
+    padding: 8px;
+}
+
+.theme2 .app-border{
+    //border: 2px $theme2-color-background solid;
+}
+
+.theme2 .footer-app-border{
+  //  border-right: 3px $theme2-color-background solid;
+   // border-bottom: 2px $theme2-color-background solid;
+    color:$theme1-color-footer;
+}
+
+.theme2 .tittle-bar{
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+   //border-bottom: 1px $theme2-titlebar-border-bottom-color solid;
+    box-shadow: 1.3px 2.2px 7px 0px #868686;
+}
+
+/*.theme2 .quote-summary-layout {
+    margin-left: $margin-small;
+    width: calc(100% - 5px);
+    background-color: $theme2-color-widget;
+    border-top: 1px solid $theme2-popup-border;
+    border-bottom: 2px solid $theme2-popup-border;
+    border-right: 1px solid $theme2-popup-border;
+    border-left: 1px solid $theme2-popup-border;
+}*/
+
+/*.theme2 .tittle-bar-search{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-color-border;
+    background-color:$theme2-color-background;
+    border-radius: 3px !important;
+}*/
+
+/*.theme2 .input-group-btn .tittle-bar-search-btn{
+    margin-left: -23px;
+    margin-top: 0px;
+    z-index: 2;
+    background-color: $theme2-color-6;
+    border: 0px;
+    height: 23px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:$theme2-color-border-bottom;
+}*/
+
+//for watchlist
+
+@mixin sort-back-color ($theme2-gradient-deg, $theme2-gradient-sort-back-color-first-colour, $theme2-gradient-sort-back-color-first-precent, $theme2-gradient-sort-back-color-second-colour, $theme2-gradient-sort-back-color-second-precent,  $theme2-gradient-sort-back-color-third-colour, $theme2-gradient-sort-back-color-third-precent)
+{
+    background-image: -moz-linear-gradient( $theme2-gradient-deg, $theme2-gradient-sort-back-color-first-colour $theme2-gradient-sort-back-color-first-precent, $theme2-gradient-sort-back-color-second-colour $theme2-gradient-sort-back-color-second-precent,  $theme2-gradient-sort-back-color-third-colour $theme2-gradient-sort-back-color-third-precent) !important;
+    background-image: -webkit-linear-gradient( $theme2-gradient-deg, $theme2-gradient-sort-back-color-first-colour $theme2-gradient-sort-back-color-first-precent, $theme2-gradient-sort-back-color-second-colour $theme2-gradient-sort-back-color-second-precent,  $theme2-gradient-sort-back-color-third-colour $theme2-gradient-sort-back-color-third-precent) !important;
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-sort-back-color-first-colour $theme2-gradient-sort-back-color-first-precent, $theme2-gradient-sort-back-color-second-colour $theme2-gradient-sort-back-color-second-precent,  $theme2-gradient-sort-back-color-third-colour $theme2-gradient-sort-back-color-third-precent) !important;
+}
+
+
+.theme2 .sort-back-color {
+   // background-image: none !important;
+   // @include sort-back-color ($theme2-gradient-deg, $theme2-gradient-sort-back-color-first-colour, $theme2-gradient-sort-back-color-first-precent, $theme2-gradient-sort-back-color-second-colour, $theme2-gradient-sort-back-color-second-precent,  $theme2-gradient-sort-back-color-third-colour, $theme2-gradient-sort-back-color-third-precent);
+    font-weight: bold;
+    background: rgba(245, 186, 51, 0.4);
+}
+
+.theme2 .tittle-bar-price-connected{
+    color: $theme2-text-color-table-header-2; 
+}
+
+
+.theme2 .connection-status-green {
+    color:$theme2-color-green-connection;
+}
+
+.theme2 .connection-status-red {
+    color:$theme2-color-red-connection;
+}
+
+// IE fulscreen issue
+
+.theme2 body:-ms-fullscreen::-ms-backdrop {
+         background-color: $theme2-color-background;
+}
+
+/*.theme2 .navbar-nav-ticker-area .tickerDiv{
+  background:rgba(210, 225, 236, 0.5);
+   // background-image: -ms-linear-gradient(90deg, #d2e1ec 0%, #f4f4f4 100%)!important;
+   // background-image: -moz-linear-gradient(90deg, #d2e1ec 0%, #f4f4f4 100%)!important;
+  //  background-image: -webkit-linear-gradient(90deg, #d2e1ec 0%, #f4f4f4 100%) !important;
+    
+    border-radius: 0px 0px 4px 4px;
+    border-bottom: 1px solid $theme2-color-border;
+    border-left: 1px solid $theme2-color-border;
+    border-right: 1px solid $theme2-color-border;
+    margin-top: -32px;
+    height: 26px;
+    
+    -moz-box-shadow: inset 1px 4px 9px -6px;
+    -webkit-box-shadow: inset 1px 4px 9px -6px;
+    box-shadow: inset 1px 4px 9px -6px;
+}*/
+
+.theme2 button.chart-btn-icon.active{
+      color: #7A8A99;
+//    background-color: $theme2-color-widget;
+}
+
+//heights 
+
+.theme2 .topstocks-height{
+    height:calc(100% - 19px);
+}
+
+.theme2 .detailquote-height{
+    height:calc(100% - 19px);
+}
+
+.theme2 .quote-tab{
+    height:calc(100% - 392px);
+    min-height:100px;
+}
+
+.theme2 .widget-header-icons{
+    padding: 4px 8px 4px 8px;
+//    border-bottom: 1px solid #497A9E; 
+}
+
+.theme2 .widget-header-sector-overview{
+    padding: 5px 8px 5px 8px;
+//    border-bottom: 1px solid #497A9E;
+}
+
+.theme2 .header-icons{
+    float: right;
+}
+
+.ar .theme2 .header-icons{
+    float: left;
+}
+
+/*.theme2 .widget-container{
+    padding:8px 8px 8px 8px;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 2px $theme2-color-widget-border solid;
+    border-right: 1px $theme2-color-widget-border solid;
+    border-left: 1px $theme2-color-widget-border solid;
+    overflow: hidden;
+    height: 100%;
+    background-color: $theme2-color-widget;
+}*/
+
+.theme2 .no-padding-top{
+    padding:0px 0px 8px 0px !important;
+}
+
+.theme2 .less-padding-top-bottom{
+    padding:4px 8px 4px 8px !important;
+}
+
+.theme2 .padding-zero{
+    padding:0px 0px 0px 0px !important;
+}
+
+.theme2 .regular-chart-container {
+    background-color: $theme2-color-widget;
+    padding:0px 8px 8px 8px;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 2px $theme2-color-widget-border solid;
+    border-right: 1px $theme2-color-widget-border solid;
+    border-left: 1px $theme2-color-widget-border solid;
+}
+
+.theme2 .Vertical_Seperator_topstocks{
+    border-right: 1px $theme2-color-border solid;
+	height: 144px;
+ 	float: $float-3;
+	margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+}
+
+.ar .theme2 .Vertical_Seperator_topstocks{
+    margin-right: 0px;
+}
+
+.theme2 .horizontal_line{
+    height: 1px;
+    width:100%;
+    overflow:hidden;
+    background-color:$theme2-horizontal-line;
+    margin:0px auto;
+    border-right: 1px $theme2-horizontal-line solid;
+    border-left: 1px $theme2-horizontal-line solid;
+  
+}
+
+.theme2 .widget-header .nav-tabs-3{
+//    margin-top: -5px;
+    margin-left: -13px;
+    margin-bottom: -5px;
+    margin-right: -13px;
+}
+
+.theme2 .index-Arrow{
+    font-size: 14px;
+    margin-left: 3px;
+}
+
+.ar .theme2 .index-Arrow{
+
+    margin-right: 3px;
+}
+
+.theme2 .index-Value{
+    font-size: 17px;
+    font-weight: bold;
+    margin-left:3px;
+}
+
+.ar .theme2 .index-Value{
+
+    margin-right:3px;
+}
+
+/*.theme2 .index-change-green{
+    font-size: 12px;
+    margin-left: 3px;
+    background:$theme2-color-green;
+    /!* padding: 2px; *!/
+    padding:3px 5px 2px 6px;
+    border-radius: 4px;
+    color: $theme2-text-color-light;
+}*/
+
+/*.theme2 .index-change-red{
+    font-size: 12px;
+    margin-left: 3px;
+    background: $theme2-color-red;
+    /!* padding: 2px; *!/
+    padding:3px 5px 2px 6px;
+    border-radius: 4px;
+    color:$theme2-text-color-light;
+}*/
+
+/*.theme2 .index-change-none{
+    font-size: 12px;
+    margin-left: 3px;
+    background: $theme2-color-6;
+    /!* padding: 2px; *!/
+    padding:3px 5px 2px 6px;
+    border-radius: 4px;
+    color:$theme2-text-color-light;
+}*/
+
+/*.theme2 .index-percentage-green{
+    font-size: 13px;
+    color: $theme2-color-green;
+    font-weight: bold;
+}*/
+
+/*.theme2 .index-percentage-red{
+    font-size: 13px;
+    color: $theme2-color-red;
+    font-weight: bold;
+}*/
+
+/*.theme2 .index-percentage-none{
+    font-size: 13px;
+    color: $theme2-color-6;
+    font-weight: bold;
+}*/
+
+.theme2 .larger-val{
+   font-size:12px;
+   font-weight: bold;
+   color: $theme2-color-5;
+}
+
+.theme2 .small-val{
+   font-size:8px; 
+   color: $theme2-color-6 !important;
+}
+
+
+
+//-------------- Topbar Seperators -----------------//
+
+// Topbar Vertical Seperators
+
+/*.theme2 .vertical-separator {
+    border-right: 1px $theme2-color-border-right solid;
+}
+
+.theme2 .vertical-separator-1 {
+	border-right: 1px $theme2-color-border-1 solid;
+	height: 59px;
+ 	float: $float-3;
+	margin-top: 8px;
+	margin-bottom: 8px;
+    margin-left: 1px;
+    position: absolute;
+    top: 0;
+}
+
+.theme2 .vertical-separator-2 {
+	border-right: 1px $theme2-color-border-right solid;
+	height: 31px;
+ 	float: $float-3;
+	margin-top: 36px;
+	margin-bottom: 8px;
+    margin-left: 0px;
+    position: absolute;
+    top: 0;
+}
+
+.theme2 .vertical-separator-3 {
+	border-right: 1px $theme2-color-border-1 solid;
+	height: 31px;
+ 	float: $float-3;
+	margin-top: 36px;
+	margin-bottom: 8px;
+    margin-left: 1px;
+    position: absolute;
+    top: 0;
+}
+
+ .theme2 .border-right-topbar {
+    border-right: 1px $theme2-color-border solid;
+}
+
+ .theme2 .border-left-topbar {
+    border-left: 1px $theme2-color-border solid;
+}
+
+ .theme2 .border-right-topbar-1 {
+    border-right: 1px $theme2-color-border-1 solid;
+}
+
+// End Topbar Vertical Seperators
+
+// Topbar Horizontal  Seperators
+
+.theme2 .horizontal-line-topbar{
+    background: $theme2-color-border;
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+    height: 1px; 
+    margin: 0 auto;
+}
+
+.theme2 .horizontal-line-topbar-1{
+    background: $theme2-color-border-1;
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+    height: 1px;  
+    margin: 0 auto;
+}
+.theme2 .border-bottom-topbar {
+    border-bottom: 1px $theme2-color-border solid;
+}
+
+.theme2 .border-bottom-topbar-1 {
+    border-bottom: 1px $theme2-color-border-1 solid;
+    margin-top:1px;
+}*/
+
+// End Topbar Horizontal  Seperators
+
+
+//-------------- End Topbar Seperators -----------------//
+
+.theme2 .padding-small-bottom-1 {
+    padding-bottom: 6px;
+}
+
+// Tabs - Nav special
+
+.theme2 .nav-special{
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    margin-left: -6px;
+    margin-right: -6px;
+}
+
+.theme2 .nav-special > li > a{
+    color: $theme2-drp-color-active !important;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    height: 20px;
+}
+
+@mixin nav-special ($theme2-gradient-deg, $theme2-gradient-nav-special-first-colour, $theme2-gradient-nav-special-first-precent, $theme2-gradient-nav-special-second-colour, $theme2-gradient-nav-special-second-precent,  $theme2-gradient-nav-special-third-colour, $theme2-gradient-nav-special-third-precent,$theme2-gradient-nav-special-fourth-colour, $theme2-gradient-nav-special-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-first-colour $theme2-gradient-nav-special-first-precent, $theme2-gradient-nav-special-second-colour $theme2-gradient-nav-special-second-precent,  $theme2-gradient-nav-special-third-colour $theme2-gradient-nav-special-third-precent, $theme2-gradient-nav-special-fourth-colour $theme2-gradient-nav-special-fourth-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-first-colour $theme2-gradient-nav-special-first-precent, $theme2-gradient-nav-special-second-colour $theme2-gradient-nav-special-second-precent,  $theme2-gradient-nav-special-third-colour $theme2-gradient-nav-special-third-precent, $theme2-gradient-nav-special-fourth-colour $theme2-gradient-nav-special-fourth-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-first-colour $theme2-gradient-nav-special-first-precent, $theme2-gradient-nav-special-second-colour $theme2-gradient-nav-special-second-precent,  $theme2-gradient-nav-special-third-colour $theme2-gradient-nav-special-third-precent, $theme2-gradient-nav-special-fourth-colour $theme2-gradient-nav-special-fourth-precent);
+}
+
+.theme2 .nav-special > li.active > a:hover{
+    color: $theme2-drp-color-active !important;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00948F;
+}
+
+@mixin nav-special-focus ($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent )
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent );
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent );
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent );
+}
+
+.theme2 .nav-special > li.active > a, .theme2 .nav-special > li.active > a:hover, .theme2 .nav-special > li.active > a:focus {
+    color: $theme2-drp-color-active !important;
+    @inlcude nav-special-focus ($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent );
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-color-border;
+    height: 20px;
+}
+
+// Nav-special-2 Tabs
+
+.theme2  .nav-special-2{
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+}
+
+.theme2  .nav-special-2 > li > a{
+    color: #e8edf5 !important;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-color-widget-border;
+    height: 21px;
+    margin-bottom: 1px;
+}
+
+.theme2  .nav-special-2 > li.active > a:hover{
+    color: $theme2-drp-color-active !important;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent);
+    border-top:none;
+    border-bottom:none;
+    border-left: 1px $theme2-color-border-left solid;
+    border-right: 1px $theme2-color-border-right solid;
+    
+}
+
+.theme2  .nav-special-2 > li.active > a, .theme2  .nav-special-2 > li.active > a:hover, .theme2 .nav-special-2 > li.active > a:focus {
+    color: #e8edf5 !important;
+    @include nav-special-focus ($theme2-gradient-deg, $theme2-gradient-nav-special-focus-first-colour, $theme2-gradient-nav-special-focus-first-precent, $theme2-gradient-nav-special-focus-second-colour, $theme2-gradient-nav-special-focus-second-precent,  $theme2-gradient-nav-special-focus-third-colour, $theme2-gradient-nav-special-focus-third-precent, $theme2-gradient-nav-special-focus-fourth-colour, $theme2-gradient-nav-special-focus-fourth-precent );
+    border-top:none;
+    border-bottom:none;
+    border-left: 1px $theme2-color-border-left solid;
+    border-right: 1px $theme2-color-border-right solid;
+    height: 21px;
+
+}
+
+// Nav Tabs
+
+@mixin gradient-nav-tabs-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour, $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour, $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour, $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour, $theme2-gradient-nav-tabs-hover-fourth-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour $theme2-gradient-nav-tabs-hover-fourth-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour $theme2-gradient-nav-tabs-hover-fourth-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour $theme2-gradient-nav-tabs-hover-fourth-precent);
+}
+
+.theme2 .nav-tabs > li.active > a, .theme2 .nav-tabs > li.active > a:hover, .theme2 .nav-tabs > li.active > a:focus {
+	color: $theme2-text-color-normal !important;
+    @include gradient-nav-tabs-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour, $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour, $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour, $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour, $theme2-gradient-nav-tabs-hover-fourth-precent)
+    background-color: rgba(243, 243, 243, 0);
+    border-right: 1px solid $theme2-nav-border;
+    border-left: 1px solid $theme2-nav-border;
+    border-top: 1px solid $theme2-nav-border;
+    border-bottom: 1px solid $theme2-nav-border !important;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff !important;
+
+}
+
+.theme2 .nav-tabs {
+    overflow: hidden;
+    -webkit-box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+    -moz-box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+    box-shadow: 0px 1px 4px -3px rgba(0, 0, 0, 0.9);
+}
+
+@mixin nav-tabs ($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour, $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour, $theme2-gradient-nav-tabs-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour $theme2-gradient-nav-tabs-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour $theme2-gradient-nav-tabs-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour $theme2-gradient-nav-tabs-second-precent);
+}
+
+.theme2 .nav-tabs > li > a {
+    
+    @include nav-tabs ($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour, $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour, $theme2-gradient-nav-tabs-second-precent);
+    color: $theme2-tab-button-color;
+    margin-right: 0px;
+    border-left: 1px solid $theme2-color-widget-border;
+    border-right: 1px solid $theme2-color-widget-border;
+    border-top: 1px solid $theme2-color-widget-border;
+    border-bottom: 1px solid $theme2-btn-border-bottom !important;
+    text-align: center;
+    
+}
+
+.theme2 .nav-tabs .layout-col > a {
+
+    @include nav-tabs ($theme2-gradient-deg, $theme2-gradient-nav-tabs-first-colour, $theme2-gradient-nav-tabs-first-precent, $theme2-gradient-nav-tabs-second-colour, $theme2-gradient-nav-tabs-second-precent);
+    color: $theme2-tab-button-color;
+    margin-right: 0px;
+    border-left: 1px solid $theme2-color-widget-border;
+    border-right: 1px solid $theme2-color-widget-border;
+    border-top: 1px solid $theme2-color-widget-border;
+    border-bottom: 1px solid $theme2-btn-border-bottom !important;
+    text-align: center;
+
+}
+
+.theme2 .nav-tabs .active > a, .theme2 .nav-tabs .active > a:hover, .theme2 .nav-tabs .active > a:focus {
+    color: $theme2-text-color-normal !important;
+    @include gradient-nav-tabs-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-hover-first-colour, $theme2-gradient-nav-tabs-hover-first-precent, $theme2-gradient-nav-tabs-hover-second-colour, $theme2-gradient-nav-tabs-hover-second-precent, $theme2-gradient-nav-tabs-hover-third-colour, $theme2-gradient-nav-tabs-hover-third-precent, $theme2-gradient-nav-tabs-hover-fourth-colour, $theme2-gradient-nav-tabs-hover-fourth-precent)
+    background-color: rgba(243, 243, 243, 0);
+    border-right: 1px solid $theme2-nav-border;
+    border-left: 1px solid $theme2-nav-border;
+    border-top: 1px solid $theme2-nav-border;
+    border-bottom: 1px solid $theme2-nav-border !important;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff !important;
+
+}
+
+.theme2 .nav > li > a:hover, .theme2 .nav > li > a:focus {
+	color: $theme2-btn-border-color-hover;
+    margin-top: 0px;
+}
+
+.theme2 .nav .layout-col> a:hover, .theme2 .nav .layout-col > a:focus {
+    color: $theme2-btn-border-color-hover;
+    margin-top: 0px;
+}
+
+h2.theme2 .nav-tabs {
+    border-bottom: 0px;
+    margin: -5px 0 0 0;
+    color: $theme2-tab-button-color;
+}
+
+// Nav Tabs- 2
+
+.theme2 .nav-tabs-2 > li.active > a, .theme2 .nav-tabs-2 > li.active > a:hover, .theme2 .nav-tabs-2 > li.active > a:focus {
+    color: #639DC4 !important;
+    background-color: $theme2-color-7;
+	border-bottom:none !important;
+    font-weight: bold;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-color-widget-border;
+}
+
+.theme2 .nav-tabs-2 {
+    border-bottom: 0px solid $theme2-color-border-bottom !important;
+}
+
+.theme2.nav-tabs-2 > li > a {
+    margin-right: 0px;
+    border-bottom: none !important;
+    color: $theme2-text-color-normal;
+}
+
+.theme2 .nav-tabs-2 > li{
+   margin-left: 10px;
+   float: $float-1;
+   margin-bottom: -1px;
+}
+
+.ar .theme2 .nav-tabs-2 > li{
+   margin-left: 10px;
+   float: $float-2;
+   margin-bottom: -1px;
+}
+
+// Nav Tabs - 3
+
+.theme2 .nav-tabs-3 > li{
+   float: $float-1;
+   margin-bottom: -1px;
+}
+
+.ar .theme2 .nav-tabs-3 > li{
+   float: $float-2;
+    margin-bottom: -1px;
+}
+
+@mixin nav-tabs-3 ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-first-colour, $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour, $theme2-gradient-nav-tabs-3-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg,  $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour $theme2-gradient-nav-tabs-3-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg,  $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour $theme2-gradient-nav-tabs-3-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg,  $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour $theme2-gradient-nav-tabs-3-second-precent);
+}
+
+
+.theme2 .nav-tabs-3 > li > a {
+   // @include nav-tabs-3 ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-first-colour, $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour, $theme2-gradient-nav-tabs-3-second-precent);
+    color: #ffffff !important;
+    padding: 6px 15px;
+    border-right: 1px solid #57809D;
+    border-left: 1px solid #7DABCC;
+    border-top:1px solid #7DACCE;
+    //border-bottom: 1px solid #57809D;
+    @include nav-tabs-3 ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-first-colour, $theme2-gradient-nav-tabs-3-first-precent, $theme2-gradient-nav-tabs-3-second-colour, $theme2-gradient-nav-tabs-3-second-precent);
+    margin-top: -5px !important;
+    padding: 5px 15px;
+    
+}
+
+@mixin nav-tabs-3-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour, $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour, $theme2-gradient-nav-tabs-3-hover-second-precent)
+{
+    background-image: -moz-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour $theme2-gradient-nav-tabs-3-hover-second-precent);
+    background-image: -webkit-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour $theme2-gradient-nav-tabs-3-hover-second-precent);
+    background-image: -ms-linear-gradient($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour $theme2-gradient-nav-tabs-3-hover-second-precent);
+}
+
+.theme2 .nav-tabs-3 > li.active > a, .theme2 .nav-tabs-3 > li.active > a:hover, .theme2 .nav-tabs-3 > li.active > a:focus {
+    color: #ffffff !important;
+    @include nav-tabs-3-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour, $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour, $theme2-gradient-nav-tabs-3-hover-second-precent);
+  //  @include gradient-nav-tabs-hover ($theme2-gradient-deg, $theme2-gradient-nav-tabs-3-hover-first-colour, $theme2-gradient-nav-tabs-3-hover-first-precent, $theme2-gradient-nav-tabs-3-hover-second-colour, $theme2-gradient-nav-tabs-3-hover-second-precent, $theme2-gradient-nav-tabs-3-hover-third-colour, $theme2-gradient-nav-tabs-3-hover-third-precent, $theme2-gradient-nav-tabs-3-hover-fourth-colour, $theme2-gradient-nav-tabs-3-hover-fourth-precent);
+    border-right: 1px solid $theme2-nav-border;
+    border-left: 1px solid $theme2-nav-border;
+    border-top: 1px solid $theme2-nav-border;
+    border-bottom: 1px solid $theme2-nav-border !important;
+    margin-top: -4px;
+    padding: 5px 15px;
+}
+
+.theme2 .title{
+float: left;
+}
+
+.ar .theme2 .title{
+float: right;
+}
+
+.theme2 .symbol{
+    float:left;
+    margin-left: 10px;
+}
+
+.ar .theme2 .symbol{
+    float:right;
+    margin-right: 10px;
+}
+
+.theme2 .text-danger{
+    color: $theme2-color-red-connection !important;
+}
+
+.theme2 .red-new{
+  color: #C55555 !important
+}
+
+.theme2 .text-red{
+    color: $theme2-color-red-connection !important;
+}
+
+.theme2 .popup-widget{
+    background-color: $theme2-color-widget;
+}
+
+// trade css
+
+.theme2 .sell {
+    background-color:#fee4e3;
+}
+
+.theme2 .buy {
+    background-color:#d8eee1;
+}
+
+// for messege box
+
+.theme2 .message-box-title{
+    height:28px; 
+    background-color: $theme2-Default-color; 
+    padding: 8px;
+    padding-left: 15px;
+    text-align: left;
+    color: $theme2-text-color-light;
+    font-size: $font-large;
+    font-weight: bold;
+}
+
+.message-box-frame {
+    background: $theme2-color-widget;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $theme2-popover-border-color;
+    background-color: $theme2-popover-background-color;
+    opacity: 0.949;
+    box-shadow: 1px 1.732px 5px 0px rgb( 0, 0, 0 );
+}
+
+.theme2 .table-header-hd{
+    border-bottom: 1px $theme2-color-widget-border solid;
+    border-top: 1px $theme2-tbl-heading-border-top solid;
+    background-image: -ms-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%)!important;
+    background-image: -moz-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%)!important;
+    background-image: -webkit-linear-gradient(90deg, #e5e5e5 0%, #fcfcfc 100%) !important;
+//  box-shadow: 1px 1.732px 5px 0px rgb( 0, 0, 0 );
+}
+
+.theme2 .sep{
+    border-right: 1px $theme2-seperator-color-1 solid;
+    height: 21px;
+    float: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    z-index: 10;
+    position: absolute;
+    top: 1px;
+}
+
+//left side borders
+
+.theme2 .left-border-radius{
+    border-radius:2px 0px 0px 2px;
+}
+
+.theme2 .right-border-radius{
+    border-radius: 0px 2px 2px 0px;
+}
+
+// For rounded corder tabs
+/*
+.round ul li:first-child a {
+    border-radius: 2px 0px 0px 2px;
+}
+
+.round ul li:last-child a {
+    border-radius: 0px 2px 2px 0px;
+}
+*/
+
+.theme2 .prominat {
+    font-size:12px;
+    font-weight: bold;
+    color:$theme2-text-color-main;
+}
+
+.theme2 .watchlist-header{
+    height: 24px;
+    padding: 0px 13px 0px 9px !important;
+    color:$theme2-text-color-widget-title;
+    font-size:$font-medium;
+    font-weight:$font-bold;
+    padding:5px 13px 5px 13px;
+    @include gradient-title ($theme2-gradient-deg, $theme2-gradient-tittle-first-colour, $theme2-gradient-tittle-first-precent, $theme2-gradient-tittle-second-colour, $theme2-gradient-tittle-second-precent); 
+}
+
+.theme2 .watchlist-widget-container{
+    padding:8px 8px 8px 8px;
+    border-radius: 0px 0px 2px 2px;
+    border-bottom: 2px $theme2-color-widget-border solid;
+    border-right: 1px $theme2-color-widget-border solid;
+    border-left: 1px $theme2-color-widget-border solid;
+    height: 100%;
+    background-color: $theme2-color-widget;
+}
+
+.theme2 .depth-by{
+    background: rgba(234, 234, 234, 0.2);
+    padding-bottom: 3px;
+    padding-top: 8px;
+}
+
+.theme2 .version-details{
+    font-size:10px;
+    margin-top:2px;
+}
+
+.theme2 .colour-white{
+    color:$theme2-txt-color-light;
+}
+
+/*.theme2 .colour-ash{
+    color: $theme2-titlebar-caption-color;
+}*/
+
+.theme2 .back-green-light-2{
+   background: #9DCEAD !important;
+}
+
+.theme2 .back-red-light-2{
+    background: #F4B6B6 !important;
+}
+
+.theme2 .titlebar-widgets-1{
+ //  width: 100px;
+   font-size: 12px;
+}
+
+.theme2 .titlebar-widgets-2{
+  // width: 140px;
+   font-size: 12px;
+}
+
+.theme2 .titlebar-widgets-3{
+ //  width: 190px;
+   font-size: 12px;
+}
+
+.theme2 .btn-special-titlebar{
+    color:$theme2-btn-txt-color !important;
+    font-weight: normal !important;
+    border-bottom: 1px solid $theme2-titlebar-btn-border-top;
+    border-top: 1px solid $theme2-titlebar-btn-border-bottom;
+    border-right: 1px solid $theme2-titlebar-btn-border-left-right;
+    border-left: 1px solid $theme2-titlebar-btn-border-left-right;
+    background: -moz-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -webkit-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -ms-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    height: 30px !important;
+    margin-top: -3px;
+    border-radius: 0px;
+    font-size: 11px;
+    padding-bottom: 8px;
+}
+
+/*.theme2 .btn-special-widget-header{
+    color:$theme2-btn-txt-color;
+    font-weight: normal !important;
+    border-bottom: 1px solid $theme2-titlebar-btn-border-top !important;
+    border-top: 1px solid $theme2-titlebar-btn-border-bottom;
+    border-right: 1px solid $theme2-titlebar-btn-border-left-right;
+    border-left: 1px solid $theme2-titlebar-btn-border-left-right;
+    background: -moz-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -webkit-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -ms-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    height: 22px !important;
+    margin-top: 1px;
+    border-radius: 0px;
+    font-size: 11px;
+}*/
+
+/*.theme2 .btn-special-widget-header:hover{
+    color: $theme2-btn-txt-color;
+    background-color: $theme2-btn-special-hover;
+}*/
+
+.theme2 .btn-special-titlebar:hover{
+    background: #7DACCE !important;
+}
+
+.theme2 .green-back{
+    background: $theme2-titlebar-background-green-color;
+    padding: 9px;
+   // border-radius: 4px;
+    //margin-top: -9px;
+}
+
+.theme2 .red-back{
+    background:$theme2-titlebar-background-red-color;
+    padding: 9px;
+   // border-radius: 4px;
+    //margin-top: -9px;
+}
+
+.theme2 .blue-back {
+    background: $theme2-titlebar-background-blue-color;
+    padding: 9px;
+    //margin-top: -9px;
+}
+//
+//.theme2 .logo-upper{
+//    margin-top: -5px;
+//    font-size: 10px;
+//    color:$theme2-btn-txt-color;
+//    padding: 2px 4px 2px 4px;
+//    background-image: -moz-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    background-image: -webkit-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    background-image: -ms-linear-gradient(90deg, #404e6b 0%, #5f6a86 100%);
+//    border-radius: 3px;
+//    margin-left: 3px;
+//    margin-right: 4px;
+//}
+
+.theme2 .btn-buy{
+	color:$theme2-btn-txt-color!important;
+    height: 24px;
+	padding: 2px 15px 2px 15px;
+	font-size: $font-medium;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    border-top: 1px solid #53C37B !important;
+    border-bottom: 1px solid #3E8D57 !important;
+    border-right: 1px solid #53C37B !important;
+    border-left: 1px solid #53C37B !important;
+    background:$theme2-color-green-btn; 
+    background: -webkit-linear-gradient(to bottom, #4dd17c , #2da75a); 
+    background: linear-gradient(to bottom, #4dd17c , #2da75a);               
+}
+
+.theme2 .btn-sell{
+	color:$theme2-btn-txt-color!important;
+    height: 24px;
+	padding: 2px 15px 2px 15px;
+	font-size: $font-medium;
+    border-radius: 3px;
+    -webkit-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    -moz-box-shadow: 0px 1px 4px -3px  rgba(0,0,0,0.9);
+    box-shadow:0px 1px 4px -3px  rgba(0,0,0,0.9);
+    border-top: 1px solid #f97c7c !important;
+    border-bottom: 1px solid #e03939 !important;
+    border-right: 1px solid #f97c7c !important;
+    border-left: 1px solid #f97c7c !important;
+    background: $theme2-color-red-btn; 
+    background: -webkit-linear-gradient(to bottom, #fb6e6e , #f14242); 
+    background: linear-gradient(to bottom, #fb6e6e , #f14242);               
+}
+
+
+.theme2 .back-green-light{
+    background: $theme2-color-green-buy-light !important;
+}
+
+.theme2 .back-red-light {
+    background-color: $theme2-color-red-sell-light !important;
+}
+
+.theme2 .secondary-tit{
+    font-size: 10px;
+    color: $theme2-titlebar-value-color;
+    margin-left: 3px;
+}
+
+.theme2 .secondary-val{
+   font-size: 10px;
+   margin-left: 2px;
+}
+
+.theme2 .sep-group{
+  padding-top: 16px;
+}
+
+.theme2 .titlebar-sep-1 {
+    border-right: 1px solid $theme2-titlebar-seperator-color;
+    height: 21px;
+    float: none;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    z-index: 10;
+    position: absolute;
+    top: 1px;
+}
+
+.theme2 .titlebar-sep-2 {
+    border-right: 1px solid $theme2-titlebar-seperator-color;
+    height: 30px;
+    float: none;
+    /* margin-top: 2px; */
+    margin-bottom: 0px;
+    /* margin-left: 1px; */
+    z-index: 10;
+    position: absolute;
+    top: -2px;
+}
+
+/*.theme2 .username{
+    color: $theme2-titlebar-caption-color !important;
+    font-size: 11px;
+}*/
+
+.theme2 .titlebar-icon-section{
+    height: 30px;
+    background: -moz-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -webkit-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    background: -ms-linear-gradient(top, #75A1C1 0%, #6999BA 50%, #5581A0 100%);
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.theme2 .special-price{
+   margin-left: -10px;
+} 
+
+.ar .theme2 .special-price{
+   margin-right: -10px;
+   margin-left: inherit
+} 
+
+.theme2 .padding-9{
+  padding: 9px;
+}
+
+.theme2 .news-heading{
+    line-height: 18px;
+    background:#E9F0F6;
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    margin-left:-8px;
+    font-weight: bold;
+    color:#727272;
+}
+
+.theme2 .news-heading-right-panel{
+    line-height: 18px;
+    background:#E9F0F6;
+    padding: 15px;
+    font-size: 12px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color:#727272;
+}
+
+.theme2 .news-body{
+   font-size: 12px;
+   color: #666666;
+   line-height: 18px;
+}
+
+.theme2 .news-date-time-bar{
+    font-size: 12px;
+    margin-bottom: 10px;
+    color: #A8A8A8;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.theme2 .news-date-time-bar-right-panel{
+    font-size: 12px;
+    color: #A8A8A8;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.theme2 .news-list-item{
+    padding: 5px 10px;
+    line-height: 14px;
+}
+
+.theme2 .news-list-item:hover,.theme2 .news-list-item:active, .news-list-item-right-panel:hover, .news-list-item-right-panel:active{
+    background: #E9F0F6;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition:all 0.3s ease;
+}
+
+.theme2 .news-page-tools{
+    padding: 0 15px 0 0;
+    //margin-top: 8px;
+    background: rgba(234, 234, 234, 0.2);
+    //min-width: 1200px;
+//    border-bottom: 1px solid $theme2-color-border-bottom;
+}
+
+.news-list-item-right-panel{
+    line-height: 14px;
+}
+
+.theme2 .border-radius-top{
+    border-radius:2px 2px 0px 0px;
+}
+
+.search-query-min{
+    width: 60px;
+    height: 24px !important;
+    font-size: 12px;
+    border-top: 1px #D4D4D4 solid;
+    border-bottom: 1px #EEEEEE solid;
+    border-right: 1px #DCDCDC solid;
+    border-left: 1px #DCDCDC solid;
+    background-color: #e8edf1;
+    border-radius: 2px 2px 2px 2px !important;
+    height: 23px;
+    background: -moz-linear-gradient(top, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+    background: -ms-linear-gradient(to bottom, #ebebeb 0%, #fafafa 30%, #fafafa 30%, #ffffff 100%);
+    
+}
+
+
+.theme2 .depth-table tr {
+    background: $theme2-color-widget;
+}
+
+//  Define the background color for all the ODD background rows  
+
+.theme2 .depth-table tr:nth-child(odd) {
+    background: $theme2-color-table-odd;
+}
+
+//  Define the background color for all the EVEN background rows  
+
+.theme2 .depth-table tr:nth-child(even) .dark-red{
+    background: $theme2-watchlist-cell-back-red-2;
+}
+.theme2 .depth-table tr:nth-child(even) .dark-green{
+    background: $theme2-watchlist-cell-back-green-2;
+}
+
+.theme2 .link-color-1{
+    background-color:#F4D03F;
+}
+
+.theme2 .link-color-2{
+    background-color:#FE8FE1;
+}
+
+.theme2 .link-color-3{
+    background-color:#58e2b3;
+}
+
+.theme2 .link-color-4{
+    background-color:#74CAF4;
+}
+
+.theme2 .hint--bottom:before {
+    border-bottom-color: $theme2-color-tooltip;
+}
+
+.theme2 [data-hint]:after {
+    background: $theme2-color-tooltip;
+}
+
+.theme2 .hint--top:before {
+    border-top-color: $theme2-color-tooltip;
+}
+
+.theme2 .hint--right:before {
+    border-right-color: $theme2-color-tooltip;
+}
+
+.theme2 .hint--left:before {
+    border-right-color: $theme2-color-tooltip;
+}
+

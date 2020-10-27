@@ -1,0 +1,31 @@
+<div class="panel-table h-left rtl" {{bind-attr title="view.secondValue"}}>
+    <div class="ellipsis layout-container full-width">
+         <div class="font-l-light bold symbol-fore-color ellipsis layout-col-24 h-left" title="{{view.symTitle}}">{{view.formattedFirstValue}}</div>
+
+    {{#if view.isndicatorAvailable}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i {{bind-attr class="view.dcfsStyle" }} {{bind-attr title="view.dcfsToolTip"}}></i></span>
+         {{#if view.is52WeekHigh}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><span class="wk52-up-icon"><i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.highReachedFiftyTwoWeekHigh}}></i></span></span>
+         {{/if }}
+         {{#if view.is52WeekLow}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><span class="wk52-down-icon"><i class="icon-high-low-52 dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.lowReachedFiftyTwoWeekLow}}></i></span></span>
+         {{/if }}
+         {{#if view.isTodayHigh}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-max up-fore-color" {{bind-attr  title=view.app.lang.labels.lastTradedReachedHigh}}></i></span>
+         {{/if }}
+         {{#if view.isTodayLow}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-max down-fore-color" {{bind-attr title=view.app.lang.labels.lastTradedReachedLow}}></i></span>
+         {{/if }}
+         {{#if view.isAnnAvailable}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="icon-megaphone-1 ann-icon-color" {{bind-attr title=view.app.lang.labels.annAvailable}}></i></span>
+         {{/if}}
+         {{#if view.isStlmt}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="fa fa-lightbulb-o highlight-fore-color"></i></span>
+         {{/if}}
+         {{#if view.isShariaSymbol}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><span class="sharia-icon"><i class="icon-subscription-1 dark-bg-fore-color" title={{view.app.lang.labels.shariaSymbol}}></i></span></span>
+         {{/if}}
+    {{/if}}
+    </div>
+    <div class="font-m colour-symbol-dis watchlist-dual-cell pad-xs-t">{{view.formattedSecondValue}}</div>
+</div>

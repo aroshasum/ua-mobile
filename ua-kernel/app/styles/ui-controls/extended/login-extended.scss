@@ -1,0 +1,45 @@
+// Login styles go here
+.version-css {
+  color: #7e7e7e !important;
+}
+
+.login-input {
+  color: #ffffff !important;
+}
+
+.txt {
+  color: #dbdbdc !important;
+}
+
+.input-text-box {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.input-text-box:focus {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+  outline: none !important;
+}
+
+.btn-login:hover, .btn-login:focus, .btn-login.focus {
+  color: #1abc9c;
+  text-decoration: none;
+  border: 1px #1abc9c solid !important;
+}
+
+.login-back {
+  background-image: linear-gradient(90deg, #092756 0%, #092756 90%, #092756 100%) !important;
+}
+
+.login-btn {
+  color: #1abc9c !important;
+  border-top: 1px #1abc9c solid !important;
+  border-bottom: 1px #1abc9c solid !important;
+  border-right: 1px #1abc9c solid !important;
+  border-left: 1px #1abc9c solid !important;
+}
+
+.simple-switch-input:checked ~ .simple-switch.dark {
+  background: #1abc9c !important;
+  box-shadow: inset 0 0 0 15px #1abc9c !important;
+}

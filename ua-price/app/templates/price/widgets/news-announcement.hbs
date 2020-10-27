@@ -1,0 +1,107 @@
+<div class="widget_new full-height" id={{wkey}}>
+    {{widget-header
+    linkOptions=links
+    defaultSelectedLink=defaultLink
+    selectedLink=selectedLink
+    widgetTitle=title
+    hideSymbol=hideSymbol
+    hideWidgetLink=hideWidgetLink
+    symbol=symbolObj.dispProp1
+    setLink='setLink'
+    searchedSymbol=symbolObj.dispProp1
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss
+    isSearchAvailable=isSearchAvailable
+    searchID=searchID
+    clickAction='changeSymbol'
+    app=app
+    }}
+    <div class="nano full-height-without-header pos-rel has-scrollbar">
+        <div class="widget-container-new nano-content full-height">
+            {{#if showAnnTabs}}
+                <ul id="tablist" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#location1" aria-controls="location1" role="tab" data-toggle="tab" style="padding:3px 7px"
+                           class="font-m" {{action 'loadAll'}}  >{{app.lang.labels.all}}</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#location1" aria-controls="location1" role="tab" data-toggle="tab" style="padding:3px 7px"
+                           class="font-m" {{action 'loadAnnouncements'}} >{{app.lang.labels.announcement}}</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#location1" aria-controls="location1" role="tab" data-toggle="tab" style="padding:3px 7px"
+                           class="font-m" {{action 'loadNews'}} >{{app.lang.labels.news}}</a>
+                    </li>
+                </ul>
+            {{/if}}
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="location1">
+                    {{#each announcement in filteredContent}}
+
+                        <div  class="table-row-hover-back-color {{isEqual announcement.id selectedNewAnn 'table-row-selected-back-color'}} ">
+
+                            <div class="layout-container full-width news-list-item-right-panel border-bottom {{if isMobile 'pad-l-tb' 'pad-m-tb'}}">
+
+                                <a {{action 'itemClicked' announcement.id announcement.type}}>
+
+                                    <div class="layout-col v-top pad-widget-left pad-m-r">
+                                        {{#if announcement.isAnnouncement}}
+                                            <i class="icon-megaphone-1 ann-icon-color"></i>
+                                        {{else}}
+                                            <i class="icon-tv news-icon-color"></i>
+                                        {{/if}}
+                                    </div>
+
+                                    {{#if announcement.isArabic}}
+                                        <div class="layout-col full-width v-top white-space-normal pad-m-l pad-widget-right {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+
+                                            <p class="news-title fore-color {{if isMobile 'pad-l-b' 'pad-m-b'}}"><span class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+
+                                            <div class="layout-container full-width fade-fore-color">
+                                                <div class="layout-col-24 bold highlight-fore-color font-m">{{announcement.dispProp1}}</div>
+                                                <div class="layout-col font-m fade-fore-color"><span class={{announcement.annNewsTimeCss}}>{{announcement.dDTt}}</span></div>
+                                            </div>
+                                        </div>
+                                    {{else}}
+                                        <div class="layout-col full-width v-top white-space-normal pad-m-l pad-widget-right {{if announcement.isAnnouncement 'announcement-vertical-seperator' 'news-vertical-seperator'}}">
+
+                                            <p class="news-title fore-color {{if isMobile 'pad-l-b' 'pad-m-b'}}"><span class={{announcement.annNewsHeadCss}}>{{announcement.dHed}}</span></p>
+
+                                            <div class="layout-container full-width fade-fore-color">
+                                                <div class="layout-col-24 bold highlight-fore-color font-m">{{announcement.dispProp1}}</div>
+                                                <div class="layout-col font-m fade-fore-color"><span class={{announcement.annNewsTimeCss}}>{{announcement.dDTt}}</span></div>
+                                            </div>
+                                        </div>
+
+                                    {{/if}}
+                                </a>
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#if isInvokedBySearch}}
+                            {{#if isAnnUnavailable}}
+                                <div>{{app.lang.messages.dataNotAvailable}}</div>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="location2">
+
+                    <!--         <div id="datepicker"></div>  -->
+
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="location3">
+                    <h2>Buyaka</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="widget_new full-height" id="{{wkey}}">
+    {{widget-header
+    linkOptions=links
+    defaultSelectedLink=defaultLink
+    selectedLink=selectedLink
+    widgetTitle=app.lang.labels.detailQuote
+    symbol=stock.dispProp1
+    setLink='setLink'
+    hideSymbol=hideSymbol
+    searchedSymbol=stock.dispProp1
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    isSearchAvailable=isSearchAvailable
+    searchID=searchID
+    clickAction='changeSymbol'
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+
+    <div class="nano detailquote-height has-scrollbar pos-rel">
+        <div class="widget-container-new nano-content full-height pad-xs-t" >
+            {{#each field in panelFields}}
+                <div class="layout-container intraday-dq-widget hint--top hint--bounce hint--rounded pad-widget-left pad-widget-right" data-hint={{field.detailQouteTitle}}>
+                    <div class="layout-container full-width">
+                        <div class="layout-col font-m ellipsis left fade-fore-color pad-xs-tb">{{field.caption}}</div>
+                        <div class="layout-col font-l bold fade-fore-color right pad-xs-tb"><span class="layout-inline ltr {{field.style}}">{{field.formattedValue}}</span></div>
+                    </div>
+                    <div class="layout-container full-width">
+                        <div class="widget-hline full-width"></div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{{#if isBarAvailable}}
+    <div class="day-range" >
+        <div class="day-range-bar"></div>
+        <div class="day-range-position {{dotColor}}" style= {{styles}}> </div>
+    </div>
+
+{{else}}
+    <div>
+        <div class="font-small-light">
+    <span>
+        {{lowValue}}
+    </span>
+    <span class="pad-s-all">
+        -
+    </span>
+     <span>
+         {{highValue}}
+     </span>
+        </div>
+    </div>
+{{/if}}

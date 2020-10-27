@@ -1,0 +1,48 @@
+@import '../../common-variables.scss';
+//@import '../../themes/theme-helper';
+@import '../../widget-variables';
+@import '../../app-layout/app-layout';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+
+.ar .widget {
+    &-tab-panel {
+      @include theme-classic((
+            box-shadow: none
+      ));
+    }
+
+    &-tab-panel .active {
+      @include theme((
+              background-color: tab-selected-back-color,
+              border: "3px {tab-color-border} solid"
+      ));
+      @include theme-classic((
+              border: "1px {tab-selected-color-border} solid",
+              background-image: "linear-gradient(0deg, {tab-selected-back-color} 0%, {tab-selected-back-color-gradient} 100%)"
+      ));
+    }
+
+    // Widget Tab Item
+    &-tab-item {
+      @include theme-classic((
+              border: "1px {tab-color-border} solid",
+      ));
+    }
+
+    &-tab-item:last-child {
+      @include theme((
+              border-left: "1px {tab-color-border} solid"
+      ));
+    }
+
+    &-tab-item.active:last-child {
+      @include theme((
+              border-left: "3px {tab-color-border} solid"
+      ));
+
+      @include theme-classic((
+              border-left: "0 {tab-color-border} solid"
+      ));
+    }
+}

@@ -1,0 +1,75 @@
+<div class="pos-abs full-height full-width">
+    <!--Header start-->
+    <div class="popup-container-view">
+        {{view 'popup-container-view' class="popup-container-view-height"}}
+    </div>
+    <div>
+        {{#modal-popup isEnabled=false  id='popupId' isRegistered=true}}
+            {{ outlet "modalPopupContent"}}
+        {{/modal-popup}}
+    </div>
+
+    {{#if isChildViewEnabled}}
+        <div id="notificationPanel" class="appttl-ticker">
+            {{ outlet "tickerPanelOutlet"}}
+        </div>
+
+        <div class="appttl-height">
+            {{ outlet "titleBarOutlet"}}
+        </div>
+    {{else}}
+        <div class="appttl-height">
+            {{ outlet "titleBarOutlet"}}
+        </div>
+
+        {{ outlet "delayedPanelOutlet"}}
+        <div id="notificationPanel" class="appttl-ticker info-back-color">
+            {{ outlet "tickerPanelOutlet"}}
+        </div>
+    {{/if}}
+
+    <div id="hnavPanel" class="left-zero full-width hnav-z-index navigation-back-color">
+        {{ outlet "hnavPanelOutlet"}}
+    </div>
+
+    <!--Header end-->
+
+    <!--left col start-->
+
+    <!--left col end-->
+
+    <!--mid col start-->
+
+    <div class="full-width widget-container-height container-back-color {{mainPanelHeight}}" id="mainPanelOutletContainer">
+        <!--col-xs-12 start-->
+        <div class="col-xs-12 full-height overflow-hidden">
+            {{ outlet "mainPanelOutlet"}}
+        </div>
+        <!--col-xs-12 end-->
+    </div>
+
+    <!--mid col end-->
+
+    <!--footer start-->
+
+    <!--footer end-->
+    <div id="fullScreenContainer" class="full-screen-container">
+
+    </div>
+
+    <div id="swipeContainer" class="swipe-view overflow-hidden container-back-color swipe-view-shadow">
+    </div>
+
+    <div id="menuBackContainer" class="menu-back-view overflow-hidden" {{action 'escapeMainNavigation'}}>
+    </div>
+
+    <!--Full screen widget container-->
+    <div id="fullScreenWidgetContainer">
+        {{ outlet "fullScreenWidgetOutlet"}}
+    </div>
+
+    {{message-box id="message-box"}}
+    {{outlet "childViewOutlet"}}
+
+    {{outlet "leftPanelOutlet"}}
+</div>

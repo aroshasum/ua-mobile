@@ -1,0 +1,115 @@
+<div class="widget_new full-height">
+    {{widget-header
+    linkOptions=links
+    defaultSelectedLink=defaultLink
+    selectedLink=selectedLink
+    widgetTitle=app.lang.labels.companyInfor
+    symbol=symbolObj.dispProp1
+    setLink='setLink'
+    hideSymbol=hideSymbol
+    searchedSymbol=symbolObj.dispProp1
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    isSearchAvailable=isSearchAvailable
+    searchID=searchID
+    clickAction='changeSymbol'
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+
+    <div class="nano has-scrollbar"  style="height: calc(100% - 22px);">
+        <div class="widget-container-new pad-widget-top pad-widget-right pad-widget-left nano-content">
+            {{loading-indicator isLoading=isLoading}}
+            {{single-message-viewer showMessage=showError message=errorMessage messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+            {{#if isDataAvailable}}
+                <div style="height:20px;">
+                    <span class="font-x-l bold data-table-fore-color left">{{basicInfo.compName}} </span>
+                </div>
+                <div class="col-xs-12 col-lg-3 company-logo"><{{{image}}}></div>
+                <div class="clearfix visible-xs"></div>
+                <div class="col-xs-4 col-lg-3 text-left company-heading">
+                    <div class="font-xx-l bold data-table-fore-color text-left fore-color" style="height: 17px;">{{basicInfo.sector}}</div>
+                    <div class="font-m header-colour fade-fore-color">{{app.lang.labels.sector}}</div>
+                </div>
+                <div class="col-xs-4 col-lg-3  text-left company-heading">
+                    <div class="font-xx-l bold data-table-fore-color text-left fore-color layout-inline ltr"
+                         style="height: 17px;">{{divideNumber basicInfo.mktCap1}}</div>
+                    <div class="font-m header-colour fade-fore-color">{{app.lang.labels.mktCap}}</div>
+                </div>
+                <div class="col-xs-4 col-lg-3 text-left company-heading-last pad-s-r">
+                    <div class="font-xx-l bold data-table-fore-color text-left fore-color layout-inline ltr"
+                         style="height: 17px;">{{divideNumber basicInfo.listedShr}}</div>
+                    <div class="font-m header-colour fade-fore-color">{{app.lang.labels.listedShr}}</div>
+                </div>
+
+                <div class="col-xs-12 pad-l-b"> </div>
+
+                <div class="font-m clr-both company-text pad-m-t full-width" style="white-space: normal;">{{basicInfo.des}}</div>
+                <div class="col-lg-4 col-xs-6">
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.trdName}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.trdName}}</div>
+                    </div>
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.currency}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.currency}}</div>
+                    </div>
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.country}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.country}}</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-6">
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.estbOn}}</div>
+                        <div class="font-l bold fore-color">{{formatToDate basicInfo.stkLstOn}}</div>
+                    </div>
+                    <div class="intraday-cell pad-s-r">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.auditor}}</div>
+                        <div class="font-l bold data-table-fore-color ellipsis intraday-cell-text-normal fore-color">{{basicInfo.auditor}}</div>
+                    </div>
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.isin}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.isin}}</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-6">
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.bbgid}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.bbgid}}</div>
+                    </div>
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.indGrp}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.indGrp}}</div>
+                    </div>
+                    <div class="intraday-cell">
+                        <div class="font-m header-colour fade-fore-color" style="margin-bottom:3px">{{app.lang.labels.subInd}}</div>
+                        <div class="font-l bold fore-color">{{basicInfo.subInd}}</div>
+                    </div>
+                </div>
+
+                <div class="bottom-zero left mgn-m-b" style="width:100%">
+                    <div class="border-bottom" style="width:100%; margin-top:-4px;"></div>
+                    <div class="col-lg-4 col-xs-6 font-m">
+                        <div class="company-address">
+                            {{#each fAddress in formattedAddress}}
+                                <li style="list-style: none;">{{fAddress}}</li>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-6 font-m">
+                        <div class=" company-address">  {{app.lang.labels.phn}}: {{basicInfo.phn}} <br>
+                            {{app.lang.labels.fax}}: {{basicInfo.fax}} </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-6 font-m">
+                        <div class="company-address"><a href={{basicInfo.email}}>{{basicInfo.email}}</a><br> <a
+                                href={{basicInfo.web}}>{{basicInfo.web}}</a></div>
+                    </div>
+
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

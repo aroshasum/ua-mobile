@@ -1,0 +1,669 @@
+@import '../common-variables';
+@import 'theme-1-variables';
+@import 'theme-2-variables';
+@import '../widget-variables';
+//@import 'theme-helper';
+
+$yellow-color: #f1c40f;
+$blue-color: #2c3e50;
+$green-color-2: #2ecc71;
+$purple-color: #8e44ad;
+$green-color: #019875;
+$blue-color-2: #2980b9;
+$pink-color: #e8305f;
+$orange-color: #e67e22;
+$red-color: #ff0101;
+
+body {
+  @include theme((
+          color: fore-color,
+          background-color: app-back-color
+  ));
+}
+
+label {
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+
+  @include theme((
+          color: fore-color
+  ));
+}
+
+//  ==========  Common Colors   ==================
+
+.widget-title-fore-color {
+  @include theme((
+          color: widget-title-fore-color
+  ));
+}
+
+.info-back-color {
+  @include theme((
+          background-color: fade-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {highlight-back-color-2} 0%, {highlight-back-color-2} 90%, {highlight-back-color-2} 100%)"
+  ));
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.fore-color {
+  @include theme((
+          color: fore-color,
+          fill: fore-color
+  ));
+}
+
+.fade-fore-color {
+  @include theme((
+          color: fade-fore-color,
+  ));
+}
+
+.prominent-fore-color {
+  @include theme((
+          color: prominent-fore-color
+  ));
+}
+
+.up-fore-color {
+  @include theme((
+          color: up-fore-color
+  ));
+}
+
+.down-fore-color {
+  @include theme((
+          color: down-fore-color
+  ));
+}
+
+.form-header-fore-color {
+  @include theme((
+          color: form-header-fore-color
+  ));
+}
+
+.up-back-color {
+  @include theme((
+          background-color: up-back-color
+  ));
+}
+
+.down-back-color {
+  @include theme((
+          background-color: down-back-color
+  ));
+}
+
+.fade-up-back-color {
+  @include theme((
+          background-color: fade-up-back-color
+  ));
+}
+
+.fade-down-back-color {
+  @include theme((
+          background-color: fade-down-back-color
+  ));
+}
+
+.highlight-up-back-color {
+  @include theme((
+          background-color: highlight-up-back-color
+  ));
+}
+
+.highlight-down-back-color {
+  @include theme((
+          background-color: highlight-down-back-color
+  ));
+}
+
+.highlight-back-color-1 {
+  @include theme((
+          background-color: highlight-back-color-1
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {pending-back-color} 0%, {pending-back-color} 90%, {pending-back-color} 100%)"
+  ));
+}
+
+.dark-bg-fore-color {
+  @include theme((
+          color: dark-bg-fore-color
+  ));
+}
+
+.highlight-back-color-2 {
+  @include theme((
+          background-color: highlight-back-color-2
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(0deg, {highlight-back-color-2} 0%, {highlight-back-color-2} 90%, {highlight-back-color-2} 100%)"
+  ));
+}
+
+.prominent-up-back-color {
+  @include theme((
+          background-color: prominent-up-back-color
+  ));
+}
+.prominent-down-back-color {
+  @include theme((
+          background-color: prominent-down-back-color
+  ));
+}
+
+.no-changed-back-color {
+  @include theme((
+          background-color: no-changed-back-color
+  ));
+}
+
+.container-back-color {
+  @include theme((
+          background-color: container-back-color
+  ));
+}
+
+.tool-bar {
+  padding: $padding-medium;
+
+  @include theme((
+          background-color: tool-bar-back-color
+  ));
+}
+
+//  ==========  /Common Colors  ==================
+
+.table-fore-color {
+  @include theme((
+          color: table-fore-color
+  ));
+}
+
+.table-row-back-color {
+  @include theme((
+          background-color: table-row-back-color
+  ));
+}
+
+.table-row-alternate-back-color {
+  @include theme((
+          background-color: table-row-alternate-back-color
+  ));
+}
+
+.table-row-up-back-color {
+  @include theme((
+          background-color: table-row-up-back-color
+  ));
+}
+
+.table-row-up-alternate-back-color {
+  @include theme((
+          background-color: table-row-up-alternate-back-color
+  ));
+}
+
+.table-row-down-back-color {
+  @include theme((
+          background-color: table-row-down-back-color
+  ));
+}
+
+.table-row-down-alternate-back-color {
+  @include theme((
+          background-color: table-row-down-alternate-back-color
+  ));
+}
+
+.table-row-prominent-back-color {
+  @include theme((
+          background-color: table-row-prominent-back-color
+  ));
+}
+
+.symbol-fore-color {
+  @include theme((
+          color: symbol-fore-color
+  ));
+}
+
+.highlight-fore-color {
+  @include theme((
+          color: highlight-fore-color
+  ));
+}
+
+.news-icon-color {
+  @include theme((
+          color: news-icon-color
+  ));
+}
+
+.ann-icon-color {
+  @include theme((
+          color: announcements-icon-color
+  ));
+}
+
+.dark-bg-announcement-fore-color {
+  @include theme((
+          color: dark-bg-announcement-fore-color,
+  ));
+}
+
+.icon-fore-color {
+  @include theme((
+          color: icon-fore-color
+  ));
+}
+
+// Data Table
+.data-table .layout-row:nth-child(odd) {
+  @include theme((
+          background-color: table-row-alternate-back-color,
+  ));
+}
+
+.data-table .layout-row:nth-child(even) {
+  @include theme((
+          background-color: table-row-back-color,
+  ));
+}
+
+.data-table .layout-row-select:hover {
+  @include theme((
+          border-top: "1px {table-row-selected-border-top} solid",
+          border-bottom: "1px {table-row-selected-border-bottom} solid",
+          background-color: "{table-row-hover-back-color}"
+  ));
+
+  @include theme-classic((
+          background-color: "{table-row-hover-back-color}"
+  ));
+}
+
+.data-table-header {
+  display: table-row;
+  box-shadow: none;
+
+  @include theme((
+          color: data-table-header-fore-color,
+          background-image: "linear-gradient(0deg, {data-table-header-back-color} 0%, {data-table-header-back-color-gradient} 100%)"
+  ));
+
+  @include theme-classic((
+          border-top: "1px {data-table-header-border-top} solid",
+          border-bottom: "1px {data-table-header-border-bottom} solid"
+  ));
+}
+
+.table-header {
+  @include theme((
+          background: data-table-header-back-color,
+  ));
+
+  @include theme-classic((
+          border-top: "1px {data-table-header-border-top} solid",
+          border-bottom: "1px {data-table-header-border-bottom} solid",
+          background-image: "linear-gradient(0deg, {data-table-header-back-color} 0%, {data-table-header-back-color-gradient} 100%)"
+  ));
+}
+
+//  ----------  Separator  Lines  --------------
+
+.widget-vline {
+  height: 100%;
+
+  @include theme((
+          border-right: "1px {widget-separator-color} solid"
+  ));
+}
+
+.widget-hline {
+  width: 100%;
+
+  @include theme((
+          border-top: "1px {widget-separator-color} solid"
+  ));
+}
+
+.wdgttl-vline {
+  height: 100%;
+
+  @include theme((
+          border-right: "1px {widget-ui-control-border} solid"
+  ));
+}
+
+//  ----------  /Separator  Lines  --------------
+
+.dropdown-watchlist-more-search {
+  @include theme((
+          background-color: widget-title-back-color
+  ));
+}
+
+//  ------------- Groups  -------------
+
+// --- background colors ---
+.yellow-back-color {
+  background-color: $yellow-color;
+}
+
+.blue-back-color {
+  background-color: $blue-color;
+}
+
+.green-back-color-2 {
+  background-color: $green-color-2;
+}
+
+.purple-back-color {
+  background-color: $purple-color;
+}
+
+.green-back-color {
+  background-color: $green-color;
+}
+
+.blue-back-color-2 {
+  background-color: $blue-color-2;
+}
+
+.pink-back-color {
+  background-color : $pink-color;
+}
+
+.orange-back-color {
+  background-color: $orange-color;
+}
+
+.red-back-color {
+  background-color: $red-color;
+}
+
+// --- fore colors ---
+.yellow-fore-color {
+  color: $yellow-color;
+}
+
+.blue-fore-color {
+  color: $blue-color;
+}
+
+.green-fore-color-2 {
+  color: $green-color-2;
+}
+
+.purple-fore-color {
+  color: $purple-color;
+}
+
+.green-fore-color {
+  color: $green-color;
+}
+
+.blue-fore-color-2 {
+  color: $blue-color-2;
+}
+
+.pink-fore-color {
+  color : $pink-color;
+}
+
+.orange-fore-color {
+  color: $orange-color;
+}
+
+.red-fore-color {
+  color: $red-color;
+}
+
+/*  ===========  Ember Data Table Background Colors  =========================  */
+
+.panel-table-row-odd {
+  @include theme((
+          background-color: table-row-back-color
+  ));
+}
+
+.panel-table-row-even {
+  @include theme((
+          background-color: table-row-alternate-back-color
+  ));
+}
+
+.watchlist-row-back-green {
+  @include theme((
+          background-color: table-row-up-back-color
+  ));
+}
+
+.watchlist-row-back-red {
+  @include theme((
+          background-color: table-row-down-alternate-back-color
+  ));
+}
+
+.panel-table-row-even .watchlist-cell-back-green {
+  @include theme((
+          background-color: table-row-up-back-color
+  ));
+}
+
+.panel-table-row-odd .watchlist-cell-back-green {
+  @include theme((
+          background-color: table-row-up-alternate-back-color
+  ));
+}
+
+.panel-table-row-even .watchlist-cell-back-red {
+  @include theme((
+          background-color: table-row-down-back-color
+  ));
+}
+
+.panel-table-row-odd .watchlist-cell-back-red {
+  @include theme((
+          background-color: table-row-down-alternate-back-color
+  ));
+}
+
+.panel-table-row-even .watchlist-cell-back-lastqty {
+  @include theme((
+          background-color: table-row-prominent-back-color
+  ));
+}
+
+.panel-table-row-odd .watchlist-cell-back-lastqty {
+  @include theme((
+          background-color: table-row-prominent-alternate-back-color
+  ));
+}
+
+/*  ===========  /Ember Data Table Background Colors  =========================  */
+
+.border-right {
+  @include theme((
+          border-right: "1px {widget-separator-color} solid"
+  ));
+
+  @include theme-classic((
+          border-right: "1px {widget-border-color} solid"
+  ));
+}
+
+.border-left {
+  @include theme((
+          border-left: "1px {widget-separator-color} solid"
+  ));
+
+  @include theme-classic((
+          border-left: "1px {widget-border-color} solid"
+  ));
+}
+
+.border-top {
+  @include theme((
+          border-top: "1px {widget-border-color} solid"
+  ));
+}
+
+.border-bottom {
+  @include theme((
+          border-bottom: "1px {widget-separator-color} solid"
+  ));
+
+  @include theme-classic((
+          border-bottom: "1px {widget-border-color} solid"
+  ));
+}
+
+.btn-up-back-color {
+  @include theme((
+          background-color: btn-up-back-color
+  ));
+}
+
+.btn-down-back-color {
+  @include theme((
+          background-color: btn-down-back-color
+  ));
+}
+
+/*  ===========  Blink Background Colors  =========================  */
+
+.panel-table-row-odd .blink-classic-up {
+  font-weight: bold;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-up-back-color
+  ));
+}
+
+.panel-table-row-even .blink-classic-up {
+  font-weight: bold;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-up-back-color
+  ));
+}
+
+.panel-table-row-odd .blink-classic-down {
+  font-weight: bold;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-down-back-color
+  ));
+}
+
+.panel-table-row-even .blink-classic-down {
+  font-weight: bold;
+
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-down-back-color
+  ));
+}
+
+.shadow {
+  @include theme((
+          box-shadow: "1px 5.732px 11px 0px {popup-box-shadow-color}"
+  ));
+}
+
+/*  ===========  /Blink Background Colors  =========================  */
+
+.news-popup-body a {
+  @include theme((
+          color: link-fore-color
+  ));
+}
+
+.link {
+  @include theme((
+          color: link-fore-color
+  ));
+}
+
+.theme-logo-properties {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/*  ===========  Table Selected Background Colors  =========================  */
+
+.ember-table-body-container .ember-table-table-row.ember-table-hover {
+  @include theme((
+          background-color: table-row-selected-back-color,
+  ));
+}
+
+.table-row-selected-back-color {
+  @include theme((
+          background-color: table-row-selected-back-color
+  ));
+}
+
+.table-row-selected-back-color-gradient {
+  @include theme((
+          background-color: table-row-selected-back-color-gradient
+  ));
+}
+
+.table-row-hover-back-color:hover {
+  @include theme((
+          background-color: table-row-hover-back-color
+  ));
+}
+
+.ember-table-body-container .ember-table-table-row {
+  &.ember-table-hover {
+    .watchlist-cell-back-lastqty {
+      @include theme((
+              background-color: "{table-row-selected-back-color} !important"
+      ));
+    }
+  }
+}
+
+.ember-table-body-container .ember-table-table-row {
+  &.ember-table-hover {
+    .watchlist-cell-back-green {
+      @include theme((
+              background-color: "{table-row-selected-back-color} !important"
+      ));
+    }
+  }
+}
+
+.ember-table-body-container .ember-table-table-row {
+  &.ember-table-hover {
+    .watchlist-cell-back-red {
+      @include theme((
+              background-color: "{table-row-selected-back-color} !important"
+      ));
+    }
+  }
+}
+
+
+/*  ===========  /Table Selected Background Colors  =========================  */
+
+@import 'extended/common-theme-classes-extended';

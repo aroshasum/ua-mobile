@@ -1,0 +1,32 @@
+<div class="message-box-fog">
+    <div class="message-box-frame">
+        <div class="message-box-title padding-zero">
+            <div class="layout-container full-height full-width">
+                <div class="layout-col pad-s-lr">{{app.lang.labels.renameWorkspace}}</div>
+            </div>
+        </div>
+
+        <div class="widget-new">
+            <div class="layout-container full-width pad-s-t">
+                <div class="layout-col v-top">
+                    <div class="layout-container full-width pad-m-b pad-l-l">
+                        <div class="layout-col pad-m-r">{{input value=customWorkspaceName type="text" class="form-control search-query"}}</div>
+                    </div>
+
+                    <div class="layout-container pad-m-b pad-l-l">
+                        <div class="layout-col-24"></div>
+                        <div class="layout-col pad-l-l pad-m-r">
+                            <div class="layout-inline pad-s-l">
+                                <button type="submit" autofocus class="btn btn-dropdown btn-default" {{action 'saveRename'}}> {{app.lang.labels.save}} </button>
+                            </div>
+
+                            <div class="layout-inline pad-s-l">
+                                <button class="btn btn-dropdown btn-default" {{action 'cancelRename'}}> {{app.lang.labels.cancel}} </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

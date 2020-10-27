@@ -1,0 +1,111 @@
+.btn-border {
+  @include theme((
+          border: "1px {border-color} solid"
+  ));
+}
+
+.m-circle {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.page-container {
+  overflow-y: scroll;
+  height: calc(100% - 50px);
+  margin-right: -8px;
+}
+
+.page-height-with-navigators {
+  height: calc(100% - 90px);
+}
+
+//  ==========  Common Mobile Colors  ==================
+
+/*
+.mobile-new {
+  @include theme((
+          background-color: app-back-color
+  ));
+}
+*/
+
+.toolbar-color {
+  @include theme((
+          background-color: tool-bar-back-color
+  ));
+}
+
+.info-back-color {
+  @include theme((
+          background-color: ticker-back-color
+  ));
+}
+
+.btn-txt-color {
+  @include theme((
+          color: dark-bg-fore-color
+  ));
+}
+
+.navigation-back-color {
+  @include theme((
+          background-color: app-back-color
+  ));
+}
+
+.sidebar-nav-icon-color {
+  @include theme((
+          color: sidebar-nav-icon-color
+  ));
+}
+
+//  ==========  /Common Mobile Colors  ==================
+
+/*  ===========  Ember Data Table Background Colors  =========================  */
+
+.ember-table-body-container .ember-table-table-row.ember-table-hover {
+  @include theme((
+          background-color: table-row-hover-back-color,
+  ));
+
+  @include theme-classic((
+          border-top: "0 {table-row-border-color} solid",
+          border-bottom: "0 {table-row-border-color} solid",
+  ));
+}
+
+/*  ===========  /Ember Data Table Background Colors  =========================  */
+
+.icon-fore-color {
+  @include theme((
+          color: icon-fore-color
+  ));
+}
+
+.bottom-menu-fore-color {
+  @include theme((
+          color: bottom-menu-fore-color
+  ));
+}
+
+//  ==========  Mobile separators  ==================
+
+.widget-hline-solid {
+  width: 100%;
+
+  @include theme((
+          border-top: "6px {widget-separator-color} solid"
+  ));
+}
+
+.filter-control {
+  padding-left: 40px;
+}
+
+.highlight-fore-color a {
+  @include theme((
+          color: prominent-fore-color
+  ));
+}

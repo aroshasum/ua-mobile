@@ -1,0 +1,83 @@
+<div id="sectorOverviewContainer" class="widget_new full-height {{if isTablet '' 'overflow-visible'}}">
+    {{widget-header
+    widgetTitle=app.lang.labels.sectorOverview
+    hideWidgetLink=true
+    hideSymbol=true
+    isDropdownAvailable=isDropdownAvailable dropDownOptions=sortBySelectBox defaultSelect=defaultCriteria valueKey='val' labelKey='name' toolTip=app.lang.labels.sortBy
+    selectAction='onSortChanged'
+    innerWidgets=innerWidgets
+    innerWidgetAction="renderInnerWidgetItems"
+    isWidgetCloseAvailable=isWidgetCloseAvailable
+    closeWidgetAction= 'closeWidgetAction'
+    closeActionTarget=controller
+    cursorMoveCss=cursorMoveCss
+    app=app}}
+
+    {{#if isFullScreenMode}}
+        <div class="col-lg-10">
+            {{outlet "wlWidgetOutlet"}}
+        </div>
+    {{else}}
+        <div class="widget-container-new {{if isTablet 'full-height' 'mkt-ovw-row-1-height'}}">
+            <div class="layout-container data-table {{if isTablet '' 'full-height pad-xs-t'}}">
+                {{#if isTablet}}
+                    <div class="data-table-header">
+                        {{#each field in fieldList }}
+                            <div class="layout-col row-height-header font-m pad-widget-left pad-widget-right sector-overview-row {{if isTablet 'pad-l-lr font-l' ''}}">{{field.name}}</div>
+                        {{/each}}
+                    </div>
+                {{/if}}
+                {{#unless isTablet}}
+                    <div class="layout-row height-zero display-none"></div>
+                {{/unless}}
+                {{#each sectors in sortedContent}}
+                    <div class="layout-row">
+                        {{#if sectors.isNegative}}
+                            <div class="layout-col row-height font-m bold pad-widget-left hint--bottom-left hint--bounce hint--rounded sector-overview-row {{if isTablet 'pad-l-l font-l' ''}}"
+                                 data-hint="{{sectors.sDes}} - {{sectors.pctChg}}">
+                                <span {{bind-attr class="downColorCss"}}>{{sectors.dSym}}</span>
+                            </div>
+                            <div class="layout-col-24 row-height font-m bold pad-widget-left hint--bottom-left hint--bounce hint--rounded sector-overview-row {{if isTablet 'pad-l-l font-l' ''}}"
+                                 data-hint="{{sectors.sDes}} - {{sectors.pctChg}}">
+                                <span {{bind-attr class="downColorCss"}}>{{sectors.lDes}}</span>
+                            </div>
+                            <div class="layout-col row-height font-m h-right sector-overview-row {{if isTablet 'pad-l-l font-l' 'pad-m-l'}}">
+                                <i {{bind-attr class="indexArrowCssBottom"}} ></i>
+                            </div>
+                            <div class="layout-col row-height font-m bold h-right ltr {{if isTablet 'pad-l-l font-l' 'pad-m-l'}} sector-overview-row">
+                                <span {{bind-attr class="downColorCss"}} >{{formatNumberPercentage sectors.pctChg}}</span>
+                            </div>
+                        {{else}}
+                            <div class="layout-col row-height font-m bold pad-widget-left hint--bottom-left hint--bounce hint--rounded sector-overview-row {{if isTablet 'pad-l-l font-l' ''}}"
+                                 data-hint="{{sectors.sDes}} - {{sectors.pctChg}}">
+                                <span {{bind-attr class="upColorCss"}}>{{sectors.dSym}}</span>
+                            </div>
+                            <div class="layout-col-24 row-height font-m bold pad-widget-left hint--bottom-left hint--bounce hint--rounded sector-overview-row {{if isTablet 'pad-l-l font-l' ''}}"
+                                 data-hint="{{sectors.sDes}} - {{sectors.pctChg}}">
+                                <span {{bind-attr class="upColorCss"}}>{{sectors.lDes}}</span>
+                            </div>
+                            <div class="layout-col row-height font-m h-right {{if isTablet 'pad-l-l font-l' 'pad-m-l'}} sector-overview-row">
+                                <i {{bind-attr class="indexArrowCssTop"}}> </i>
+                            </div>
+                            <div class="layout-col row-height font-m bold h-right ltr {{if isTablet 'pad-l-l font-l' 'pad-m-l'}} sector-overview-row">
+                                <span {{bind-attr class="upColorCss"}} >{{formatNumberPercentage sectors.pctChg}}</span>
+                            </div>
+                        {{/if}}
+                        <div class="layout-col row-height font-m bold h-right fore-color {{if isTablet 'pad-l-l font-l' 'pad-m-l'}}">{{formatNumber sectors.ltp 2}}</div>
+                        {{#if isTablet}}
+                            <div class="layout-col sector-overview-row font-l bold h-right fore-color pad-l-l">{{formatNumber sectors.vol 0}}</div>
+                            <div class="layout-col sector-overview-row font-l bold h-right fore-color pad-l-l">{{formatNumber sectors.tovr 2}}</div>
+                            <div class="layout-col sector-overview-row font-l bold h-right fore-color pad-l-l {{if sectors.isNegative 'down-fore-color' 'up-fore-color'}}">
+                                {{formatNumber sectors.chg 2}}
+                            </div>
+                            <div class="layout-col sector-overview-row font-l bold h-right fore-color pad-l-l">{{formatNumber sectors.trades 0}}</div>
+                            <div class="layout-col sector-overview-row font-l bold h-right fore-color pad-l-l pad-l-r">{{formatNumber sectors.prvCls 0}}</div>
+                        {{else}}
+                            <div class="layout-col row-height font-m bold h-right fore-color pad-m-l pad-widget-right">{{sectors.sortedProperty}}</div>
+                        {{/if}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}
+</div>

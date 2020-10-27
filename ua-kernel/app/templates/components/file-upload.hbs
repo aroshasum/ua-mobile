@@ -1,0 +1,21 @@
+<div class="layout-container full-height full-width">
+    <div class="layout-col upload-btn-wrapper">
+        <button class="file-upload-btn btn-default cursor-pointer">{{app.lang.labels.fileUpload}}</button>
+        <input type="file" class="full-width full-height" id="fileUpload" {{action 'onChange' on='change'}}/>
+    </div>
+    <div class="layout-col-24 fade-fore-color pad-m-l font-l">
+        <span id="fileName"></span>
+    </div>
+    <div class="layout-col">
+        <div class="layout-col"><button class="btn-default" {{action 'upload'}}>{{app.lang.labels.submit}}</button></div>
+        {{#if isLoading}}
+            <div class="layout-col pad-l-lr">
+                <div class="loader"></div>
+            </div>
+        {{/if}}
+    </div>
+</div>
+
+<div class="layout-container full-width up-fore-color font-l pad-m-tb">
+    {{massage}}
+</div>

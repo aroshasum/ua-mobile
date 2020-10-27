@@ -1,0 +1,49 @@
+<div class="layout-container fade-fore-color watchlist-menu-popup">
+    {{#unless isCustomWLMode}}
+        <div class="layout-container full-width pad-widget-bottom">
+            <div class="layout-col-15 h-left"><span>{{app.lang.labels.sortBy}}</span><span> {{app.lang.labels.trades}}</span></div>
+            <div class="layout-col-6 h-middle">
+                {{#if Ember.isIos}}
+                    <div class="full-width ltr toggle">
+                        {{input type="checkbox" name="sortByTrades" class="toggle-checkbox" id="sortByTrades" checked=sortByTrades}}
+                        <label class="toggle-label watchlist-toggle-label" for="sortByTrades">
+                            <span class="toggle-inner watchlist-toggle-style"></span>
+                            <div class="toggle-animation">
+                                <span class="toggle-switch watchlist-toggle-switch"></span>
+                            </div>
+                        </label>
+                    </div>
+                {{else}}
+                    <label for="sortByTrades">
+                        {{input type="checkbox" name="sortByTrades" checked=sortByTrades class="simple-switch-input" id="sortByTrades"}}
+                        <span class="simple-switch dark"></span>
+                    </label>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="layout-container full-width widget-hline pad-widget-left pad-widget-right pad-widget-bottom"></div>
+    {{/unless}}
+
+    <div class="layout-container full-width">
+        <div class="layout-col-15 h-left"><span>{{app.lang.labels.detailedView}}</span></div>
+        <div class="layout-col-6 h-middle">
+            {{#if Ember.isIos}}
+                <div class="full-width ltr toggle">
+                    {{input type="checkbox" name="detailedView" class="toggle-checkbox" id="detailedView" checked=detailedView}}
+                    <label class="toggle-label watchlist-toggle-label" for="detailedView">
+                        <span class="toggle-inner watchlist-toggle-style"></span>
+                        <div class="toggle-animation">
+                            <span class="toggle-switch watchlist-toggle-switch"></span>
+                        </div>
+                    </label>
+                </div>
+            {{else}}
+                <label for="detailedView">
+                    {{input type="checkbox" name="detailedView" checked=detailedView class="simple-switch-input" id="detailedView"}}
+                    <span class="simple-switch dark"></span>
+                </label>
+            {{/if}}
+        </div>
+    </div>
+</div>

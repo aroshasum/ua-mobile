@@ -1,0 +1,11 @@
+// initial setup
+.ar .nano-content::-webkit-scrollbar {
+  display: none;
+}
+.ar .has-scrollbar .nano-content::-webkit-scrollbar {
+  // display: block;
+}
+
+.ar .nano .nano-pane {
+  background : rgba(0,0,0,0);
+}

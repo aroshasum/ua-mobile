@@ -1,0 +1,25 @@
+<div class="panel-table h-left ltr" {{bind-attr title="view.secondValue"}}>
+    <div class="full-width ellipsis layout-container">
+         <div class="font-xxx-l bold symbol-fore-color ellipsis layout-col-24 h-left">{{view.formattedFirstValue}}</div>
+
+    {{#if view.isndicatorAvailable}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i {{bind-attr class="view.dcfsStyle" }} {{bind-attr title="view.dcfsToolTip"}}></i></span>
+         {{#if view.is52WeekHigh}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-52-high-low dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.highReachedFiftyTwoWeekHigh}}></i></span>
+         {{/if }}
+         {{#if view.is52WeekLow}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-52-high-low dark-bg-fore-color" {{bind-attr  title=view.app.lang.labels.lowReachedFiftyTwoWeekLow}}></i></span>
+         {{/if }}
+         {{#if view.isTodayHigh}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-max up-fore-color" {{bind-attr  title=view.app.lang.labels.lastTradedReachedHigh}}></i></span>
+         {{/if }}
+         {{#if view.isTodayLow}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="chart-max down-fore-color" {{bind-attr title=view.app.lang.labels.lastTradedReachedLow}}></i></span>
+         {{/if }}
+         {{#if view.isAnnAvailable}}
+             <span class="watch-list-text-cell pad-s-l layout-col"><i class="icon-megaphone-1 ann-icon-color" {{bind-attr title="view.annToolTip"}}></i></span>
+         {{/if}}
+    {{/if}}
+    </div>
+    <div class="font-xx-l colour-symbol-dis watchlist-dual-cell pad-m-t">{{view.formattedSecondValue}}</div>
+</div>

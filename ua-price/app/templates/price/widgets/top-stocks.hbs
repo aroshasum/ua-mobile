@@ -1,0 +1,104 @@
+{{#if isWidgetHeaderAvailable}}
+    <div class="layout-container full-width">
+        {{widget-header
+        widgetTitle='Top Stocks'
+        linkOptions=links defaultSelectedLink=defaultLink selectedLink=selectedLink setLink='setLink'
+        hideSymbol=true
+        innerWidgets=innerWidgets
+        innerWidgetAction="renderInnerWidgetItems"
+        isWidgetCloseAvailable=isWidgetCloseAvailable
+        closeWidgetAction= 'closeWidgetAction'
+        closeActionTarget=controller
+        cursorMoveCss=cursorMoveCss}}
+    </div>
+{{/if}}
+
+<div id="topstocks-{{wkey}}" class="widget_new full-height">
+    <div class="wdgttl">
+        <div class="horizontal-line-header"></div>
+
+        <div class="wdgttl-header layout-container full-width">
+            <div class="layout-col-8">
+                <div class="layout-inline pad-m-l"><i class="glyphicon glyphicon-triangle-top appttl-up-fore-color widget-title-with-icon pad-s-r"> </i>{{app.lang.labels.topGainers}}</div>
+            </div>
+
+            <div class="layout-col-8">
+                <div class="layout-inline pad-m-l"> <i class="glyphicon glyphicon-triangle-bottom appttl-down-fore-color pad-s-r"></i>{{app.lang.labels.topLosers}}</div>
+            </div>
+
+            <div class="layout-col-8">
+                <div class="layout-inline pad-m-l"><i class="glyphicon glyphicon-triangle-top appttl-up-fore-color pad-s-r"> </i> <i class="glyphicon glyphicon-triangle-bottom appttl-down-fore-color pad-s-r"></i>{{app.lang.labels.mostActive}}</div>
+            </div>
+        </div>
+
+        <div class="horizontal_line"></div>
+    </div>
+
+    <div class="widget-container-new mkt-ovw-row-1-height border-bottom-zero pos-rel">
+        <div class="layout-container full-width">
+            <div class="full-width">
+                {{loading-indicator isLoading=isLoading}}
+                {{single-message-viewer message=errorMessage showMessage=showError messageCss='appttl-light-bg-fore-color' backgroundCss='h-middle'}}
+            </div>
+        </div>
+
+        <div class="layout-container full-width">
+            <div class="layout-row row-height">
+                <div class="layout-col-8 mkt-ovw-row-1-height v-top table-row-up-back-color">
+                    <div id="topstock-tgp" class="layout-container full-width pad-xs-t top-gainers">
+                        {{#each topStockObj in tgpFilteredContent}}
+                            <div  class="layout-row cursor-pointer row-height" {{action 'doubleClickRow' topStockObj.val on="doubleClick"}} id={{_view.contentIndex}}>
+                                <div class="layout-col-24 row-height pad-widget-left font-m symbol-fore-color bold">{{topStockObj.val.stock.dispProp1}}</div>
+
+                                {{#if (onResponsive responsive.trigger responsive "topstoks-symbol" 1)}}
+                                    <div data-id="topstocks-tg-row" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color bold"></div>
+                                {{else}}
+                                    <div data-id="topstocks-tg-row" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color bold">{{formatNumber topStockObj.val.ltp topStockObj.val.stock.deci}}</div>
+                                {{/if}}
+
+                                <div class="layout-col row-height pad-m-lr font-m h-right up-fore-color bold"><div class="ltr">{{formatNumberPercentage topStockObj.val.pctChg}}</div></div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="layout-col-8 mkt-ovw-row-1-height v-top table-row-down-back-color">
+                    <!--<div class="Vertical_Seperator_topstocks"></div>-->
+                    <div id="topstock-tlp" class="layout-container full-width pad-xs-t top-losers">
+                        {{#each topStockObj in tlpFilteredContent}}
+                            <div class="layout-row row-height cursor-pointer" id={{_view.contentIndex}} {{action 'doubleClickRow' topStockObj.val on="doubleClick"}}>
+                                <div data-id="topstoks-symbol" class="layout-col-24 row-height pad-m-l font-m symbol-fore-color bold">{{topStockObj.val.stock.dispProp1}}</div>
+
+                                {{#if (onResponsive responsive.trigger responsive "topstoks-symbol" 1)}}
+                                    <div data-id="topstocks-tl" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color bold"></div>
+                                {{else}}
+                                    <div data-id="topstocks-tl" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color bold">{{formatNumber topStockObj.val.ltp topStockObj.val.stock.deci}}</div>
+                                {{/if}}
+
+                                <div class="layout-col row-height pad-m-lr font-m h-right down-fore-color bold"><div class="ltr">{{formatNumberPercentage topStockObj.val.pctChg}}</div></div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="layout-col-8 mkt-ovw-row-1-height v-top table-row-prominent-back-color">
+                    <div id="topstock-mav" class="layout-container full-width pad-xs-t most-active">
+                        {{#each topStockObj in mavFilteredContent}}
+                            <div class="layout-row row-height cursor-pointer" id={{_view.contentIndex}} {{action 'doubleClickRow' topStockObj.val on="doubleClick"}}>
+                                <div class="layout-col-24 row-height pad-m-l font-m symbol-fore-color bold">{{topStockObj.val.stock.dispProp1}}</div>
+
+                                {{#if (onResponsive responsive.trigger responsive "topstoks-symbol" 1)}}
+                                    <div data-id="topstocks-ma" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color pad-m-l bold"></div>
+                                {{else}}
+                                    <div data-id="topstocks-ma" class="layout-col row-height pad-m-l font-m h-right highlight-fore-color pad-m-l bold">{{formatNumber topStockObj.val.ltp topStockObj.val.stock.deci}}</div>
+                                {{/if}}
+
+                                <div class="font-m row-height h-right layout-col pad-widget-right pad-m-l symbol-fore-color bold ltr"><div class="hint--bottom-left hint--bounce hint--rounded" data-hint="{{formatNumber topStockObj.val.vol 0}}">{{divideNumber topStockObj.val.vol 0}}</div></div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

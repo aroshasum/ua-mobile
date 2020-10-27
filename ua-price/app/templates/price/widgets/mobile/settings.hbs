@@ -1,0 +1,118 @@
+<div class="widget-container-new over full-width">
+    <div class="page-container" style="height: calc(100% - 45px);">
+        <div class="layout-container full-width">
+            <!--Settings Popup Outlet-->
+            {{#if customSettingsPopup}}
+                {{outlet "customSettingsOutlet"}}
+            {{/if}}
+            <!--/Settings Popup Outlet-->
+
+            <!--Theme Settings-->
+            <div class="layout-container full-height full-width pad-l-t">
+                <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                    <a class="pad-widget-right">{{app.lang.labels.themes}}</a>
+                </div>
+            </div>
+            {{#each item in supportedThemes}}
+                <div class="layout-container full-height full-width"  {{action 'changeTheme' item.code}}>
+                    <div class="layout-col-24 nav-row-height pad-widget-left">
+                        <span class="{{item.active}}"></span>
+                        <a class="pad-widget-left">{{item.langDesc}}</a>
+                    </div>
+                </div>
+            {{/each}}
+            <!--/Theme Settings-->
+
+            <!--Language Settings-->
+            <div class="layout-container full-height full-width pad-l-t">
+                <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                    <a class="pad-widget-right">{{app.lang.labels.languages}}</a>
+                </div>
+            </div>
+            {{#each item in supportedLanguages}}
+                <div class="layout-container full-height full-width"  {{action 'changeLanguage' item.code}}>
+                    <div class="layout-col-24 nav-row-height pad-widget-left">
+                        <span class="{{item.active}}"></span>
+                        <a class="pad-widget-left">{{item.desc}}</a>
+                    </div>
+                </div>
+            {{/each}}
+            <!--/Language Settings-->
+
+            <!--Price Ticker Settings-->
+            {{#if isTickerSettingsEnabled}}
+                <div class="layout-container full-height full-width pad-l-t">
+                    <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                        <a class="pad-widget-right">{{app.lang.labels.tickerSettings}}</a>
+                    </div>
+                </div>
+                <div class="layout-container full-height full-width pad-m-b">
+                    <div class="layout-col-24 nav-row-height pad-s-t pad-widget-left">
+                        <a class="pad-widget-right">{{app.lang.labels.tickerSpeed}}</a>
+
+                        <div class="slider-container pad-l-l pad-l-tb">
+                            <span class="pad-m-r">{{app.lang.labels.high}}</span>{{input type="range" min="-5" max="80" value=tickerSpeed class="slider price-ticker-caption"}}<span class="pad-m-l">{{app.lang.labels.low}}</span>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+            <!--Price Ticker Settings-->
+
+            <!--/Watch List Settings-->
+            {{#if isWatchListSettingsEnabled}}
+                <span class="font-x-l bold btn-txt-color pad-l-l pad-l-tb">
+                    <button type="button" class="btn bold btn-default confirm-btn btn-animation font-l btn-txt-color" {{action 'loadCustomSettingsPopup' 'watchListSettingsPopup'}}>
+                        <span>{{app.lang.labels.selectWatchLists}}</span>
+                    </button>
+                </span>
+            {{/if}}
+            <!--/Watch List Settings-->
+
+            <!--/Social Media Settings-->
+            {{#if isSocialMediaSettingsEnabled}}
+                <div class="layout-container full-height full-width pad-l-t pad-m-b">
+                    <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                        <a class="pad-widget-right">{{app.lang.labels.socialMediaSettings}}</a>
+                    </div>
+                </div>
+            <span class="font-x-l bold btn-txt-color pad-l-l pad-xl-t pad-m-t">
+                    <button type="button" class="btn bold btn-default confirm-btn btn-animation font-l btn-txt-color" {{action 'loadCustomSettingsPopup' 'socialMediaSettingsPopup'}}>
+                        <span>{{app.lang.labels.socialMediaSelect}}</span>
+                    </button>
+            </span>
+            {{/if}}
+            <!--/Social Media Settings-->
+
+            <!--Biometric Auth Settings-->
+            {{#if isShowBiometricAuthSignup}}
+                <div class="layout-container full-height full-width pad-l-t">
+                    <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                        <a class="pad-widget-right">{{app.lang.labels.touchId}}</a>
+                    </div>
+                </div>
+                <div class="layout-container full-height full-width"  {{action 'changeBioAuth'}}>
+                    <div class="layout-col-24 nav-row-height pad-widget-left">
+                        <span class="{{bioAuthActiveCss}}"></span>
+                        <a class="pad-widget-left">{{app.lang.labels.touchIdLoginEnable}}</a>
+                    </div>
+                </div>
+            {{/if}}
+            <!--/Biometric Auth Settings-->
+
+            <!--View Log Settings-->
+            {{#if isAppLogEnabled}}
+                <div class="layout-container full-height full-width pad-l-t">
+                    <div class="layout-col-24 nav-row-header-height bold font-l highlight-fore-color pad-widget-left">
+                        <a class="pad-widget-right">{{app.lang.labels.viewLog}}</a>
+                    </div>
+                </div>
+                <div class="layout-container full-height full-width" {{action 'loadCustomSettingsPopup' 'viewLogSettingsPopup'}}>
+                    <div class="layout-col-24 nav-row-height pad-widget-left">
+                        <a class="pad-widget-left">{{app.lang.labels.viewLog}}</a>
+                    </div>
+                </div>
+            {{/if}}
+            <!--/View Log Settings-->
+        </div>
+    </div>
+</div>

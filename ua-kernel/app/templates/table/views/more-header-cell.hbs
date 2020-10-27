@@ -1,0 +1,39 @@
+<div class="display-block cell-container data-table-header hint--right hint--rounded hint--bounce panel-table-row-odd {{view.styles}}" {{action 'expandColumnAction'}}>
+    <div class="layout-col">
+        <div class="font-x-l bold font-table-header ellipsis pad-s-tb">
+            {{view.firstValue}}
+        </div>
+        {{#if view.isExpandedHeader}}
+            <div class="font-m font-table-header ellipsis pad-s-b {{secondHeaderStyle}}">
+                {{view.secondValue}}
+            </div>
+        {{/if}}
+        <div class="font-m font-table-header ellipsis pad-s-b">
+            {{view.thirdValue}}
+        </div>
+    </div>
+    {{#unless view.disableExpand}}
+        <div class="layout-col toggle pad-m-l pad-s-t v-top">
+            {{#if view.isExpandedHeader}}
+                <span><i class="glyphicon glyphicon-menu-hamburger font-xxx-l"></i></span>
+            {{else}}
+                <span><i class="glyphicon glyphicon-menu-hamburger font-xxx-l"></i></span>
+            {{/if}}
+        </div>
+    {{/unless}}
+    <div class="layout-col-24"></div>
+
+    <div class="layout-col">
+        <div class="font-x-l bold font-table-header ellipsis pad-s-tb h-right">
+            {{view.headerNames.firstValue}}
+        </div>
+        {{#if view.isExpandedHeader}}
+            <div class="font-m font-table-header ellipsis pad-s-b h-right">
+                {{view.headerNames.secondValue}}
+            </div>
+        {{/if}}
+        <div class="font-m font-table-header ellipsis pad-s-b h-right">
+            {{view.headerNames.thirdValue}}
+        </div>
+    </div>
+</div>

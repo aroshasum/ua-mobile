@@ -1,0 +1,61 @@
+{
+  "name": "ua-price",
+  "version": "0.0.1",
+  "private": true,
+  "description": "The default blueprint for ember-cli addons.",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember try:testall"
+  },
+  "repository": "",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "broccoli": "^1.1.3",
+    "broccoli-asset-rev": "^2.0.2",
+    "broccoli-babel-transpiler": "6.0.0",
+    "broccoli-browserify": "^0.1.0",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-concat": "^3.2.2",
+    "broccoli-funnel": "^2.0.1",
+    "broccoli-merge-trees": "^2.0.0",
+    "broccoli-uglify-js": "^0.2.0",
+    "ember-cli": "0.2.5",
+    "ember-cli-app-version": "0.3.3",
+    "ember-cli-content-security-policy": "0.4.0",
+    "ember-cli-dependency-checker": "^1.0.0",
+    "ember-cli-htmlbars": "2.0.1",
+    "ember-cli-ic-ajax": "0.1.1",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-qunit": "0.3.13",
+    "ember-cli-uglify": "^1.0.1",
+    "ember-data": "1.0.0-beta.17",
+    "ember-disable-prototype-extensions": "^1.0.0",
+    "ember-disable-proxy-controllers": "^0.7.0",
+    "ember-export-application-global": "^1.0.2",
+    "ember-try": "0.0.4"
+  },
+  "keywords": [
+    "ember-addon"
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+    "ember-cli-babel": "^5.0.0"
+  },
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
+  }
+}

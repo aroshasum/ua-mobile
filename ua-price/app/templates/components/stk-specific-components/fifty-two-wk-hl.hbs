@@ -1,0 +1,11 @@
+{{#if isBarAvailable}}
+    <div class="progress progress-bar-back-color">
+        <div class="progress-bar {{progressBarClass}}" style={{{styles}}}> </div>
+    </div>
+{{else}}
+        <div class="pad-xs-t">
+            <span>{{lowValue}}</span>
+            <span class="pad-s-all"> - </span>
+             <span>{{highValue}}</span>
+        </div>
+{{/if}}

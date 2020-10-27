@@ -1,0 +1,16 @@
+<div {{bind-attr class=":layout-container :full-width :full-height :ellipsis :border-bottom :text-align-left view.styleBackground :pad-m-l view.styles" }} cell-id="{{view.columnId}}">
+    <div class="layout-col" {{action 'buttonMenuAction' true view.rowValues view.content}}>
+        <span class="font-xxx-l bold btn-txt-color {{view.displayStyle}}">
+            <button type="button" class="btn btn-alert btn-animation bold" disabled={{isEqual view.rowValues.content.isEditEnabled false true}}>
+                <i class="icon-rename font-l"></i>
+            </button>
+        </span>
+    </div>
+    <div class="layout-col" {{action 'buttonMenuAction' false view.rowValues view.content}}>
+        <span class="font-xxx-l bold btn-txt-color">
+            <button type="button" class="btn btn-alert btn-animation bold">
+                <i class="glyphicon glyphicon-trash font-l"></i>
+            </button>
+        </span>
+    </div>
+</div>

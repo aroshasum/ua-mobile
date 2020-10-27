@@ -1,0 +1,61 @@
+@import '../common-variables';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+@import '../widget-variables';
+//@import '../themes/theme-helper';
+
+body {
+  font-family: "Roboto", OpenSans;
+  direction: ltr;
+}
+
+.font-thick {
+  font-family: "Roboto Black", OpenSans;
+  font-weight: 900;
+}
+
+.widget-container-new {
+  border-right: 0;
+  border-left: 0;
+}
+
+.widget_new {
+    @include theme((
+            border: none
+    ));
+}
+
+.font-size-initial {
+  font-size: initial;
+}
+
+.row-height-header {
+  height: 30px;
+}
+
+.font-size-zero {
+  font-size: inherit;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.logo-login img {
+  width: 298px;
+  height: 96px;
+}
+
+.logo-new img {
+  width: 298px;
+  height: 96px;
+}
+
+.full-height-without-header {
+  height: calc(100% - 3px);
+}
+
+.pad-tb-zero {
+  padding-top: 0;
+  padding-bottom: 0;
+}

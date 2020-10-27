@@ -1,0 +1,88 @@
+<div class="pad-widget-left pad-widget-right">
+    <div {{bind-attr class=":layout-container :pad-s-tb :netplus-watchlist-table-header :price-info-panel-height view.mainCss full-width"}}>
+        <div class="layout-col-24">
+            <div class="layout-container full-width">
+                <div class="layout-col-24">
+                    <div class="pad-s-b font-x-l bold symbol-fore-color ellipsis"><{{view.detailSymbol.dispProp1}}</div>
+                </div>
+                <div class="layout-col v-top">
+                    <div class="full-width">
+                        <div class="mgn-l-l">
+                            <div class="layout-inline v-top pad-s-l font-l"><span {{bind-attr class="view.perChgCss"}}> <i {{bind-attr class="view.changeSign"}}></i> </span>
+                            </div>
+                            <div class="layout-inline v-top pad-s-l font-x-l bold symbol-fore-color">
+                                <{{formatNumber view.detailSymbol.ltp view.detailSymbol.deci}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-container full-width">
+                <div class="layout-col-24 ellipsis font-m">{{view.detailSymbol.sDes}}</div>
+                <div class="layout-col">
+                    <div class="layout-col font-m bold pad-m-l ltr">
+                        <span {{bind-attr class="view.perChgCss"}}>{{formatNumberPercentage view.detailSymbol.pctChg}}</span>
+                    </div>
+                    <div class="layout-col font-m pad-m-l ltr">
+                        <span {{bind-attr class="view.changeCss"}}>{{formatNumber view.detailSymbol.chg view.detailSymbol.deci}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col widget-vline pad-l-l"></div>
+
+        <div class="layout-col full-height pad-l-l">
+            <div class="layout-col">
+                <div class="layout-container">
+                    <div class="layout-col">
+                        <div class="pad-s-b font-x-l bold up-fore-color">{{formatNumber view.detailSymbol.bbp view.detailSymbol.deci}}</div>
+                    </div>
+                    <div class="layout-col v-top">
+                        {{#unless view.isTradingEnabled}}
+                            <div class="pad-m-l font-l up-fore-color">{{formatNumber view.detailSymbol.bbq 0}}</div>
+                        {{/unless}}
+                    </div>
+                </div>
+                <div class="layout-container">
+                    <div class="font-m ellipsis popup-label-max-width"><span>{{view.app.lang.labels.bestBid}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-col v-top pad-l-l">
+                {{#if view.isTradingEnabled}}
+                    <div class="font-l bold up-fore-color">
+                        <button type="button" class="btn btn-sell-small bold" {{action 'sell' target="view"}}>{{view.app.lang.labels.sell}}</button>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="layout-col widget-vline pad-l-l"></div>
+
+        <div class="layout-col full-height pad-l-l">
+            <div class="layout-col">
+                <div class="layout-container">
+                    <div class="layout-col">
+                        <div class="pad-s-b font-x-l bold down-fore-color">{{formatNumber view.detailSymbol.bap view.detailSymbol.deci}}</div>
+                    </div>
+                    <div class="layout-col v-top">
+                        {{#unless view.isTradingEnabled}}
+                            <div class="pad-m-l font-l down-fore-color">{{formatNumber view.detailSymbol.baq 0}}</div>
+                        {{/unless}}
+                    </div>
+                </div>
+                <div class="layout-container">
+                    <div class="font-m ellipsis popup-label-max-width"><span>{{view.app.lang.labels.bestOffer}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="layout-col v-top pad-l-l">
+                {{#if view.isTradingEnabled}}
+                    <div class="font-l bold up-fore-color">
+                        <button type="button" class="btn btn-buy-small bold" {{action 'buy' target="view"}}>{{view.app.lang.labels.buy}}</button>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.ar .ms-top-bar {
+  &-ticker-area-2 {
+    width: calc(100% - 84px);
+    position: absolute;
+    z-index: 2;
+  }
+
+  &-show-time-2 {
+    height: 11px;
+    margin-top: 21px;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  &-index-value-2 {
+    width: 98px;
+    float: right;
+    right: 96px;
+    top: 15px;
+    @extend .ms-top-bar-index-value;
+  }
+
+  &-chart-2 {
+    width: 133px;
+    @extend .ms-top-bar-chart;
+  }
+
+  &-index-dropdown-2 {
+    left: 179px;
+    right: 0;
+  }
+}

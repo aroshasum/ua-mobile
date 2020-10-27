@@ -1,0 +1,188 @@
+$theme2-colors-extended: (
+        pallete-color1: #133f5f,
+        pallete-color2: #d07f00,
+        pallete-color3: #019875,
+        pallete-color4: #e8305f,
+        pallete-color5: #000000,
+        pallete-color6: #ffffff,
+        pallete-color7: #cce3f4,
+        pallete-color8: #d2d2d2,
+        pallete-color9: #0078D7,
+        pallete-color10: #e2f8eb,
+        pallete-color11: #fce5e5,
+        pallete-color12: #ffffff,
+        pallete-color13: #0078D7,
+        pallete-color14: #f9bf3b,
+        pallete-color15: #545454,
+        pallete-color16: #3577ae,
+        pallete-color17: #739bb9,
+        pallete-color18: #f8fcff,
+
+  // Fore Colors
+        fore-color: "use(pallete-color5)",
+        fade-fore-color: "lighten(fore-color, 47)",
+        icon-fore-color: "lighten(fade-fore-color, 30)",
+        prominent-fore-color: "use(pallete-color13)",
+
+  // Up-Down Back Colors
+  //fade-up-back-color-2: "darken(fade-up-back-color, 7)",
+        fade-back-color: "use(pallete-color2)",
+        fade-up-back-color: "darken(pallete-color10, 10)",
+        fade-up-back-color-2: "lighten(fade-up-back-color, 5)",
+        fade-down-back-color: "darken(pallete-color11, 8)",
+        fade-down-back-color-2: "lighten(fade-down-back-color, 2)",
+        highlight-fore-color: "use(pallete-color9)",
+        highlight-back-color-1: "darken(pallete-color14, 6)",
+        highlight-back-color-2: "use(pallete-color1)",
+        box-shadow-color: "darken(pallete-color8, 8)",
+        app-back-color:"use(pallete-color6)",
+        semi-transparent-back-color: rgba(255, 255, 255, 0.5),
+        tool-bar-back-color: "lighten(pallete-color8, 13)",
+        progress-bar-back-color: "darken(base-color-widget, 15)",
+        no-changed-back-color: "lighten(pallete-color8, 5)",
+        symbol-fore-color: "use(pallete-color5)",
+        news-icon-color: "use(pallete-color13)",
+        announcements-icon-color: "use(pallete-color14)",
+        disable-back-color: "use(pallete-color8)",
+        placeholder-fore-color: "lighten(pallete-color8, 10)",
+
+        pending-back-color: "use(pallete-color14)",
+
+        base-color-gray: "use(pallete-color5)",
+
+  // Base Colors
+        base-color-title-separator: "darken(base-color-title, 5)",
+
+  // Base Colors - App Title
+        base-color-app-title-toolbar: "lighten(pallete-color8, 14)",
+        base-fade-fore-color-app-title: "use(pallete-color17)",
+
+  // Ticker
+        base-color-ticker: "use(pallete-color1)",
+
+  // App Menu
+        base-color-app-menu: "use(pallete-color6)",
+        base-color-app-menu-selected: "use(base-color-app-menu)",
+        base-color-app-menu-selected-gradient: "use(base-color-app-menu)",
+        base-color-app-menu-group-header: "darken(pallete-color9, 24)",
+        base-fore-color-app-menu-selected: "use(pallete-color1)",
+
+  // Widget
+        base-color-widget-ui-control: "use(app-back-color)",
+
+  // Widget Menu
+        base-fore-color-widget-menu-header: "darken(pallete-color8, 32)",
+
+  // App Title
+        base-color-app-title-ui-control: "lighten(pallete-color1, 10)",
+
+  // Base Colors - Widget Title
+        base-color-widget-title: "lighten(pallete-color8, 15)",
+        base-fore-color-widget-title: "use(pallete-color9)",
+        base-fore-color-widget-title-tab: "use(pallete-color9)",
+        base-color-widget-title-tab-selected: "use(pallete-color6)",
+        base-fore-color-widget-title-tab-selected: "use(pallete-color9)",
+
+        // Base Colors - Tables
+        base-color-table-header: "darken(pallete-color6, 10)",
+
+        // Base Colors - Widget - Tabs
+        base-color-widget-tab: "use(pallete-color6)",
+        base-fore-color-widget-tab: "lighten(fade-fore-color, 12)",
+        base-color-widget-tab-selected: "use(pallete-color14)",
+        base-fore-color-widget-tab-selected: "use(pallete-color6)",
+
+        // Button
+        base-fore-color-button: "use(fade-fore-color)",
+
+        // Bottom Navigation Bar
+        hnav-selected-fore-color: "lighten(pallete-color9, 10)",
+        sidebar-nav-icon-color: "lighten(fade-fore-color, 20)",
+        sidebar-nav-icon-color-active: "use(base-color-app-menu)",
+        sidebar-nav-bg-color: "use(app-back-color)",
+
+  // App Menu
+        app-menu-selected-border-top: "darken(base-color-app-menu, 15)",
+        app-menu-group-header-back-color: "use(base-color-app-menu-group-header)",
+
+  // App Title
+        app-title-ui-control-gradient: "use(app-title-ui-control)",
+
+        dark-bg-announcement-fore-color: "use(base-fore-color-app-title)",
+
+        widget-title-fore-color: "use(fade-fore-color)",
+        widget-title-back-color-gradient: "use(widget-title-back-color)",
+        widget-title-border-b-color: "lighten(widget-title-back-color, 18)",
+        widget-title-border-color: "lighten(widget-title-back-color, 18)",
+        widget-title-border-light-color: "lighten(widget-title-back-color, 18)",
+
+        // Widget Menu
+        widget-menu-icon-fore-color: "use(pallete-color9)",
+
+        // Data Table Colors
+        table-row-hover-back-color: "use(table-row-back-color)",
+        table-row-selected-back-color: "use(table-row-back-color)",
+        data-table-header-back-color: "use(base-color-table-header)",
+        data-table-header-back-color-gradient: "lighten(data-table-header-back-color, 9)",
+        table-row-alternate-back-color: "darken(table-row-back-color, 3)",
+
+  // Widget
+        widget-back-color-gradient: "use(widget-back-color)",
+        widget-border-t-color: "lighten(app-title-back-color, 11)",
+
+  // Data Table Colors
+        tab-selected-back-color-gradient: "use(tab-selected-back-color)",
+
+  // Widget Title - Tabs
+        widget-title-header-fore-color: "use(fade-fore-color)",
+        widget-title-tab-fore-color: "use(pallete-color6)",
+        widget-title-selected-tab-fore-color: "use(pallete-color6)",
+        widget-title-selected-tab-back-color: "use(base-color-ticker)",
+        widget-title-selected-tab-back-color-gradient: "use(widget-title-selected-tab-back-color)",
+        widget-title-selected-tab-border-bottom: "use(pallete-color5)",
+
+        trade-btn-buy-back-color: "use(up-back-color)",
+        trade-btn-buy-back-color-gradient: "use(trade-btn-buy-back-color)",
+        trade-btn-sell-back-color: "use(down-back-color)",
+        trade-btn-sell-back-color-gradient: "use(trade-btn-sell-back-color)",
+
+  // Bottom Menu
+        bottom-menu-fore-color: "lighten(fade-fore-color, 20)",
+
+  // Ticker Message
+        single-message-info-fore-color: "use(base-color-ticker)",
+
+  // Common TextBox
+        textbox-border-color: "darken(pallete-color8, 32)",
+
+  // Button
+        btn-border: "use(base-color-button-border)",
+
+  // Chart
+        chart-back-color: "darken(pallete-color18, 3)",
+        chart-line-4-color: "use(pallete-color5)",
+        chart-axis-color: "darken(pallete-color8, 30)",
+        area-chart-line-color: "use(pallete-color1)",
+        chart-border-color: "use(base-color-chart)",
+        chart-back-color-gradient: "alpha(chart-back-color, 0.1)",
+        chart-candle-up-color: "use(up-fore-color)",
+        chart-candle-down-color: "use(down-fore-color)",
+        chart-line-1-color: "use(down-fore-color)",
+        chart-line-2-color: "use(pending-back-color)",
+        chart-line-3-color: "use(link-fore-color)",
+        chart-line-5-color: "lighten(up-fore-color, 8)",
+        chart-grid-color: "use(fade-fore-color)",
+        chart-crosshair-label-color: "use(link-fore-color)",
+        chart-symbol-fore-color: "use(fore-color)",
+        chart-macd-macd-color: "darken(pallete-color2, 6)",
+        chart-macd-signal-color: "darken(pallete-color13, 3)",
+        chart-resize-line-color: "use(pallete-color15)",
+        chart-bb-fill-color: "lighten(pallete-color15, 47)",
+        chart-bb-top-color: "darken(pallete-color15, 5)",
+        chart-bb-median-color:"darken(pallete-color10, 55)",
+        chart-bb-down-color: "darken(pallete-color15, 5)",
+        chart-macd-hist-color: "lighten(pallete-color4, 7)",
+        chart-momentum-line-color: "darken(pallete-color9, 60)",
+        chart-compare-line-1-color: "darken(pallete-color13, 31)",
+        chart-detail-panel-color: "use(fade-fore-color)"
+);

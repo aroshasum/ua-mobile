@@ -1,0 +1,10 @@
+<div {{bind-attr title="view.title" class=":cell-container :transform-all :overflow-hidden :v-middle :border-bottom :hint--right :hint--rounded :hint--bounce :pos-abs : view.firstValueStyle view.displayStyle :context-menu-mobile"}} cell-id="{{view.columnId}}">
+    <div class="layout-container full-height full-width">
+        <div class="layout-col icon-fore-color h-left pad-m-r">
+            <i class="glyphicon icon-angle-right font-5x-l"> </i>
+        </div>
+        <div class="layout-col-24 full-height" cell-id="menuPanel">
+            {{partial view.contextPath}}
+        </div>
+    </div>
+</div>

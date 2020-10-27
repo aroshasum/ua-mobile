@@ -1,0 +1,83 @@
+<div> <!-- TODO [Dasun] Add separate hbs for mobile -->
+    {{#if showSearchResultContainer}}
+        <div  class="nano">
+            <div class="search-wrapper nano-content">
+
+                <!--search-wrapper start-->
+                <div class="search-col-1 full-width">
+                    {{#each result in content}}
+                        {{#if result.isDataUnavailable}}
+                            <h2 class="search-title bold font-l pad-s-b">{{app.lang.labels.noResultFound}}</h2>
+                        {{else}}
+                            <h2 class="search-title bold font-l pad-s-b">{{result.name}}</h2>
+                            {{#each result.contents as | content index | }}
+                                <div class="layout-container search-row full-width" index={{index}}>
+                                    <div class="{{symbolSearchContainerCss}}" {{action 'onItemSelected' content defaultLink}}>
+                                        <div class="{{symbolSearchCellCss}}">
+                                            <div class="layout-col"><span class="{{if showSubMarket 'search-symbol-responsive' 'search-symbol'}} ellipsis pad-m-r left font-m bold symbol-fore-color">{{content.dispProp1}}</span></div>
+                                            {{#unless isMobile}}
+                                                <div class="layout-col"><span class="{{if showSubMarket 'search-desc-1-responsive' 'search-desc-1'}} ellipsis left font-m fore-color">{{content.sDes}}</span></div>
+                                            {{/unless}}
+                                            <div class="layout-col">
+                                                <div class="{{if showSubMarket 'search-mkt-responsive' 'search-mkt'}} ellipsis left font-m fore-color ltr">{{content.de}}</div>
+                                            </div>
+
+                                            {{#if showSubMarket}}
+                                                <div class="layout-col">
+                                                    <div class="search-sub-mkt ellipsis left font-m fore-color">{{getSubMarketName content.exg content.subMkt false}}</div>
+                                                </div>
+                                            {{/if}}
+                                        </div>
+                                        <div><p class="search-desc-2 ellipsis font-s fade-fore-color">{{content.lDes}}</p></div>
+                                    </div>
+                                {{#if showWidgetButtons}}
+                                            {{#if isMobile}}
+                                                {{#if (isAvailableWidgets content.inst)}}
+                                                    <div class="layout-col font-xx-l fade-fore-color v-top right" {{action 'addStocksToCustomWL' content}}>
+                                                    <span class="sidebar-nav-icon-color">
+                                                        <i {{bind-attr class=":glyphicon-star-empty :glyphicon :pad-m-lr :font-xxx-l content.isAddedToCustomWatchList:symbol-fore-color"}}></i>
+                                                    </span>
+                                                    </div>
+                                                {{/if}}
+                                            {{else}}
+                                       <div class="layout-col font-xx-l fade-fore-color v-top right">
+                                        <ul>
+                                            {{#if (isAvailableWidgets content.inst)}}
+                                                <li class="pad-s-l" {{action 'onWidgetSelected' content 1}}><a class="cursor-pointer hint--rounded hint--bottom hint--bounce" data-hint="{{app.lang.labels.timeAndSales}}"><i class="icon-clock"></i></a></li>
+                                                <li class="pad-l-l" {{action 'onWidgetSelected' content 2}}><a class="cursor-pointer hint--rounded hint--bottom hint--bounce" data-hint={{app.lang.labels.depthByPrice}}><i class="icon-add-fav"></i></a></li>
+                                                <li class="pad-l-l" {{action 'onWidgetSelected' content 3}}><a class="cursor-pointer hint--rounded hint--bottom hint--bounce" data-hint="{{app.lang.labels.depthByOrder}}"><i class="icon-sitemap"></i></a></li>
+                                            {{/if}}
+                                            <li class="pad-l-l" {{action 'onWidgetSelected' content 4}}><a class="cursor-pointer hint--rounded hint--bottom hint--bounce" data-hint={{app.lang.labels.chart}}><i class="icon-chart-bar"></i></a></li>
+                                        </ul>
+                                       </div>
+                                            {{/if}}
+                                {{/if}}
+                                </div>
+                            {{/each}}
+                        {{/if }}
+                    {{/each}}
+                </div>
+                {{#if enableContentSettings}}
+                <div class="display-table-row full-width">
+                    <ul class="horizontal-list-left pad-s-b">
+                        <li> <span>
+                            {{input checked=isEnabledAnnSearch type="checkbox" name="cc"}}
+                        </span> <span class="font-l header-colour">Announcement</span> </li>
+                        <li> <span>
+                            {{input checked=isEnabledNewsSearch type="checkbox" name="cc"}}
+                        </span> <span class="font-l header-colour">News</span> </li>
+                    </ul>
+                </div>
+                {{/if}}
+                {{#if isEnabledContentSearch}}
+                    <div class="search-col-2 display-table pad-s-l">
+                        {{partial "price/announcement"}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+
+

@@ -1,0 +1,192 @@
+// hint.css override
+[data-hint]:after {
+  position: fixed;
+}
+
+.hint {
+  // top tooltip
+  &--top:after {
+    margin-top: -28px;
+  }
+
+  &--top:before, &--top:after {
+    bottom: inherit;
+    left: inherit;
+  }
+
+  // bottom tooltip
+  &--bottom:before {
+    margin-top: 10px;
+  }
+
+  &--bottom:after {
+    margin-top: 20px;
+  }
+
+  &--bottom:before, &--bottom:after {
+    top: inherit;
+    left: inherit;
+  }
+
+  // right tooltip
+  &--right:before {
+    margin-left: 12px;
+    margin-top: 4px;
+  }
+
+  &--right:after {
+    margin-top: -26px;
+    margin-left: 14px;
+  }
+
+  &--right:before, &--right:after {
+    left: inherit;
+    bottom: inherit;
+  }
+
+  // left tooltip
+  &--left:before {
+    margin-left: -3px;
+    margin-bottom: -6px;
+  }
+
+  &--left:after {
+    margin-top: -9px;
+    margin-left: -100px;
+  }
+
+  &--left:before, &--left:after {
+    right: inherit;
+    bottom: inherit;
+  }
+
+  // top-left tooltip
+  &--top-left:before, &--top-left:after {
+    bottom: inherit;
+    left: inherit;
+  }
+
+  &--top-left:after {
+    margin-left: 0;
+    margin-top: -50px;
+  }
+
+  // top-right tooltip
+  &--top-right:before, &--top-right:after {
+    bottom: inherit;
+    left: inherit;
+  }
+
+  &--top-right:after {
+    margin-left: -12px;
+    margin-top: -28px;
+  }
+
+  // bottom-left tooltip
+  &--bottom-left:before {
+    margin-top: 10px;
+    margin-left: -3px;
+  }
+
+  &--bottom-left:before, &--bottom-left:after {
+    top: inherit;
+    left: inherit;
+  }
+
+  &--bottom-left:after {
+    margin-left: 8px;
+    margin-top: 20px;
+  }
+
+  // bottom-right tooltip
+  &--bottom-right:before {
+    margin-top: 5px;
+  }
+
+  &--bottom-right:before, &--bottom-right:after {
+    top: inherit;
+    left: inherit;
+  }
+
+  &--bottom-right:after {
+    margin-left: -12px;
+    margin-top: 14px;
+  }
+}
+
+/**
+ * Defines tooltips if scroll bar available.
+ */
+[data-hint-scroll] {
+  position: relative;
+  display: inline-block;
+  /**
+	 * tooltip arrow
+	 */
+  /**
+	 * tooltip body
+	 */
+}
+
+[data-hint-scroll]:before, [data-hint-scroll]:after {
+  position: absolute;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000000;
+  pointer-events: none;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-transition-delay: 0ms;
+  -moz-transition-delay: 0ms;
+  transition-delay: 0ms;
+}
+
+[data-hint-scroll]:hover:before, [data-hint-scroll]:hover:after {
+  visibility: visible;
+  opacity: 1;
+  text-align: left;
+}
+
+[data-hint-scroll]:hover:before, [data-hint-scroll]:hover:after {
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+
+[data-hint-scroll]:before {
+  content: '';
+  position: absolute;
+  background: transparent;
+  border: 6px solid transparent;
+  z-index: 1000001;
+}
+
+[data-hint-scroll]:after {
+  content: attr(data-hint-scroll);
+  background: #383838;
+  color: white;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 12px;
+  white-space: pre;
+}
+
+[data-hint-scroll='']:before, [data-hint-scroll='']:after {
+  display: none !important;
+}
+
+[data-hint] {
+  /**
+	 * tooltip body
+	 */
+}
+
+[data-hint]:after {
+  text-shadow: 0 -1px 0 black;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}

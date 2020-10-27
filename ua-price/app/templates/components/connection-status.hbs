@@ -1,0 +1,11 @@
+<div class="layout-inline">
+    {{#if isTradingEnabled}}
+        <div {{bind-attr class=":layout-inline :font-m :hint--rounded :hint--bottom :hint--bounce tradeHintStyle tradeConnectionStatusStyle" data-hint=tradeConnectionStatusTitle}}>
+            <div class="layout-inline pad-s-lr"><i class="font-s icon-circle" aria-hidden="true"></i></div>
+        </div>
+    {{/if}}
+
+    <div {{bind-attr class=":layout-inline :font-m :pad-s-l :hint--rounded :hint--bottom :hint--bounce priceHintStyle priceConnectionStatusStyle" data-hint=priceConnectionStatusTitle}}>
+        <div class="layout-inline pad-s-r"><i class="font-s icon-circle" aria-hidden="true"></i></div>
+    </div>
+</div>

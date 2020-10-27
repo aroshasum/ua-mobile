@@ -1,0 +1,280 @@
+//@import '../themes/theme-helper';
+@import '../common-variables';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+
+table, nav, div {
+  vertical-align: top;
+}
+
+.btn {
+  line-height: 1;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+
+  @include theme((
+          outline: none,
+          border: "0 {btn-focus} solid",
+          box-shadow: none
+  ));
+
+  @include theme-classic((
+          border: "1px {btn-focus} solid"
+  ));
+}
+
+.btn-default {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 0;
+  height: 24px;
+  border-radius: 0;
+  padding: $padding-small;
+  font-size: $font-medium;
+}
+
+.btn-primary:focus {
+  @include theme((
+          outline: none,
+          border: "0 {btn-focus} solid"
+  ));
+}
+
+.btn-dropdown {
+  border-radius: 23px;
+  font-weight: bold;
+  padding-left: $padding-medium;
+  padding-right: $padding-medium;
+}
+
+.btn[disabled] {
+  opacity: 0.65;
+
+  @include theme((
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          background-image: "linear-gradient(top, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color} 30%, {widget-ui-control-back-color} 30%, {widget-ui-control-back-color} 100%)"
+  ));
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  cursor: default;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.nav-tabs > li > a {
+  border-radius: 0px 0px 0 0;
+}
+
+.nav-tabs .layout-col > a {
+  border-radius: 0;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+}
+
+.nav > li > a {
+  padding: 3px $padding-large;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.table > tbody > tr > td {
+  padding: 3px;
+  border-top: 0px solid #ddd;
+}
+
+.table {
+  margin-bottom: 0px;
+}
+
+.dropdown-menu {
+  font-size: $font-large;
+  min-width: inherit;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  text-decoration: none;
+}
+
+.progress {
+  width: 100%;
+  height: 5px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .0);
+}
+
+.progress-market {
+  width: 30px;
+  height: 3px;
+  border-radius: 0px;
+}
+
+.progress-bar {
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .0);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .0);
+
+  @include theme((
+          background-color: up-back-color
+  ));
+}
+
+.progress-border {
+  height: 5px;
+}
+
+.progress-wk {
+  height: 4px;
+  margin-bottom: 0px;
+  background-color: rgba(0, 0, 0, .0);
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .0);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .0);
+}
+
+.progress-bar-wk-green {
+  background-color: rgba(0, 0, 0, .0);
+}
+
+.progress-bar-wk-red {
+  background-color: rgba(0, 0, 0, .0);
+}
+
+// pop over
+.popover {
+  font-size: 14px;
+  border-radius: 3px;
+  z-index: 1000;
+}
+
+.popover-title {
+  border-radius: 3px 3px 0 0;
+  z-index: 1000;
+}
+
+.popover.left > .arrow:after {
+  z-index: 1000;
+}
+
+.caret {
+  margin-left: 3px !important;
+  //border-top: 5px dashed;
+  //border-right: 5px solid transparent;
+  //border-left: 5px solid transparent;
+}
+
+.carousel-indicators li {
+  border-radius: 0px;
+}
+
+.input-group .form-control {
+  z-index: 0;
+}
+
+.form-control {
+  padding: 0 12px;
+  box-shadow: none;
+  border-radius: $radius-xxs;
+}
+
+.form-control::-webkit-input-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+.form-control:-moz-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+.form-control::-moz-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+.form-control:-ms-input-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+::-webkit-input-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+// Firefox 18-
+:-moz-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+// Firefox 19+
+::-moz-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+:-ms-input-placeholder {
+  font-style: $font-italic;
+  font-size: $font-medium;
+}
+
+.navbar {
+  width: 100%;
+  min-width: 1340px;
+  margin-bottom: 0;
+}
+
+.popover.top {
+  margin-top: 0;
+}
+
+.popover.right {
+  margin-left: 0;
+}
+
+.popover.bottom {
+  margin-top: 0;
+}
+
+.popover.left {
+  margin-left: 0;
+}
+
+.popover > .arrow,
+.popover > .arrow:after {
+  display: none;
+}
+
+.popover > .arrow {
+  border-width: 0;
+}
+
+.popover > .arrow:after {
+  content: "";
+  border-width: 0;
+}
+
+.input-group .form-control:last-child {
+  border-radius: $radius-xxs;
+}
+
+.input-group .form-control:first-child {
+  border-radius: $radius-xxs;
+}

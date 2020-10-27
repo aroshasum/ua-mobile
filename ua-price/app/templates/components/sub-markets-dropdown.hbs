@@ -1,0 +1,15 @@
+{{#if isSubMarketsAvailable}}
+    {{bootstrap-dropdown-select
+        options=subMarkets
+        isDropdownDisabled=isDisableSubMarkets
+        defaultSelect=currentSubMarket
+        value=currentMarketId
+        valueKey='marketId'
+        labelKey='lDes'
+        buttonClass=buttonClass
+        lblClass=lblClass
+        selectAction='setSubMarket'
+        responsiveIcon=responsiveIcon
+        iconClass='icon-sitemap'
+    }}
+{{/if}}

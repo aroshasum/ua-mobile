@@ -1,0 +1,65 @@
+// hint.css override
+.ar .hint {
+  // ar top tooltip
+  &--top:after {
+    margin-right: -90px;
+  }
+
+  // ar bottom tooltip
+  &--bottom:after {
+    margin-right: -65px;
+  }
+
+  // ar left tooltip
+  &--left:before {
+    margin-right: -5px;
+  }
+
+  // ar right tooltip
+  &--right:after {
+    margin-right: -70px;
+  }
+
+  // ar bottom-left tooltip
+  &--bottom-left:after {
+    margin-right: -114px;
+  }
+
+  &--bottom-left:before {
+    margin-right: -6px;
+  }
+
+  // ar bottom-right tooltip
+  &--bottom-right:after {
+    margin-right: -20px;
+  }
+
+  // ar top-left tooltip
+  &--top-left:after {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  &--top-left:after {
+    margin-right: -20px;
+    margin-left: inherit;
+  }
+
+  &--top-left:hover:after, &--top-left:focus:after {
+    -webkit-transform: translateY(-8px);
+    -moz-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+
+  &--always.hint--top-left:after {
+    -webkit-transform: translateY(-8px);
+    -moz-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+
+  // ar top-right tooltip
+  &--top-right:after {
+    margin-right: -80px;
+  }
+}

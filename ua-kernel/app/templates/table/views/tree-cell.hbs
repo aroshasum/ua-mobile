@@ -1,0 +1,35 @@
+<div class="layout-container full-width full-height">
+    {{#if view.isExpandButton}}
+        {{#if view.isRoot}}
+            {{#if view.isShrunk}}
+                <div {{action 'buttonAction' view.content view.rowValues}} title="{{view.title}}" class="panel-table {{view.firstValueStyle}}">
+                <span class="icon-fore-color">
+                    <i class="glyphicon glyphicon-plus top-zero font-m"> </i>
+                </span>
+                </div>
+            {{else}}
+                <div {{action 'buttonAction' view.content view.rowValues}} title="{{view.title}}" class="panel-table {{view.firstValueStyle}}">
+                <span class="icon-fore-color">
+                    <i class="glyphicon glyphicon-minus top-zero font-m"> </i>
+                </span>
+                </div>
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{#if view.isRoot}}
+            <div class="layout-col-24 ltr panel-table ellipsis {{view.styles}} {{view.styleBackground}}" title="{{view.firstValue}}" cell-id="{{view.columnId}}">
+                <span class="font-l {{view.styleFirstValue}}">
+                    {{view.firstValue}}
+                    <br>
+                </span>
+            </div>
+        {{else}}
+            <div class="layout-col-24 ltr panel-table ellipsis {{view.styles}} {{view.styleBackground}}" title="{{view.secondValue}}" cell-id="{{view.columnId}}">
+                <span class="font-l tree-cell-left-indent">
+                    {{view.secondValue}}
+                    <br>
+                </span>
+            </div>
+        {{/if}}
+    {{/if}}
+</div>

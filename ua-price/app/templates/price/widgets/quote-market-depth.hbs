@@ -1,0 +1,151 @@
+<div class="widget_new full-height" id={{wkey}}>
+    {{#if isShowTitle}}
+        {{widget-header
+            linkOptions=links
+            defaultSelectedLink=defaultLink
+            selectedLink=selectedLink
+            widgetTitle=title
+            symbol=titleSymbol
+            setLink='setLink'
+            hideSymbol=hideSymbol
+            searchedSymbol=titleSymbol
+            innerWidgets=innerWidgets
+            innerWidgetAction="renderInnerWidgetItems"
+            isWidgetCloseAvailable=isWidgetCloseAvailable
+            closeWidgetAction= 'closeWidgetAction'
+            closeActionTarget=controller
+            isSearchAvailable=isSearchAvailable
+            searchID=searchID
+            clickAction='changeSymbol'
+            cursorMoveCss=cursorMoveCss
+            app=app
+        }}
+    {{/if}}
+
+    <div class="pos-rel widget-container-new quote-page-second-row-wght full-height-without-header">
+            <div class="layout-container h-middle pad-widget-left pad-widget-right pad-widget-top full-width">
+                <div class="layout-col">
+                    <div class="layout-inline font-m fade-fore-color pad-s-l">{{app.lang.labels.totalQty}} </div>
+                    <div class="layout-inline font-m bold up-fore-color pad-s-l" >{{formatNumber symbolObj.tbq 0}}</div>
+                </div>
+                {{#unless isMobile}}
+                    {{#if isMarketDepthByPrice}}
+                        <div class="layout-col">
+                            <div class="layout-inline font-m fade-fore-color pad-s-l">{{app.lang.labels.bidOffer}} </div>
+                            <div class="layout-inline font-m bold up-fore-color pad-s-l" >{{formatNumber symbolObj.bar}}</div>
+                        </div>
+                    {{else}}
+                        <div class="layout-col">
+                            <div class="layout-inline font-m fade-fore-color pad-s-l">{{app.lang.labels.spread}} </div>
+                            <div class="layout-inline font-m bold up-fore-color pad-s-l" >{{formatNumber symbolObj.spread}}</div>
+                        </div>
+                    {{/if}}
+                {{/unless}}
+                <div class="layout-col">
+                    <div class="layout-inline font-m fade-fore-color pad-s-l">{{app.lang.labels.totalQty}} </div>
+                    <div class="layout-inline font-m bold down-fore-color pad-s-l" >{{formatNumber symbolObj.taq 0}}</div>
+                </div>
+            </div>
+
+            {{#if isShowUpgrade}}
+                <div class="pad-l-t mgn-l-t">
+                    {{upgrade-subscription app=app}}
+                </div>
+            {{else if isDelayedUser}}
+                <div class="font-m text-center mgn-l-t pad-l-t">
+                    <span>{{app.lang.messages.delayedUserDataNotAvailable}}</span>
+                </div>
+            {{else}}
+            <div class="font-xx-l pad-widget-top quote-depth-height y-scroll">
+                    <div class="layout-container full-width">
+                        <div class="layout-col-12 v-top">
+                            <div class="layout-container font-m h-middle full-width">
+                                <div class="layout-row">
+                                    <div class="layout-container full-width">
+                                        {{#if isMarketDepthByPrice}}
+                                            <div class="layout-col-5 row-height-header font-m data-table-header">{{app.lang.labels.splits}}</div>
+                                        {{else}}
+                                            <div class="layout-col-5 row-height-header font-m data-table-header">{{app.lang.labels.seq}}</div>
+                                        {{/if}}
+                                        <div class="layout-col-10 row-height-header font-m data-table-header">{{app.lang.labels.quantity}}</div>
+                                        <div class="layout-col-9 row-height-header font-m data-table-header">{{app.lang.labels.bid}}</div>
+                                    </div>
+                                </div>
+
+                                {{#each bidItem in bidRecordList}}
+                                    <div class="layout-row">
+                                        <div class="layout-container full-width pos-rel">
+                                            <div class="layout-row">
+                                                <div class="layout-col-5 row-height font-m pad-s-lr fore-color">{{formatNumber bidItem.splt 0}}</div>
+                                                {{#if bidItem.isHighestVol}}
+                                                    <div class="layout-col-10 h-right pad-m-r row-height font-m up-fore-color bold">{{formatNumber bidItem.qty 0}}</div>
+                                                {{else}}
+                                                    <div class="layout-col-10 h-right pad-m-r row-height font-m up-fore-color">{{formatNumber bidItem.qty 0}}</div>
+                                                {{/if}}
+
+                                                {{#if bidItem.isBestPrice}}
+                                                    <div class="layout-col-9 pad-s-lr row-height up-fore-color bold  table-row-up-back-color font-l">{{formatNumber bidItem.prc symbolObj.deci}}</div>
+                                                {{else}}
+                                                    <div class="layout-col-9 pad-s-lr row-height up-fore-color bold  table-row-up-back-color font-m">{{formatNumber bidItem.prc symbolObj.deci}}</div>
+                                                {{/if}}
+                                            </div>
+                                            {{#if bidItem.isHighestVol}}
+                                                <div class="progress-bar-height pos-abs bottom-zero left-zero prominent-up-back-color" role="progressbar" aria-valuenow="70" aria-valuemin="10" aria-valuemax="100" style={{{bidItem.per}}}></div>
+                                            {{else}}
+                                                <div class="progress-bar-height pos-abs bottom-zero left-zero fade-up-back-color" role="progressbar" aria-valuenow="70" aria-valuemin="10" aria-valuemax="100" style={{{bidItem.per}}}></div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/each}}
+
+                            </div>
+                        </div>
+
+                        <div class="layout-col-12 v-top">
+                            <div class="layout-container font-m h-middle full-width">
+                                <div class="layout-row">
+                                    <div class="layout-container full-width">
+                                        <div class="layout-col-9 row-height-header font-m data-table-header">{{app.lang.labels.offer}}</div>
+                                        <div class="layout-col-9 row-height-header font-m data-table-header">{{app.lang.labels.quantity}}</div>
+                                        {{#if isMarketDepthByPrice}}
+                                            <div class="layout-col-6 row-height-header font-m data-table-header pad-l-r">{{app.lang.labels.splits}}</div>
+                                        {{else}}
+                                            <div class="layout-col-6 row-height-header font-m data-table-header">{{app.lang.labels.seq}}</div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                                {{#each offerItem in offerRecordList}}
+                                    <div class="layout-row">
+                                        <div class="layout-container full-width pos-rel">
+                                            <div class="layout-row">
+                                                {{#if offerItem.isBestPrice}}
+                                                    <div class="layout-col-9 pad-s-l row-height down-fore-color bold table-row-down-back-color font-l">{{formatNumber offerItem.prc symbolObj.deci}}</div>
+                                                {{else}}
+                                                    <div class="layout-col-9 pad-s-l row-height down-fore-color bold table-row-down-back-color font-m">{{formatNumber offerItem.prc symbolObj.deci}}</div>
+                                                {{/if}}
+
+                                                {{#if offerItem.isHighestVol}}
+                                                    <div class="layout-col-10 h-right pad-s-lr row-height font-m down-fore-color bold">{{formatNumber offerItem.qty 0}}</div>
+                                                {{else}}
+                                                    <div class="layout-col-10 h-right pad-s-lr row-height font-m down-fore-color">{{formatNumber offerItem.qty 0}}</div>
+                                                {{/if}}
+
+                                                <div class="layout-col-5 font-m row-height pad-s-lr fore-color">{{formatNumber offerItem.splt 0}}</div>
+                                            </div>
+
+                                            {{#if offerItem.isHighestVol}}
+                                                <div class="progress-bar-height pos-abs bottom-zero right-zero prominent-down-back-color" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style={{{offerItem.per}}}></div>
+                                            {{else}}
+                                                <div class="progress-bar-height pos-abs bottom-zero right-zero fade-down-back-color" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style={{{offerItem.per}}}></div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>

@@ -1,0 +1,11 @@
+<div class="layout-container full-width full-height">
+    <div class="layout-col-24 v-top appttl-fade-fore-color">
+        <div class="font-s h-right pad-m-r ltr">{{index.dSym}}</div>
+        <div class="font-x-s h-right pad-m-r pad-xs-t"></div>
+    </div>
+    <div {{bind-attr class=":layout-col :btn-txt-color indexContainerCSS"}}>
+        <div class="pad-m-lr ltr font-m"><span class="bold"></span><span>{{formatNumber index.ltp index.deci}}</span></div>
+        <div class="pad-m-lr ltr font-s">{{formatNumberPercentage index.pctChg index.deci}}</div>
+    </div>
+</div>
+

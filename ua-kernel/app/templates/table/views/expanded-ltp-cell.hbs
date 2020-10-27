@@ -1,0 +1,34 @@
+<div {{bind-attr class=":full-width :cell-container :pad-s-t :ellipsis :border-bottom view.styleBackground"}} cell-id="{{view.columnId}}">
+    <div class="pad-s-tb">
+        {{#if controller.isIndexView}}
+            <span {{bind-attr class=":pad-s-tb :pad-s-lr :fore-color :font-thick :font-3x-l :bold view.styleFirstValue view.styles"}}>
+                {{view.formattedFirstValue}}
+            </span>
+        {{else}}
+            <span {{bind-attr class=":pad-s-tb :pad-s-lr :highlight-fore-color view.styleFirstValue view.styles view.isMobile:font-4x-l view.isTablet:font-l :font-thick :bold"}}>
+                {{view.formattedFirstValue}}
+            </span>
+        {{/if}}
+    </div>
+    {{#if controller.isIndexView}}
+        <div {{bind-attr class=":pad-s-tb :pad-s-r :fade-fore-color :font-x-l view.styleSecondValue"}}>
+            {{view.formattedSecondValue}}
+        </div>
+    {{else}}
+        <div {{bind-attr class=":pad-s-b :pad-xs-t :pad-s-r :fade-fore-color view.styleSecondValue view.isMobile:font-x-l view.isTablet:font-m"}}>
+            {{view.formattedSecondValue}}
+        </div>
+    {{/if}}
+    {{#if view.isExpandedView}}
+        <div class="layout-container full-width pad-m-t pad-s-b">
+            <div {{bind-attr class=":layout-col-24 :pad-xs-tb :pad-m-lr :fade-fore-color :font-x-l :toolbar-color :text-align-left :watch-list-border-radius view.styleThirdValue"}}>
+                <div>
+                    {{view.thirdCellLabel}}
+                </div>
+                <div class="pad-s-t down-fore-color bold">
+                    {{view.formattedThirdValue}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</div>

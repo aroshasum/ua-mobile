@@ -1,0 +1,15 @@
+<div class="layout-container ticker-panel {{messageOuterContainerCss}}">
+    <div class="pos-rel layout-col-24 pad-m-r">
+        <div {{bind-attr class=":pos-abs: :appttl-ticker :top-zero cssStyleOne"}}>
+            <div class="full-height">{{outlet "titleBarOutletOne"}}</div>
+        </div>
+
+        <div {{bind-attr class=":pos-abs: :appttl-ticker :top-zero cssStyleTwo"}}>
+            <div class="full-height">{{outlet "titleBarOutletTwo"}}</div>
+        </div>
+
+        <div {{bind-attr class=":pos-abs :appttl-ticker :top-zero cssStyleDefault"}}>
+            <div class="full-height">{{outlet "titleBarOutletDefault"}}</div>
+        </div>
+    </div>
+</div>

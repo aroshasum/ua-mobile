@@ -1,0 +1,19 @@
+<div class="panel-table layout-container">
+ <div class="layout-col">
+        {{#if view.isIncreased}}
+            <span>
+                <i class="glyphicon glyphicon-triangle-top font-m up-fore-color"> </i>
+            </span>
+        {{else}}
+            {{#if view.isSame}}
+                <span>
+                    <i class="icon-equal font-m highlight-fore-color" > </i>
+                </span>
+            {{else}}
+                <span>
+                <i class="glyphicon glyphicon-triangle-bottom font-m down-fore-color"> </i>
+            </span>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>

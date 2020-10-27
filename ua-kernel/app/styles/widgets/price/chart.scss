@@ -1,0 +1,2337 @@
+@import '../../common-variables';
+@import '../../themes/theme-1-variables';
+@import '../../themes/theme-2-variables';
+@import '../../widget-variables';
+
+.pro-chart {
+  &-separator {
+    width: 1px;
+    height: 23px;
+  }
+
+  &-search-width {
+    width: 130px;
+  }
+
+  &-compare-width {
+    width: 120px;
+  }
+}
+
+/* =======  Chart Theme Colors  =============  */
+
+/* --------------------------------------------------------- BUTTONS --------------------------------------------------------- */
+
+/* Basic Buttons */
+/* Inactive Button */
+
+.stx-btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px 8px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  overflow: visible;
+  background-repeat: no-repeat;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  // border-radius: 23px;
+  -webkit-transition: color .25s, border .25s, box-shadow .25s;
+  -moz-transition: color .25s, border .25s, box-shadow .25s;
+  transition: color .25s, border .25s, box-shadow .25s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "0 {widget-ui-control-border} solid",
+          // background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid",
+          box-shadow: "0 1px 0px 0px {box-shadow-color}",
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%)"
+  ));
+}
+
+.stx-dialog div.stx-data select {
+  /* Select element styles */
+  float: right;
+  text-align: left;
+  width: 70px;
+  padding: $padding-small;
+  font-size: $font-medium;
+  border-radius: 3px;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "0 {widget-ui-control-border} solid",
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid",
+          box-shadow: "0 1px 0px 0px {box-shadow-color}",
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%)"
+  ));
+}
+
+/* --------------------------------------------------------- CHART CONTROLS --------------------------------------------------------- */
+
+/* Chart size container */
+#chartSize {
+  margin: 0px auto;
+  position: relative;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+  background: #11161a;
+  border: 1px solid #323d4c;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
+}
+
+#chartSize:hover {
+  border: 1px solid #58a7e2;
+}
+
+/* Divider between zoom buttons */
+#chartSize:after {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  left: 36px;
+  content: "";
+  display: block;
+  background: #323d4c;
+}
+
+/* Button  jumping to today's data */
+.stx_jump_today {
+  color: #FFF;
+  overflow: hidden;
+  position: absolute;
+  bottom: 12px;
+  right: 70px;
+  line-height: 0px;
+  height: 25px;
+  width: 30px;
+  padding: 0px;
+  margin-bottom: 17px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 24px;
+  border: 1px solid #323d4c;
+  background: #11161a;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
+  transition: background .25s;
+  -webkit-transition: background .25s;
+  cursor: pointer;
+  z-index: 30;
+}
+
+.stx_jump_today:hover {
+  border: 1px solid #58a7e2;
+}
+
+/* --------------------------------------------------------- PANEL CONTROL TEMPLATES --------------------------------------------------------- */
+
+.stx-panel-title {
+  /* Panel/Chart Titles */
+  margin: 0;
+  float: left;
+  display: inline-block;
+  color: #cecece;
+  padding: 0 10px;
+  line-height: 22px;
+  font-size: 12px;
+  text-align: left;
+  cursor: auto;
+  background-color: transparent;
+}
+
+/* Panel/Chart Titles */
+.stx-panel-symbol {
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  margin-right: 5px;
+
+  @include theme((
+          color: chart-symbol-fore-color
+  ));
+}
+
+.stx-panel-description {
+  font-size: 11px;
+  font-weight: bold;
+  margin-top:5px;
+  background-color: transparent;
+}
+
+// Theme
+.stx-panel-ltp {
+  float: left;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  margin-right: 5px;
+
+  @include theme((
+          color: highlight-fore-color
+  ));
+}
+
+/* ------------------------------------------------------- CHART OVERLAY ELEMENTS ------------------------------------------------------ */
+
+/* These are the small divs that come up when you hover over a drawing or study overlay */
+#mSticky, #showMeasure {
+  display: none;
+  background: #efefef;
+  border: solid #ddd 1px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #666;
+  font-size: 11px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  z-index: 40;
+}
+
+/* Drawing and study info div delete button content */
+#overlayTrashCan.stx-btn span, #vectorTrashCan.stx-btn span {
+  display: block;
+  margin: 0 0 0 5px;
+  width: 23px;
+  height: 23px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  overflow: hidden;
+  text-indent: 100px;
+  background: #efefef;
+  border: solid #ddd 1px;
+  background-image: url(../../assets/images/chartIQ/stx-sprite-panels.svg);
+  background-position: -401px -26px;
+}
+
+/* --------------------------------------------------------- CHART ELEMENT STYLES --------------------------------------------------------- */
+
+/* -------- Axis Crosshair and current Prices -------- */
+
+/* Crosshair Floating axis values */
+.stx-float-price, .stx-float-date {
+  position: absolute;
+  font-size: 10px;
+  font-family: Helvetica;
+  z-index: 30;
+  padding: 1px 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #fff;
+}
+
+/* Crosshair Floating x-axis date */
+.stx-float-date {
+  padding: 1px 6px;
+  width: 56px;
+  text-align: center;
+  width: 70px;
+}
+
+// Theme - Tag Colors (Up/Down back colors)
+
+/* 'Up' color for current chart value ( floating last price on y-axis) */
+.stx_current_hr_up {
+    @include theme((
+          color: dark-bg-fore-color,
+          background-color: up-back-color
+  ));
+}
+
+// Theme
+/* 'Down' color for current chart value ( floating last price on y-axis) */
+.stx_current_hr_down {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: down-back-color
+  ));
+}
+
+/* -------- Axis Styles -------- */
+
+/* x-axis date styles */
+.stx_xaxis {
+  font-size: 12px;
+  font-family: Helvetica;
+
+  @include theme((
+          color: fore-color
+  ));
+
+}
+
+/* x-axis date divider styles */
+.stx_xaxis_dark {
+  @include theme((
+          color: fore-color
+  ));
+
+}
+
+/* y-axis price styles */
+.stx_yaxis {
+  font-size: 10px;
+  font-family: Helvetica;
+
+  @include theme((
+          color: fade-fore-color
+  ));
+
+}
+
+/* -------- Crosshairs -------- */
+
+/* Standard Crosshair color */
+.stx_crosshair {
+  position: absolute;
+  z-index: 10;
+  background-color: #999;
+}
+
+/* Darker crosshairs when drawing */
+.stx_crosshair_drawing {
+  position: absolute;
+  z-index: 10;
+  background-color: #333;
+}
+
+/* -------- Chart and Indicator Panel Styling -------- */
+
+/* Panel Title text */
+.stx_panels {
+  font-family: Helvetica;
+  font-size: 10px;
+  color: white;
+}
+
+/* Panel Title background */
+.stx_panel_background {
+  color: #7c878b;
+}
+
+/* Divider between panels */
+.stx_panel_border {
+  width: 1px;
+  color: #cccccc;
+}
+
+/* Darker Divider between panels when resizing */
+.stx_panel_drag {
+  width: 2px;
+  color: #666;
+}
+
+/* Add background to expand button when toggled on */
+.stx_solo_lit span {
+  background-color: #b1b7b8;
+  color: #ffffff;
+  opacity: 1;
+}
+
+/* -------- Chart Grid -------- */
+
+/* Default Grid */
+.stx_grid {
+  color: #22272e;
+  opacity: 1;
+}
+
+/* Default Grid dividers */
+.stx_grid_dark {
+  color: #3c434c;
+  opacity: .9;
+}
+
+/* Default Grid borders */
+.stx_grid_border {
+  color: #1c232b;
+}
+
+/* -------- Chart Type Styles -------- */
+
+/* Default color for line and bar Charts */
+
+.stx_line_chart, .stx_bar_chart {
+  color: #02adf3;
+}
+
+/* Down Bar color */
+.stx_bar_down {
+  color: #3399FE;
+}
+
+/* Up Bar color */
+.stx_bar_up {
+  color: #3399FF;
+}
+
+/* change the color and weight of drawings and study overlays on hover */
+.stx_highlight_vector {
+  color: red;
+  width: 3px;
+}
+
+/* Candle wick color */
+.stx_candle_shadow, .stx_bar_even {
+  color: #2e383b;
+}
+
+/* Down Candle color */
+.stx_candle_down, .stx_line_down {
+  color: #e44f4f;
+  border-left-color: #11161a;
+}
+
+/* Up Candle color */
+.stx_candle_up, .stx_line_up {
+  color: #2ecc71;
+  border-left-color: #11161a;
+}
+
+.stx_hollow_candle_down {
+  color: #e25959;
+}
+
+.stx_hollow_candle_up {
+  color: #459d6a;
+}
+
+.stx_hollow_candle_even {
+  color: #888888;
+}
+
+/* baseline color */
+.stx_baseline {
+  color: #2e383b;
+}
+
+/* under area color */
+.stx_baseline_down {
+  color: #eb242b;
+  width: 2px;
+}
+
+/* over area color */
+.stx_baseline_up {
+  color: #49ba59;
+  width: 2px;
+}
+
+/* Kagi chart width and color for downtrend */
+.stx_kagi_down {
+  color: #FF0000;
+  width: 1px;
+}
+
+/* Kagi chart width and color for uptrend */
+.stx_kagi_up {
+  color: #00FF00;
+  width: 3px;
+}
+
+/* P&F chart color, padding, width for downtrend */
+.stx_pandf_down {
+  color: #FF0000;
+  padding: 2px 0px 2px 0px;
+  width: 2px;
+}
+
+/* P&F chart color, padding, width for uptrend */
+.stx_pandf_up {
+  color: #00FF00;
+  padding: 2px 0px 2px 0px;
+  width: 2px;
+}
+
+/* Volume underlay styles */
+.stx_volume_underlay_up {
+  color: rgb(140, 193, 118);
+  opacity: .3;
+  border-left-color: rgb(0, 0, 0);
+}
+
+.stx_volume_underlay_down {
+  color: rgb(184, 45, 12);
+  opacity: .3;
+  border-left-color: rgb(0, 0, 0);
+}
+
+/* Volume profile styles */
+.stx_volume_profile {
+  opacity: .3;
+  border-color: rgb(0, 0, 0);
+}
+
+/* Line color for projections */
+
+/* Line color for active line when drawing projections */
+.stx_projection_new {
+  color: blue;
+}
+
+/* Transparent gaps overlay style */
+.stx_gaps {
+  color: #b1b7b8;
+  opacity: .3;
+}
+
+/* Default color for histograms */
+.stx_histogram {
+  color: #fff;
+  opacity: .2;
+}
+
+/* -------- Annotations -------- */
+
+/* Annotation styles */
+.stx_annotation {
+  font-size: 13px;
+  font-family: Helvetica;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0px 6px;
+  outline: none;
+  color: #333;
+  resize: none;
+}
+
+/* Annotation backgrounds */
+.stx_annotation_bg {
+  color: #f5f5f5;
+}
+
+/* Annotation highlight color */
+.stx_annotation_highlight {
+  color: white;
+}
+
+/* Annotation highlight background color */
+.stx_annotation_highlight_bg {
+  color: #3d4447;
+}
+
+/* Annotation Buttons */
+#annotationSave, #annotationCancel,
+.stx-btn.stx_annotation_save, .stx-btn.stx_annotation_cancel {
+  position: absolute;
+  display: none;
+  font-size: 11px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  z-index: 50;
+  background-color: #ffffff;
+}
+
+/* Optional watermark style */
+.stx_watermark {
+  font-size: 16px;
+  font-family: Helvetica;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Text for fibonacci values */
+.stx_fib_levels {
+  font-size: 12px;
+  font-family: Helvetica;
+  color: transparent;
+}
+
+/* -------- Text for shared charts -------- */
+
+.stx_share {
+  font-size: 14px;
+  font-family: georgia;
+  color: #fff;
+  width: 1px;
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+.stx-toolbar {
+  border: none;
+  border-bottom: solid 0 #ddd;
+}
+
+/* --------------------------------------------------------- TOOLTIPS --------------------------------------------------------- */
+
+.stx-tooltip > span {
+  position: absolute;
+  top: 2px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  -webkit-transform: rotate(45deg); /* Saf3.1+, Chrome */
+  -moz-transform: rotate(45deg); /* FF3.5+ */
+  -ms-transform: rotate(45deg); /* IE9 */
+  -o-transform: rotate(45deg); /* Opera 10.5 */
+  transform: rotate(45deg);
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476, sizingMethod='auto expand'); /* IE6–IE9 */
+  zoom: 1;
+  z-index: 1
+}
+
+/* -------------------------------------------------------- NAV BAR -------------------------------------------------------- */
+
+.stx-nav.stx-collapse .stx-menu-btn.stx-collapsible {
+  background-image: url(assets/images/chartIQ/stx-sprite.png);
+  height: 27px;
+  width: 45px;
+  padding: 0;
+  margin: 0 6px 0 0;
+  border-color: rgba(153, 153, 153, 0.4);
+  color: #efefef;
+}
+
+/* Search */
+input#symbol {
+  background: #fff;
+  -webkit-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .2);
+}
+
+.menuSelect.compare input[type="text"] {
+  float: left;
+  width: 90px;
+  margin-right: 3px;
+  text-transform: uppercase;
+  border: none;
+  color: #666666;
+  padding: 6px;
+  height: 14px;
+  line-height: 14px;
+}
+
+.menuSelect.compare .stx-menu-content.add {
+  height: 38px;
+  padding-bottom: 0px;
+  border-bottom: solid 1px #efefef;
+}
+
+.menuSelect.compare .stx-menu-content.type {
+  padding-bottom: 10px;
+  border-bottom: solid 1px #efefef;
+}
+
+.chart-search-popup-position {
+  top: 32px !important;
+}
+
+/* Chart Comparison Type toggle */
+.toggle-opt {
+  line-height: normal;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 3px rgba(100, 100, 100, .4);
+  border: solid 1px rgba(0, 0, 0, .1)
+}
+
+.toggle-opt div {
+  border-radius: inherit;
+  display: inline-block;
+  width: 50%;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  color: #666;
+}
+
+.toggle-opt div:hover {
+  background: rgba(0, 0, 0, .05);
+}
+
+.toggle-opt div.true,
+.toggle-opt div.true:hover {
+  border-radius: 3px;
+  color: #999;
+  background: #fff;
+  box-shadow: 1px 0px 2px rgba(100, 100, 100, .4);
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+.stx-toolbar {
+  border: none;
+  border-bottom: solid 0px #ddd;
+}
+
+/* Sharing Button */
+.stx-btn#shareBtn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(98, 108, 116, .45);
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 0 1px 0px rgba(0, 0, 0, .2);
+  margin: 0px;
+  padding: 0 4px 0 10px;
+  transition: color .25s, border .25s, background .25s, box-shadow .25s;
+  -webkit-transition: color .25s, border .25s, background .25s, box-shadow .25s;
+}
+
+.stx-btn#shareBtn:hover {
+  background: rgba(98, 108, 116, .7);
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px 10px 10px rgba(255, 255, 255, .2);
+  -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px 10px 10px rgba(255, 255, 255, .2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px 10px 10px rgba(255, 255, 255, .2);
+}
+
+.stx-btn#shareBtn:active {
+  -webkit-box-shadow: inset 0px -8px 10px rgba(255, 255, 255, .1);
+  -moz-box-shadow: inset 0px -8px 10px rgba(255, 255, 255, .1);
+  box-shadow: inset 0px -8px 10px rgba(255, 255, 255, .1);
+}
+
+.stx-btn.loading#shareBtn {
+  background: #fff;
+  color: #666;
+  text-shadow: none;
+  border-color: #ccc;
+  cursor: default;
+}
+
+/* ------------------------------------------------------- SIDE PANELS ------------------------------------------------------- */
+
+/* Sidepanel Selector Area */
+.stx-panel-selector {
+  position: absolute;
+  width: 30px;
+  top: 95px;
+  right: 0px;
+  bottom: -1px;
+  border-left: solid 1px;
+  z-index: 4;
+  border-color: #DDDDDD;
+}
+
+/* Sidepanel Selector Buttons */
+.stx-panel-selector .stx-panel-toggle {
+  display: block;
+  width: 30px;
+  text-indent: 100px;
+  border-bottom: solid 1px;
+  border-color: #DDDDDD;
+  cursor: pointer;
+  opacity: .6;
+  transition: opacity 0.25s;
+}
+
+.stx-panel-selector .stx-panel-toggle:first-child {
+  border-top: solid 1px;
+  border-color: #DDDDDD;
+  margin-top: 49px;
+}
+
+/* New List + Next/Prev Buttons */
+
+#stxWatch a#stxNewWatchList:hover,
+#stxWatch a#stxWatchNext:hover, #stxWatch a#stxWatchPrev:hover {
+  border: solid 1px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+}
+
+#stxWatch #stxWatchLists ul li div {
+  cursor: pointer;
+  color: #666;
+}
+
+/* New Dialog */
+
+#stxWatchEditDialog div.textarea {
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+  padding-top: 10px;
+}
+
+/* CIQ Action Area */
+.ciq #stxWatch #action {
+  display: block;
+  position: relative;
+  clear: both;
+  padding: 10px 0 10px 0;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: solid 1px #ddd;
+}
+
+/* ------------------------------------------------------- BOTTOM BAR ------------------------------------------------------- */
+
+#stxViews #stxNewViewBtn.stx-btn:hover {
+  border: solid 1px;
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+}
+
+/* ------------------------------------------------------- Dialogs ------------------------------------------------------- */
+
+#sharedLinkDialog .or,
+#sharedLinkDialog p:first-of-type {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: #666
+}
+
+#shareCopyPaste {
+  background: none repeat scroll 0 0 #EFEFEF;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+  color: #484848;
+  display: table-cell;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 480px;
+}
+
+#timezoneDialogWrapper {
+  border-bottom: solid #CCCCCC 1px;
+}
+
+#timezoneDialog li:hover {
+  background-color: #F0F0F0;
+}
+
+.eventName {
+  font-weight: bold;
+  color: #666;
+}
+
+.yap:hover .eventName {
+  color: #333;
+}
+
+.myEvents {
+  display: none;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: white;
+}
+
+.myEvents.dividend {
+  background-color: blue;
+}
+
+.myEvents.news {
+  background-color: red;
+}
+
+.myEvents.earnings {
+  background-color: purple;
+}
+
+/* ------------------------------------------------------- End STX Advanced CSS ------------------------------------------------------- */
+
+/* --------------------------------------------------------- FORM FIELDS --------------------------------------------------------- */
+
+.stx-input-field, .stx-textarea, .stx-input-check, .stx-dialog-container [type=text], .stx-dialog-container [type=number] {
+  background: #f6f6f6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border: #CCC solid 1px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .2);
+  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .2);
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .2);
+  padding: 0px 6px;
+  outline: none;
+  color: #333;
+  resize: none;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  resize: none;
+}
+
+.stx-dialog div.stx-data input[type="number"], .stx-dialog div.stx-data input[type="text"] {
+  /* Text Input styles */
+  float: right;
+  width: 70px;
+  margin: 1px 0px 0px 0px;
+
+  @include theme((
+          color: widget-ui-control-fore-color,
+          border: "0 {widget-ui-control-border} solid",
+          background-color: widget-ui-control-back-color
+  ));
+
+  @include theme-classic((
+          border: "1px {widget-ui-control-border} solid",
+          box-shadow: "0 1px 0px 0px {box-shadow-color}",
+          background-image: "linear-gradient(0deg, {widget-ui-control-back-color} 0%, {widget-ui-control-back-color-gradient1} 90%, {widget-ui-control-back-color-gradient2} 100%)"
+  ));
+}
+
+.stx-input-field:focus,
+.stx-textarea:focus,
+.stx-dialog-container [type=text]:focus,
+.stx-dialog-container [type=number]:focus {
+  color: #333;
+}
+
+.stx-select {
+  padding-top: 3px;
+  height: 27px;
+  color: #666;
+}
+
+/* --------------------------------------------------------- BUTTONS AND MENUS --------------------------------------------------------- */
+
+/* Button Active State */
+.stx-btn:active {
+  color: #58a7e2;
+  -webkit-box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+  -moz-box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+  box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+}
+
+/* Basic Navigation */
+
+/* Menu Arrows */
+.stx-btn.stx-menu-btn > em {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  line-height: 27px;
+  height: 27px;
+  width: 16px;
+  background-image: url(assets/images/chartIQ/stx-sprite.png);
+  background-position: -302px -118px;
+  border-left: 1px dotted #999;
+  opacity: .4;
+  filter: alpha(opacity=40); /* for IE5-7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)"; /* for IE8 */
+  transition: opacity .25s, border .25s;
+  -webkit-transition: opacity .25s, border .25s;
+}
+
+.stx-btn.stx-menu-btn:hover > em {
+  /* Menu Arrow hover */
+  border-left: 1px dotted #ccc;
+  opacity: 1;
+  filter: alpha(opacity=100); /* for IE5-7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; /* for IE8 */
+}
+
+/* General Icon Button Styles */
+/* Styling of visible area and text hiding */
+.stx-btn.stx-ico > span, .stx-btn.stx-ico:hover > span, .stx-btn.stx-ico:active > span {
+  background-color: #999;
+  background-image: url(assets/images/chartIQ/stx-sprite.png);
+  background-repeat: no-repeat;
+  background-color: rgba(153, 153, 153, .2);
+  border: 1px solid transparent;
+  width: 17px;
+  height: 17px;
+  text-indent: 2000px;
+  padding: 0px;
+  margin: 4px;
+  transition: color .25s, border .25s, background-color .25s, box-shadow .25s;
+  -webkit-transition: color .25s, border .25s, background-color .25s, box-shadow .25s;
+  opacity: .7;
+}
+
+.stx-dialog .stx-btn.stx-ico, .stx-dialog .stx-btn.stx-ico:hover {
+  /* Position close dialog button */
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  margin: 0px;
+  width: 11px;
+  height: 10px;
+
+  @include theme((
+          border-color: widget-border-color,
+          // background-color: prominent-fore-color
+  ));
+}
+
+/* Visible area hover state */
+.stx-btn.stx-ico:hover > span {
+  background-color: #666;
+  background-color: rgba(153, 153, 153, .3);
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px -8px 6px rgba(100, 100, 100, .03);
+  -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px -8px 6px rgba(100, 100, 100, .03);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, .1), inset 0px -8px 6px rgba(100, 100, 100, .03);
+  opacity: 1;
+}
+
+/* Visible area active state */
+.stx-btn.stx-ico:active > span {
+  background-color: #666;
+  background-color: rgba(153, 153, 153, .9);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+// Theme
+/* Close buttons */
+.stx-dialog .stx-btn.stx-ico > span.stx-ico-close,
+.menuSelect .stx-btn.stx-ico > span.stx-ico-close {
+  background-position: -160px -40px;
+}
+
+/* Close button hover state */
+.stx-dialog .stx-btn.stx-ico.stx-ico:hover > span.stx-ico-close,
+.menuSelect .stx-btn.stx-ico:hover > span.stx-ico-close {
+
+  @include theme((
+          border-color: widget-border-color
+  ));
+}
+
+/* Close button active state */
+.stx-dialog .stx-btn.stx-ico.stx-ico:active > span.stx-ico-close,
+.menuSelect .stx-btn.stx-ico:active > span.stx-ico-close {
+  -webkit-box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+  -moz-box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+  box-shadow: inset 0px 8px 6px rgba(100, 100, 100, .03);
+
+  @include theme((
+          border-color: widget-border-color
+  ));
+}
+
+.stx-remove-study {
+  background-image: url(assets/images/chartIQ/stx-sprite.png);
+  background-color: #fff;
+  background-position: -160px -40px;
+  border-color: #ddd;
+  right: 20px;
+  width: 15px;
+  height: 50px;
+  position: absolute;
+  display: none;
+}
+
+/* --------------------------------------------------------- COLOR PICKER --------------------------------------------------------- */
+
+/* Swatch / Open Palette Button */
+.stx-color, .stx-border-color {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .6);
+  -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .6);
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, .6);
+  cursor: pointer;
+}
+
+/* Initial Swatch Value for light theme */
+.stx-color {
+  background-color: #000000;
+}
+
+/* Initial Swatch Value for dark theme */
+.stxColorDarkChart {
+  background-color: #FFFFFF;
+}
+
+/* -------------------------------------------------------- NAV BAR -------------------------------------------------------- */
+
+.stx-nav {
+  position: relative;
+  border: solid 0px;
+  background: #5b656b;
+  background: transparent;
+}
+
+/* Button Adjustments for dark background */
+.stx-nav .stx-btn.stx-menu-btn, .stx-nav .stx-nav-ico {
+  border-color: rgba(153, 153, 153, .4);
+  color: #efefef;
+}
+
+.stx-nav .stx-btn.stx-menu-btn:hover, .stx-nav .stx-nav-ico:hover {
+  border-color: rgba(153, 153, 153, .8);
+  color: #fff;
+}
+
+.stx-nav .stx-btn.stx-menu-btn:active {
+  color: #fff;
+}
+
+.stx-nav .stx-btn.stx-menu-btn > em {
+  border-left: 1px dotted rgba(153, 153, 153, .5);
+  opacity: 1;
+  filter: none; /* for IE5-7 */
+  -ms-filter: none; /* for IE8 */
+}
+
+.stx-nav .stx-btn.stx-menu-btn:hover > em {
+  border-left: 1px dotted rgba(153, 153, 153, .8);
+}
+
+/* Dropdown Menus */
+.menuOutline {
+  position: absolute;
+  top: 31px;
+  right: 0px;
+  width: 126px;
+  background: #fff;
+  font-weight: normal;
+  border: solid 1px #ccc;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+  z-index: 100;
+}
+
+/* Menu Items */
+.menuSelect > li,
+.menuSelect > ul > li {
+  padding: 2px 16px;
+  line-height: 27px;
+  margin: 0px;
+  text-align: left;
+  cursor: pointer;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color .25s, background-color .25s;
+  -webkit-transition: color .25s, background-color .25s;
+}
+
+/* Menu item hover state */
+.menuSelect > li:hover, .menuSelect > ul > li:hover {
+  background: #efefef;
+}
+
+/* Remove hover states for headings, dividers, and nested list parents/special content */
+li.stx-menu-divider,
+.menuSelect li.stx-menu-content,
+.menuSelect li.stx-heading,
+li.stxLookupFilter,
+li.stx-menu-divider:hover,
+.menuSelect li.stx-menu-content:hover,
+.menuSelect li.stx-heading:hover,
+li.stxLookupFilter:hover {
+  background: transparent;
+  cursor: default;
+  white-space: normal;
+}
+
+/* Menu Section dividers */
+li.stx-menu-divider, li.stx-menu-divider:hover,
+.menuSelect li.stx-menu-divider, .menuSelect li.stx-menu-divider:hover {
+  height: 1px;
+  padding: 0px;
+  background: #ccc !important;
+}
+
+.menuSelect li.stx-heading, .menuSelect li.stx-heading:first-child, li.stxLookupFilter {
+  /* Menu Headings and Search filter */
+  padding: 10px 1px 5px 16px;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: normal;
+  color: #999;
+  font-weight: bold;
+}
+
+/* Columns for Studies Menu */
+.menuSelect ul.col {
+  float: left;
+  cursor: default;
+  width: 151px;
+  border-top: none;
+  border-right: 1px solid #efefef;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+
+/* Custom Item Basics */
+.injected li {
+  clear: both;
+  border-top: 1px dotted #ccc;
+}
+
+/* Custom name/link */
+.injected a.stxItem {
+  color: #666;
+  display: inline-block;
+  width: 110px;
+  float: left;
+  line-height: 29px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.injected a.stxItem:hover {
+  color: #333;
+  border-bottom: none;
+}
+
+/* Search Results */
+/* Search results List */
+.stxResults {
+  right: auto;
+  left: 0px;
+  width: 100%;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, .2);
+}
+
+/* Search Filter buttons */
+.stxResults li.stxLookupFilter .stx-btn {
+  padding: 0px;
+  line-height: 18px;
+  font-size: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  border-color: #efefef;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stxResults li.stxLookupFilter .stx-btn:hover {
+  border-color: #ccc;
+  color: #666
+}
+
+/* Active filter button */
+.stxResults li.stxLookupFilter .stx-btn.on, .stxResults li.stxLookupFilter .stx-btn.on:hover {
+  background: #999;
+  color: #fff;
+  border-color: #999;
+  text-shadow: 0 1px 0px #666;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  cursor: default;
+}
+
+/* Search results Symbol */
+.stxLookupSymbols li span:nth-of-type(1) {
+  color: #333333;
+  font-weight: bold;
+  min-width: 55px;
+  float: left;
+  padding-right: 10px;
+}
+
+.stxLookupSymbols li span:nth-of-type(3) {
+  /* Search results exchange */
+  color: #333333;
+  font-size: 10px;
+  min-width: 40px;
+  float: right;
+  text-align: right;
+}
+
+/* Themes Menu Styles */
+/* You may need to set the zIndex of this class if you have body elements that are stacked with different zIndexes.
+ * You can test this by temporarily setting the background-color: red and seeing how the overlays work! Set the zIndexes
+ !* for your menus higher until they appear on top of the overlay.*/
+
+.stxBodyOverlay, .stxDialogOverlay {
+  position: absolute;
+  width: 99%; /* prevent scollbars */
+  height: 100%;
+  top: 0px;
+  overflow: hidden;
+  display: none;
+  background: rgba(255, 255, 255, 0); /* fully transparent. If this is left out then IE9 won't detect clicks on the overlay */
+}
+
+.stxDialogOverlay {
+  background: rgba(24, 27, 28, .7);
+}
+
+/* ------------------------------------------------------- TOOLBAR ------------------------------------------------------- */
+
+/* Data Set Labels */
+.huLabel {
+  display: inline-block;
+  margin-right: 5px;
+  width: 15px;
+  color: #b2b2b2;
+}
+
+/* Toolbar Buttons */
+.stx-toolbar .stx-btn {
+  border: solid 1px;
+  font-size: 11px;
+  font-weight: normal;
+  height: 27px;
+  border: solid 1px #ddd;
+}
+
+/* Background and line color headings */
+.stx-toolbar .stx-heading {
+  float: left;
+  line-height: 27px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #999;
+}
+
+/* Line and background color modules */
+.stx-drawing .stx-draw-settings {
+  float: left;
+  margin: 0px 0px 0 10px;
+  padding: 0 0px 0 10px;
+  border-left: dotted 1px #ddd;
+}
+
+/* Line and background color swatches */
+.stx-drawing .stx-color {
+  border-radius: 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) inset;
+  cursor: pointer;
+  display: inline-block;
+  height: 19px;
+  position: relative;
+  width: 19px;
+  margin: 5px;
+}
+
+/* Formatting for line styles */
+.stx-drawing span.stx-line {
+  display: block;
+  width: 30px;
+  height: 0px;
+  padding: 0px;
+  margin: 13px -4px 0 -4px;
+  text-indent: -9999px;
+  border-top: 1px solid #666;
+  border-radius: 0;
+}
+
+/* Additional formatting for line styles within the menu */
+.menuSelect li span.stx-line {
+  width: auto;
+  margin: 8px -8px 8px -8px;
+  border-top-color: #666;
+}
+
+/* ------------------------------------------------------- STUDY DIALOGS ------------------------------------------------------- */
+
+/* Popup Styles */
+.stx-dialog {
+  position: relative;
+  text-align: left;
+  margin: 100px auto;
+  width: 200px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+  @include theme((
+      border: "1px {widget-border-color} solid",
+      background-color: widget-back-color,
+      box-shadow: "1px 1.732px 11px 0px {popup-box-shadow-color}"
+  ));
+}
+
+/* Dialog headings */
+.stx-dialog h4 {
+  display: inline-block;
+  font-size: $font-medium;
+  font-weight: bold;
+  margin: 0px 30px 5px 0px;
+
+  @include theme((
+          color: fore-color
+  ));
+}
+
+.stx-dialog div.stx-heading, .stx-dialog div.stx-data {
+  /* Dialog content columns */
+  display: inline-block;
+  min-height: 24px;
+  margin-bottom: 10px;
+
+  @include theme((
+          color: fore-color
+  ));
+}
+
+/* Dialog divider */
+.stx-dialog hr {
+  border: none;
+  height: 1px;
+  margin: 4px 0px 8px 0px;
+  padding: 0px;
+
+  @include theme((
+          background: widget-border-color
+  ));
+}
+
+/* Studies Dialogs */
+
+///* Dialog Input area (headings with textfields, etc.) */
+//.stx-dialog #inputs {
+//  border-top: dotted 1px #202c34;
+//  margin: 8px 0px 0px 0px;
+//  padding: 8px 0px 4px 0px;
+//}
+
+///* Dialog Output area (headings with color swatches) */
+//.stx-dialog #outputs {
+//  margin: 0px 0px 15px 0px;
+//  padding: 0px 0px 8px 0px;
+//
+//  @include theme((
+//          border-bottom: "1px {widget-border-color} dotted",
+//  ));
+//}
+
+/* Specific Dialog Input/Output temlates*/
+.stx-dialog .inputTemplate, .stx-dialog .outputTemplate {
+  clear: both;
+  padding: 5px 0 0 0;
+
+  @include theme((
+       border-bottom: "1px {widget-border-color} solid",
+  ));
+}
+
+.stx-dialog .settings {
+  /* Theme Dialog content wrapper */
+  border-top: dotted 2px #ccc;
+  border-bottom: dotted 2px #ccc;
+  margin: 8px 0px 22px 0px;
+  padding: 15px 0px 25px 0px;
+}
+
+/* Add divider and wider second column */
+.stx-dialog ul:last-child {
+  width: 220px;
+  margin-left: 14px;
+  border-left: dotted 1px #ddd;
+}
+
+/* Theme Dialog Option set */
+.stx-dialog li {
+  width: auto;
+  clear: both;
+  border-top: #ddd 1px solid;
+  padding: 8px 0 0 0;
+}
+
+/* Theme Dialog Option set */
+.stx-dialog li.stx-heading {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #999;
+  padding: 5px 0 10px 0;
+  border: none;
+}
+
+/* Custom Theme name heading */
+.stx-dialog .themeName {
+  display: inline-block;
+  padding: 10px 10px 5px 0px;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: normal;
+  color: #999;
+  font-weight: bold;
+}
+
+#timezoneDialogWrapper {
+  border-bottom: solid #CCCCCC 1px;
+}
+
+#timezoneDialog .detect .stx-btn {
+  line-height: 35px;
+  height: 35px;
+  padding: 0px 30px;
+  font-size: 12px;
+  color: #666;
+}
+
+#timezoneDialog .instruct {
+  margin: 10px auto 0px;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #999;
+}
+
+#timezoneDialog li:hover {
+  background-color: #F0F0F0;
+}
+
+/* ------------------------------------------------------- COLOR PICKER ------------------------------------------------------ */
+
+/* This is the actual color picker container */
+.ciqColorPicker {
+  position: absolute;
+  background: #FFF;
+  width: 180px;
+  margin: 20px 0 0 0px;
+  padding: 10px 5px 5px 10px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 1px 5px 0px rgba(0, 0, 0, .5);
+  box-shadow: 0 1px 5px 0px rgba(0, 0, 0, .5);
+}
+
+/* The swatches themselves */
+.ciqColorPicker ul li a {
+  display: block;
+  width: 13px;
+  height: 13px;
+  text-decoration: none;
+  text-indent: -100000px;
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+/* Swatch hover state */
+.ciqColorPicker ul li a:hover {
+  border-color: #000;
+}
+
+/* --------------------------------------------------------- Light Theme --------------------------------------------------------- */
+
+/* Tooltips */
+.Light .stx-tooltip div,
+.Light .stx-tooltip span {
+  background: #000;
+  color: #fff;
+}
+
+/* Nav */
+.Light .stx-nav {
+  border-color: #ddd;
+}
+
+/* Toolbar */
+.Light .stx-toolbar {
+  background: #fdfdfd;
+  border-color: #ddd;
+}
+
+.Light .huLabel {
+  color: #b2b2b2;
+}
+
+.Light .huField {
+  color: #666666;
+}
+
+.Light .stx-toolbar .stx-btn.stx-menu-btn > em {
+  border-left: 1px dotted #999;
+}
+
+.Light .stx-toolbar .stx-btn.stx-menu-btn:hover > em {
+  border-left: 1px dotted #ccc;
+}
+
+.Light .stx-drawing .stx-draw-settings {
+  border-left: dotted 1px #ddd;
+}
+
+.Light .stx-drawing span.stx-line {
+  border-color: #666;
+}
+
+.Light .stx-line-style-menu span.stx-line {
+  border-color: #666666;
+}
+
+.Light .measureUnlit {
+  color: #666;
+}
+
+.Light .measureLit {
+  color: #000;
+}
+
+/* Chart Area */
+
+.Light #chartSize {
+  background: rgba(0, 0, 0, .05);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, .2);
+}
+
+.Light #chartSize:after {
+  background: rgba(0, 0, 0, .2);
+}
+
+.Light .stx-panel-title {
+  background-color: #999;
+  color: #fff;
+}
+
+// Theme
+.stx-float-date {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-fore-color
+  ));
+}
+
+// Theme
+.stx-float-price {
+  @include theme((
+          color: dark-bg-fore-color,
+          background-color: highlight-fore-color
+  ));
+}
+
+// Theme
+.stx-float-price-arrow {
+  @include theme((
+          color: tool-bar-back-color
+  ));
+}
+
+// Chart Mountain Colors
+.stx_mountain_chart {
+  @include theme((
+          border-color: chart-border-color,
+          color: chart-back-color-gradient,
+          background-color: chart-back-color
+  ));
+}
+
+// Theme - Up Volume color
+.stx_volume_up {
+  @include theme((
+          color: up-back-color
+  ));
+}
+
+// Theme - Down volume color
+.stx_volume_down {
+  @include theme((
+          color: down-back-color
+  ));
+}
+
+/* --------------------------------------------------------- /Light Theme --------------------------------------------------------- */
+
+.Light .stx_crosshair {
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.Light .stx_crosshair_drawing {
+  background-color: rgba(0, 0, 0, .9);
+}
+
+.Light .stx_panel_border {
+  color: #ccc;
+}
+
+.Light .stx_panel_drag {
+  color: #666;
+}
+
+.Light .stx_grid {
+  color: #dedede;
+  opacity: .8;
+}
+
+.Light .stx_grid_dark {
+  color: #151a20;
+  opacity: .9;
+}
+
+.Light .stx_line_chart, .Light .stx_bar_chart {
+  color: #000;
+}
+
+.Light .stx_candle_shadow, .Light .stx_bar_even {
+  color: #2e383b;
+}
+
+.Light .stx_candle_down, .Light .stx_line_down {
+  border-left-color: #000000;
+}
+
+.Light .stx_candle_up, .Light .stx_line_up {
+  border-left-color: #000000;
+}
+
+.Light .stx_baseline {
+  color: #2e383b;
+}
+
+/* Volume underlay styles */
+.Light .stx_volume_underlay_up {
+  color: rgb(140, 193, 118);
+  opacity: .2;
+  border-left-color: rgb(0, 0, 0);
+}
+
+.Light .stx_volume_underlay_down {
+  color: rgb(184, 45, 12);
+  opacity: .2;
+  border-left-color: rgb(0, 0, 0);
+}
+
+/* Volume profile styles */
+.Light .stx_volume_profile {
+  color: #b64a96;
+  opacity: .3;
+  border-color: rgb(0, 0, 0);
+}
+
+.Light .stx_hollow_candle_even {
+  color: #888888;
+}
+
+.Light .stx_projection {
+  color: black;
+}
+
+.Light .stx_histogram {
+  color: #000000;
+  opacity: .2;
+}
+
+.Light .stx-drawing .stx-color {
+  outline: none;
+}
+
+/* Chart Area */
+.Light .chartContainer {
+  background: transparent;
+}
+
+.Light .stx-btn-panel > span.stx-ico-down {
+  background-position: -200px -25px;
+}
+
+.Light .stx-btn-panel > span.stx-ico-close {
+  background-position: -250px -25px;
+}
+
+.Light .stx-btn-panel > span.stx-ico-focus {
+  background-position: -350px -25px;
+}
+
+.Light #chartSize .stx-zoom-out {
+  background-position: -45px -25px;
+}
+
+.Light #chartSize .stx-zoom-in {
+  background-position: -95px -25px;
+}
+
+/* --------------------------------------------------------- /Light Theme --------------------------------------------------------- */
+
+/* --------------------------------------------------------- Dark Theme --------------------------------------------------------- */
+
+/* Tooltips */
+.Dark .stx-tooltip div,
+.Dark .stx-tooltip span {
+    background: #fff;
+    color: #000;
+}
+
+/* Nav */
+.Dark .stx-nav {
+    border-color: #333;
+}
+
+/* Toolbar */
+.Dark .stx-toolbar {
+    background: #111111;
+    border-color: #333;
+}
+
+.Dark .huLabel {
+    color: #999;
+}
+
+.Dark .huField {
+    color: #efefef;
+}
+
+.Dark .stx-toolbar div.btn.menu > em {
+    border-left: 1px dotted #999;
+}
+
+.Dark .stx-toolbar div.btn.menu:hover > em {
+    border-left: 1px dotted #999;
+}
+
+.Dark .stx-drawing .stx-draw-settings {
+    border-left: dotted 1px #414141;
+}
+
+.Dark .stx-drawing .color {
+    outline: 1px solid rgba(255, 255, 255, .2);
+}
+
+.Dark .stx-drawing span.stx-line {
+    border-color: #efefef;
+}
+
+.Dark .stx-line-style-menu span.stx-line {
+    border-color: #666666;
+}
+
+.Dark .measureUnlit {
+    color: #cbcccd;
+}
+
+.Dark .measureLit {
+    color: #fff;
+}
+
+/* Chart Area */
+
+.Dark #chartSize {
+    background: rgba(255, 255, 255, .1);
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, .4);
+    -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, .4);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, .4);
+}
+
+.Dark #chartSize:after {
+    background: rgba(255, 255, 255, .2);
+}
+
+.Dark .stx-panel-title {
+    background-color: #7e7e7e;
+    color: #fff;
+}
+
+.Dark .stx_crosshair {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.Dark .stx_crosshair_drawing {
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.Dark .stx_panel_border {
+    color: #666;
+}
+
+.Dark .stx_panel_drag {
+    color: #ccc;
+}
+
+.Dark .stx_grid {
+    color: #22272e;
+    opacity: 1;
+}
+
+.Dark .stx_grid_dark {
+    color: #3c434c;
+    opacity: .8;
+}
+
+.Dark .stx_line_chart, .Dark .stx_bar_chart {
+    color: #fff;
+}
+
+.Dark .stx_candle_shadow, .Dark .stx_bar_even {
+    color: #ccc;
+}
+
+.Dark .stx_candle_down, .Dark .stx_line_down {
+    border-left-color: #e34621;
+}
+
+.Dark .stx_candle_up, .Dark .stx_line_up {
+    border-left-color: #b8dea8;
+}
+
+.Dark .stx_hollow_candle_even {
+    color: #cccccc;
+}
+
+.Dark .stx_baseline {
+    color: #ccc;
+}
+
+/* Volume underlay styles */
+.Dark .stx_volume_underlay_up {
+    color: rgb(140, 193, 118);
+    opacity: .4;
+    border-left-color: rgb(148, 201, 126);
+}
+
+.Dark .stx_volume_underlay_down {
+    color: rgb(184, 45, 12);
+    opacity: .4;
+    border-left-color: rgb(242, 103, 70);
+}
+
+/* Volume profile styles */
+.Dark .stx_volume_profile {
+    color: #b64a96;
+    opacity: .3;
+    border-color: rgb(255, 255, 255);
+}
+
+.Dark .stx_projection {
+    color: #FFF;
+}
+
+.Dark .stx_histogram {
+    color: #fff;
+    opacity: .3;
+}
+
+/* Chart Area */
+.Dark .chartContainer {
+  background: transparent;
+}
+
+.Dark .stx-btn-panel > span.stx-ico-down {
+  background-position: -200px -50px;
+}
+
+.Dark .stx-btn-panel > span.stx-ico-close {
+  background-position: -250px -50px;
+}
+
+.Dark .stx-btn-panel > span.stx-ico-focus {
+  background-position: -350px -50px;
+}
+
+.Dark #chartSize .stx-zoom-out {
+  background-position: -45px -50px;
+}
+
+.Dark #chartSize .stx-zoom-in {
+  background-position: -95px -50px;
+}
+
+.Dark .stx-close-overlay span {
+  background-position: -160px -80px;
+}
+
+/* --------------------------------------------------------- /Dark Theme --------------------------------------------------------- */
+
+/* --------------------------------------------------------- Print Styles --------------------------------------------------------- */
+
+.printable{
+  display: block !important;
+}
+
+.non-printable{
+  display: none !important;
+  visibility:hidden !important;
+}
+
+/* --------------------------------------------------------- Universal Chart --------------------------------------------------------- */
+
+#area-chart{
+  @include theme((
+          border-color: chart-border-color,
+          color: chart-back-color-gradient,
+          background-color: chart-back-color
+  ));
+}
+
+#candle_up{
+  @include theme((
+          color: chart-candle-up-color
+  ));
+}
+
+#candle_down{
+  @include theme((
+          color: chart-candle-down-color
+  ));
+}
+
+#line-1-color{
+  @include theme((
+          color: chart-line-1-color
+  ));
+}
+
+#line-2-color{
+  @include theme((
+          color: chart-line-2-color
+  ));
+}
+
+#line-3-color{
+  @include theme((
+          color: chart-line-3-color
+  ));
+}
+
+#line-4-color{
+  @include theme((
+          color: chart-line-4-color
+  ));
+}
+
+#line-5-color{
+  @include theme((
+          color: chart-line-5-color
+  ));
+}
+
+#chart-axis-color{
+  @include theme((
+          color: chart-axis-color
+  ));
+}
+
+#area-chart-line-color{
+  @include theme((
+          color: area-chart-line-color
+  ));
+}
+
+#chart-grid-color {
+  @include theme((
+          color: chart-grid-color
+  ));
+}
+
+#chart-crosshair-label-color {
+  @include theme((
+          color: chart-crosshair-label-color
+  ));
+}
+
+#chart-macd-macd-color {
+  @include theme((
+          color: chart-macd-macd-color
+  ));
+}
+
+#chart-macd-signal-color {
+  @include theme((
+          color: chart-macd-signal-color
+  ));
+}
+
+#chart-resize-line-color {
+  @include theme((
+          color: chart-resize-line-color
+  ));
+}
+
+#chart-resize-fill-color {
+  @include theme((
+          color: app-back-color
+  ));
+}
+
+#chart-bb-top-color {
+  @include theme((
+          color: chart-bb-top-color
+  ));
+}
+
+#chart-bb-median-color {
+  @include theme((
+          color: chart-bb-median-color
+  ));
+}
+
+#chart-bb-down-color {
+  @include theme((
+          color: chart-bb-down-color
+  ));
+}
+
+#chart-bb-fill-color {
+  @include theme((
+          color: chart-bb-fill-color
+  ));
+}
+
+#chart-macd-hist-color{
+  @include theme((
+          color: chart-macd-hist-color
+  ));
+}
+
+#compare-line-1-color{
+  @include theme((
+          color: chart-compare-line-1-color
+  ));
+}
+
+#chart-momentum-line-color{
+  @include theme((
+          color: chart-momentum-line-color
+  ));
+}
+
+#chart-detail-panel-color{
+  @include theme((
+          color: chart-detail-panel-color
+  ));
+}
+
+#chart-vol-label-color{
+  @include theme((
+          color: chart-vol-label-color
+  ));
+}
+
+li.zoom-panel-btn{
+  display: block;
+  margin: 0 0 0 0;
+  padding: 3px 1px;
+  width: 23px;
+  height: 23px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.8;
+  border-right: solid #ddd 1px;
+
+  @include theme((
+          background-color: no-changed-back-color,
+          color: fade-fore-color,
+          border-color: icon-fore-color
+  ));
+}
+
+
+.zoom-panel{
+  display: block;
+  margin: 0 0 0 0;
+  border-radius: 1px;
+  overflow: hidden;
+  border: solid #ddd 1px;
+  cursor: pointer;
+  opacity: 0.7;
+  border-right-width: 0;
+
+  @include theme((
+          border-color: icon-fore-color
+  ));
+}
+
+.zoom-out{
+  cursor: pointer;
+}
+
+.zoom-in{
+  cursor: pointer;
+}
+
+.zoom-reset{
+  cursor: pointer;
+}
+
+.margin-right-zero {
+  margin-right: 0px !important;
+}
+
+.btn-chart {
+  padding: 8px 15px;
+  background-color: #969494;
+  cursor: pointer;
+  color: white;
+}
+
+.padding-input-section-chart {
+  padding: 0 25px 0 15px;
+}
+
+.stx-dialog div.stx-heading {
+  width: 120px;
+  text-transform: capitalize;
+  vertical-align: middle;
+  padding-top: 8px;
+}
+
+.stx-dialog div.stx-data select, input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.stx-dialog div.stx-data input[type="checkbox"] {
+  margin-top: 5px;
+}
+
+.chg-up-labels {
+  float: left;
+  font-weight: bold;
+  background-color: transparent;
+  margin-top: 6px;
+  margin-right: 5px;
+
+  @include theme((
+          color:  up-back-color,
+  ));
+}
+
+.chg-down-labels {
+  float: left;
+  font-weight: bold;
+  background-color: transparent;
+  margin-top: 4px;
+  margin-right: 5px;
+
+  @include theme((
+          color: down-back-color,
+  ));
+}
+
+.chg-none-labels {
+  float: left;
+  font-weight: bold;
+  background-color: transparent;
+  margin-top: 6px;
+  margin-right: 5px;
+
+  @include theme((
+          color:  fade-fore-color,
+  ));
+}
+
+.chart-trend-icon {
+  float: left;
+  margin-top: 4px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.stx-dialog div.stx-data {
+  float: right;
+}
+
+.ar .stx-dialog div.stx-data {
+  float: left;
+}
+
+.stx-dialog .stx-color, .stx-dialog .stx-border-color {
+  float: right;
+}
+
+.ar .stx-dialog .stx-color, .stx-dialog .stx-border-color {
+  float: left;
+}
+
+.Z-index-zero {
+  z-index: 0;
+}
+
+.chart-tab-panel .active {
+  @include theme((
+          color: widget-title-selected-tab-fore-color,
+          background-color: base-color-widget-tab-selected
+  ));
+}
+
+.chart-search {
+  width: 85px;
+  height: 90% !important;
+}
+
+.search-open {
+  width: 100%;
+}
+
+.search-close {
+  width: 20%;
+}
+
+.chart-status-panel-button-height {
+  height: 20px !important;
+}
+
+.chart-symbol-description-panel {
+  float: left;
+  margin-top:5px;
+
+  @include theme((
+          color: chart-detail-panel-color
+  ));
+}
+
+.chart-watermark {
+  font-size: 170px;
+  opacity: .1;
+
+  @include theme((
+          color: fade-fore-color
+  ));
+}
+
+.chart-detailpanel-border-right {
+  border-left: 0 #292e34 solid;
+  border-right: 1px #292e34 solid;
+
+  @include theme((
+          border-color: chart-detail-panel-color
+  ));
+}
+
+.chart-line-studies-list {
+  display: inline-block;
+  float: left;
+  width: 43px;
+  top: 1px;
+  height: 100%;
+  border-left: 0 #292e34 solid;
+  border-right: 1px #292e34 solid;
+  opacity: 0.5;
+
+  @include theme((
+          border-color: icon-fore-color
+  ));
+}

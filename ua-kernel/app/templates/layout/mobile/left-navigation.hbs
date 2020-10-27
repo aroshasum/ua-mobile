@@ -1,0 +1,99 @@
+<div class="pos-rel overflow-hidden {{animationClass}}" name="main-menu-mobile">
+    <div class="full-height main-menu-line">
+
+        <div id="nav-left" class="nav-left-panel nav-left-state-zero widgetmnu full-height main-menu-inner">
+            <div class="layout-container widgetmnu-title full-width pos-rel">
+                <div class="layout-col-24 h-left pad-widget-left pad-l-tb">
+                    <div class="menu-logo"></div>
+                </div>
+                <div class="layout-col h-right btn-txt-color rtl">
+                    {{#unless isShareIconDisabled}}
+                        <div class="layout-inline pad-m-lr font-xxx-l" {{action 'onShareScreen'}}>
+                            <i class="icon-share"></i>
+                        </div>
+                    {{/unless}}
+                    <div class="layout-inline pad-m-lr font-xxx-l pad-l-tb" {{action 'invokeSettings'}}><i class="icon-gear"></i></div>
+                    <div class="layout-inline pad-m-l font-xxx-l pad-widget-right pad-l-tb" {{action 'logout'}}><i class="icon-power"></i></div>
+                </div>
+            </div>
+            <div id="slidemenu" class="overflow-auto main-menu-scroll menu-scroll-height nano">
+                <div class="full-height layout-container full-width">
+                    {{#each menuItem in appLayout.layout.mainPanel.content}}
+                        {{#unless menuItem.isHideHeader}}
+                            <div class="layout-container full-width">
+                                <div class="layout-col-24 widgetmnu-header bold pad-widget-left pad-s-tb">
+                                    <a class="pad-widget-right">{{menuItem.displayHeader}}</a>
+                                </div>
+                            </div>
+                        {{/unless}}
+                        <div class="layout-container full-width">
+                            <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left {{menuItem.leftNavCss}}" {{action 'renderMenuItems' menuItem}}>
+                                <span class="widgetmnu-icon {{menuItem.icon}} {{menuItem.iconCss}}"></span>
+                                <a class="pad-widget-left pad-widget-right">{{menuItem.displayTitle}}</a>
+                            </div>
+                        </div>
+                        {{#each subMenuItem in menuItem.tab}}
+                            {{#unless subMenuItem.def}}
+                                {{#unless subMenuItem.expandId}}
+                                    <div class="layout-container full-width">
+                                        <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left {{subMenuItem.leftNavCss}}" {{action 'renderDirectTabItems' menuItem subMenuItem}}>
+                                            <span class="widgetmnu-icon {{subMenuItem.icon}} {{menuItem.iconCss}}"></span>
+                                            <a class="pad-widget-left" >{{subMenuItem.displayTitle}}</a>
+                                        </div>
+                                    </div>
+                                {{/unless}}
+                            {{/unless}}
+                        {{/each}}
+                    {{/each}}
+
+                    <div class="layout-container full-width">
+                        <div class="layout-col-24 widgetmnu-header bold pad-widget-left pad-s-tb">
+                            <a class="pad-widget-right">{{helpHeader}}</a>
+                        </div>
+                    </div>
+
+                    <div class="layout-container full-width" {{action 'invokeSettings'}}>
+                        <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left">
+                            <span class="layout-inline icon-gear widgetmnu-icon"></span>
+                            <a class="pad-widget-left">{{app.lang.labels.settings}}</a>
+                        </div>
+                    </div>
+
+                    {{#if isPasswordChangeEnable}}
+                        <div class="layout-container full-width" {{action 'invokeChangePassword'}}>
+                            <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left">
+                                <span class="layout-inline glyphicon glyphicon-edit widgetmnu-icon"></span>
+                                <a class="pad-widget-left">{{app.lang.labels.changePassword}}</a>
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    <div class="layout-container full-width" {{action 'invokeAboutUs'}}>
+                        <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left">
+                            <span class="layout-inline glyphicon glyphicon-info-sign widgetmnu-icon"></span>
+                            <a class="pad-widget-left">{{app.lang.labels.aboutUs}}</a>
+                        </div>
+                    </div>
+
+                    {{#if isHelpGuideEnabled}}
+                        <div class="layout-container full-width" {{action 'invokeHelp'}}>
+                            <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left">
+                                <span class="layout-inline glyphicon glyphicon-question-sign widgetmnu-icon"></span>
+                                <a class="pad-widget-left">{{app.lang.labels.help}}</a>
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    <div class="layout-container full-width" {{action 'logout'}}>
+                        <div class="layout-col-24 nav-row-height widgetmnu-fore-color pad-widget-left">
+                            <span class="layout-inline icon-power widgetmnu-icon"></span>
+                            <a class="pad-widget-left">{{app.lang.labels.logOut}}</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="full-height top-zero pos-abs main-menu-right-panel {{blurEffect}}" {{action 'hideMainMenu'}}></div>
+    </div>
+</div>

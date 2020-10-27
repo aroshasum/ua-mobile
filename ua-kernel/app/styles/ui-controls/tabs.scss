@@ -1,0 +1,264 @@
+@import '../common-variables.scss';
+//@import '../themes/theme-helper';
+@import '../widget-variables';
+@import '../app-layout/app-layout';
+@import '../themes/theme-1-variables';
+@import '../themes/theme-2-variables';
+
+.tab {
+  &-panel .active {
+    font-weight: bold;
+
+    @include theme((
+            color: tab-selected-fore-color,
+            border-bottom: "1px {tab-selected-color-border} solid"
+    ));
+
+    @include theme-classic((
+            color: highlight-fore-color
+    ));
+  }
+
+  &-panel .active a {
+    font-weight: bold;
+
+    @include theme((
+            color: tab-selected-fore-color,
+            border-bottom: "1px {tab-selected-back-color} solid"
+    ));
+
+    @include theme-classic((
+            color: highlight-fore-color,
+    ));
+  }
+
+  &-panel .active a:hover {
+    @include theme((
+            color: tab-selected-fore-color
+    ));
+
+    @include theme-classic((
+            color: highlight-fore-color
+    ));
+  }
+
+  &-item {
+    @include theme((
+            font-weight: "bold",
+            color: fore-color,
+            background-color: app-back-color,
+            border-bottom: "2px {tab-color-border} solid"
+    ));
+
+    @include theme-classic((
+            font-weight: "normal",
+            color: fade-fore-color
+    ));
+  }
+
+  &-item a {
+    @include theme((
+            padding: "3px 10px",
+            color: fore-color
+    ));
+
+    @include theme-classic((
+            padding: "5px 18px",
+            color: fade-fore-color
+    ));
+  }
+
+  &-item a:hover {
+    @include theme((
+            color: tab-fore-color-hover
+    ));
+  }
+
+  &-item.active:first-child {
+    @include theme-classic((
+            border-left: "0 {tab-color-border} solid"
+    ));
+  }
+}
+
+//  ==========  Widget Tabs  ==================
+
+.widget {
+    &-tab-panel {
+      border-radius: $radius-xm;
+    }
+
+    &-tab-panel .active {
+      @include theme((
+              border: "3px {tab-color-border} solid"
+      ));
+
+      @include theme-classic((
+              border: "1px {tab-selected-color-border} solid"
+      ));
+    }
+
+    &-tab-panel .active a {
+      @include theme((
+              border-radius: "5px",
+              color: tab-selected-fore-color,
+              background-color: tab-selected-back-color
+      ));
+
+      @include theme-classic((
+              border-radius: "0",
+              background-image: "linear-gradient(0deg, {tab-selected-back-color} 0%, {tab-selected-back-color-gradient} 100%)"
+      ));
+    }
+
+    &-tab-panel .active a:hover {
+      @include theme((
+              color: tab-selected-fore-color,
+      ));
+    }
+
+    // Widget Tab Item
+    &-tab-item {
+    border-radius: $radius-xxs;
+
+      @include theme((
+              border-top: "3px {tab-color-border} solid",
+              border-bottom: "3px {tab-color-border} solid",
+              border-left: "0 {tab-color-border} solid",
+              border-right: "3px {tab-color-border} solid",
+              background-color: tab-back-color
+      ));
+
+      @include theme-classic((
+            border: "1px solid {tab-back-color}",
+              background-image: "linear-gradient(0deg, {tab-back-color} 0%, {tab-back-color-gradient} 100%)"
+      ));
+    }
+
+    &-tab-item a {
+      @include theme((
+              padding: "3px 10px",
+              color: tab-fore-color
+      ));
+
+      @include theme-classic((
+              padding: "5px 10px"
+      ));
+    }
+
+    &-tab-item:first-child {
+      border-radius: $radius-xxs;
+
+      @include theme((
+              border-left: "1px {tab-color-border} solid"
+      ));
+    }
+
+    &-tab-item.active:first-child {
+      @include theme((
+              border-left: "3px {tab-color-border} solid"
+      ));
+
+      @include theme-classic((
+              border-left: "0 {tab-color-border} solid"
+      ));
+    }
+
+    &-tab-item:last-child {
+      border-radius: $radius-xxs;
+    }
+}
+
+//  ==========  Widget Inner Tabs  ==================
+.widget-inner {
+    &-tab-panel {
+      border-radius: $radius-z;
+
+      @include theme((
+              border-top: "1px {data-table-header-border-top} solid",
+              border-bottom: "1px {data-table-header-border-top} solid"
+      ));
+    }
+
+    &-tab-panel .active {
+      @include theme((
+              border: "0px {data-table-header-border-top} solid",
+              border-right: "1px {data-table-header-border-top} solid"
+      ));
+    }
+
+    &-tab-panel .active a {
+      font-weight: bold;
+
+      @include theme((
+              color: highlight-fore-color,
+              background-color: app-back-color,
+              border-radius: "0",
+              background-image: "linear-gradient(0deg, {app-back-color} 0%, {app-back-color} 100%)"
+      ));
+    }
+
+    &-tab-panel .active a:hover {
+      @include theme((
+              color: tab-fore-color-hover
+      ));
+
+      @include theme-classic((
+              color: highlight-fore-color
+      ));
+    }
+
+    &-tab-item {
+      border-radius: $radius-z;
+      width: 20%;
+      min-width: 55px;
+
+      @include theme((
+              border-left: "0 {tab-color-border} solid",
+              border-top: none,
+              border-bottom: none,
+              border-right: "1px {data-table-header-border-top} solid",
+              background-color: tab-back-color,
+              background-image: "linear-gradient(0deg, {tab-back-color} 0%, {tab-back-color} 100%)",
+      ));
+    }
+
+    &-tab-item a {
+      @include theme((
+              color: icon-fore-color,
+              padding: "5px 10px"
+      ));
+    }
+
+    &-tab-item a:hover {
+      @include theme((
+              color: tab-fore-color-hover
+      ));
+
+      @include theme-classic((
+              color: icon-fore-color
+      ));
+    }
+
+    &-tab-item:first-child {
+      border-radius: $radius-z;
+
+      @include theme((
+              border-left: "1px {tab-color-border} solid"
+      ));
+    }
+
+    &-tab-item.active:first-child {
+      @include theme((
+              border-left: "0 {tab-color-border} solid"
+      ));
+    }
+
+    &-tab-item:last-child {
+      border-radius: $radius-z;
+    }
+}
+
+@import 'extended/tabs-extended';
+
+
